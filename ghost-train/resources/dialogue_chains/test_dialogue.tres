@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogueChain" format=3 uid="uid://dykaiwwtl2tdj"]
+
+[ext_resource type="Script" uid="uid://b4n84vbtt6l41" path="res://scripts/resource_types/dialogue_chain.gd" id="1_syedv"]
+
+[resource]
+script = ExtResource("1_syedv")
+metadata/_custom_type_script = "uid://b4n84vbtt6l41"

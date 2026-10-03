@@ -2,22 +2,18 @@ extends Node
 
 var people: Array[Person] = []
 var locations: Array[Location] = []
+var dialogue_chains: Array[DialogueChain] = []
 
 func _init() -> void:
-	# Load person resources
-	people.resize(Types.Person.PERSON_COUNT)
-	for id in Types.Person.PERSON_COUNT:
-		var enum_as_string = Types.Person.keys()[id].to_lower()
-		var resource_path = "res://resources/people/%s.tres" % enum_as_string
+	initialize_resource_type(people, ID.Person, "people")
+	initialize_resource_type(locations, ID.Location, "locations")
+
+func initialize_resource_type(list: Array, enum_dictionary: Dictionary, resource_folder_name: String) -> void:
+	var count = enum_dictionary.size() - 1
+	list.resize(count)
+	for id in count:
+		var enum_as_string = enum_dictionary.keys()[id].to_lower()
+		var resource_path = "res://resources/" + resource_folder_name + "/%s.tres" % enum_as_string
 		var resource = load(resource_path)
-		assert(resource != null, "Ask Conner if confused: Failed to load person resource! All Types.Person values (found in scripts/types.gd) must have a matching Person resource of the same name, but lowercase, in resources/people/name_in_lowercase.tres")
-		people[id] = load(resource_path)
-		
-	# Load location resources	
-	locations.resize(Types.Location.LOCATION_COUNT)
-	for id in Types.Location.LOCATION_COUNT:
-		var enum_as_string = Types.Location.keys()[id].to_lower()
-		var resource_path = "res://resources/locations/%s.tres" % enum_as_string
-		var resource = load(resource_path)
-		assert(resource != null, "Ask Conner if confused: Failed to load location resource! All Types.Location values (found in scripts/types.gd) must have a matching Location resource of the same name, but lowercase, in resources/locations/name_in_lowercase.tres")
-		locations[id] = load(resource_path)
+		assert(resource != null, "Ask Conner if confused: Failed to load " + resource_folder_name + " resource at '" + resource_path + "'. All resource IDs of this type (found in scripts/id.gd) must have a matching resource in the corresponding resources folder.")
+		list[id] = load(resource_path)
