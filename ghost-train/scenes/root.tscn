@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dj6b4vore1xmc"]
+
+[ext_resource type="PackedScene" uid="uid://bi48wf1mx57e1" path="res://scenes/train_scene.tscn" id="1_jh1ax"]
+[ext_resource type="PackedScene" uid="uid://5foh3yxpnxva" path="res://scenes/travel_background_scene.tscn" id="2_kycxp"]
+[ext_resource type="PackedScene" uid="uid://dsbvbkau42kk3" path="res://scenes/destination_background_scene.tscn" id="3_j287u"]
+[ext_resource type="PackedScene" uid="uid://dc1ehphjkiuy1" path="res://scenes/map_scene.tscn" id="4_5sfjl"]
+[ext_resource type="PackedScene" uid="uid://dqmnk6klckxfn" path="res://scenes/main_menu_scene.tscn" id="5_3hfy5"]
+[ext_resource type="PackedScene" uid="uid://decxs73vimwb7" path="res://scenes/pause_menu_scene.tscn" id="6_kycxp"]
+[ext_resource type="PackedScene" uid="uid://dla4vq56708s" path="res://scenes/dialogue_overlay.tscn" id="7_j287u"]
+
+[node name="Root" type="Node2D" unique_id=1812977048]
+
+[node name="TrainScene" parent="." unique_id=483496671 instance=ExtResource("1_jh1ax")]
+
+[node name="TravelBackgroundScene" parent="." unique_id=1361343183 instance=ExtResource("2_kycxp")]
+
+[node name="DestinationBackgroundScene" parent="." unique_id=1433171603 instance=ExtResource("3_j287u")]
+
+[node name="MapScene" parent="." unique_id=2143619772 instance=ExtResource("4_5sfjl")]
+
+[node name="MainMenuScene" parent="." unique_id=1165028561 instance=ExtResource("5_3hfy5")]
+
+[node name="PauseMenuScene" parent="." unique_id=1818382822 instance=ExtResource("6_kycxp")]
+
+[node name="DialogueOverlay" parent="." unique_id=967068683 instance=ExtResource("7_j287u")]

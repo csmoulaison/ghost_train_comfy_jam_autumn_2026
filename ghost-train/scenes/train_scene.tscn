@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bi48wf1mx57e1"]
+
+[sub_resource type="Gradient" id="Gradient_rb52d"]
+colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1, 0.7581918, 0.7581918, 0.7581917, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rb52d"]
+gradient = SubResource("Gradient_rb52d")
+fill_from = Vector2(1, 1)
+
+[node name="TrainScene" type="Node" unique_id=483496671]
+
+[node name="TrainCar" type="Node2D" parent="." unique_id=352484248]
+position = Vector2(628.00006, 377)
+scale = Vector2(9.879999, 4.039999)
+
+[node name="TempSprite" type="Sprite2D" parent="TrainCar" unique_id=1573196250]
+texture = SubResource("GradientTexture2D_rb52d")

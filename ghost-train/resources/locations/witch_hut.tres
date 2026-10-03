@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Location" format=3 uid="uid://cgwy1jj52k8st"]
+
+[ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location_resource.gd" id="1_qydm3"]
+
+[resource]
+script = ExtResource("1_qydm3")
+name = "Witch Hut"
+metadata/_custom_type_script = "uid://5ykxo1la74mv"
