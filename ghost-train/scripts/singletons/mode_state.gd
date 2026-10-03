@@ -1,26 +1,25 @@
 extends Node
 
 enum GameMode {
-	TRAIN_STATIONARY,
-	TRAIN_MOVING,
+	TRAVEL,
+	DESTINATION,
 	MAP,
 	MAIN_MENU,
 	PAUSE_MENU,
 }
 
 # WARNING: IF YOU ADD A SCENE NODE HERE, UPDATE remove_all_scenes() FUNCTION
-@onready var train_scene: Node = get_tree().root.find_child("TrainScene")
-@onready var travel_background_scene: Node = get_tree().root.find_child("TravelBackgroundScene")
-@onready var destination_background_scene: Node = get_tree().root.find_child("DestinationBackgroundScene")
+@onready var travel_scene: Node = get_tree().root.find_child("TravelScene")
+@onready var destination_scene: Node = get_tree().root.find_child("DestinationScene")
 @onready var map_scene: Node = get_tree().root.find_child("MapScene")
 @onready var main_menu_scene: Node = get_tree().root.find_child("MainMenuScene")
 @onready var pause_menu_scene: Node = get_tree().root.find_child("PauseMenuScene")
 
-var mode: GameMode = GameMode.TRAIN_STATIONARY
+var mode: GameMode = GameMode.DESTINATION
 
 func _ready() -> void:
 	# TODO: start at main menu
-	switch_mode(GameMode.TRAIN_STATIONARY)
+	switch_mode(GameMode.DESTINATION)
 
 func switch_mode(new_mode: GameMode):
 	mode = new_mode
@@ -33,12 +32,10 @@ func switch_mode(new_mode: GameMode):
 		
 	remove_all_scenes()
 	match mode:
-		GameMode.TRAIN_STATIONARY:
-			add_scene(train_scene)
-			add_scene(destination_background_scene)
-		GameMode.TRAIN_MOVING:
-			add_scene(train_scene)
-			add_scene(destination_background_scene)
+		GameMode.TRAVEL:
+			add_scene(travel_scene)
+		GameMode.DESTINATION:
+			add_scene(destination_scene)
 		GameMode.MAP:
 			add_scene(map_scene)
 		GameMode.MAIN_MENU:
@@ -49,9 +46,8 @@ func switch_mode(new_mode: GameMode):
 # retrieval later.
 func remove_all_scenes():
 	var root = get_tree().root
-	root.remove_child(train_scene)
-	root.remove_child(travel_background_scene)
-	root.remove_child(destination_background_scene)
+	root.remove_child(travel_scene)
+	root.remove_child(destination_scene)
 	root.remove_child(map_scene)
 	root.remove_child(main_menu_scene)
 	root.remove_child(pause_menu_scene)

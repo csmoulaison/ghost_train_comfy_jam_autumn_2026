@@ -1,6 +1,5 @@
 class_name Person extends Resource
 
-@export var id: ID.Person
 @export var name: String
 @export var starting_location: ID.Location
 # TODO: These two fields prefixed with default_ are going to need to be more

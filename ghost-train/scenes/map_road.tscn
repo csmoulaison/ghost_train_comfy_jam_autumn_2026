@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://byi0o5fb0pfxh"]
+
+[ext_resource type="Texture2D" uid="uid://b88guik27tp5p" path="res://resources/textures/map_track.png" id="1_aol8t"]
+[ext_resource type="Script" uid="uid://ipo2igb0xn5x" path="res://scenes/map_road.gd" id="1_k6kgt"]
+
+[node name="MapRoad" type="Node2D" unique_id=1083504268]
+script = ExtResource("1_k6kgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095780766]
+texture = ExtResource("1_aol8t")

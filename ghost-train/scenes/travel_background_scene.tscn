@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://5foh3yxpnxva"]
-
-[node name="TravelBackgroundScene" type="Node" unique_id=1361343183]
-
-[node name="Background" type="Node2D" parent="." unique_id=1005603546]
-
-[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=972785811]

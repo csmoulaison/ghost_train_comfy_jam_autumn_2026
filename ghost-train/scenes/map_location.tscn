@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://o028in7m8avn"]
+
+[ext_resource type="Script" uid="uid://bajnipk02o70i" path="res://scenes/map_location.gd" id="1_nnfp3"]
+[ext_resource type="Texture2D" uid="uid://c1gj0036fh5rr" path="res://resources/textures/map_location_node.png" id="1_rlklu"]
+
+[node name="MapLocation" type="Node2D" unique_id=310148388]
+script = ExtResource("1_nnfp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=906341924]
+texture = ExtResource("1_rlklu")

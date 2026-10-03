@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://dc1ehphjkiuy1"]
 
+[ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="1_0wcw4"]
+[ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="2_ne7uw"]
+
 [node name="MapScene" type="Node" unique_id=2143619772]
+
+[node name="MapLocation" parent="." unique_id=310148388 instance=ExtResource("1_0wcw4")]
+position = Vector2(158, 341)
+location_id = 1
+
+[node name="MapLocation2" parent="." unique_id=454798389 instance=ExtResource("1_0wcw4")]
+position = Vector2(347, 433)
+location_id = 2
+
+[node name="MapLocation3" parent="." unique_id=1068569206 instance=ExtResource("1_0wcw4")]
+position = Vector2(548, 365)
+location_id = 3
+
+[node name="MapRoad" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
+position = Vector2(252, 385)
+rotation = 0.43151438
+
+[node name="MapRoad2" parent="." unique_id=2004557442 instance=ExtResource("2_ne7uw")]
+position = Vector2(448, 399)
+rotation = -0.33652008
+
+[node name="TODO_ConfirmDestinationMenu" type="Node" parent="." unique_id=1334949847]

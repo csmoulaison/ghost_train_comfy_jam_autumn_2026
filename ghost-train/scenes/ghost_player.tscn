@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://cwfyb3tsjv2hu"]
 
-[sub_resource type="Gradient" id="Gradient_slbwr"]
-colors = PackedColorArray(0.1444332, 0.25640464, 0.26168507, 1, 1, 0.7529412, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_slbwr"]
-gradient = SubResource("Gradient_slbwr")
-fill_from = Vector2(0.44871795, 0.5726496)
+[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/guy.png" id="1_d10ha"]
 
 [node name="GhostPlayer" type="Node2D" unique_id=123701996]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1138830871]
-texture = SubResource("GradientTexture2D_slbwr")
+texture = ExtResource("1_d10ha")

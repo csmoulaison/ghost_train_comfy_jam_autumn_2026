@@ -1,23 +1,16 @@
 [gd_scene format=3 uid="uid://bi48wf1mx57e1"]
 
+[ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="1_7prj5"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="1_q2wao"]
-
-[sub_resource type="Gradient" id="Gradient_rb52d"]
-colors = PackedColorArray(0.3328807, 0.33288068, 0.33288068, 1, 0.7581918, 0.7581918, 0.7581917, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rb52d"]
-gradient = SubResource("Gradient_rb52d")
-fill_from = Vector2(1, 1)
 
 [node name="TrainScene" type="Node" unique_id=483496671]
 
 [node name="TrainCar" type="Node2D" parent="." unique_id=352484248]
 position = Vector2(628.00006, 377)
-scale = Vector2(2.445, 1)
 
 [node name="TempSprite" type="Sprite2D" parent="TrainCar" unique_id=1573196250]
-scale = Vector2(4.3839474, 3.6249993)
-texture = SubResource("GradientTexture2D_rb52d")
+scale = Vector2(1.249, 1.026)
+texture = ExtResource("1_7prj5")
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("1_q2wao")]
-position = Vector2(842, 400)
+position = Vector2(964, 410)
