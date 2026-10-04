@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_3i067")
 name = "Default"
+subscene_path = "uid://bjbx3qpy0l0qs"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

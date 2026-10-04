@@ -20,9 +20,11 @@ location_id = 3
 [node name="MapRoad" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
 position = Vector2(252, 385)
 rotation = 0.43151438
+road_id = 1
 
 [node name="MapRoad2" parent="." unique_id=2004557442 instance=ExtResource("2_ne7uw")]
 position = Vector2(448, 399)
 rotation = -0.33652008
+road_id = 3
 
 [node name="TODO_ConfirmDestinationMenu" type="Node" parent="." unique_id=1334949847]

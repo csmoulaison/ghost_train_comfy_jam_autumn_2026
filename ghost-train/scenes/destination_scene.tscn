@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://dsbvbkau42kk3"]
 
-[node name="DestinationBackgroundScene" type="Node" unique_id=1433171603]
+[ext_resource type="Script" uid="uid://bfs4ksgrah7wi" path="res://scripts/tmp_goto_map_button.gd" id="1_10jd1"]
+
+[sub_resource type="Gradient" id="Gradient_4fjjy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hck3a"]
+gradient = SubResource("Gradient_4fjjy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
+size = Vector2(68, 68)
+
+[node name="DestinationScene" type="Node" unique_id=1433171603]
 
 [node name="SubsceneParent" type="Node" parent="." unique_id=2141947564]
+
+[node name="TMP_GotoMapButton" type="Area2D" parent="." unique_id=1395029487]
+position = Vector2(66, 580)
+script = ExtResource("1_10jd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="TMP_GotoMapButton" unique_id=1170660339]
+texture = SubResource("GradientTexture2D_hck3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TMP_GotoMapButton" unique_id=1262964306]
+shape = SubResource("RectangleShape2D_hck3a")

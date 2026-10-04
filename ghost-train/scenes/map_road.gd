@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var road_id: ID.Road
+
 # TODO: get a ref to the confirm destination dialogue box
 # @on_ready var confirm_destination_dialog = ???
 

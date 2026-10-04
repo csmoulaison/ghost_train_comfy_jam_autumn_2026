@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bjbx3qpy0l0qs"]
+
+[ext_resource type="Texture2D" uid="uid://q8licuxatrhj" path="res://resources/textures/rolling_l1.png" id="1_2vr4e"]
+[ext_resource type="PackedScene" uid="uid://bpyyhdvcxf3lq" path="res://scenes/parallax_group.tscn" id="1_23y0j"]
+[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="1_o8xbc"]
+
+[node name="Graveyard" type="Node2D" unique_id=166533899]
+
+[node name="ParallaxGroup2" parent="." unique_id=1910862204 instance=ExtResource("1_23y0j")]
+parallax_scroll_ratio = 0.1
+
+[node name="BG_2" type="Node2D" parent="ParallaxGroup2" unique_id=1959776967]
+position = Vector2(0, -100.255)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup2/BG_2" unique_id=728166108]
+texture = ExtResource("1_o8xbc")
+centered = false
+
+[node name="ParallaxGroup" parent="." unique_id=1458647978 instance=ExtResource("1_23y0j")]
+parallax_scroll_ratio = 1.0
+
+[node name="BG_1" type="Node2D" parent="ParallaxGroup" unique_id=1847423909]
+position = Vector2(0, -64.695)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup/BG_1" unique_id=863151601]
+texture = ExtResource("1_2vr4e")
+centered = false

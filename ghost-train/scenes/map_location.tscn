@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://bajnipk02o70i" path="res://scenes/map_location.gd" id="1_nnfp3"]
 [ext_resource type="Texture2D" uid="uid://c1gj0036fh5rr" path="res://resources/textures/map_location_node.png" id="1_rlklu"]
 
-[node name="MapLocation" type="Node2D" unique_id=310148388]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hck3a"]
+radius = 29.529646
+
+[node name="MapLocation" type="Area2D" unique_id=566530891]
 script = ExtResource("1_nnfp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=906341924]
 texture = ExtResource("1_rlklu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2047523467]
+shape = SubResource("CircleShape2D_hck3a")

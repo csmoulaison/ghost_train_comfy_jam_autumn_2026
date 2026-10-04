@@ -17,13 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*uid://blxxnbli1gxq4"
 GameState="*uid://ble4b7bsyrhrq"
+ResourceData="*uid://dxwl8wjwoigto"
+MapState="*uid://dtrwl32u102c4"
+CinematicState="*uid://cvhpw22hipuyi"
 TrainState="*uid://byn0m5l8g4sbk"
 DialogueState="*uid://b8s1536cnraoh"
-ResourceData="*uid://dxwl8wjwoigto"
 ModeState="*uid://3tj7rid46lrh"
-EventBus="*uid://blxxnbli1gxq4"
-CinematicState="*uid://cvhpw22hipuyi"
 
 [display]
 

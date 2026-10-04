@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="1_7prj5"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="1_q2wao"]
 
-[node name="TrainScene" type="Node" unique_id=483496671]
+[node name="TravelScene" type="Node" unique_id=483496671]
+
+[node name="SubsceneParent" type="Node" parent="." unique_id=472505280]
 
 [node name="TrainCar" type="Node2D" parent="." unique_id=352484248]
 position = Vector2(628.00006, 377)

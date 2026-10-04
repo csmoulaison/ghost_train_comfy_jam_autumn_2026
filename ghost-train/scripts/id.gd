@@ -38,6 +38,7 @@ enum Location {
 }
 
 enum Road {
+	DEFAULT,
 	GRAVEYARD_TO_FARMERS_MARKET,
 	FARMERS_MARKET_TO_LAKE_IN_THE_WOODS,
 	FARMERS_MARKET_TO_PUMPKIN_PATCH,
@@ -52,6 +53,7 @@ enum Road {
 	CRANBERRY_BOG_TO_GRIMS_GROTTO,
 	CIDER_MILL_TO_CORN_MAZE,
 	CORN_MAZE_TO_GRIMS_GROTTO,
+	ROAD_COUNT,
 }
 
 enum Flag {
@@ -61,5 +63,8 @@ enum Flag {
 
 enum Event {
 	DEFAULT,
+	OPEN_MAP,
+	START_TRAVEL,
+	
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
