@@ -10,7 +10,7 @@ extends CanvasLayer
 @onready var speaker_image: TextureRect = %SpeakerImage
 @onready var next_marker: TextureRect = %NextMarker
 
-@onready var prompt_panel: PanelContainer = %PromptPanel
+@onready var prompt_panel: DialoguePanel = %PromptPanel
 @onready var prompt_text: RichTextLabel = %PromptText
 @onready var prompt_accept_button: Button = %PromptAcceptButton
 @onready var prompt_decline_button: Button = %PromptDeclineButton
@@ -19,16 +19,32 @@ extends CanvasLayer
 
 const SECONDS_PER_CHARACTER: float = 0.03
 const DEBOUNCE_TIME: float = 0.25
+const MARKER_FADE_TIME: float = 0.15
 
 const TEST_CHAIN: DialogueChain = preload("res://resources/dialogue_chains/test_dialogue.tres")
 
-var _is_line_printing: bool = false
+#var _is_line_printing: bool = false
+
+enum DialogueLineState {
+	PRINTING, # the text is still appearing
+	PROMPTING, # the prompt is up, waiting for Accept / Decline
+	ANSWERED, # an answer was picked, the prompt is on its way out
+	FINISHED, # the text is all there, waiting for the player to continue
+}
+var _dialogue_line_state: DialogueLineState = DialogueLineState.FINISHED
 var _line_tween: Tween
+var _marker_tween: Tween
 var _debounce_until_msec: int = 0
 
 func _ready() -> void:
 	initialize()
 	background.gui_input.connect(_on_surface_gui)
+	prompt_accept_button.pressed.connect(_on_prompt_button_pressed.bind(true))
+	prompt_decline_button.pressed.connect(_on_prompt_button_pressed.bind(false))
+	# hovering a button focuses it too, so the mouse and the keyboard can't
+	# highlight different buttons at the same time
+	prompt_accept_button.mouse_entered.connect(prompt_accept_button.grab_focus)
+	prompt_decline_button.mouse_entered.connect(prompt_decline_button.grab_focus)
 	DialogueState.dialogue_started.connect(_on_dialogue_started)
 	DialogueState.line_changed.connect(read_line)
 	DialogueState.dialogue_ended.connect(_on_dialogue_ended)
@@ -49,11 +65,12 @@ func initialize():
 	visible = false
 	dialogue_panel.hide_instantly()
 	dialogue_text.text = ""
-	next_marker.visible = false
-	prompt_panel.visible = false
-	prompt_panel.modulate.a = 0.0
+	if _marker_tween:
+		_marker_tween.kill()
+	next_marker.modulate.a = 0.0
+	_hide_prompt()
 	prompt_text.text = ""
-	_is_line_printing = false
+	_dialogue_line_state = DialogueLineState.FINISHED
 	if _line_tween:
 		_line_tween.kill()
 
@@ -66,6 +83,9 @@ func _on_dialogue_started(_chain: DialogueChain):
 func _on_dialogue_ended(_chain: DialogueChain):
 	if _line_tween:
 		_line_tween.kill()
+	# only when something else ended the dialogue while the prompt was up
+	if prompt_panel.visible:
+		prompt_panel.play_exit().tween_callback(_hide_prompt)
 	dialogue_panel.play_exit().tween_callback(initialize)
 
 func _on_surface_gui(event: InputEvent):
@@ -74,31 +94,37 @@ func _on_surface_gui(event: InputEvent):
 			_on_continue_pressed()
 
 ## The player clicked / pressed accept: first press finishes printing the line,
-## the next press moves on.
+## the next press moves on. While a prompt is up only its buttons do anything.
 func _on_continue_pressed():
 	if not DialogueState.is_active(): return
 	if not _can_continue(): return
 
-	if _is_line_printing:
+	if _dialogue_line_state == DialogueLineState.PRINTING:
 		_finish_current_line()
 		_debounce()
-	else:
-		# TODO (prompt): if this line/chain should ask Accept / Decline, show
-		# prompt_panel here instead of advancing, and advance from the button
-		# signals. Needs a design decision first: is the prompt data on the
-		# DialogueLine or on the DialogueChain? Once there are three states
-		# (printing, waiting, prompting) swap _is_line_printing for an enum.
-		
-		
+	elif _dialogue_line_state == DialogueLineState.FINISHED:
 		DialogueState.advance()
+
+func _on_prompt_button_pressed(accepted: bool):
+	if _dialogue_line_state != DialogueLineState.PROMPTING: return
+	if not _can_continue(): return
+
+	# the answer is only passed on once the prompt has left, so the next line
+	# doesn't start printing underneath it
+	_dialogue_line_state = DialogueLineState.ANSWERED
+	prompt_panel.play_exit().tween_callback(_on_prompt_closed.bind(accepted))
+
+func _on_prompt_closed(accepted: bool):
+	_hide_prompt()
+	DialogueState.answer_prompt(accepted)
 
 ## private functions
 
 func read_line(line: DialogueLine):
 	if _line_tween:
 		_line_tween.kill()
-	_is_line_printing = true
-	next_marker.visible = false
+	_dialogue_line_state = DialogueLineState.PRINTING
+	_fade_marker(0.0)
 
 	var person: Person = ResourceData.people[line.person]
 	speaker_name_label.text = person.name
@@ -117,11 +143,38 @@ func read_line(line: DialogueLine):
 func _finish_current_line():
 	if _line_tween:
 		_line_tween.kill()
-	_is_line_printing = false
 	dialogue_text.visible_ratio = 1.0
-	next_marker.visible = true
+
+	var line: DialogueLine = DialogueState.current_line
+	if line.has_prompt():
+		_show_prompt(line)
+	else:
+		_dialogue_line_state = DialogueLineState.FINISHED
+		_fade_marker(1.0)
+
+func _show_prompt(line: DialogueLine):
+	_dialogue_line_state = DialogueLineState.PROMPTING
+	prompt_text.text = line.prompt_text
+	prompt_panel.visible = true
+	prompt_panel.play_enter()
+	# so keyboard / gamepad can pick an answer
+	prompt_accept_button.grab_focus()
+	# a double click to skip the printing shouldn't be able to pick an answer
+	_debounce()
+
+## The panel has to be invisible as well as faded out, or its buttons would
+## still catch clicks.
+func _hide_prompt():
+	prompt_panel.visible = false
+	prompt_panel.hide_instantly()
 
 # utility
+
+func _fade_marker(alpha: float):
+	if _marker_tween:
+		_marker_tween.kill()
+	_marker_tween = create_tween()
+	_marker_tween.tween_property(next_marker, "modulate:a", alpha, MARKER_FADE_TIME)
 
 func _can_continue() -> bool:
 	return Time.get_ticks_msec() >= _debounce_until_msec

@@ -161,7 +161,7 @@ corner_detail = 12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prompt"]
 shader = ExtResource("4_border")
-shader_parameter/rect_size = Vector2(268, 294)
+shader_parameter/rect_size = Vector2(268, 220)
 shader_parameter/padding = 40.0
 shader_parameter/corner_radius = 56.0
 shader_parameter/border_enabled = false
@@ -290,7 +290,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="PromptPanel" type="PanelContainer" parent="." unique_id=1787332549]
+[node name="PromptPanel" type="Panel" parent="." unique_id=1607433788]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 1, 1, 0)
@@ -300,22 +300,27 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -340.0
-offset_top = -154.0
+offset_top = -161.0
 offset_right = -152.0
-offset_bottom = -14.0
+offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("6_prompt")
 theme_override_styles/panel = SubResource("StyleBoxFlat_hjb8m")
 script = ExtResource("5_border")
-background_pattern = true
 edge_softness = 3.0
 effects_material = SubResource("ShaderMaterial_prompt")
 pattern_opacity = 0.9
 pattern_scale = 0.627
+enter_transition = 2
+exit_transition = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PromptPanel" unique_id=1795319750]
-layout_mode = 2
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 174.0
+offset_bottom = 126.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PromptPanel/VBoxContainer" unique_id=264391449]
 layout_mode = 2

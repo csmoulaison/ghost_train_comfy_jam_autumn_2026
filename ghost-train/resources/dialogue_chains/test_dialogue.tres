@@ -15,7 +15,26 @@ person = 2
 text = "This second line is a bit longer, so there is time to click and skip the printing before it finishes on its own."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_decline_line1"]
+script = ExtResource("2_line")
+person = 2
+text = "No rush. The train isn't leaving without you."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_decline_chain"]
+script = ExtResource("1_syedv")
+lines = Array[ExtResource("2_line")]([SubResource("Resource_decline_line1")])
+metadata/_custom_type_script = "uid://b4n84vbtt6l41"
+
 [sub_resource type="Resource" id="Resource_line3"]
+script = ExtResource("2_line")
+person = 2
+text = "Ready to leave the station?"
+prompt_text = "Depart?"
+decline_chain = SubResource("Resource_decline_chain")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_line4"]
 script = ExtResource("2_line")
 person = 1
 text = "And this is the last line. One more click closes the overlay."
@@ -23,5 +42,5 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_syedv")
-lines = Array[ExtResource("2_line")]([SubResource("Resource_line1"), SubResource("Resource_line2"), SubResource("Resource_line3")])
+lines = Array[ExtResource("2_line")]([SubResource("Resource_line1"), SubResource("Resource_line2"), SubResource("Resource_line3"), SubResource("Resource_line4")])
 metadata/_custom_type_script = "uid://b4n84vbtt6l41"

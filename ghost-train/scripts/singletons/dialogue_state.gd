@@ -40,6 +40,37 @@ func advance() -> void:
 	else:
 		end_dialogue()
 
+## The player picked Accept or Decline on the current line's prompt. Accepting
+## sets the line's flag and emits its event. Either answer then moves on: to
+## that answer's chain if the line has one, otherwise to the next line.
+func answer_prompt(accepted: bool) -> void:
+	if not is_active(): return
+	if not current_line.has_prompt():
+		push_error("Answer Prompt: the current line has no prompt!")
+		return
+
+	var line: DialogueLine = current_line
+	if accepted and line.prompt_flag != ID.Flag.DEFAULT:
+		GameState.flags[line.prompt_flag] = true
+
+	var answer_chain: DialogueChain = line.accept_chain if accepted else line.decline_chain
+	if answer_chain != null and answer_chain.lines.is_empty():
+		push_error("Answer Prompt: the chain for this answer has no lines!")
+		answer_chain = null
+
+	if answer_chain != null:
+		# swap chains without ending the dialogue, so the overlay stays up. From
+		# here on this is the chain that ends, and the post_event that fires.
+		current_chain = answer_chain
+		_set_line(0)
+	else:
+		advance()
+
+	# emitted after moving on, so if that was the end of the dialogue a
+	# listener is free to start another chain straight away
+	if accepted and line.prompt_event != ID.Event.DEFAULT:
+		EventBus.event_signal.emit(line.prompt_event, 0)
+
 func end_dialogue() -> void:
 	if not is_active(): return
 
