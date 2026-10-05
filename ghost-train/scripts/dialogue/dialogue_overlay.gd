@@ -4,8 +4,10 @@ extends CanvasLayer
 ## scene prints that line and tells DialogueState when the player wants the
 ## next one.
 
-@onready var dialogue_panel: Panel = %DialoguePanel
+@onready var dialogue_panel: DialoguePanel = %DialoguePanel
 @onready var dialogue_text: RichTextLabel = %DialogueText
+@onready var speaker_name_label: Label = %SpeakerNameText
+@onready var speaker_image: TextureRect = %SpeakerImage
 @onready var next_marker: TextureRect = %NextMarker
 
 @onready var prompt_panel: PanelContainer = %PromptPanel
@@ -16,14 +18,12 @@ extends CanvasLayer
 @onready var background: ColorRect = %Background
 
 const SECONDS_PER_CHARACTER: float = 0.03
-const FADE_TIME: float = 0.2
 const DEBOUNCE_TIME: float = 0.25
 
 const TEST_CHAIN: DialogueChain = preload("res://resources/dialogue_chains/test_dialogue.tres")
 
 var _is_line_printing: bool = false
 var _line_tween: Tween
-var _fade_tween: Tween
 var _debounce_until_msec: int = 0
 
 func _ready() -> void:
@@ -47,7 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Hides everything and resets back to "no dialogue playing".
 func initialize():
 	visible = false
-	dialogue_panel.modulate.a = 0.0
+	dialogue_panel.hide_instantly()
 	dialogue_text.text = ""
 	next_marker.visible = false
 	prompt_panel.visible = false
@@ -61,13 +61,12 @@ func initialize():
 
 func _on_dialogue_started(_chain: DialogueChain):
 	visible = true
-	_fade_panel(1.0)
+	dialogue_panel.play_enter()
 
 func _on_dialogue_ended(_chain: DialogueChain):
 	if _line_tween:
 		_line_tween.kill()
-	_fade_panel(0.0)
-	_fade_tween.tween_callback(initialize)
+	dialogue_panel.play_exit().tween_callback(initialize)
 
 func _on_surface_gui(event: InputEvent):
 	if event is InputEventMouseButton:
@@ -89,6 +88,8 @@ func _on_continue_pressed():
 		# signals. Needs a design decision first: is the prompt data on the
 		# DialogueLine or on the DialogueChain? Once there are three states
 		# (printing, waiting, prompting) swap _is_line_printing for an enum.
+		
+		
 		DialogueState.advance()
 
 ## private functions
@@ -99,11 +100,9 @@ func read_line(line: DialogueLine):
 	_is_line_printing = true
 	next_marker.visible = false
 
-	# TODO (speaker): add a name label + portrait TextureRect to the scene, then
-	# set them here. The data is already reachable:
-	#   var person: Person = ResourceData.people[line.person]
-	#   person.name, person.default_texture
-
+	var person: Person = ResourceData.people[line.person]
+	speaker_name_label.text = person.name
+	speaker_image.texture = person.default_texture if person.default_texture != null else null
 	dialogue_text.text = line.text
 	dialogue_text.visible_ratio = 0.0
 	var duration: float = dialogue_text.get_total_character_count() * SECONDS_PER_CHARACTER
@@ -121,12 +120,6 @@ func _finish_current_line():
 	_is_line_printing = false
 	dialogue_text.visible_ratio = 1.0
 	next_marker.visible = true
-
-func _fade_panel(target_alpha: float):
-	if _fade_tween:
-		_fade_tween.kill()
-	_fade_tween = create_tween()
-	_fade_tween.tween_property(dialogue_panel, "modulate:a", target_alpha, FADE_TIME)
 
 # utility
 
