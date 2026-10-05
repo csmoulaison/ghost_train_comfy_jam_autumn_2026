@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://c2c8akoadxd54"]
 
+[ext_resource type="Texture2D" uid="uid://c7e0qwn37lxmp" path="res://resources/textures/old_oak.png" id="1_cj3kg"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_g21pr"]
 
 [resource]
 script = ExtResource("1_g21pr")
 name = "Default"
+default_texture = ExtResource("1_cj3kg")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

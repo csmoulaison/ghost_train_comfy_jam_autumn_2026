@@ -43,22 +43,22 @@ func _process(dt: float):
 		enter_destination_mode(ID.Location.GRAVEYARD)
 	
 func enter_destination_mode(location_id: ID.Location):
+	switch_mode(GameMode.DESTINATION)
 	var location: Location = ResourceData.locations[location_id]
 	TrainState.current_location = location_id
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
 	load_subscene(destination_subscene_parent, location.subscene_path)
-	switch_mode(GameMode.DESTINATION)
 	
 func enter_travel_mode():
+	switch_mode(GameMode.TRAVEL)
 	TrainState.current_location = ID.Location.DEFAULT
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
-	switch_mode(GameMode.TRAVEL)
 	
 func enter_map_mode():
-	MapState.init_visual_state()
 	switch_mode(GameMode.MAP)
+	MapState.init_visual_state()
 
 func switch_mode(new_mode: GameMode):
 	mode = new_mode
@@ -97,6 +97,39 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(scene != null, "Ask Conner: Couldn't load subscene '" + subscene_path + "'. Has it been set?")
 	loaded_scene_instance = scene.instantiate()
 	assert(loaded_scene_instance != null)
+	# TODO(now): loading subscene avatars, still bug fixing
+	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*")
+	for avatar in avatars:
+		avatar.visible = false
+		avatar.process_mode = Node.PROCESS_MODE_DISABLED
+	for id in ID.Person.PERSON_COUNT:
+		var matching_avatar: Node = null
+		for avatar in avatars:
+			# TODO(now): debug to break on witch
+			if avatar.person_id == ID.Person.WITCH:
+				pass
+			if avatar.person_id != id:
+				continue
+			if ModeState.mode == GameMode.DESTINATION:
+				if avatar.at_destination_but_on_train and GameState.people_on_train[id]:
+					matching_avatar = avatar
+					break
+				else: if !avatar.at_destination_but_on_train and GameState.people_locations[id] == TrainState.current_location:
+					matching_avatar = avatar
+					break
+			else: if ModeState.mode == GameMode.TRAVEL:
+				if GameState.people_on_train[id]:
+					matching_avatar = avatar
+					break
+		#assert(matching_avatar != null, "Person at location or train, but no matching avatar found there.")
+		if matching_avatar != null:
+			var person: Person = ResourceData.people[id]
+			matching_avatar.visible = true
+			matching_avatar.process_mode = Node.PROCESS_MODE_INHERIT
+			var sprite_node = matching_avatar.get_node("Sprite2D")
+			assert(sprite_node != null)
+			sprite_node.texture = person.default_texture
+				
 	parent.add_child(loaded_scene_instance)
 
 func debug_text() -> String:

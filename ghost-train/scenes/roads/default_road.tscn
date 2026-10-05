@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://nak8v30xjx5i"]
 
+[ext_resource type="PackedScene" uid="uid://bpyyhdvcxf3lq" path="res://scenes/parallax_group.tscn" id="1_5cnn1"]
+[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/def_background.png" id="1_g35lr"]
+[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="2_qv77l"]
+[ext_resource type="Texture2D" uid="uid://q8licuxatrhj" path="res://resources/textures/rolling_l1.png" id="3_kbwyt"]
+
 [node name="DefaultRoad" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1354868993]
+texture = ExtResource("1_g35lr")
+centered = false
+
+[node name="ParallaxGroup2" parent="." unique_id=1458647978 instance=ExtResource("1_5cnn1")]
+parallax_scroll_ratio = 0.1
+
+[node name="BG_2" type="Node2D" parent="ParallaxGroup2" unique_id=1682183110]
+position = Vector2(0, -100.255)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup2/BG_2" unique_id=1269773665]
+texture = ExtResource("2_qv77l")
+centered = false
+
+[node name="ParallaxGroup" parent="." unique_id=2048000699 instance=ExtResource("1_5cnn1")]
+parallax_scroll_ratio = 1.0
+
+[node name="BG_1" type="Node2D" parent="ParallaxGroup" unique_id=131873091]
+position = Vector2(0, -64.695)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup/BG_1" unique_id=927275484]
+texture = ExtResource("3_kbwyt")
+centered = false
