@@ -57,6 +57,7 @@ func enter_travel_mode():
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
 	update_scene_avatars(travel_scene)
+	ParallaxState.begin_parallax()
 	
 func enter_map_mode():
 	switch_mode(GameMode.MAP)

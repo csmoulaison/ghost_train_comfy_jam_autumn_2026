@@ -26,6 +26,7 @@ TrainState="*uid://byn0m5l8g4sbk"
 DialogueState="*uid://b8s1536cnraoh"
 DebugOverlay="*uid://cpru3magkjf7k"
 ModeState="*uid://3tj7rid46lrh"
+ParallaxState="*uid://dd585tvwyvx5"
 
 [display]
 

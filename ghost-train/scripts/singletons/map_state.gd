@@ -1,5 +1,7 @@
 extends Node
 
+# TODO: button for leaving map screen without entering travel mode.
+
 var locations_unlocked: Array[bool]
 var roads_unlocked: Array[bool]
 var road_nodes: Array[MapRoad]

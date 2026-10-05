@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cjnnmvuwufswj" path="res://scripts/parallax_group.gd" id="1_qswhh"]
 
-[node name="ParallaxGroup" type="Node2D" unique_id=1458647978]
+[node name="ParallaxGroup_" type="Node2D" unique_id=1458647978]
 script = ExtResource("1_qswhh")

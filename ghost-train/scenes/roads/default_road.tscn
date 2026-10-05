@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/def_background.png" id="1_g35lr"]
 [ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="2_qv77l"]
 [ext_resource type="Texture2D" uid="uid://q8licuxatrhj" path="res://resources/textures/rolling_l1.png" id="3_kbwyt"]
+[ext_resource type="Texture2D" uid="uid://cb177c2usm2id" path="res://resources/textures/bgtree.png" id="4_kbwyt"]
 
 [node name="DefaultRoad" type="Node2D" unique_id=1691894120]
 
@@ -11,22 +12,50 @@
 texture = ExtResource("1_g35lr")
 centered = false
 
-[node name="ParallaxGroup2" parent="." unique_id=1458647978 instance=ExtResource("1_5cnn1")]
+[node name="ParallaxGroup3" parent="." unique_id=1458647978 instance=ExtResource("1_5cnn1")]
 parallax_scroll_ratio = 0.1
 
-[node name="BG_2" type="Node2D" parent="ParallaxGroup2" unique_id=1682183110]
+[node name="BG_2" type="Node2D" parent="ParallaxGroup3" unique_id=1682183110]
 position = Vector2(0, -100.255)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup2/BG_2" unique_id=1269773665]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup3/BG_2" unique_id=1269773665]
 texture = ExtResource("2_qv77l")
 centered = false
 
-[node name="ParallaxGroup" parent="." unique_id=2048000699 instance=ExtResource("1_5cnn1")]
-parallax_scroll_ratio = 1.0
+[node name="ParallaxGroup2" parent="." unique_id=450757450 instance=ExtResource("1_5cnn1")]
+pixel_repeat_width = 1850
+parallax_scroll_ratio = 0.5
 
-[node name="BG_1" type="Node2D" parent="ParallaxGroup" unique_id=131873091]
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxGroup2" unique_id=1949326352]
+position = Vector2(218, 266)
+scale = Vector2(0.70126104, 0.70126104)
+texture = ExtResource("4_kbwyt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxGroup2" unique_id=726045245]
+position = Vector2(584, 303)
+scale = Vector2(0.70126104, 0.70126104)
+texture = ExtResource("4_kbwyt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxGroup2" unique_id=2081026144]
+position = Vector2(1000, 258.00003)
+scale = Vector2(0.70126104, 0.70126104)
+texture = ExtResource("4_kbwyt")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxGroup2" unique_id=583105298]
+position = Vector2(1420, 310)
+scale = Vector2(0.70126104, 0.70126104)
+texture = ExtResource("4_kbwyt")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxGroup2" unique_id=205392333]
+position = Vector2(1648, 269)
+scale = Vector2(0.70126104, 0.70126104)
+texture = ExtResource("4_kbwyt")
+
+[node name="ParallaxGroup1" parent="." unique_id=2048000699 instance=ExtResource("1_5cnn1")]
+
+[node name="BG_1" type="Node2D" parent="ParallaxGroup1" unique_id=131873091]
 position = Vector2(0, -64.695)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup/BG_1" unique_id=927275484]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxGroup1/BG_1" unique_id=927275484]
 texture = ExtResource("3_kbwyt")
 centered = false
