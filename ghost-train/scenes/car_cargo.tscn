@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://csd7nk5xcjpgv"]
+
+[ext_resource type="Texture2D" uid="uid://r8hr1ouu45iq" path="res://resources/textures/train_cargo.png" id="1_sf583"]
+
+[node name="Car_Cargo" type="Node2D" unique_id=7601887]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1728129817]
+position = Vector2(325, -100)
+texture = ExtResource("1_sf583")
+
+[node name="ConnectPosition" type="Node2D" parent="." unique_id=984801459]
+position = Vector2(658, 0)

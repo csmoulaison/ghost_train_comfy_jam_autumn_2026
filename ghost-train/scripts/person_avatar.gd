@@ -1,7 +1,6 @@
 class_name PersonAvatar extends Node2D
 
 @export var person_id: ID.Person
-@export var at_destination_but_on_train: bool = false
 
 @onready var sprite = get_node("Sprite2D")
 @onready var area = get_node("Area2D")
@@ -15,8 +14,5 @@ func _ready():
 # eventually be triggered mroe explicitly by DialogueLine data.
 func click(viewport: Node, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if ModeState.mode == ModeState.GameMode.DESTINATION:
-			if at_destination_but_on_train:
-				TrainState.offboard_passenger(person_id, TrainState.current_location)
-			else:
-				TrainState.board_passenger(person_id)
+		if ModeState.mode == ModeState.GameMode.DESTINATION and !TrainState.person_on_train(person_id):
+			TrainState.try_board_passenger(person_id)

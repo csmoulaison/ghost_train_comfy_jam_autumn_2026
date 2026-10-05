@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dte1yxaf2d8vt"]
+
+[ext_resource type="Texture2D" uid="uid://bc4pxs01a2tfn" path="res://resources/textures/train_front.png" id="1_cseyt"]
+[ext_resource type="PackedScene" uid="uid://d0rt10v8t8cgl" path="res://scenes/car_passenger.tscn" id="2_d686f"]
+[ext_resource type="PackedScene" uid="uid://csd7nk5xcjpgv" path="res://scenes/car_cargo.tscn" id="3_4hlee"]
+
+[node name="TrainAvatar" type="Node2D" unique_id=1648796774]
+
+[node name="Locomotive" type="Node2D" parent="." unique_id=1033588246]
+
+[node name="Sprite2D" type="Sprite2D" parent="Locomotive" unique_id=336635364]
+position = Vector2(149, -108)
+texture = ExtResource("1_cseyt")
+
+[node name="Car_Passenger1" parent="." unique_id=7601887 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger2" parent="." unique_id=238601601 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger3" parent="." unique_id=1239786421 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger4" parent="." unique_id=1257644886 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger5" parent="." unique_id=204891199 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger6" parent="." unique_id=306918648 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo1" parent="." unique_id=1855407557 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo2" parent="." unique_id=1024280250 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo3" parent="." unique_id=2008084047 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo4" parent="." unique_id=1258929464 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo5" parent="." unique_id=2054420354 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Cargo6" parent="." unique_id=941037824 instance=ExtResource("3_4hlee")]
+position = Vector2(99999, 99999)

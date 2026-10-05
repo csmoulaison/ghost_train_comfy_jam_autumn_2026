@@ -6,6 +6,7 @@
 # short lines of text to lists.
 class_name ID
 
+# Different value for each jackokid
 enum Person {
 	DEFAULT,
 	GHOST, # this is the player, so he isn't used for most Person related functionality
@@ -58,6 +59,7 @@ enum Road {
 
 enum Flag {
 	DEFAULT,
+	JACKOKIDS_SNUCK_ON_TRAIN, # the first time they sneak on at pumpkin patch
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 

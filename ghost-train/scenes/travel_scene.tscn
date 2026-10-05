@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bi48wf1mx57e1"]
 
-[ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="1_7prj5"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="1_q2wao"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="1_um1jw"]
 [ext_resource type="Script" uid="uid://bp35au64jyp0b" path="res://scripts/tmp_end_travel_button.gd" id="3_3qrgf"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_um1jw"]
 
@@ -17,12 +17,8 @@ size = Vector2(68, 68)
 
 [node name="SubsceneParent" type="Node" parent="." unique_id=472505280]
 
-[node name="TrainCar" type="Node2D" parent="." unique_id=352484248]
-position = Vector2(628.00006, 377)
-
-[node name="TempSprite" type="Sprite2D" parent="TrainCar" unique_id=1573196250]
-scale = Vector2(1.249, 1.026)
-texture = ExtResource("1_7prj5")
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("1_um1jw")]
+position = Vector2(1000, 358)
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("1_q2wao")]
 position = Vector2(964, 410)

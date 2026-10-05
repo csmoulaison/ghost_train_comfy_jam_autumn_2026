@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="1_o8xbc"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_o8xbc"]
-[ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="3_23y0j"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_23y0j"]
 
 [node name="Graveyard" type="Node2D" unique_id=166533899]
 
@@ -13,17 +13,10 @@ position = Vector2(0, -55.165)
 texture = ExtResource("1_o8xbc")
 centered = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506886441]
-position = Vector2(409, 450)
-scale = Vector2(0.46679688, 0.46679688)
-texture = ExtResource("3_23y0j")
-
 [node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("2_o8xbc")]
 position = Vector2(1028, 552)
 person_id = 7
 
-[node name="PersonAvatar2" parent="." unique_id=1871530558 instance=ExtResource("2_o8xbc")]
-position = Vector2(423.99997, 443)
-scale = Vector2(0.5453023, 0.5453023)
-person_id = 7
-at_destination_but_on_train = true
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_23y0j")]
+position = Vector2(314.00003, 524.99994)
+scale = Vector2(0.44769287, 0.44769287)

@@ -49,21 +49,26 @@ func enter_destination_mode(location_id: ID.Location):
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
 	load_subscene(destination_subscene_parent, location.subscene_path)
-	update_scene_avatars(loaded_scene_instance)
+	update_destination_avatars()
+	update_train_avatars()
 	
 func enter_travel_mode():
 	switch_mode(GameMode.TRAVEL)
 	TrainState.current_location = ID.Location.DEFAULT
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
-	update_scene_avatars(travel_scene)
+	update_train_avatars()
 	ParallaxState.begin_parallax()
 	
+# TODO(now): bool for buying tracks vs selecting destinations
 func enter_map_mode():
 	switch_mode(GameMode.MAP)
 	MapState.init_visual_state()
 
 func switch_mode(new_mode: GameMode):
+	if mode == GameMode.TRAVEL:
+		ParallaxState.end_parallax()
+		
 	mode = new_mode
 	remove_all_scenes()
 	match mode:
@@ -102,36 +107,75 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(loaded_scene_instance != null)
 	parent.add_child(loaded_scene_instance)
 
-func update_scene_avatars(scene: Node):
-	# TODO: There is no test here for testing if there isn't an avatar defined 
-	# where there should be. Not great.
-	var avatars: Array[Node] = scene.find_children("PersonAvatar*")
+func update_destination_avatars():
+	# TODO(now): There is no test here for testing if there isn't an avatar defined 
+	# where there should be. Not great. WE CAN PROBS DO THIS NOW!!!
+	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*")
 	for avatar in avatars:
 		avatar.visible = false
 		avatar.process_mode = Node.PROCESS_MODE_DISABLED
+
 	for id in ID.Person.PERSON_COUNT:
-		var matching_avatar: Node = null
+		if GameState.people_locations[id] != TrainState.current_location:
+			continue
+		var avatar_found: bool = false
 		for avatar in avatars:
-			if avatar.person_id != id:
-				continue
-			if ModeState.mode == GameMode.DESTINATION:
-				if avatar.at_destination_but_on_train and GameState.people_on_train[id]:
-					matching_avatar = avatar
-					break
-				else: if !avatar.at_destination_but_on_train and GameState.people_locations[id] == TrainState.current_location:
-					matching_avatar = avatar
-					break
-			else: if ModeState.mode == GameMode.TRAVEL:
-				if GameState.people_on_train[id]:
-					matching_avatar = avatar
-					break
-		if matching_avatar != null:
-			var person: Person = ResourceData.people[id]
-			matching_avatar.visible = true
-			matching_avatar.process_mode = Node.PROCESS_MODE_INHERIT
-			var sprite_node = matching_avatar.get_node("Sprite2D")
-			assert(sprite_node != null)
-			sprite_node.texture = person.default_texture
+			if avatar.person_id == id:
+				avatar_found = true
+				draw_person_avatar(avatar, id)
+				break
+		assert(avatar_found, "No matching avatar at destination.")
+	
+func update_train_avatars():
+	var train_avatar: Node = null
+	if mode == GameMode.DESTINATION:
+		train_avatar = loaded_scene_instance.get_node("TrainAvatar")
+	else: if mode == GameMode.TRAVEL:
+		train_avatar = travel_scene.get_node("TrainAvatar")
+	assert(train_avatar != null)
+	
+	var passenger_car_nodes: Array[Node] = train_avatar.find_children("Car_Passenger*")
+	var cargo_car_nodes: Array[Node] = train_avatar.find_children("Car_Cargo*")
+	for car in passenger_car_nodes:
+		car.global_position = Vector2(99999.0, 99999.0)
+	for car in cargo_car_nodes:
+		car.global_position = Vector2(99999.0, 99999.0)
+		
+	# NOTE: almost exactly the same logic for passenger as cargo
+	var off_x: float = 0
+	for car_index in TrainState.passenger_car_count:
+		var car: Node = passenger_car_nodes[car_index]
+		assert(car != null)
+		var connector: Node = car.get_node("ConnectPosition")
+		assert(connector != null)
+		off_x -= connector.position.x
+		car.position = Vector2(off_x, 0.0)
+		# TODO(now): update avatars in passenger cars by looking at which slots
+		# people are in.
+		var avatars: Array[Node] = car.find_children("PersonAvatar*")
+		for avatar in avatars:
+			avatar.visible = false
+			avatar.process_mode = Node.PROCESS_MODE_DISABLED
+		for car_passenger_index in TrainState.max_passengers_per_car:
+			var train_passenger_index: int = car_index * TrainState.max_passengers_per_car + car_passenger_index
+			var slot_person: ID.Person = TrainState.passenger_slots[train_passenger_index]
+			if slot_person != ID.Person.DEFAULT:
+				draw_person_avatar(avatars[car_passenger_index], slot_person)
+	for car_index in TrainState.cargo_car_count:
+		var car: Node = cargo_car_nodes[car_index]
+		assert(car != null)
+		var connector: Node = car.get_node("ConnectPosition")
+		assert(connector != null)
+		off_x -= connector.position.x
+		car.position = Vector2(off_x, 0.0)
+
+func draw_person_avatar(avatar: Node, person_id: ID.Person):
+	var person: Person = ResourceData.people[person_id]
+	avatar.visible = true
+	avatar.process_mode = Node.PROCESS_MODE_INHERIT
+	var sprite_node = avatar.get_node("Sprite2D")
+	assert(sprite_node != null)
+	sprite_node.texture = person.default_texture
 
 func debug_text() -> String:
 	var text: String = "Mode: " + GameMode.keys()[mode]
