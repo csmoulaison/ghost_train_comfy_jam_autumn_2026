@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="1_0wcw4"]
 [ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="2_ne7uw"]
+[ext_resource type="Theme" uid="uid://cm67ku6mq27ta" path="res://resources/gui_theme.tres" id="3_5m4q6"]
+[ext_resource type="Script" uid="uid://djkcgxi4vqjd6" path="res://scenes/travel_confirmation_dialog.gd" id="4_vlip3"]
 
 [node name="MapScene" type="Node" unique_id=2143619772]
 
-[node name="MapLocation" parent="." unique_id=310148388 instance=ExtResource("1_0wcw4")]
-position = Vector2(158, 341)
+[node name="MapLocation4" parent="." unique_id=566530891 instance=ExtResource("1_0wcw4")]
+position = Vector2(161, 340)
 location_id = 1
 
 [node name="MapLocation2" parent="." unique_id=454798389 instance=ExtResource("1_0wcw4")]
@@ -17,7 +19,7 @@ location_id = 2
 position = Vector2(548, 365)
 location_id = 3
 
-[node name="MapRoad" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
+[node name="MapRoad1" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
 position = Vector2(252, 385)
 rotation = 0.43151438
 road_id = 1
@@ -28,3 +30,62 @@ rotation = -0.33652008
 road_id = 3
 
 [node name="TODO_ConfirmDestinationMenu" type="Node" parent="." unique_id=1334949847]
+
+[node name="TravelConfirmationDialog" type="Control" parent="." unique_id=174202964]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -402.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 268.0
+grow_horizontal = 0
+theme = ExtResource("3_5m4q6")
+script = ExtResource("4_vlip3")
+
+[node name="Panel" type="Panel" parent="TravelConfirmationDialog" unique_id=406540357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TravelConfirmationDialog/Panel" unique_id=1824116466]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 1.0
+anchor_right = 0.85
+anchor_bottom = 1.0
+offset_left = -2.670288e-05
+offset_top = -95.0
+offset_right = -3.0517578e-05
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+alignment = 1
+
+[node name="TravelConfirmationYes" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=981160516]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="TravelConfirmationNo" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=1429588607]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[node name="Label" type="Label" parent="TravelConfirmationDialog/Panel" unique_id=450365849]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 152.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Do you want to go 
+to Farmer's Market?"
+horizontal_alignment = 1
+vertical_alignment = 1

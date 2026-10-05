@@ -3,7 +3,7 @@ extends Node
 var flags: Array[bool]
 var people_locations: Array[ID.Location]
 
-func _ready() -> void:
+func _ready():
 	# Initialize all flags to false
 	flags.resize(ID.Flag.FLAG_COUNT)
 	for id in ID.Flag.FLAG_COUNT:

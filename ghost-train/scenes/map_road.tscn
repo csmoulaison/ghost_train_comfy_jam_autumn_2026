@@ -2,9 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://b88guik27tp5p" path="res://resources/textures/map_track.png" id="1_aol8t"]
 [ext_resource type="Script" uid="uid://ipo2igb0xn5x" path="res://scenes/map_road.gd" id="1_k6kgt"]
+[ext_resource type="Texture2D" uid="uid://t80w3yewc0dt" path="res://resources/textures/map_track_locked.png" id="2_ysbdw"]
+[ext_resource type="Texture2D" uid="uid://csj5d70mbfxd8" path="res://resources/textures/map_track_active.png" id="3_spvpg"]
 
 [node name="MapRoad" type="Node2D" unique_id=1083504268]
 script = ExtResource("1_k6kgt")
+locked_texture = ExtResource("2_ysbdw")
+inactive_texture = ExtResource("1_aol8t")
+active_texture = ExtResource("3_spvpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095780766]
 texture = ExtResource("1_aol8t")

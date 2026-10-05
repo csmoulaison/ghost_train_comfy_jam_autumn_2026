@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bfs4ksgrah7wi" path="res://scripts/tmp_goto_map_button.gd" id="1_10jd1"]
 
-[sub_resource type="Gradient" id="Gradient_4fjjy"]
+[sub_resource type="Gradient" id="Gradient_10jd1"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hck3a"]
-gradient = SubResource("Gradient_4fjjy")
+gradient = SubResource("Gradient_10jd1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
 size = Vector2(68, 68)

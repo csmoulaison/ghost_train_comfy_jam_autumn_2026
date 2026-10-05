@@ -2,6 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="1_7prj5"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="1_q2wao"]
+[ext_resource type="Script" uid="uid://bp35au64jyp0b" path="res://scripts/tmp_end_travel_button.gd" id="3_3qrgf"]
+
+[sub_resource type="Gradient" id="Gradient_4fjjy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqyoh"]
+gradient = SubResource("Gradient_4fjjy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qrgf"]
+size = Vector2(68, 68)
 
 [node name="TravelScene" type="Node" unique_id=483496671]
 
@@ -16,3 +25,13 @@ texture = ExtResource("1_7prj5")
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("1_q2wao")]
 position = Vector2(964, 410)
+
+[node name="TMP_EndTravelButton" type="Area2D" parent="." unique_id=1391219083]
+position = Vector2(66, 580)
+script = ExtResource("3_3qrgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="TMP_EndTravelButton" unique_id=1200644035]
+texture = SubResource("GradientTexture2D_vqyoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TMP_EndTravelButton" unique_id=842500463]
+shape = SubResource("RectangleShape2D_3qrgf")

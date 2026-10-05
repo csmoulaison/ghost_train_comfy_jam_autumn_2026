@@ -18,9 +18,11 @@ enum GameMode {
 @onready var main_menu_scene: Node = scene_parent.find_child("MainMenuScene")
 @onready var pause_menu_scene: Node = scene_parent.find_child("PauseMenuScene")
 
+var loaded_scene_instance: Node = null
 var mode: GameMode = GameMode.DESTINATION
+var initialized: bool = false
 
-func _ready() -> void:
+func _ready() :
 	assert(travel_scene != null)
 	assert(travel_subscene_parent != null)
 	assert(destination_scene != null)
@@ -28,20 +30,34 @@ func _ready() -> void:
 	assert(map_scene != null)
 	assert(main_menu_scene != null)
 	assert(pause_menu_scene != null)
-	# TODO: start at main menu, presumably
-	enter_destination_mode(ID.Location.GRAVEYARD)
+
+func _process(dt: float):
+	# NOTE: This is done so that every node's _ready function runs on game
+	# startup. Calling enter_destination_mode in our _ready would precede that
+	# happening in the case of all non autoload singletons, and in the case of
+	# singletons, forces the brittle constraint of ModeState being at the bottom
+	# of the Project Settings->Globals->Autoload list
+	if !initialized:
+		initialized = true
+		# TODO: start at main menu, presumably
+		enter_destination_mode(ID.Location.GRAVEYARD)
 	
 func enter_destination_mode(location_id: ID.Location):
 	var location: Location = ResourceData.locations[location_id]
+	TrainState.current_location = location_id
+	TrainState.next_location = ID.Location.DEFAULT
+	TrainState.current_road = ID.Road.DEFAULT
 	load_subscene(destination_subscene_parent, location.subscene_path)
 	switch_mode(GameMode.DESTINATION)
 	
-func enter_travel_mode(road_id: ID.Road):
-	var road: Road = ResourceData.roads[road_id]
+func enter_travel_mode():
+	TrainState.current_location = ID.Location.DEFAULT
+	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
 	switch_mode(GameMode.TRAVEL)
 	
 func enter_map_mode():
+	MapState.init_visual_state()
 	switch_mode(GameMode.MAP)
 
 func switch_mode(new_mode: GameMode):
@@ -74,9 +90,15 @@ func add_scene(scene_node: Node):
 	scene_parent.add_child(scene_node)
 
 func load_subscene(parent: Node, subscene_path: String):
-	# TODO: if perf is an issue, we can preload these for destinations
+	if loaded_scene_instance != null:
+		loaded_scene_instance.queue_free()
+		loaded_scene_instance = null
 	var scene: PackedScene = load(subscene_path)
 	assert(scene != null, "Ask Conner: Couldn't load subscene '" + subscene_path + "'. Has it been set?")
-	var instance: Node = scene.instantiate()
-	assert(instance != null)
-	parent.add_child(instance)
+	loaded_scene_instance = scene.instantiate()
+	assert(loaded_scene_instance != null)
+	parent.add_child(loaded_scene_instance)
+
+func debug_text() -> String:
+	var text: String = "Mode: " + GameMode.keys()[mode]
+	return text

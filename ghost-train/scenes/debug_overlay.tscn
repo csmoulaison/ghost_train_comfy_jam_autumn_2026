@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://24ub07feidlb"]
+
+[ext_resource type="FontFile" uid="uid://dy1f627dstu88" path="res://resources/fonts/CommitMono-700-Regular.otf" id="1_wl0fn"]
+
+[sub_resource type="Theme" id="Theme_5m4q6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl0fn"]
+bg_color = Color(0, 0, 0, 0.30588236)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jq1kd"]
+font = ExtResource("1_wl0fn")
+font_size = 12
+
+[node name="DebugOverlay" type="Node" unique_id=1848998548]
+
+[node name="Control" type="Control" parent="." unique_id=1700963370]
+z_index = 1000
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+theme = SubResource("Theme_5m4q6")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=431548481]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wl0fn")
+
+[node name="DebugOverlayLabel" type="Label" parent="Control/Panel" unique_id=597558644]
+custom_maximum_size = Vector2(390, 390)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jq1kd")
+autowrap_mode = 2

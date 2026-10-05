@@ -1,0 +1,60 @@
+[gd_resource type="Theme" format=3 uid="uid://cm67ku6mq27ta"]
+
+[ext_resource type="FontFile" uid="uid://dw45axpg1oeba" path="res://resources/fonts/Et_Bembo.ttf" id="1_qjbne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcdf5"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.8185598, 0.7017566, 0.3623637, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.6665502, 0.36388886, 0.16056281, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_size = 7
+shadow_offset = Vector2(0, 4)
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8rcm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+default_font = ExtResource("1_qjbne")
+default_font_size = 36
+Button/colors/font_color = Color(0.24940833, 0.106141485, 5.7756904e-07, 1)
+Button/colors/font_disabled_color = Color(0.49803922, 0.49803922, 0.49803922, 0.59607846)
+Button/colors/font_focus_color = Color(0.2509804, 0.105882354, 0, 1)
+Button/colors/font_hover_color = Color(0.2509804, 0.105882354, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.2509804, 0.105882354, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/focus = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/hover = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/normal = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/pressed = SubResource("StyleBoxFlat_vcdf5")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_v8rcm")
+HBoxContainer/constants/separation = 32
+Label/colors/font_color = Color(0.2509804, 0.105882354, 0, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_vcdf5")

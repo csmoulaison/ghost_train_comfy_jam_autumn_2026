@@ -4,7 +4,7 @@ var people: Array[Person] = []
 var locations: Array[Location] = []
 var roads: Array[Road] = []
 
-func _init() -> void:
+func _init():
 	initialize_resource_type(people, ID.Person, "people")
 	initialize_resource_type(locations, ID.Location, "locations")
 	initialize_resource_type(roads, ID.Road, "roads")

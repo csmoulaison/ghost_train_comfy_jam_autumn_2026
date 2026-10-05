@@ -24,12 +24,18 @@ MapState="*uid://dtrwl32u102c4"
 CinematicState="*uid://cvhpw22hipuyi"
 TrainState="*uid://byn0m5l8g4sbk"
 DialogueState="*uid://b8s1536cnraoh"
+DebugOverlay="*uid://cpru3magkjf7k"
 ModeState="*uid://3tj7rid46lrh"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="uid://cm67ku6mq27ta"
+theme/custom_font="uid://dw45axpg1oeba"
 
 [physics]
 
