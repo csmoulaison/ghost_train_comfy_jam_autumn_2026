@@ -97,7 +97,8 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(scene != null, "Ask Conner: Couldn't load subscene '" + subscene_path + "'. Has it been set?")
 	loaded_scene_instance = scene.instantiate()
 	assert(loaded_scene_instance != null)
-	# TODO(now): loading subscene avatars, still bug fixing
+	# TODO: There is no test here for testing if there isn't an avatar defined 
+	# where there should be. Not great.
 	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*")
 	for avatar in avatars:
 		avatar.visible = false
@@ -105,9 +106,6 @@ func load_subscene(parent: Node, subscene_path: String):
 	for id in ID.Person.PERSON_COUNT:
 		var matching_avatar: Node = null
 		for avatar in avatars:
-			# TODO(now): debug to break on witch
-			if avatar.person_id == ID.Person.WITCH:
-				pass
 			if avatar.person_id != id:
 				continue
 			if ModeState.mode == GameMode.DESTINATION:
@@ -121,7 +119,6 @@ func load_subscene(parent: Node, subscene_path: String):
 				if GameState.people_on_train[id]:
 					matching_avatar = avatar
 					break
-		#assert(matching_avatar != null, "Person at location or train, but no matching avatar found there.")
 		if matching_avatar != null:
 			var person: Person = ResourceData.people[id]
 			matching_avatar.visible = true
@@ -129,7 +126,6 @@ func load_subscene(parent: Node, subscene_path: String):
 			var sprite_node = matching_avatar.get_node("Sprite2D")
 			assert(sprite_node != null)
 			sprite_node.texture = person.default_texture
-				
 	parent.add_child(loaded_scene_instance)
 
 func debug_text() -> String:

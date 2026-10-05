@@ -7,3 +7,6 @@ class_name PersonAvatar extends Node2D
 
 func _ready():
 	assert(sprite != null)
+
+# TODO(now): For the test, just click on the avatar and it will board/offboard
+# from the train. Later, this will happen during dialogue.
