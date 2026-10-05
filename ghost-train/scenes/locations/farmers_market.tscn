@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dwpj11brq37qg"]
+
+[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="1_agfgh"]
+[ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="2_xnukh"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_xyafi"]
+
+[node name="Graveyard" type="Node2D" unique_id=166533899]
+
+[node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
+position = Vector2(-41.000004, -976)
+scale = Vector2(0.9545664, 2.32207)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
+texture = ExtResource("1_agfgh")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1506886441]
+position = Vector2(747, 595.5)
+scale = Vector2(0.46679688, 0.46679688)
+texture = ExtResource("2_xnukh")
+
+[node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("3_xyafi")]
+position = Vector2(349, 580)
+person_id = 7
+
+[node name="PersonAvatar2" parent="." unique_id=1871530558 instance=ExtResource("3_xyafi")]
+position = Vector2(762, 588.5)
+scale = Vector2(0.5453023, 0.5453023)
+person_id = 7
+at_destination_but_on_train = true

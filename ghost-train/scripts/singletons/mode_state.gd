@@ -49,12 +49,14 @@ func enter_destination_mode(location_id: ID.Location):
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
 	load_subscene(destination_subscene_parent, location.subscene_path)
+	update_scene_avatars(loaded_scene_instance)
 	
 func enter_travel_mode():
 	switch_mode(GameMode.TRAVEL)
 	TrainState.current_location = ID.Location.DEFAULT
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
+	update_scene_avatars(travel_scene)
 	
 func enter_map_mode():
 	switch_mode(GameMode.MAP)
@@ -97,9 +99,12 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(scene != null, "Ask Conner: Couldn't load subscene '" + subscene_path + "'. Has it been set?")
 	loaded_scene_instance = scene.instantiate()
 	assert(loaded_scene_instance != null)
+	parent.add_child(loaded_scene_instance)
+
+func update_scene_avatars(scene: Node):
 	# TODO: There is no test here for testing if there isn't an avatar defined 
 	# where there should be. Not great.
-	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*")
+	var avatars: Array[Node] = scene.find_children("PersonAvatar*")
 	for avatar in avatars:
 		avatar.visible = false
 		avatar.process_mode = Node.PROCESS_MODE_DISABLED
@@ -126,7 +131,6 @@ func load_subscene(parent: Node, subscene_path: String):
 			var sprite_node = matching_avatar.get_node("Sprite2D")
 			assert(sprite_node != null)
 			sprite_node.texture = person.default_texture
-	parent.add_child(loaded_scene_instance)
 
 func debug_text() -> String:
 	var text: String = "Mode: " + GameMode.keys()[mode]

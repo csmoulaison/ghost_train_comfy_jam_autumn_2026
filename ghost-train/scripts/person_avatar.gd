@@ -4,9 +4,19 @@ class_name PersonAvatar extends Node2D
 @export var at_destination_but_on_train: bool = false
 
 @onready var sprite = get_node("Sprite2D")
+@onready var area = get_node("Area2D")
 
 func _ready():
 	assert(sprite != null)
+	assert(area != null)
+	area.input_event.connect(click)
 
-# TODO(now): For the test, just click on the avatar and it will board/offboard
-# from the train. Later, this will happen during dialogue.
+# TODO: Delete this functionality, it's just a temporary stand in for what will
+# eventually be triggered mroe explicitly by DialogueLine data.
+func click(viewport: Node, event: InputEvent, shape_idx: int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if ModeState.mode == ModeState.GameMode.DESTINATION:
+			if at_destination_but_on_train:
+				TrainState.offboard_passenger(person_id, TrainState.current_location)
+			else:
+				TrainState.board_passenger(person_id)

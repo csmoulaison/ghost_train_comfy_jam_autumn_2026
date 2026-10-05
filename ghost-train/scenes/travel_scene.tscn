@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bf8xhxvdcmidr" path="res://resources/textures/train.png" id="1_7prj5"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="1_q2wao"]
 [ext_resource type="Script" uid="uid://bp35au64jyp0b" path="res://scripts/tmp_end_travel_button.gd" id="3_3qrgf"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_um1jw"]
 
 [sub_resource type="Gradient" id="Gradient_4fjjy"]
 
@@ -35,3 +36,7 @@ texture = SubResource("GradientTexture2D_vqyoh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TMP_EndTravelButton" unique_id=842500463]
 shape = SubResource("RectangleShape2D_3qrgf")
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("4_um1jw")]
+position = Vector2(714, 384)
+person_id = 7

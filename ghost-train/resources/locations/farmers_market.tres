@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_xgqgn")
-name = "Default"
+name = "Farmer's Market"
+subscene_path = "uid://dwpj11brq37qg"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"
