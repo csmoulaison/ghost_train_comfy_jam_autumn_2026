@@ -40,7 +40,10 @@ func _process(dt: float):
 	if !initialized:
 		initialized = true
 		# TODO: start at main menu, presumably
-		enter_destination_mode(ID.Location.GRAVEYARD)
+		switch_mode(GameMode.MAIN_MENU)
+
+func start_from_menu():
+	enter_destination_mode(ID.Location.GRAVEYARD)
 	
 func enter_destination_mode(location_id: ID.Location):
 	switch_mode(GameMode.DESTINATION)
@@ -79,7 +82,7 @@ func switch_mode(new_mode: GameMode):
 		GameMode.MAP:
 			add_scene(map_scene)
 		GameMode.MAIN_MENU:
-			assert(false, "Why are we entering the main menu from the game? The rest of the game's programming doesn't account for that very well.")
+			add_scene(main_menu_scene)
 		GameMode.PAUSE_MENU:
 			assert(false, "Shouldn't call switch_mode with pause menu. Pausing doesn't remove other scenes, so it has its own logic.")
 

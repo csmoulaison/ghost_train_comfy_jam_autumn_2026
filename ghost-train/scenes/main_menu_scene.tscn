@@ -1,3 +1,25 @@
 [gd_scene format=3 uid="uid://dqmnk6klckxfn"]
 
+[ext_resource type="Texture2D" uid="uid://cquigsjqyqsbw" path="res://resources/textures/title.png" id="1_vfskp"]
+[ext_resource type="Texture2D" uid="uid://biq1nl6lfpurq" path="res://resources/textures/press_start.png" id="2_7hcs8"]
+[ext_resource type="Script" uid="uid://dfth4emlj5d58" path="res://scripts/tmp_press_start_button.gd" id="3_7hcs8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
+size = Vector2(280, 157)
+
 [node name="MainMenuScene" type="Node" unique_id=1165028561]
+
+[node name="Title" type="Sprite2D" parent="." unique_id=892092242]
+position = Vector2(674, 237)
+texture = ExtResource("1_vfskp")
+
+[node name="PressStart" type="Sprite2D" parent="." unique_id=726334913]
+position = Vector2(537, 503)
+texture = ExtResource("2_7hcs8")
+
+[node name="Area2D" type="Area2D" parent="PressStart" unique_id=568264045]
+script = ExtResource("3_7hcs8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressStart/Area2D" unique_id=2001115021]
+position = Vector2(-27, 21.5)
+shape = SubResource("RectangleShape2D_hck3a")
