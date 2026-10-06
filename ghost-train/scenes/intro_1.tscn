@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1skuc5yksq82"]
+
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="1_cmnvx"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="2_bml7g"]
+
+[node name="Intro1" type="Node2D" unique_id=1277225679]
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("1_cmnvx")]
+position = Vector2(-762, 496)
+scale = Vector2(2.24, 2.24)
+
+[node name="GhostPlayer" parent="TrainAvatar" unique_id=123701996 instance=ExtResource("2_bml7g")]
+position = Vector2(124, -64)

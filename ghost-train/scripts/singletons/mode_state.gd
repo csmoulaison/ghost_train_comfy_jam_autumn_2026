@@ -1,6 +1,7 @@
 extends Node
 
 enum GameMode {
+	ONLY_CINEMATIC,
 	TRAVEL,
 	DESTINATION,
 	MAP,
@@ -43,7 +44,7 @@ func _process(dt: float):
 		switch_mode(GameMode.MAIN_MENU)
 
 func start_from_menu():
-	enter_destination_mode(ID.Location.GRAVEYARD)
+	CinematicState.start_cinematic(ID.Cinematic.INTRO_1, true)
 	
 func enter_destination_mode(location_id: ID.Location):
 	switch_mode(GameMode.DESTINATION)
@@ -83,6 +84,8 @@ func switch_mode(new_mode: GameMode):
 			add_scene(map_scene)
 		GameMode.MAIN_MENU:
 			add_scene(main_menu_scene)
+		GameMode.ONLY_CINEMATIC:
+			pass
 		GameMode.PAUSE_MENU:
 			assert(false, "Shouldn't call switch_mode with pause menu. Pausing doesn't remove other scenes, so it has its own logic.")
 

@@ -10,6 +10,7 @@ func _process(dt: float):
 	output_debug_label_line(ModeState.debug_text())
 	output_debug_label_line(TrainState.debug_text())
 	output_debug_label_line(MoneyState.debug_text())
+	output_debug_label_line(CinematicState.debug_text())
 	
 func output_debug_label_line(text: String):
 	debug_label.text += text + "\n"

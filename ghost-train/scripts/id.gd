@@ -87,3 +87,9 @@ enum Event {
 	START_TRAVEL,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
+
+enum Cinematic {
+	DEFAULT,
+	INTRO_1,
+	CINEMATIC_COUNT,
+}
