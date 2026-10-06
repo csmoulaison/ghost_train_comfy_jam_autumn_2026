@@ -10,6 +10,8 @@ class_name GhostPlayer extends Node2D
 ## The keys are set in Project Settings -> Input Map: move_left, move_right,
 ## move_up, move_down and move_to_click.
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 ## Top speed, in pixels per second.
 @export var speed: float = 400.0
 ## How floaty the ghost feels: the seconds it takes to get up to top speed, and
@@ -19,6 +21,13 @@ class_name GhostPlayer extends Node2D
 ## Which way the sprite's art is drawn facing. Untick this if the art gets
 ## swapped for one that faces right.
 @export var art_faces_left: bool = true
+
+enum MoveState {
+	IDLE,
+	MOVING
+}
+
+var move_state: MoveState = MoveState.IDLE
 
 @onready var sprite: Sprite2D = get_node("Sprite2D")
 @onready var interactor: PlayerInteractor = get_node("Interactor")
@@ -64,6 +73,14 @@ func _process(delta: float) -> void:
 		_velocity = wanted_velocity
 	else:
 		_velocity = _velocity.move_toward(wanted_velocity, _get_acceleration() * delta)
+
+	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
+
+	match move_state:
+		MoveState.IDLE:
+			animation_player.play("idle")
+		MoveState.MOVING:
+			animation_player.play("idle") # <- can change later...
 
 	global_position += _velocity * delta
 	_keep_on_screen()

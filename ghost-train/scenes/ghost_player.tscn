@@ -4,6 +4,61 @@
 [ext_resource type="Script" uid="uid://cdhq5qgadaw4p" path="res://scripts/ghost_player.gd" id="2_player"]
 [ext_resource type="Script" uid="uid://b54jyetkgvw5b" path="res://scripts/interaction/player_interactor.gd" id="3_interactor"]
 
+[sub_resource type="Animation" id="Animation_jp5f1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72glb"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_bxwid"]
+resource_name = "moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6u5d"]
+_data = {
+&"RESET": SubResource("Animation_jp5f1"),
+&"idle": SubResource("Animation_72glb"),
+&"moving": SubResource("Animation_bxwid")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_reach"]
 radius = 120.0
 
@@ -12,6 +67,12 @@ script = ExtResource("2_player")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1138830871]
 texture = ExtResource("1_d10ha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=614088901]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_f6u5d")
+autoplay = &"idle"
+playback_default_blend_time = 0.25
 
 [node name="Interactor" type="Area2D" parent="." unique_id=604417283]
 script = ExtResource("3_interactor")
