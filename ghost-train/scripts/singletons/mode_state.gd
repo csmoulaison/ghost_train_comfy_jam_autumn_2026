@@ -176,6 +176,8 @@ func draw_person_avatar(avatar: Node, person_id: ID.Person):
 	var person: Person = ResourceData.people[person_id]
 	avatar.visible = true
 	avatar.process_mode = Node.PROCESS_MODE_INHERIT
+	# train car avatars are reused per slot, so tell the avatar who it is now
+	avatar.person_id = person_id
 	var sprite_node = avatar.get_node("Sprite2D")
 	assert(sprite_node != null)
 	sprite_node.texture = person.default_texture
