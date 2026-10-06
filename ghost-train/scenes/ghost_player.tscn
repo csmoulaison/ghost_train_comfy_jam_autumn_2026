@@ -1,8 +1,95 @@
 [gd_scene format=3 uid="uid://cwfyb3tsjv2hu"]
 
-[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/guy.png" id="1_d10ha"]
+[ext_resource type="Texture2D" uid="uid://c8ukl54y83spy" path="res://resources/textures/player/player_sprite_test.png" id="1_d10ha"]
+[ext_resource type="Script" uid="uid://cdhq5qgadaw4p" path="res://scripts/ghost_player.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://b54jyetkgvw5b" path="res://scripts/interaction/player_interactor.gd" id="3_interactor"]
+
+[sub_resource type="Animation" id="Animation_jp5f1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72glb"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_bxwid"]
+resource_name = "moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6u5d"]
+_data = {
+&"RESET": SubResource("Animation_jp5f1"),
+&"idle": SubResource("Animation_72glb"),
+&"moving": SubResource("Animation_bxwid")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_reach"]
+radius = 120.0
 
 [node name="GhostPlayer" type="Node2D" unique_id=123701996]
+script = ExtResource("2_player")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1138830871]
 texture = ExtResource("1_d10ha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=614088901]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_f6u5d")
+autoplay = &"idle"
+playback_default_blend_time = 0.25
+
+[node name="Interactor" type="Area2D" parent="." unique_id=604417283]
+script = ExtResource("3_interactor")
+
+[node name="Reach" type="CollisionShape2D" parent="Interactor" unique_id=1977250316]
+shape = SubResource("CircleShape2D_reach")
+
+[node name="Prompt" type="Node2D" parent="Interactor" unique_id=851336942]
+visible = false
+top_level = true
+z_index = 100
+
+[node name="Label" type="Label" parent="Interactor/Prompt" unique_id=1420958677]
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(1, 0.96, 0.86, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "[F] Talk"
+horizontal_alignment = 1

@@ -12,8 +12,8 @@ extends CanvasLayer
 
 @onready var prompt_panel: DialoguePanel = %PromptPanel
 @onready var prompt_text: RichTextLabel = %PromptText
-@onready var prompt_accept_button: Button = %PromptAcceptButton
-@onready var prompt_decline_button: Button = %PromptDeclineButton
+@onready var prompt_accept_button: TextureButton = %PromptAcceptButton
+@onready var prompt_decline_button: TextureButton = %PromptDeclineButton
 
 @onready var background: ColorRect = %Background
 
