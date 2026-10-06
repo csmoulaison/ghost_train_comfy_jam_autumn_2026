@@ -7,3 +7,5 @@ class_name Person extends Resource
 # more than 1 texture per character, and more than 1 dialogue chain.
 @export var default_texture: Texture2D # TODO: is this the right resource type?
 @export var default_dialogue_chain: DialogueChain
+@export var desired_location: ID.Location
+@export var reached_location_dialogue: DialogueChain

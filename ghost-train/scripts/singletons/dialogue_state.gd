@@ -70,6 +70,12 @@ func answer_prompt(accepted: bool) -> void:
 	# listener is free to start another chain straight away
 	if accepted and line.prompt_event != ID.Event.DEFAULT:
 		EventBus.event_signal.emit(line.prompt_event, 0)
+		
+	# TODO(now): for now, I'm putting boarding passenger right inline here,
+	# which might be all we need for prompts really, we'll see. I'm just
+	# using the person id from the line itself.
+	if accepted:
+		TrainState.try_board_passenger(line.person)
 
 func end_dialogue() -> void:
 	if not is_active(): return

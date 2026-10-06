@@ -53,9 +53,17 @@ func enter_destination_mode(location_id: ID.Location):
 	TrainState.current_location = location_id
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
-	load_subscene(destination_subscene_parent, location.subscene_path)
+	load_subscene(destination_subscene_parent, location.subscene_path)	
 	update_train_avatars()
 	update_destination_avatars()
+	for passenger_index in TrainState.passenger_car_count * TrainState.max_passengers_per_car:
+		var passenger_id: ID.Person = TrainState.passenger_slots[passenger_index]
+		if passenger_id == ID.Person.DEFAULT: 
+			continue
+		var passenger: Person = ResourceData.people[passenger_id]
+		if passenger.desired_location == TrainState.current_location:
+			TrainState.offboard_passenger(passenger_id, TrainState.current_location)
+			DialogueState.start_dialogue(passenger.reached_location_dialogue)
 	
 func enter_travel_mode():
 	switch_mode(GameMode.TRAVEL)
