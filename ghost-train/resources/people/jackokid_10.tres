@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Person" format=3 uid="uid://copfrxgdp73vf"]
+
+[ext_resource type="Texture2D" uid="uid://wyeggb47hadn" path="res://resources/textures/avatar.png" id="1_1c5gl"]
+[ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_kfuar"]
+
+[resource]
+script = ExtResource("2_kfuar")
+name = "Default"
+default_texture = ExtResource("1_1c5gl")
+metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

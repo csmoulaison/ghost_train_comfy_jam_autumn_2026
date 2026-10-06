@@ -110,7 +110,7 @@ func load_subscene(parent: Node, subscene_path: String):
 func update_destination_avatars():
 	# TODO(now): There is no test here for testing if there isn't an avatar defined 
 	# where there should be. Not great. WE CAN PROBS DO THIS NOW!!!
-	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*")
+	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*", "", false)
 	for avatar in avatars:
 		avatar.visible = false
 		avatar.process_mode = Node.PROCESS_MODE_DISABLED
@@ -152,7 +152,7 @@ func update_train_avatars():
 		car.position = Vector2(off_x, 0.0)
 		# TODO(now): update avatars in passenger cars by looking at which slots
 		# people are in.
-		var avatars: Array[Node] = car.find_children("PersonAvatar*")
+		var avatars: Array[Node] = car.find_children("PersonAvatar*", "", false)
 		for avatar in avatars:
 			avatar.visible = false
 			avatar.process_mode = Node.PROCESS_MODE_DISABLED

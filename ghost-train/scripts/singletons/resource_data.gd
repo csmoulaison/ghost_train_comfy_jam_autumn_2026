@@ -3,11 +3,13 @@ extends Node
 var people: Array[Person] = []
 var locations: Array[Location] = []
 var roads: Array[Road] = []
+var cargos: Array[Cargo] = []
 
 func _init():
 	initialize_resource_type(people, ID.Person, "people")
 	initialize_resource_type(locations, ID.Location, "locations")
 	initialize_resource_type(roads, ID.Road, "roads")
+	initialize_resource_type(cargos, ID.Cargo, "cargos")
 
 func initialize_resource_type(list: Array, enum_dictionary: Dictionary, resource_folder_name: String) -> void:
 	var count = enum_dictionary.size() - 1

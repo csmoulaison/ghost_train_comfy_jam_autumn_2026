@@ -15,7 +15,7 @@ centered = false
 
 [node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("2_o8xbc")]
 position = Vector2(1028, 552)
-person_id = 7
+person_id = 5
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_23y0j")]
 position = Vector2(314.00003, 524.99994)
