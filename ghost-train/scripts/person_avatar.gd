@@ -19,5 +19,5 @@ func _on_interacted():
 	# TODO: Delete this functionality, it's just a temporary stand in for what will
 	# eventually be triggered mroe explicitly by DialogueLine data.
 	# Only runs for people with no dialogue chain yet.
-	if ModeState.mode == ModeState.GameMode.DESTINATION and !TrainState.person_on_train(person_id):
-		TrainState.try_board_passenger(person_id)
+	#if ModeState.mode == ModeState.GameMode.DESTINATION and !TrainState.person_on_train(person_id):
+	#	TrainState.try_board_passenger(person_id)
