@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://dvft6wn31i51r"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_e1q30"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_fj2ny"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_k5heb"]
+[ext_resource type="Script" uid="uid://btg77e5of5ld" path="res://scripts/resource_types/effects/board_effect.gd" id="4_edqis"]
+[ext_resource type="Script" uid="uid://xyeocwj14k3q" path="res://scripts/resource_types/effects/offboard_effect.gd" id="5_34xaw"]
+[ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="6_nnu0x"]
+
+[sub_resource type="Resource" id="Resource_7nfks"]
+script = ExtResource("6_nnu0x")
+amount = 2
+metadata/_custom_type_script = "uid://csqmkwj8m3gqa"
+
+[sub_resource type="Resource" id="Resource_e1q30"]
+script = ExtResource("1_e1q30")
+payments = Array[ExtResource("6_nnu0x")]([SubResource("Resource_7nfks")])
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[resource]
+script = ExtResource("2_fj2ny")
+person = 2
+text = "Thanks brother you are the man, you know that? The man. Or woman. Ghost."
+post_effects = Array[ExtResource("1_e1q30")]([SubResource("Resource_e1q30")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"

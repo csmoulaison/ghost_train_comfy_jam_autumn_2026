@@ -2,10 +2,9 @@ class_name Person extends Resource
 
 @export var name: String
 @export var starting_location: ID.Location
-# TODO: These two fields prefixed with default_ are going to need to be more
-# complex in the future as we get a handle on the design. There will probably be
-# more than 1 texture per character, and more than 1 dialogue chain.
-@export var default_texture: Texture2D # TODO: is this the right resource type?
-@export var default_dialogue_chain: DialogueChain
+@export var default_texture: Texture2D
+
+@export var conditional_interact_dialogue: Array[DialogueLine]
+@export var default_interact_dialogue: DialogueLine
 @export var desired_location: ID.Location
-@export var reached_location_dialogue: DialogueChain
+@export var reached_location_dialogue: DialogueLine

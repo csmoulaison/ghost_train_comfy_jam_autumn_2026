@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SmallCargo" format=3 uid="uid://d31sohi1gheo0"]
+
+[ext_resource type="Script" uid="uid://dlanpkw0vk6rh" path="res://scripts/resource_types/small_cargo.gd" id="1_w3x1l"]
+
+[resource]
+script = ExtResource("1_w3x1l")
+metadata/_custom_type_script = "uid://dlanpkw0vk6rh"

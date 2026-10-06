@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://b0jds1t1vd4kk"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_s2dv2"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_8wu54"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_flw75"]
+[ext_resource type="Script" uid="uid://btg77e5of5ld" path="res://scripts/resource_types/effects/board_effect.gd" id="4_5nj40"]
+[ext_resource type="Script" uid="uid://degc2t4yfikdw" path="res://scripts/resource_types/conditions/cargo_condition.gd" id="4_f8kos"]
+[ext_resource type="Script" uid="uid://xyeocwj14k3q" path="res://scripts/resource_types/effects/offboard_effect.gd" id="5_8iw6t"]
+[ext_resource type="Script" uid="uid://xvet8bihtahp" path="res://scripts/resource_types/conditions/flag_condition.gd" id="5_rwkma"]
+[ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="6_f8kos"]
+[ext_resource type="Script" uid="uid://jne4qco7bntd" path="res://scripts/resource_types/conditions/money_condition.gd" id="6_l7pa7"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location_condition.gd" id="7_mau4q"]
+[ext_resource type="Script" uid="uid://cdb4mcpiifiac" path="res://scripts/resource_types/conditions/small_cargo_condition.gd" id="8_ma342"]
+
+[sub_resource type="Resource" id="Resource_f73gc"]
+script = ExtResource("7_mau4q")
+person = 2
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_s2dv2"]
+script = ExtResource("3_flw75")
+person_locations = Array[ExtResource("7_mau4q")]([SubResource("Resource_f73gc")])
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_tmnna"]
+script = ExtResource("4_5nj40")
+person = 2
+metadata/_custom_type_script = "uid://btg77e5of5ld"
+
+[sub_resource type="Resource" id="Resource_umphg"]
+script = ExtResource("1_s2dv2")
+boards = Array[ExtResource("4_5nj40")]([SubResource("Resource_tmnna")])
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_78dpr"]
+script = ExtResource("2_8wu54")
+person = 2
+text = "Psychedelic, brah"
+post_effects = Array[ExtResource("1_s2dv2")]([SubResource("Resource_umphg")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_yphow"]
+script = ExtResource("2_8wu54")
+person = 2
+text = "I gotcha, that's okay brother."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ywxed"]
+script = ExtResource("2_8wu54")
+person = 2
+text = "Care if I board?"
+prompt_text = "Board?"
+default_accept_line = SubResource("Resource_78dpr")
+default_decline_line = SubResource("Resource_yphow")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_8wu54")
+person = 2
+text = "Hey there, fella!"
+conditions = Array[ExtResource("3_flw75")]([SubResource("Resource_s2dv2")])
+default_next_line = SubResource("Resource_ywxed")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

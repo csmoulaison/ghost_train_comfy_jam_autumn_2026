@@ -12,6 +12,4 @@ func _ready():
 
 func _on_interacted():
 	var person: Person = ResourceData.people[person_id]
-	if person.default_dialogue_chain != null:
-		DialogueState.start_dialogue(person.default_dialogue_chain)
-		return
+	DialogueState.open_dialogue(person.conditional_interact_dialogue, person.default_interact_dialogue)

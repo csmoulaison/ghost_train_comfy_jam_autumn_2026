@@ -21,7 +21,7 @@ const SECONDS_PER_CHARACTER: float = 0.03
 const DEBOUNCE_TIME: float = 0.25
 const MARKER_FADE_TIME: float = 0.15
 
-const TEST_CHAIN: DialogueChain = preload("res://resources/dialogue_chains/test_dialogue.tres")
+#const TEST_LINE: DialogueLine = preload("res://resources/dialogue_lines/test_dialogue_line.tres")
 
 #var _is_line_printing: bool = false
 
@@ -53,7 +53,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	# DEBUG ONLY
 	if OS.is_debug_build() and event is InputEventKey:
 		if event.pressed and event.keycode == KEY_F2:
-			DialogueState.start_dialogue(TEST_CHAIN)
+			pass
+			#DialogueState.start_dialogue_line(TEST_LINE)
 
 	# keyboard / gamepad version of clicking the background
 	#if DialogueState.is_active() and event.is_action_pressed("ui_accept"):
@@ -76,11 +77,11 @@ func initialize():
 
 ## signal functions
 
-func _on_dialogue_started(_chain: DialogueChain):
+func _on_dialogue_started(_line: DialogueLine):
 	visible = true
 	dialogue_panel.play_enter()
 
-func _on_dialogue_ended(_chain: DialogueChain):
+func _on_dialogue_ended(_line: DialogueLine):
 	if _line_tween:
 		_line_tween.kill()
 	# only when something else ended the dialogue while the prompt was up

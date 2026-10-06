@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Cargo" format=3 uid="uid://bguvddch6vvrm"]
-
-[ext_resource type="Script" uid="uid://cuet5dtsrr14n" path="res://scripts/resource_types/cargo.gd" id="1_jsbm4"]
-
-[resource]
-script = ExtResource("1_jsbm4")
-name = "Default"
-metadata/_custom_type_script = "uid://cuet5dtsrr14n"

@@ -71,8 +71,10 @@ func enter_destination_mode(location_id: ID.Location):
 			continue
 		var passenger: Person = ResourceData.people[passenger_id]
 		if passenger.desired_location == TrainState.current_location:
+			# TODO(now): offboard on dialogue, I would assume. they can choose if
+			# its immediate or not (pre vs post effect)
 			TrainState.offboard_passenger(passenger_id, TrainState.current_location)
-			DialogueState.start_dialogue(passenger.reached_location_dialogue)
+			DialogueState.open_dialogue([], passenger.reached_location_dialogue)
 	
 func enter_travel_mode():
 	switch_mode(GameMode.TRAVEL)

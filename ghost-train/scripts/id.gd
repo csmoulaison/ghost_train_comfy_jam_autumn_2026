@@ -69,10 +69,15 @@ enum Cargo {
 	APPLES,
 	HONEY,
 	SHROOMS,
+	CARGO_COUNT,
+}
+
+enum SmallCargo {
+	DEFAULT,
 	BOOK,
 	GUITAR,
 	SCYTHE,
-	CARGO_COUNT,
+	SMALL_CARGO_COUNT,
 }
 
 enum Flag {
