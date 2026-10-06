@@ -51,7 +51,7 @@ func _exit_tree() -> void:
 	_velocity = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
-	if DialogueState.is_active(): return
+	if ModeState.control_paused(): return
 
 	if event.is_action_pressed("move_to_click"):
 		_click_target = get_global_mouse_position()
@@ -60,7 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	# the ghost stays put while someone is talking
-	if DialogueState.is_active():
+	if ModeState.control_paused():
 		_cancel_click_move()
 		_velocity = Vector2.ZERO
 		return

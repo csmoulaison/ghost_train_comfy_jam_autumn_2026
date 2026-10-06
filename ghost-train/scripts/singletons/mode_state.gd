@@ -6,7 +6,6 @@ enum GameMode {
 	DESTINATION,
 	MAP,
 	MAIN_MENU,
-	PAUSE_MENU,
 }
 
 # WARNING: IF YOU ADD A SCENE NODE HERE, UPDATE remove_all_scenes() FUNCTION
@@ -22,6 +21,7 @@ enum GameMode {
 var loaded_scene_instance: Node = null
 var mode: GameMode = GameMode.DESTINATION
 var initialized: bool = false
+var pause_menu: bool = false
 
 func _ready() :
 	assert(travel_scene != null)
@@ -43,6 +43,15 @@ func _process(dt: float):
 		# TODO: start at main menu, presumably
 		TrainState.current_location = ID.Location.FARMERS_MARKET
 		switch_mode(GameMode.MAIN_MENU)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if ModeState.pause_menu:
+			scene_parent.remove_child(pause_menu_scene)
+			pause_menu = false
+		else: 
+			add_scene(pause_menu_scene)
+			pause_menu = true
 
 func start_from_menu():
 	CinematicState.start_cinematic(ID.Cinematic.INTRO_1, true)
@@ -95,11 +104,9 @@ func switch_mode(new_mode: GameMode):
 			add_scene(main_menu_scene)
 		GameMode.ONLY_CINEMATIC:
 			pass
-		GameMode.PAUSE_MENU:
-			assert(false, "Shouldn't call switch_mode with pause menu. Pausing doesn't remove other scenes, so it has its own logic.")
 
-# removes scenes from the root's children, but keeps their state in memory for
-# retrieval later.
+## removes scenes from the root's children, but keeps their state in memory for
+## retrieval later.
 func remove_all_scenes():
 	scene_parent.remove_child(travel_scene)
 	scene_parent.remove_child(destination_scene)
@@ -107,10 +114,19 @@ func remove_all_scenes():
 	scene_parent.remove_child(main_menu_scene)
 	scene_parent.remove_child(pause_menu_scene)
 
-# adds a node to the root's children, restoring whatever state it had before it
-# was removed (unless it was screwed with somehow in the interim)
+## adds a node to the root's children, restoring whatever state it had before it
+## was removed (unless it was screwed with somehow in the interim)
 func add_scene(scene_node: Node):
 	scene_parent.add_child(scene_node)
+
+## Dynamic state that we want to pause, for instance, during cinematics or while
+## a pause screen is active, should check if this returns true.
+func control_paused() -> bool:
+	if mode == GameMode.ONLY_CINEMATIC: return true
+	if CinematicState.current_cinematic != ID.Cinematic.DEFAULT: return true
+	if pause_menu: return true
+	if DialogueState.is_active(): return true
+	return false
 
 func load_subscene(parent: Node, subscene_path: String):
 	if loaded_scene_instance != null:
@@ -125,8 +141,6 @@ func load_subscene(parent: Node, subscene_path: String):
 	parent.add_child(loaded_scene_instance)
 
 func update_destination_avatars():
-	# TODO(now): There is no test here for testing if there isn't an avatar defined 
-	# where there should be. Not great. WE CAN PROBS DO THIS NOW!!!
 	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*", "", false)
 	for avatar in avatars:
 		avatar.visible = false

@@ -1,16 +1,30 @@
 [gd_scene format=3 uid="uid://dte1yxaf2d8vt"]
 
 [ext_resource type="Texture2D" uid="uid://bc4pxs01a2tfn" path="res://resources/textures/train_front.png" id="1_cseyt"]
+[ext_resource type="Script" uid="uid://biqhc3kxoe2gm" path="res://scenes/train_avatar.gd" id="1_l7vmw"]
 [ext_resource type="PackedScene" uid="uid://d0rt10v8t8cgl" path="res://scenes/car_passenger.tscn" id="2_d686f"]
+[ext_resource type="Script" uid="uid://d2bhdcjm53ur4" path="res://scripts/interaction/interactable.gd" id="2_v4i8w"]
 [ext_resource type="PackedScene" uid="uid://csd7nk5xcjpgv" path="res://scenes/car_cargo.tscn" id="3_4hlee"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7vmw"]
+size = Vector2(312, 362)
+
 [node name="TrainAvatar" type="Node2D" unique_id=1648796774]
+script = ExtResource("1_l7vmw")
 
 [node name="Locomotive" type="Node2D" parent="." unique_id=1033588246]
 
 [node name="Sprite2D" type="Sprite2D" parent="Locomotive" unique_id=336635364]
 position = Vector2(149, -108)
 texture = ExtResource("1_cseyt")
+
+[node name="Interactable" type="Area2D" parent="Locomotive" unique_id=42072195]
+script = ExtResource("2_v4i8w")
+prompt_text = "def"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locomotive/Interactable" unique_id=513132311]
+position = Vector2(142, -62)
+shape = SubResource("RectangleShape2D_l7vmw")
 
 [node name="Car_Passenger1" parent="." unique_id=7601887 instance=ExtResource("2_d686f")]
 position = Vector2(99999, 99999)
