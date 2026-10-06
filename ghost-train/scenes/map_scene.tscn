@@ -8,25 +8,89 @@
 [node name="MapScene" type="Node" unique_id=2143619772]
 
 [node name="MapLocation4" parent="." unique_id=566530891 instance=ExtResource("1_0wcw4")]
-position = Vector2(161, 340)
+position = Vector2(65, 326)
 location_id = 1
 
 [node name="MapLocation2" parent="." unique_id=454798389 instance=ExtResource("1_0wcw4")]
-position = Vector2(347, 433)
+position = Vector2(251, 419)
 location_id = 2
 
 [node name="MapLocation3" parent="." unique_id=1068569206 instance=ExtResource("1_0wcw4")]
-position = Vector2(548, 365)
+position = Vector2(436, 328)
 location_id = 3
 
+[node name="MapLocation5" parent="." unique_id=1950627953 instance=ExtResource("1_0wcw4")]
+position = Vector2(418, 541)
+location_id = 4
+
+[node name="MapLocation6" parent="." unique_id=2038569085 instance=ExtResource("1_0wcw4")]
+position = Vector2(616, 420)
+location_id = 5
+
+[node name="MapLocation9" parent="." unique_id=1105816486 instance=ExtResource("1_0wcw4")]
+position = Vector2(1032, 518)
+location_id = 9
+
+[node name="MapLocation10" parent="." unique_id=128894855 instance=ExtResource("1_0wcw4")]
+position = Vector2(780, 561)
+location_id = 7
+
+[node name="MapLocation7" parent="." unique_id=1585212064 instance=ExtResource("1_0wcw4")]
+position = Vector2(658, 243)
+location_id = 6
+
+[node name="MapLocation8" parent="." unique_id=1139390593 instance=ExtResource("1_0wcw4")]
+position = Vector2(915, 313)
+location_id = 8
+
 [node name="MapRoad1" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
-position = Vector2(252, 385)
+position = Vector2(156, 371)
 rotation = 0.43151438
 road_id = 1
 
 [node name="MapRoad2" parent="." unique_id=2004557442 instance=ExtResource("2_ne7uw")]
-position = Vector2(448, 399)
-rotation = -0.33652008
+position = Vector2(346, 369)
+rotation = -0.5111757
+road_id = 2
+
+[node name="MapRoad3" parent="." unique_id=1896063310 instance=ExtResource("2_ne7uw")]
+position = Vector2(334.00003, 478)
+rotation = 0.64803904
+road_id = 4
+
+[node name="MapRoad4" parent="." unique_id=1356097258 instance=ExtResource("2_ne7uw")]
+position = Vector2(507, 482.00003)
+rotation = -0.5111757
+road_id = 6
+
+[node name="MapRoad5" parent="." unique_id=1352527845 instance=ExtResource("2_ne7uw")]
+position = Vector2(546, 283)
+rotation = -0.37952697
+road_id = 5
+
+[node name="MapRoad6" parent="." unique_id=954768214 instance=ExtResource("2_ne7uw")]
+position = Vector2(643, 332)
+rotation = 1.7793882
+road_id = 7
+
+[node name="MapRoad8" parent="." unique_id=1741071717 instance=ExtResource("2_ne7uw")]
+position = Vector2(786, 277.99997)
+rotation = 0.26132363
+road_id = 9
+
+[node name="MapRoad9" parent="." unique_id=701845879 instance=ExtResource("2_ne7uw")]
+position = Vector2(699.00006, 491.00006)
+rotation = 0.79082733
+road_id = 8
+
+[node name="MapRoad10" parent="." unique_id=1523023618 instance=ExtResource("2_ne7uw")]
+position = Vector2(904, 544)
+rotation = -0.26458028
+road_id = 10
+
+[node name="MapRoad7" parent="." unique_id=686074369 instance=ExtResource("2_ne7uw")]
+position = Vector2(428.00003, 422.00003)
+rotation = 0.018921375
 road_id = 3
 
 [node name="TODO_ConfirmDestinationMenu" type="Node" parent="." unique_id=1334949847]

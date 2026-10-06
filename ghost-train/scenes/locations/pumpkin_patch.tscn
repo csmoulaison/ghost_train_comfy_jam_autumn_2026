@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://coc7w1fu3jav8"]
+
+[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="1_4vhpi"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_qwc58"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_bitfc"]
+
+[node name="PumpkinPatch" type="Node2D" unique_id=166533899]
+
+[node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
+texture = ExtResource("1_4vhpi")
+centered = false
+
+[node name="PersonAvatar1" parent="." unique_id=1390684158 instance=ExtResource("2_qwc58")]
+position = Vector2(994, 510)
+person_id = 2
+
+[node name="PersonAvatar2" parent="." unique_id=1781563468 instance=ExtResource("2_qwc58")]
+position = Vector2(219, 565)
+person_id = 3
+
+[node name="PersonAvatar3" parent="." unique_id=20633738 instance=ExtResource("2_qwc58")]
+position = Vector2(317, 548)
+person_id = 4
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_bitfc")]
+position = Vector2(850, 143.00003)
+scale = Vector2(0.44769287, 0.44769287)

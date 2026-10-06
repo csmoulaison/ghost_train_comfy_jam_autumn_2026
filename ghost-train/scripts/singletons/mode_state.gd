@@ -41,6 +41,7 @@ func _process(dt: float):
 	if !initialized:
 		initialized = true
 		# TODO: start at main menu, presumably
+		TrainState.current_location = ID.Location.FARMERS_MARKET
 		switch_mode(GameMode.MAIN_MENU)
 
 func start_from_menu():
@@ -53,8 +54,8 @@ func enter_destination_mode(location_id: ID.Location):
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
 	load_subscene(destination_subscene_parent, location.subscene_path)
-	update_destination_avatars()
 	update_train_avatars()
+	update_destination_avatars()
 	
 func enter_travel_mode():
 	switch_mode(GameMode.TRAVEL)
@@ -108,8 +109,10 @@ func load_subscene(parent: Node, subscene_path: String):
 		loaded_scene_instance.queue_free()
 		loaded_scene_instance = null
 	var scene: PackedScene = load(subscene_path)
+	print(scene)
 	assert(scene != null, "Ask Conner: Couldn't load subscene '" + subscene_path + "'. Has it been set?")
 	loaded_scene_instance = scene.instantiate()
+	print(loaded_scene_instance)
 	assert(loaded_scene_instance != null)
 	parent.add_child(loaded_scene_instance)
 

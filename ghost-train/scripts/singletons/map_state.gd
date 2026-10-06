@@ -22,6 +22,7 @@ func _ready():
 	
 	# TODO: Is this how we want to initialize unlocked state in the long run?
 	unlock_road(ID.Road.GRAVEYARD_TO_FARMERS_MARKET)
+	unlock_road(ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH)
 	
 	road_nodes.resize(ID.Road.ROAD_COUNT)
 	# NOTE: all the roads names need to start with "MapRoad"

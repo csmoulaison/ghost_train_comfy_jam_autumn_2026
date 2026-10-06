@@ -17,5 +17,7 @@ func _ready():
 	for id in ID.Person.PERSON_COUNT:
 		var person: Person = ResourceData.people[id]
 		people_locations[id] = person.starting_location
+		if people_locations[id] != ID.Person.DEFAULT:
+			pass
 		# TODO: once we have them set up, maybe this assert makes sense?
 		# assert(person.starting_location != ID.Person.DEFAULT)

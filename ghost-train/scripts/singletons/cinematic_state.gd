@@ -13,12 +13,13 @@ func _process(dt: float):
 			assert(intro_train != null)
 			t += dt
 			intro_train.position.x = -700.0 + t_range(t, 0.0, 4.0) * 2400.0
-			if t > 4.0:
+			if t > 1.0:
 				intro_train = null
 				stop_cinematic()
-				ModeState.enter_destination_mode(ID.Location.GRAVEYARD)
+				ModeState.enter_destination_mode(ID.Location.PUMPKIN_PATCH)
 
 func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
+	assert(current_cinematic == ID.Cinematic.DEFAULT, "Started a cinematic without calling stop_cinematic() on an old one, or you are really doing some fucking shenanigans.")
 	current_cinematic = cinematic_id
 	t = 0.0
 	if no_mode:
@@ -45,16 +46,16 @@ func debug_text() -> String:
 	return ""
 
 # helpers on t
-func t_range(t: float, t1: float, t2: float):
-	var range = t2 - t1
-	var offset = t - t1
-	return offset * (1.0 / range)
+func t_range(rt: float, t1: float, t2: float):
+	var r = t2 - t1
+	var offset = rt - t1
+	return offset * (1.0 / r)
 
-func t_in_range(t: float, t1: float, t2: float):
-	var range = t_range(t, t1, t2)
-	if range < 0.0 || range > 1.0:
+func t_in_range(rt: float, t1: float, t2: float):
+	var r = t_range(rt, t1, t2)
+	if r < 0.0 || r > 1.0:
 		return false
 	return true
 
-func t_range_clamped(t: float, t1: float, t2: float):
-	return clamp(t_range(t, t1, t2), 0.0, 1.0)
+func t_range_clamped(rt: float, t1: float, t2: float):
+	return clamp(t_range(rt, t1, t2), 0.0, 1.0)

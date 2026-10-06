@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_agfgh"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_xyafi"]
 
-[node name="Graveyard" type="Node2D" unique_id=166533899]
+[node name="FarmersMarket" type="Node2D" unique_id=166533899]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
 position = Vector2(-41.000004, -976)
