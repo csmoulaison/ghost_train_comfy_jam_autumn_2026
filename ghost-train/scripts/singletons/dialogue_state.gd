@@ -19,7 +19,6 @@ func open_dialogue(conditional_lines: Array[DialogueLine], default_line: Dialogu
 	if is_active():
 		push_error("Start Dialogue Line: a dialogue line is already playing!")
 		return
-	# TODO(now): is this control flow okay?
 	var started_line: DialogueLine = try_start_line_from_conditional_list(conditional_lines, default_line, [])
 	if started_line != null: 
 		dialogue_started.emit(started_line)
@@ -60,12 +59,6 @@ func answer_prompt(accepted: bool) -> void:
 		try_start_line_from_conditional_list(line.conditional_accept_lines, line.default_accept_line, line.accept_effects)
 	else:
 		try_start_line_from_conditional_list(line.conditional_decline_lines, line.default_decline_line, line.decline_effects)
-		
-	# TODO(now): for now, I'm putting boarding passenger right inline here,
-	# which might be all we need for prompts really, we'll see. I'm just
-	# using the person id from the line itself.
-	#if accepted:
-	#	TrainState.try_board_passenger(line.person)
 
 func close_dialogue() -> void:
 	if not is_active(): return

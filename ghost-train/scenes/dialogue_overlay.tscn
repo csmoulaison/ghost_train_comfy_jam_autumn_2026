@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://dla4vq56708s"]
 
 [ext_resource type="Script" uid="uid://dhxq7fncsu2a3" path="res://scripts/dialogue/dialogue_overlay.gd" id="1_t5kwb"]
-[ext_resource type="FontFile" uid="uid://d0r4gkwv8mlnq" path="res://resources/fonts/strangeways/strangeways_regular_sample.ttf" id="3_0pfuj"]
 [ext_resource type="Shader" uid="uid://cdjb1dr12h4dl" path="res://resources/shaders/dialogue_border.gdshader" id="4_border"]
 [ext_resource type="Texture2D" uid="uid://rcp0ls40vdxe" path="res://resources/textures/dialogue/dialogue_bg.png" id="4_rbq1e"]
-[ext_resource type="FontFile" uid="uid://c861owpqnlawi" path="res://resources/fonts/calling_cards/CallingCards_Reg_sample.ttf" id="5_48nix"]
 [ext_resource type="Script" uid="uid://m5cpoyd32hic" path="res://scripts/dialogue/dialogue_panel.gd" id="5_border"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="5_whrla"]
 [ext_resource type="Texture2D" uid="uid://dt4ascbe8v1aw" path="res://resources/textures/dialogue/continue_bubble_1.png" id="6_777c5"]
 [ext_resource type="Theme" uid="uid://c2541cka50rdu" path="res://resources/themes/dialogue_prompt_theme.tres" id="6_prompt"]
 [ext_resource type="Shader" uid="uid://bp6n3qn6kyuq" path="res://resources/shaders/recolor.gdshader" id="6_yc8ip"]
 [ext_resource type="Texture2D" uid="uid://4lrb1v7hhqyb" path="res://resources/textures/dialogue/continue_bubble_2.png" id="7_gtbtm"]
 [ext_resource type="Script" uid="uid://c700isiu52uf" path="res://scripts/utility/recolor_texture_rect.gd" id="7_il06f"]
+[ext_resource type="FontFile" uid="uid://d2vw6e3cspaqi" path="res://resources/fonts/libre_baskerville/LibreBaskerville-BoldItalic.ttf" id="7_pjdyx"]
 [ext_resource type="Texture2D" uid="uid://cxi7y01s31vl5" path="res://resources/textures/dialogue/continue_bubble_3.png" id="8_il06f"]
+[ext_resource type="FontFile" uid="uid://dkmmopnpbsfkj" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Italic.ttf" id="8_ilkg5"]
+[ext_resource type="FontFile" uid="uid://3t7qjhxoybor" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Bold.ttf" id="11_82fuv"]
 [ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/guy.png" id="11_il06f"]
 [ext_resource type="Texture2D" uid="uid://r5n8choonc3h" path="res://resources/textures/buttons/button_normal.png" id="12_btn_normal"]
 [ext_resource type="Texture2D" uid="uid://cgmeyba0ca14" path="res://resources/textures/buttons/button_hover.png" id="13_btn_hover"]
@@ -50,7 +52,7 @@ shader_parameter/ribbon_spread = 20.0
 shader_parameter/ribbon_tightness = 0.7
 shader_parameter/ribbon_brightness = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0sh4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whrla"]
 shader = ExtResource("6_yc8ip")
 shader_parameter/recolor = Color(1, 1, 1, 1)
 shader_parameter/amount = 0.8
@@ -117,7 +119,7 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_k7ikv"]
-font = ExtResource("3_0pfuj")
+font = ExtResource("11_82fuv")
 font_size = 34
 outline_size = 2
 outline_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
@@ -230,14 +232,17 @@ theme_override_constants/margin_bottom = 16
 [node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/MarginContainer" unique_id=1573471300]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("5_48nix")
+theme_override_fonts/normal_font = ExtResource("5_whrla")
+theme_override_fonts/bold_font = ExtResource("11_82fuv")
+theme_override_fonts/bold_italics_font = ExtResource("7_pjdyx")
+theme_override_fonts/italics_font = ExtResource("8_ilkg5")
 theme_override_font_sizes/normal_font_size = 28
 text = "Hello world!"
 fit_content = true
 
 [node name="NextMarker" type="TextureRect" parent="DialoguePanel" unique_id=1416883236]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_q0sh4")
+material = SubResource("ShaderMaterial_whrla")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -330,7 +335,7 @@ theme_override_constants/margin_bottom = 10
 [node name="PromptText" type="RichTextLabel" parent="PromptPanel/VBoxContainer/MarginContainer" unique_id=877999942]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("5_48nix")
+theme_override_fonts/normal_font = ExtResource("7_pjdyx")
 theme_override_font_sizes/normal_font_size = 22
 text = "Okay?"
 fit_content = true
@@ -356,7 +361,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.98, 0.95, 0.88, 1)
 theme_override_colors/font_outline_color = Color(0.025, 0.025, 0.025, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("3_0pfuj")
+theme_override_fonts/font = ExtResource("11_82fuv")
 theme_override_font_sizes/font_size = 24
 text = "Accept"
 horizontal_alignment = 1
@@ -383,7 +388,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.98, 0.95, 0.88, 1)
 theme_override_colors/font_outline_color = Color(0.025, 0.025, 0.025, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("3_0pfuj")
+theme_override_fonts/font = ExtResource("11_82fuv")
 theme_override_font_sizes/font_size = 24
 text = "Decline"
 horizontal_alignment = 1

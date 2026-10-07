@@ -90,8 +90,7 @@ func depart_to_travel():
 func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.OPEN_MAP_BUYING_TRACKS:
 		enter_map_mode(true)
-	
-# TODO(now): bool for buying tracks vs selecting destinations
+
 func enter_map_mode(buying_tracks: bool):
 	MapState.buying_tracks = buying_tracks
 	switch_mode(GameMode.MAP)
@@ -191,8 +190,7 @@ func update_train_avatars():
 		assert(connector != null)
 		off_x -= connector.position.x
 		car.position = Vector2(off_x, 0.0)
-		# TODO(now): update avatars in passenger cars by looking at which slots
-		# people are in.
+		
 		var avatars: Array[Node] = car.find_children("PersonAvatar*", "", false)
 		for avatar in avatars:
 			avatar.visible = false
