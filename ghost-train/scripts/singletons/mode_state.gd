@@ -149,6 +149,8 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(loaded_scene_instance != null)
 	parent.add_child(loaded_scene_instance)
 
+# TODO(now): cargo at destination. probably just object avatar for this, not any
+# special cargo state per se.
 func update_destination_avatars():
 	var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*", "", false)
 	for avatar in avatars:
@@ -165,7 +167,8 @@ func update_destination_avatars():
 				draw_person_avatar(avatar, id)
 				break
 		assert(avatar_found, "No matching avatar at destination.")
-	
+
+# TODO(now): cargo in cars
 func update_train_avatars():
 	var train_avatar: Node = null
 	if mode == GameMode.DESTINATION:

@@ -7,6 +7,10 @@ class_name StateCondition extends Resource
 @export var money_conditions: Array[MoneyCondition] = []
 @export var road_unlocked_conditions: Array[RoadUnlockedCondition] = []
 @export var location_unlocked_conditions: Array[LocationUnlockedCondition] = []
+## at least this many must be available
+@export var passenger_slot_available_condition: bool = false
+## at least this many must be available
+@export var cargo_slot_available_condition: bool = false
 
 func check() -> bool:
 	for flag in flags:
@@ -36,6 +40,10 @@ func check() -> bool:
 				return false
 		else: if !MapState.locations_unlocked[lu.road]: 
 			return false
+	if passenger_slot_available_condition:
+		if TrainState.next_available_passenger_slot() == -1: return false
+	if cargo_slot_available_condition:
+		if TrainState.next_available_cargo_slot() == -1: return false
 	return true
 
 static func check_list(conditions: Array[StateCondition]) -> bool:
