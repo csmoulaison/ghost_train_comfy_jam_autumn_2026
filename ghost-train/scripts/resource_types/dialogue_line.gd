@@ -21,16 +21,5 @@ class_name DialogueLine extends Resource
 @export var conditional_decline_lines: Array[DialogueLine] = []
 @export var default_decline_line: DialogueLine
 
-## TODO(now): DEPRECATE. Set to true when the player accepts.
-#@export var prompt_flag: ID.Flag
-## TODO(now): DEPRECATE. Emitted as soon as the player accepts.
-#@export var prompt_event: ID.Event
-## TODO(now): DEPRECATE. Played after Accept, in place of the rest of this chain. Leave empty to
-## carry on to the next line.
-#@export var accept_chain: DialogueChain
-## TODO(now): DEPRECATE. Played after Decline, in place of the rest of this chain. Leave empty to
-## carry on to the next line.
-#@export var decline_chain: DialogueChain
-
 func has_prompt() -> bool:
 	return prompt_text != ""

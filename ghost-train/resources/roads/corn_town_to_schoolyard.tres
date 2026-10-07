@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_ftkbr")
+endpoint_1 = 5
+endpoint_2 = 7
 metadata/_custom_type_script = "uid://b7lduxod8je3s"

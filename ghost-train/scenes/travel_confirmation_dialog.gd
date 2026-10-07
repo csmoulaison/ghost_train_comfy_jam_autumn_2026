@@ -8,7 +8,7 @@ func _ready():
 	no_button.pressed.connect(on_no)
 
 func on_yes():
-	ModeState.enter_travel_mode()
+	ModeState.depart_to_travel()
 
 func on_no():
 	TrainState.next_location = ID.Location.DEFAULT

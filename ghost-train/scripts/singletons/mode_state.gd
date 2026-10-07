@@ -31,8 +31,9 @@ func _ready() :
 	assert(map_scene != null)
 	assert(main_menu_scene != null)
 	assert(pause_menu_scene != null)
+	EventBus.event_signal.connect(_on_event)
 
-func _process(dt: float):
+func _process(_dt: float):
 	# NOTE: This is done so that every node's _ready function runs on game
 	# startup. Calling enter_destination_mode in our _ready would precede that
 	# happening in the case of all non autoload singletons, and in the case of
@@ -56,43 +57,50 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_from_menu():
 	CinematicState.start_cinematic(ID.Cinematic.INTRO_1, true)
 	
-func enter_destination_mode(location_id: ID.Location):
+func arrive_at_destination(location_id: ID.Location):
 	switch_mode(GameMode.DESTINATION)
-	var location: Location = ResourceData.locations[location_id]
 	TrainState.current_location = location_id
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
-	load_subscene(destination_subscene_parent, location.subscene_path)	
-	update_train_avatars()
-	update_destination_avatars()
+	load_destination_mode(location_id)
 	for passenger_index in TrainState.passenger_car_count * TrainState.max_passengers_per_car:
 		var passenger_id: ID.Person = TrainState.passenger_slots[passenger_index]
 		if passenger_id == ID.Person.DEFAULT: 
 			continue
 		var passenger: Person = ResourceData.people[passenger_id]
 		if passenger.desired_location == TrainState.current_location:
-			# TODO(now): offboard on dialogue, I would assume. they can choose if
-			# its immediate or not (pre vs post effect)
-			TrainState.offboard_passenger(passenger_id, TrainState.current_location)
 			DialogueState.open_dialogue([], passenger.reached_location_dialogue)
+
+func load_destination_mode(location_id: ID.Location):
+	if mode != GameMode.DESTINATION: 
+		switch_mode(GameMode.DESTINATION)
+	var location: Location = ResourceData.locations[location_id]
+	load_subscene(destination_subscene_parent, location.subscene_path)	
+	update_train_avatars()
+	update_destination_avatars()
 	
-func enter_travel_mode():
+func depart_to_travel():
 	switch_mode(GameMode.TRAVEL)
 	TrainState.current_location = ID.Location.DEFAULT
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
 	update_train_avatars()
 	ParallaxState.begin_parallax()
+
+func _on_event(event: ID.Event, _arg: int):
+	if event == ID.Event.OPEN_MAP_BUYING_TRACKS:
+		enter_map_mode(true)
 	
 # TODO(now): bool for buying tracks vs selecting destinations
-func enter_map_mode():
+func enter_map_mode(buying_tracks: bool):
+	MapState.buying_tracks = buying_tracks
 	switch_mode(GameMode.MAP)
 	MapState.init_visual_state()
 
 func switch_mode(new_mode: GameMode):
 	if mode == GameMode.TRAVEL:
 		ParallaxState.end_parallax()
-		
+
 	mode = new_mode
 	remove_all_scenes()
 	match mode:

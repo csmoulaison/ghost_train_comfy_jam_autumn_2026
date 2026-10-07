@@ -1,11 +1,13 @@
 extends Node
 
-# TODO: button for leaving map screen without entering travel mode.
+# TODO: button for leaving map screen without entering travel mode, or when
+# buying tracks.
 
 var locations_unlocked: Array[bool]
 var roads_unlocked: Array[bool]
 var road_nodes: Array[MapRoad]
 var location_nodes: Array[MapLocation]
+var buying_tracks: bool = false
 
 @onready var map_scene: Node = get_tree().current_scene.find_child("MapScene")
 @onready var confirmation_dialog: Node = map_scene.get_node("TravelConfirmationDialog")
@@ -21,8 +23,8 @@ func _ready():
 	roads_unlocked.fill(false)
 	
 	# TODO: Is this how we want to initialize unlocked state in the long run?
-	unlock_road(ID.Road.GRAVEYARD_TO_FARMERS_MARKET)
-	unlock_road(ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH)
+	unlock_road(ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
+	unlock_road(ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH, false)
 	
 	road_nodes.resize(ID.Road.ROAD_COUNT)
 	# NOTE: all the roads names need to start with "MapRoad"
@@ -47,11 +49,12 @@ func _ready():
 		# assert(node != null)
 		pass
 
-func unlock_road(road_id: ID.Road):
+func unlock_road(road_id: ID.Road, visual_update: bool):
 	var road: Road = ResourceData.roads[road_id]
 	roads_unlocked[road_id] = true
 	locations_unlocked[road.endpoint_1] = true
 	locations_unlocked[road.endpoint_2] = true
+	if visual_update: init_visual_state()
 
 func open_confirmation_dialog():
 	map_scene.add_child(confirmation_dialog)

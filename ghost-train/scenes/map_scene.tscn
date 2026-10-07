@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="2_ne7uw"]
 [ext_resource type="Theme" uid="uid://cm67ku6mq27ta" path="res://resources/gui_theme.tres" id="3_5m4q6"]
 [ext_resource type="Script" uid="uid://djkcgxi4vqjd6" path="res://scenes/travel_confirmation_dialog.gd" id="4_vlip3"]
+[ext_resource type="Script" uid="uid://bv8qptobcy7o5" path="res://scenes/exit_map_button.gd" id="5_jlqwp"]
+[ext_resource type="Texture2D" uid="uid://cmrorykksyvab" path="res://resources/textures/exit.png" id="5_vsh3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
+size = Vector2(247, 131)
 
 [node name="MapScene" type="Node" unique_id=2143619772]
 
@@ -153,3 +158,15 @@ text = "Do you want to go
 to Farmer's Market?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ExitMapButton" type="Area2D" parent="." unique_id=927663731]
+position = Vector2(54, 542)
+script = ExtResource("5_jlqwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitMapButton" unique_id=1711386558]
+position = Vector2(95.5, 24.5)
+shape = SubResource("RectangleShape2D_hck3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitMapButton" unique_id=1511633454]
+position = Vector2(97, 26)
+texture = ExtResource("5_vsh3c")

@@ -16,7 +16,7 @@ func _process(dt: float):
 			if t > 1.0:
 				intro_train = null
 				stop_cinematic()
-				ModeState.enter_destination_mode(ID.Location.PUMPKIN_PATCH)
+				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)
 
 func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 	assert(current_cinematic == ID.Cinematic.DEFAULT, "Started a cinematic without calling stop_cinematic() on an old one, or you are really doing some fucking shenanigans.")

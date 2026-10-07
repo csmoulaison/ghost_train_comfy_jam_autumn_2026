@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_agtjt")
+endpoint_1 = 7
+endpoint_2 = 9
 metadata/_custom_type_script = "uid://b7lduxod8je3s"

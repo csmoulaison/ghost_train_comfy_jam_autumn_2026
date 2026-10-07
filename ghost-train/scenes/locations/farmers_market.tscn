@@ -18,6 +18,10 @@ centered = false
 position = Vector2(490, 248)
 person_id = 2
 
+[node name="PersonAvatar2" parent="." unique_id=1650082257 instance=ExtResource("3_xyafi")]
+position = Vector2(988, 308)
+person_id = 5
+
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_agfgh")]
 position = Vector2(703, 567)
 scale = Vector2(0.56, 0.56)

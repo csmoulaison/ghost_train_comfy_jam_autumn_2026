@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://bg61sm3d488mg"]
 
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_6vsfv"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_db5or"]
 [ext_resource type="Texture2D" uid="uid://b5bsji32ywp57" path="res://resources/textures/witch.png" id="1_r0nfo"]
+[ext_resource type="Resource" uid="uid://uvfbp0eo8ww6" path="res://resources/dialogue_lines/witch_at_market.tres" id="2_dinsc"]
 
 [resource]
 script = ExtResource("1_db5or")
-name = "Default"
-starting_location = 1
+name = "Witch"
+starting_location = 2
 default_texture = ExtResource("1_r0nfo")
+default_interact_dialogue = ExtResource("2_dinsc")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

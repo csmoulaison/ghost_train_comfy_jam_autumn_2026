@@ -16,8 +16,8 @@ func _process(dt: float):
 func _on_interacted():
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
-			ModeState.enter_map_mode()
+			ModeState.enter_map_mode(false)
 		ModeState.GameMode.TRAVEL:
-			ModeState.enter_destination_mode(TrainState.next_location)
+			ModeState.arrive_at_destination(TrainState.next_location)
 		_:
 			assert(false, "Interacted with train avatar, not in destination or travel mode?")

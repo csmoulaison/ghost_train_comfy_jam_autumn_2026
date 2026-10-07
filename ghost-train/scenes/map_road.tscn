@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://t80w3yewc0dt" path="res://resources/textures/map_track_locked.png" id="2_ysbdw"]
 [ext_resource type="Texture2D" uid="uid://csj5d70mbfxd8" path="res://resources/textures/map_track_active.png" id="3_spvpg"]
 
-[node name="MapRoad" type="Node2D" unique_id=1083504268]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysbdw"]
+size = Vector2(140, 60)
+
+[node name="MapRoad" type="Area2D" unique_id=341124107]
 script = ExtResource("1_k6kgt")
 locked_texture = ExtResource("2_ysbdw")
 inactive_texture = ExtResource("1_aol8t")
@@ -13,3 +16,6 @@ active_texture = ExtResource("3_spvpg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095780766]
 texture = ExtResource("1_aol8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900307172]
+shape = SubResource("RectangleShape2D_ysbdw")

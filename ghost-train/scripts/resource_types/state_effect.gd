@@ -1,5 +1,6 @@
 class_name StateEffect extends Resource
 
+@export var events: Array[ID.Event] = []
 @export var boards: Array[BoardEffect] = []
 @export var offboards: Array[OffboardEffect] = []
 @export var payments: Array[PaymentEffect] = []
@@ -11,11 +12,12 @@ func fire():
 		TrainState.offboard_passenger(offboard.person, TrainState.current_location)
 	for payment in payments:
 		if payment.losing_money: 
-			MoneyState.coins -= payment.amount
-			if MoneyState.coins < 0:
-				push_error("Didn't if the player had enough coins before losing_money payment effect!")
-				MoneyState.coins = 0
-		else: MoneyState.coins += payment.amount
+			MoneyState.remove_coins(payment.amount)
+		else: 
+			print("adding coins from effect")
+			MoneyState.add_coins(payment.amount)
+	for event in events:
+		EventBus.event_signal.emit(event, 0)
 	return false
 
 static func fire_list(effects: Array[StateEffect]):

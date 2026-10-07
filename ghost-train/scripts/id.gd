@@ -88,8 +88,7 @@ enum Flag {
 
 enum Event {
 	DEFAULT,
-	OPEN_MAP,
-	START_TRAVEL,
+	OPEN_MAP_BUYING_TRACKS,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
 

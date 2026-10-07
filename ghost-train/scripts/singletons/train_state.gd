@@ -8,13 +8,6 @@ var passenger_car_count: int = 1
 var cargo_car_count: int = 1
 var passenger_slots: Array[ID.Person]
 
-# TODO(now): we want an array of cars and an array of passengers in cars replacing
-# GameState.people_on_train[]. assign passengers to a slot and they appear there.
-# When boarding, need to check if passenger can even fit. NOTE: this means the
-# dialogue state needs to have a dialogue line for if the passenger can't fit,
-# which causes an immediate termination. I think maybe the state for all the 
-# boarding dialogue stuff should live on the chain, not the line, and we force
-# designers to only put these events at the end of dialogue chains.
 const max_passenger_cars: int = 3
 const max_passengers_per_car: int = 3
 
