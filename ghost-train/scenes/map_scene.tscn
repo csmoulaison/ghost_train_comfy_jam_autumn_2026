@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://djkcgxi4vqjd6" path="res://scenes/travel_confirmation_dialog.gd" id="4_vlip3"]
 [ext_resource type="Script" uid="uid://bv8qptobcy7o5" path="res://scenes/exit_map_button.gd" id="5_jlqwp"]
 [ext_resource type="Texture2D" uid="uid://cmrorykksyvab" path="res://resources/textures/exit.png" id="5_vsh3c"]
+[ext_resource type="Resource" uid="uid://bg8ejd5e7tmx8" path="res://resources/dialogue_lines/witch_post_map_tutorial.tres" id="6_5gqha"]
+[ext_resource type="Resource" uid="uid://b8ai4g33vog4c" path="res://resources/dialogue_lines/witch_post_map_normal.tres" id="7_raa3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
 size = Vector2(247, 131)
@@ -162,6 +164,8 @@ vertical_alignment = 1
 [node name="ExitMapButton" type="Area2D" parent="." unique_id=927663731]
 position = Vector2(54, 542)
 script = ExtResource("5_jlqwp")
+post_track_dialogue_tutorial = ExtResource("6_5gqha")
+post_track_dialogue_normal = ExtResource("7_raa3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitMapButton" unique_id=1711386558]
 position = Vector2(95.5, 24.5)

@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Cargo" format=3 uid="uid://b4p7m3lq3uwjt"]
 
 [ext_resource type="Script" uid="uid://cuet5dtsrr14n" path="res://scripts/resource_types/cargo.gd" id="1_836as"]
+[ext_resource type="Texture2D" uid="uid://bia3nw4qry0yi" path="res://resources/textures/cargo_shrooms.png" id="1_13812"]
 
 [resource]
 script = ExtResource("1_836as")
-name = "Default"
+name = "Shrooms"
+car_texture = ExtResource("1_13812")
 metadata/_custom_type_script = "uid://cuet5dtsrr14n"

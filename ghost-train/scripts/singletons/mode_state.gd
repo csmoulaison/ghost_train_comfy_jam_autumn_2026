@@ -184,7 +184,7 @@ func update_train_avatars():
 	for car in cargo_car_nodes:
 		car.global_position = Vector2(99999.0, 99999.0)
 		
-	# NOTE: almost exactly the same logic for passenger as cargo
+	# NOTE: lots of shared logic for passenger as for cargo
 	var off_x: float = 0
 	for car_index in TrainState.passenger_car_count:
 		var car: Node = passenger_car_nodes[car_index]
@@ -210,6 +210,14 @@ func update_train_avatars():
 		assert(connector != null)
 		off_x -= connector.position.x
 		car.position = Vector2(off_x, 0.0)
+		var cargo_sprite: Sprite2D = car.get_node("CargoSprite")
+		assert(cargo_sprite != null)
+		var cargo_id: ID.Cargo = TrainState.cargo_slots[car_index]
+		if cargo_id == ID.Cargo.DEFAULT:
+			cargo_sprite.texture = null
+		else:
+			var cargo: Cargo = ResourceData.cargos[cargo_id]
+			cargo_sprite.texture = cargo.car_texture
 
 func draw_person_avatar(avatar: Node, person_id: ID.Person):
 	var person: Person = ResourceData.people[person_id]

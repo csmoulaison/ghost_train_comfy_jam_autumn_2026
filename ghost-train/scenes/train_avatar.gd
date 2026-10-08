@@ -13,6 +13,7 @@ func _process(dt: float):
 		ModeState.GameMode.TRAVEL:
 			interactable.prompt_text = "Arrive"
 
+# TODO(now): stop interaction if we haven't boarded the crow initially. use a flag
 func _on_interacted():
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:

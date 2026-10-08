@@ -15,6 +15,7 @@ func fire():
 	for sell in cargo_sells:
 		TrainState.sell_cargo(sell.cargo)
 	for cload in cargo_loads:
+		print("effect load")
 		assert(TrainState.try_load_cargo(cload.cargo), "Loaded cargo without checking room first!")
 	for payment in payments:
 		if payment.losing_money: 

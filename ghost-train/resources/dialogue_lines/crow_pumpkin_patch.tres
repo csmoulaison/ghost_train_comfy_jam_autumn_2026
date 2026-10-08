@@ -9,8 +9,12 @@
 [ext_resource type="Script" uid="uid://xvet8bihtahp" path="res://scripts/resource_types/conditions/flag_condition.gd" id="5_rwkma"]
 [ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="6_f8kos"]
 [ext_resource type="Script" uid="uid://jne4qco7bntd" path="res://scripts/resource_types/conditions/money_condition.gd" id="6_l7pa7"]
+[ext_resource type="Script" uid="uid://d0n13kn7nixcc" path="res://scripts/resource_types/conditions/location_unlocked_condition.gd" id="6_ma342"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location_condition.gd" id="7_mau4q"]
 [ext_resource type="Script" uid="uid://cdb4mcpiifiac" path="res://scripts/resource_types/conditions/small_cargo_condition.gd" id="8_ma342"]
+[ext_resource type="Script" uid="uid://lwbsfftx0h4b" path="res://scripts/resource_types/conditions/road_unlocked_condition.gd" id="9_f73gc"]
+[ext_resource type="Script" uid="uid://cfeqtvgfxkslg" path="res://scripts/resource_types/effects/cargo_load_effect.gd" id="12_oo300"]
+[ext_resource type="Script" uid="uid://4gv0ecpxu5mi" path="res://scripts/resource_types/effects/cargo_sell_effect.gd" id="13_usrgy"]
 
 [sub_resource type="Resource" id="Resource_f73gc"]
 script = ExtResource("7_mau4q")

@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bw7m33mjelvpb" path="res://resources/textures/scarecrow.png" id="1_8v83j"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_hfkhs"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_nggyv"]
 
 [resource]
 script = ExtResource("1_hfkhs")
-name = "Default"
+name = "Scarecrow"
 default_texture = ExtResource("1_8v83j")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

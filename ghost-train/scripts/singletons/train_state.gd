@@ -30,9 +30,11 @@ func _ready():
 # TODO(now): Is cargo bought? I suppose that's part of dialogue or UI anyway,
 # not part of try_load_cargo proper.
 func try_load_cargo(cargo_id: ID.Cargo) -> bool:
+	print("try load")
 	assert(ModeState.mode == ModeState.GameMode.DESTINATION, "Tried to load cargo, but not at destination!")
 	var slot: int = next_available_cargo_slot()
 	if slot != -1:
+		print("loading it")
 		cargo_slots[slot] = cargo_id
 		ModeState.update_train_avatars()
 		ModeState.update_destination_avatars()

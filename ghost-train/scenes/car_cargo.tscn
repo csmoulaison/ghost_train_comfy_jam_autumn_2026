@@ -10,3 +10,6 @@ texture = ExtResource("1_sf583")
 
 [node name="ConnectPosition" type="Node2D" parent="." unique_id=984801459]
 position = Vector2(658, 0)
+
+[node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
+position = Vector2(308, -80)

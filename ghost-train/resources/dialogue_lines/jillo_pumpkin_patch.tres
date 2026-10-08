@@ -6,8 +6,10 @@
 [ext_resource type="Script" uid="uid://degc2t4yfikdw" path="res://scripts/resource_types/conditions/cargo_condition.gd" id="4_o05im"]
 [ext_resource type="Script" uid="uid://xvet8bihtahp" path="res://scripts/resource_types/conditions/flag_condition.gd" id="5_k42xp"]
 [ext_resource type="Script" uid="uid://jne4qco7bntd" path="res://scripts/resource_types/conditions/money_condition.gd" id="6_a5mcp"]
+[ext_resource type="Script" uid="uid://d0n13kn7nixcc" path="res://scripts/resource_types/conditions/location_unlocked_condition.gd" id="6_kvv07"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location_condition.gd" id="7_kvv07"]
 [ext_resource type="Script" uid="uid://cdb4mcpiifiac" path="res://scripts/resource_types/conditions/small_cargo_condition.gd" id="8_westn"]
+[ext_resource type="Script" uid="uid://lwbsfftx0h4b" path="res://scripts/resource_types/conditions/road_unlocked_condition.gd" id="9_westn"]
 
 [sub_resource type="Resource" id="Resource_3idu7"]
 script = ExtResource("7_kvv07")

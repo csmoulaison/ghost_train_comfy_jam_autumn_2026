@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_xbfb6"]
 [ext_resource type="Script" uid="uid://xyeocwj14k3q" path="res://scripts/resource_types/effects/offboard_effect.gd" id="3_2406q"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ajpxp"]
+[ext_resource type="Script" uid="uid://cfeqtvgfxkslg" path="res://scripts/resource_types/effects/cargo_load_effect.gd" id="3_jivoq"]
 [ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="4_jivoq"]
+[ext_resource type="Script" uid="uid://4gv0ecpxu5mi" path="res://scripts/resource_types/effects/cargo_sell_effect.gd" id="4_jrijl"]
 
 [sub_resource type="Resource" id="Resource_gs6tu"]
 script = ExtResource("1_gs6tu")

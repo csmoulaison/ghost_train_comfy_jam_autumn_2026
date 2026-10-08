@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://bg8ejd5e7tmx8"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_l4ukm"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_eysvo"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_f0068"]
+
+[resource]
+script = ExtResource("2_eysvo")
+person = 5
+text = "Thanks for money. Thanks for money."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
