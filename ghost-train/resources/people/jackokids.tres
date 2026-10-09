@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://cnd05e60v0fbh"]
 
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_gt3g7"]
-[ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/jackokids.png" id="1_jcfqo"]
+[ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/programmer_art/jackokids.png" id="1_jcfqo"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_t1c36"]
 
 [resource]

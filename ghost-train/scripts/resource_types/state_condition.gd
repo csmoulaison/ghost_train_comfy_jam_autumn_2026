@@ -23,7 +23,12 @@ func check() -> bool:
 				return false
 		else: if GameState.people_locations[pl.person] != pl.location: 
 			return false
-	# TODO(now): check cargo and small cargo conditions.
+	for c in cargo:
+		# TODO: cargo conditions if needed
+		assert(false)
+	for sc in small_cargo:
+		# TODO: small cargo conditions if needed
+		assert(false)
 	for mc in money_conditions:
 		if mc.must_be_below: 
 			if MoneyState.coins >= mc.amount: return false

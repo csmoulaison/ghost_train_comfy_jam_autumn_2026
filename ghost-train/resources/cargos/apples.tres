@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Cargo" format=3 uid="uid://ds80qauj6pnrm"]
 
 [ext_resource type="Script" uid="uid://cuet5dtsrr14n" path="res://scripts/resource_types/cargo.gd" id="1_6uccr"]
-[ext_resource type="Texture2D" uid="uid://tsqwyv7y76t8" path="res://resources/textures/cargo_apple.png" id="1_en7rs"]
+[ext_resource type="Texture2D" uid="uid://tsqwyv7y76t8" path="res://resources/textures/programmer_art/cargo_apple.png" id="1_en7rs"]
 
 [resource]
 script = ExtResource("1_6uccr")

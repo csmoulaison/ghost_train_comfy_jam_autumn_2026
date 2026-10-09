@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m6mdfxevbitv"]
 
-[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/def_background.png" id="1_rga64"]
+[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/programmer_art/def_background.png" id="1_rga64"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_k0cfv"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]

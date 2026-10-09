@@ -7,6 +7,7 @@ class_name StateEffect extends Resource
 @export var cargo_loads: Array[CargoLoadEffect] = []
 @export var payments: Array[PaymentEffect] = []
 
+# TODO: sound effect?
 func fire():
 	for board in boards:
 		assert(TrainState.try_board_passenger(board.person), "Boarded passenger without checking room first!")

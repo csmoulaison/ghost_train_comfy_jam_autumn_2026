@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://o028in7m8avn"]
 
-[ext_resource type="Script" uid="uid://bajnipk02o70i" path="res://scenes/map_location.gd" id="1_nnfp3"]
-[ext_resource type="Texture2D" uid="uid://c1gj0036fh5rr" path="res://resources/textures/map_location_node.png" id="1_rlklu"]
-[ext_resource type="Texture2D" uid="uid://dyncrb57e0kr" path="res://resources/textures/map_location_node_locked.png" id="2_fqic6"]
-[ext_resource type="Texture2D" uid="uid://c15dhomeiswv2" path="res://resources/textures/map_location_node_active.png" id="4_mg11p"]
+[ext_resource type="Script" uid="uid://bajnipk02o70i" path="res://scripts/map_location.gd" id="1_nnfp3"]
+[ext_resource type="Texture2D" uid="uid://c1gj0036fh5rr" path="res://resources/textures/programmer_art/map_location_node.png" id="1_rlklu"]
+[ext_resource type="Texture2D" uid="uid://dyncrb57e0kr" path="res://resources/textures/programmer_art/map_location_node_locked.png" id="2_fqic6"]
+[ext_resource type="Texture2D" uid="uid://c15dhomeiswv2" path="res://resources/textures/programmer_art/map_location_node_active.png" id="4_mg11p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hck3a"]
 radius = 29.529646

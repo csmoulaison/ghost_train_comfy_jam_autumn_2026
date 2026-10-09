@@ -14,6 +14,8 @@ signal interacted
 ## Where the prompt sits relative to this node. Up is negative.
 @export var prompt_offset: Vector2 = Vector2(0.0, -80.0)
 
+var interaction_active: bool = true
+
 ## Only interactables use this 2D physics layer, so the player's reach finds
 ## nothing else. Named in Project Settings -> Layer Names.
 const PHYSICS_LAYER: int = 2

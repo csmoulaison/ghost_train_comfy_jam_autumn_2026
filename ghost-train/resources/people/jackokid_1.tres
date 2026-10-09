@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://b46qoccth0sr0"]
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_0w1uv"]
-[ext_resource type="Texture2D" uid="uid://wyeggb47hadn" path="res://resources/textures/avatar.png" id="1_3ldb3"]
+[ext_resource type="Texture2D" uid="uid://wyeggb47hadn" path="res://resources/textures/programmer_art/avatar.png" id="1_3ldb3"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_0w1uv"]
 
 [resource]

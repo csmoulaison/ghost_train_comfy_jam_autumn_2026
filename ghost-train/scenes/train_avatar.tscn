@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dte1yxaf2d8vt"]
 
-[ext_resource type="Texture2D" uid="uid://bc4pxs01a2tfn" path="res://resources/textures/train_front.png" id="1_cseyt"]
-[ext_resource type="Script" uid="uid://biqhc3kxoe2gm" path="res://scenes/train_avatar.gd" id="1_l7vmw"]
+[ext_resource type="Texture2D" uid="uid://bc4pxs01a2tfn" path="res://resources/textures/programmer_art/train_front.png" id="1_cseyt"]
+[ext_resource type="Script" uid="uid://biqhc3kxoe2gm" path="res://scripts/train_avatar.gd" id="1_l7vmw"]
 [ext_resource type="PackedScene" uid="uid://d0rt10v8t8cgl" path="res://scenes/car_passenger.tscn" id="2_d686f"]
 [ext_resource type="Script" uid="uid://d2bhdcjm53ur4" path="res://scripts/interaction/interactable.gd" id="2_v4i8w"]
 [ext_resource type="PackedScene" uid="uid://csd7nk5xcjpgv" path="res://scenes/car_cargo.tscn" id="3_4hlee"]

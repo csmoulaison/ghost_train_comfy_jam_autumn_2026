@@ -50,6 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func try_interact(interactable: Interactable) -> bool:
 	if not _can_interact(): return false
 	if not can_reach(interactable): return false
+	if not interactable.interaction_active: return false
 
 	interactable.interact()
 	return true
@@ -75,7 +76,7 @@ func find_interactable_at(point: Vector2) -> Interactable:
 
 ## The one place that decides if interacting is allowed right now.
 func _can_interact() -> bool:
-	return not DialogueState.is_active()
+	return not ModeState.control_paused()
 
 func _find_nearest_in_reach() -> Interactable:
 	if not _can_interact(): return null
@@ -84,6 +85,7 @@ func _find_nearest_in_reach() -> Interactable:
 	var nearest_distance: float = INF
 	for area in get_overlapping_areas():
 		if not (area is Interactable): continue
+		if not (area.interaction_active): continue
 
 		var distance: float = global_position.distance_to(area.global_position)
 		if distance < nearest_distance:

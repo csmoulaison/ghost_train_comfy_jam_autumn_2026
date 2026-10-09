@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://decxs73vimwb7"]
 
-[ext_resource type="Texture2D" uid="uid://cxviiuy143wh2" path="res://resources/textures/paused.png" id="1_f8ffc"]
+[ext_resource type="Texture2D" uid="uid://cxviiuy143wh2" path="res://resources/textures/programmer_art/paused.png" id="1_f8ffc"]
 
 [node name="PauseMenuScene" type="Node" unique_id=1818382822]
 

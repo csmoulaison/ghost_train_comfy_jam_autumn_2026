@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cxi7y01s31vl5" path="res://resources/textures/dialogue/continue_bubble_3.png" id="8_il06f"]
 [ext_resource type="FontFile" uid="uid://dkmmopnpbsfkj" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Italic.ttf" id="8_ilkg5"]
 [ext_resource type="FontFile" uid="uid://3t7qjhxoybor" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Bold.ttf" id="11_82fuv"]
-[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/guy.png" id="11_il06f"]
+[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/programmer_art/guy.png" id="11_il06f"]
 [ext_resource type="Texture2D" uid="uid://r5n8choonc3h" path="res://resources/textures/buttons/button_normal.png" id="12_btn_normal"]
 [ext_resource type="Texture2D" uid="uid://cgmeyba0ca14" path="res://resources/textures/buttons/button_hover.png" id="13_btn_hover"]
 

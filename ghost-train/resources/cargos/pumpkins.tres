@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Cargo" format=3 uid="uid://j7cbt6dlfbsr"]
 
-[ext_resource type="Texture2D" uid="uid://dl0ba2u641am7" path="res://resources/textures/cargo_pumpkins.png" id="1_5ldxp"]
+[ext_resource type="Texture2D" uid="uid://dl0ba2u641am7" path="res://resources/textures/programmer_art/cargo_pumpkins.png" id="1_5ldxp"]
 [ext_resource type="Script" uid="uid://cuet5dtsrr14n" path="res://scripts/resource_types/cargo.gd" id="1_ymqwo"]
 
 [resource]

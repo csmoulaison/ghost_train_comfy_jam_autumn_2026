@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csd7nk5xcjpgv"]
 
-[ext_resource type="Texture2D" uid="uid://r8hr1ouu45iq" path="res://resources/textures/train_cargo.png" id="1_sf583"]
+[ext_resource type="Texture2D" uid="uid://r8hr1ouu45iq" path="res://resources/textures/programmer_art/train_cargo.png" id="1_sf583"]
+[ext_resource type="Script" uid="uid://b31uk6s5rf15y" path="res://scripts/car_cargo_avatar.gd" id="2_lxf33"]
 
 [node name="Car_Cargo" type="Node2D" unique_id=7601887]
 
@@ -13,3 +14,4 @@ position = Vector2(658, 0)
 
 [node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
 position = Vector2(308, -80)
+script = ExtResource("2_lxf33")

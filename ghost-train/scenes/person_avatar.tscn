@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://3qqqic1oxgxu"]
 
 [ext_resource type="Script" uid="uid://do2b0ururkhny" path="res://scripts/person_avatar.gd" id="1_k46cl"]
-[ext_resource type="Texture2D" uid="uid://wyeggb47hadn" path="res://resources/textures/avatar.png" id="1_nmp2g"]
-[ext_resource type="Script" path="res://scripts/interaction/interactable.gd" id="2_interactable"]
+[ext_resource type="Texture2D" uid="uid://wyeggb47hadn" path="res://resources/textures/programmer_art/avatar.png" id="1_nmp2g"]
+[ext_resource type="Script" uid="uid://d2bhdcjm53ur4" path="res://scripts/interaction/interactable.gd" id="2_interactable"]
+[ext_resource type="Script" uid="uid://dhfpp60vl5vfq" path="res://scripts/person_avatar_sprite_update_tool.gd" id="3_81afq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmp2g"]
 size = Vector2(80, 118)
@@ -12,6 +13,7 @@ script = ExtResource("1_k46cl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=467259015]
 texture = ExtResource("1_nmp2g")
+script = ExtResource("3_81afq")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=1638684734]
 script = ExtResource("2_interactable")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://cpjpcmmgeb61u"]
 
-[ext_resource type="Texture2D" uid="uid://b8fiwoiv8om6f" path="res://resources/textures/jillo.png" id="1_4hwll"]
+[ext_resource type="Texture2D" uid="uid://b8fiwoiv8om6f" path="res://resources/textures/programmer_art/jillo.png" id="1_4hwll"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_jl2mq"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_tvnvx"]
 [ext_resource type="Resource" uid="uid://n43djpkfe2v6" path="res://resources/dialogue_lines/jillo_pumpkin_patch.tres" id="2_yv50y"]

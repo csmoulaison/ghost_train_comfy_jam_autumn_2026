@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://nak8v30xjx5i"]
 
 [ext_resource type="PackedScene" uid="uid://bpyyhdvcxf3lq" path="res://scenes/parallax_group.tscn" id="1_5cnn1"]
-[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/def_background.png" id="1_g35lr"]
-[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/rolling_l2.png" id="2_qv77l"]
-[ext_resource type="Texture2D" uid="uid://q8licuxatrhj" path="res://resources/textures/rolling_l1.png" id="3_kbwyt"]
-[ext_resource type="Texture2D" uid="uid://cb177c2usm2id" path="res://resources/textures/bgtree.png" id="4_kbwyt"]
+[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/programmer_art/def_background.png" id="1_g35lr"]
+[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/programmer_art/rolling_l2.png" id="2_qv77l"]
+[ext_resource type="Texture2D" uid="uid://q8licuxatrhj" path="res://resources/textures/programmer_art/rolling_l1.png" id="3_kbwyt"]
+[ext_resource type="Texture2D" uid="uid://cb177c2usm2id" path="res://resources/textures/programmer_art/bgtree.png" id="4_kbwyt"]
 
 [node name="DefaultRoad" type="Node2D" unique_id=1691894120]
 

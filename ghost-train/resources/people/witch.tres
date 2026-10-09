@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_6vsfv"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_db5or"]
-[ext_resource type="Texture2D" uid="uid://b5bsji32ywp57" path="res://resources/textures/witch.png" id="1_r0nfo"]
+[ext_resource type="Texture2D" uid="uid://b5bsji32ywp57" path="res://resources/textures/programmer_art/witch.png" id="1_r0nfo"]
 [ext_resource type="Resource" uid="uid://uvfbp0eo8ww6" path="res://resources/dialogue_lines/witch_at_market.tres" id="2_dinsc"]
 
 [resource]

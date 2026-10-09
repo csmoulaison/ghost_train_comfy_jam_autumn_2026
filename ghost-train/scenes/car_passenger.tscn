@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0rt10v8t8cgl"]
 
-[ext_resource type="Texture2D" uid="uid://dtyw3klnup6j0" path="res://resources/textures/train_passenger.png" id="1_qjt3k"]
+[ext_resource type="Texture2D" uid="uid://dtyw3klnup6j0" path="res://resources/textures/programmer_art/train_passenger.png" id="1_qjt3k"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_yq3k8"]
 
 [node name="Car_Passenger" type="Node2D" unique_id=7601887]
@@ -12,11 +12,8 @@ texture = ExtResource("1_qjt3k")
 [node name="ConnectPosition" type="Node2D" parent="." unique_id=984801459]
 position = Vector2(658, 0)
 
-[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("2_yq3k8")]
-position = Vector2(89, -68)
+[node name="PersonAvatar_1" parent="." unique_id=1390684158 instance=ExtResource("2_yq3k8")]
+position = Vector2(180, -80)
 
-[node name="PersonAvatar_2" parent="." unique_id=30590685 instance=ExtResource("2_yq3k8")]
-position = Vector2(305, -101)
-
-[node name="PersonAvatar_3" parent="." unique_id=1265859623 instance=ExtResource("2_yq3k8")]
-position = Vector2(530, -34)
+[node name="PersonAvatar_2" parent="." unique_id=1265859623 instance=ExtResource("2_yq3k8")]
+position = Vector2(480, -80)

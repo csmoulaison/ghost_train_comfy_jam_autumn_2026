@@ -7,14 +7,12 @@ var current_road: ID.Road
 var passenger_car_count: int = 1
 var cargo_car_count: int = 1
 var passenger_slots: Array[ID.Person]
-# TODO(now): fill slots of cargo like we do with passengers
 var cargo_slots: Array[ID.Cargo]
-# TODO(now): small cargo has avatars on train just like people
 var small_cargo_on_train: Array[ID.SmallCargo]
 
 const max_cargo_cars: int = 3
 const max_passenger_cars: int = 3
-const max_passengers_per_car: int = 3
+const max_passengers_per_car: int = 2
 
 func _ready():
 	current_location = ID.Location.GRAVEYARD
@@ -27,8 +25,6 @@ func _ready():
 	small_cargo_on_train.resize(ID.SmallCargo.SMALL_CARGO_COUNT)
 	small_cargo_on_train.fill(ID.SmallCargo.DEFAULT)
 
-# TODO(now): Is cargo bought? I suppose that's part of dialogue or UI anyway,
-# not part of try_load_cargo proper.
 func try_load_cargo(cargo_id: ID.Cargo) -> bool:
 	print("try load")
 	assert(ModeState.mode == ModeState.GameMode.DESTINATION, "Tried to load cargo, but not at destination!")
@@ -36,8 +32,7 @@ func try_load_cargo(cargo_id: ID.Cargo) -> bool:
 	if slot != -1:
 		print("loading it")
 		cargo_slots[slot] = cargo_id
-		ModeState.update_train_avatars()
-		ModeState.update_destination_avatars()
+		ModeState.update_train_avatars(false)
 		return true
 	return false
 
@@ -47,8 +42,7 @@ func sell_cargo(cargo_id: ID.Cargo):
 		if slot == cargo_id:
 			cargo_slots[slot] = ID.Cargo.DEFAULT
 			MoneyState.add_coins(cargo.revenue)
-			ModeState.update_train_avatars()
-			ModeState.update_destination_avatars()
+			ModeState.update_train_avatars(false)
 			return
 	assert(false, "Tried to sell cargo that we didn't have!")
 
@@ -58,8 +52,7 @@ func try_board_passenger(person_id: ID.Person) -> bool:
 	if slot != -1:
 		GameState.people_locations[person_id] = ID.Location.DEFAULT
 		passenger_slots[slot] = person_id
-		ModeState.update_train_avatars()
-		ModeState.update_destination_avatars()
+		ModeState.update_train_avatars(false)
 		return true
 	return false
 
@@ -69,8 +62,7 @@ func offboard_passenger(person_id: ID.Person, location_id: ID.Location):
 		if passenger_slots[index] == person_id:
 			passenger_slots[index] = ID.Person.DEFAULT
 			GameState.people_locations[person_id] = location_id
-			ModeState.update_train_avatars()
-			ModeState.update_destination_avatars()
+			ModeState.update_train_avatars(false)
 			return
 	assert(false, "Offboarded passenger that wasn't on train!")
 
@@ -89,6 +81,7 @@ func next_available_cargo_slot() -> int:
 	return -1
 
 func person_on_train(id: ID.Person) -> bool:
+	if id == ID.Person.DEFAULT: return false
 	for index in passenger_car_count * max_passengers_per_car:
 		if passenger_slots[index] == id:
 			return true

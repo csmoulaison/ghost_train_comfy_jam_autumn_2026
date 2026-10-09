@@ -1,17 +1,35 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://c1ky4ug8g4glk"]
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_0so2n"]
-[ext_resource type="Texture2D" uid="uid://dnmkfjxuukki4" path="res://resources/textures/crow.png" id="1_3bwah"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_clvy5"]
 [ext_resource type="Resource" uid="uid://b0jds1t1vd4kk" path="res://resources/dialogue_lines/crow_pumpkin_patch.tres" id="2_0so2n"]
 [ext_resource type="Resource" uid="uid://5tu1jyfs4k86" path="res://resources/dialogue_lines/crow_def.tres" id="3_qh7yj"]
+[ext_resource type="Texture2D" uid="uid://2ttlyneids85" path="res://resources/textures/characters/crow/Crow-sit.png" id="4_qh7yj"]
 [ext_resource type="Resource" uid="uid://dvft6wn31i51r" path="res://resources/dialogue_lines/crow_got_to_market.tres" id="5_qh7yj"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="7_px4k2"]
+[ext_resource type="Texture2D" uid="uid://h73duwf5mdv6" path="res://resources/textures/characters/crow/Crow-sit-blink.png" id="8_06o6b"]
+[ext_resource type="Texture2D" uid="uid://b1ymm2kdbr7y7" path="res://resources/textures/characters/crow/Crow-sit-mouth.png" id="9_uajsq"]
+[ext_resource type="Texture2D" uid="uid://c807xvoi7rren" path="res://resources/textures/characters/crow/Crow-stand-blink.png" id="10_23dk4"]
+[ext_resource type="Texture2D" uid="uid://dm2gd0ti1qnm2" path="res://resources/textures/characters/crow/Crow-stand.png" id="11_omvf3"]
+[ext_resource type="Texture2D" uid="uid://cnsdbwlnpnhdl" path="res://resources/textures/characters/crow/Crow-stand-mouth.png" id="12_v1584"]
+
+[sub_resource type="Resource" id="Resource_lxf33"]
+script = ExtResource("7_px4k2")
+stand_idle = ExtResource("11_omvf3")
+stand_blink = ExtResource("10_23dk4")
+stand_talk = ExtResource("12_v1584")
+sit_idle = ExtResource("4_qh7yj")
+sit_blink = ExtResource("8_06o6b")
+sit_talk = ExtResource("9_uajsq")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [resource]
 script = ExtResource("1_clvy5")
 name = "Crow"
 starting_location = 3
-default_texture = ExtResource("1_3bwah")
+default_texture = ExtResource("4_qh7yj")
+texture_pack = SubResource("Resource_lxf33")
+sprite_scale = 0.15
 conditional_interact_dialogue = Array[ExtResource("1_0so2n")]([ExtResource("2_0so2n")])
 default_interact_dialogue = ExtResource("3_qh7yj")
 desired_location = 2

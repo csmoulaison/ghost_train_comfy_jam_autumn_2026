@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://bilcy0pjxj1n5"]
 
-[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/guy.png" id="1_bpqbr"]
+[ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/programmer_art/guy.png" id="1_bpqbr"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_cr36q"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_v8x84"]
 

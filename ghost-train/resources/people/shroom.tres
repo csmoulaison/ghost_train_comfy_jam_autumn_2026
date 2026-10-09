@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://8bbqhf485tav"]
 
-[ext_resource type="Texture2D" uid="uid://ddqchxey6jo1a" path="res://resources/textures/big_cargo_monster.png" id="1_knivm"]
+[ext_resource type="Texture2D" uid="uid://ddqchxey6jo1a" path="res://resources/textures/programmer_art/big_cargo_monster.png" id="1_knivm"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_luhrd"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_k4o0l"]
 
