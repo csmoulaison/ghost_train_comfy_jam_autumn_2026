@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d08s4x0pwpuuq"]
+
+[ext_resource type="Script" uid="uid://dg5wgb1p2ekfg" path="res://scripts/conditional_node.gd" id="1_2xe6k"]
+
+[node name="ConditionalNode" type="Node2D" unique_id=464916204]
+script = ExtResource("1_2xe6k")

@@ -83,6 +83,7 @@ enum SmallCargo {
 enum Flag {
 	DEFAULT,
 	JACKOKIDS_SNUCK_ON_TRAIN, # the first time they sneak on at pumpkin patch
+	JACKOKIDS_SNUCK_OFF_TRAIN, # after they scatter
 	FIRST_TRACK_BOUGHT, # bought the track to the trainyard
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }

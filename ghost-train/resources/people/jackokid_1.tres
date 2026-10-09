@@ -7,5 +7,6 @@
 [resource]
 script = ExtResource("2_0w1uv")
 name = "Jackokid"
+starting_location = 2
 default_texture = ExtResource("1_3ldb3")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

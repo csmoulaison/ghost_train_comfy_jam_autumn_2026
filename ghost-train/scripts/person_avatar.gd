@@ -1,6 +1,10 @@
 class_name PersonAvatar extends Node2D
 
 @export var person_id: ID.Person = ID.Person.DEFAULT
+@export var conditions: Array[StateCondition] = []
+# TODO(now): make this prevent normal interaction and instead just be immediate
+# click which activates new found_jackokid_dialogue field in person resource.
+@export var is_jackokid: bool = false
 
 @onready var sprite = get_node("Sprite2D")
 @onready var interactable: Interactable = get_node("Interactable")
@@ -41,7 +45,7 @@ func set_state(id: ID.Person, set_on_train: bool, set_location: ID.Location, sce
 
 func check_active() -> bool:
 	if person_id == ID.Person.DEFAULT: return false
-	var result = true
-	if on_train and !TrainState.person_on_train(person_id): result = false
-	else: if !on_train and GameState.people_locations[person_id] != TrainState.current_location: result = false
-	return result
+	if on_train and !TrainState.person_on_train(person_id): return false
+	else: if !on_train and GameState.people_locations[person_id] != TrainState.current_location: return false
+	if !StateCondition.check_list(conditions): return false
+	return true

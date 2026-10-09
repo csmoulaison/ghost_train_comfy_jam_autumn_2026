@@ -3,9 +3,40 @@
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_l4ukm"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_eysvo"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_f0068"]
+[ext_resource type="Script" uid="uid://btg77e5of5ld" path="res://scripts/resource_types/effects/board_effect.gd" id="4_f5bfi"]
+[ext_resource type="Script" uid="uid://cfeqtvgfxkslg" path="res://scripts/resource_types/effects/cargo_load_effect.gd" id="5_dyrjh"]
+[ext_resource type="Script" uid="uid://4gv0ecpxu5mi" path="res://scripts/resource_types/effects/cargo_sell_effect.gd" id="6_03rxf"]
+[ext_resource type="Script" uid="uid://xyeocwj14k3q" path="res://scripts/resource_types/effects/offboard_effect.gd" id="7_g7h8a"]
+[ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="8_ymhdx"]
+
+[sub_resource type="Resource" id="Resource_eysvo"]
+script = ExtResource("4_f5bfi")
+person = 5
+metadata/_custom_type_script = "uid://btg77e5of5ld"
+
+[sub_resource type="Resource" id="Resource_l4ukm"]
+script = ExtResource("1_l4ukm")
+boards = Array[ExtResource("4_f5bfi")]([SubResource("Resource_eysvo")])
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_j46s0"]
+script = ExtResource("2_eysvo")
+person = 5
+text = "You fuck"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ce2uj"]
+script = ExtResource("2_eysvo")
+person = 5
+text = "Now take me, take me now."
+prompt_text = "Take her now?"
+accept_effects = Array[ExtResource("1_l4ukm")]([SubResource("Resource_l4ukm")])
+default_decline_line = SubResource("Resource_j46s0")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_eysvo")
 person = 5
-text = "Thanks for money. Thanks for money."
+text = "You have done the tutorial track sequence and you are congratulated."
+default_next_line = SubResource("Resource_ce2uj")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

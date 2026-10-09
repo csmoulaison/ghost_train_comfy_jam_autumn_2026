@@ -1,0 +1,15 @@
+TODOS (added as I work through main chain)
+- Witch dialogue if talk again after declining to board her in farmer's market
+- Other pumpkin (jillo/jacko) during pumpkin patch
+- Crow on train
+- Crow sell stuff at farmer's market
+- Jackokid 1 found
+
+WORKING ON MAIN CHAIN
+> magic mushroom to witch 
+	> get to grim 
+	> get grims guitar to scarecrow 
+	> get scarecrow's scythe to grim 
+	> vampire to grim 
+	> grims unvampires vampire 
+	> then takes you to the graveyard for the outro sequence

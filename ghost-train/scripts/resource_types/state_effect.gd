@@ -1,6 +1,7 @@
 class_name StateEffect extends Resource
 
 @export var events: Array[ID.Event] = []
+@export var set_flags: Array[ID.Flag] = []
 @export var boards: Array[BoardEffect] = []
 @export var offboards: Array[OffboardEffect] = []
 @export var cargo_sells: Array[CargoSellEffect] = []
@@ -26,6 +27,8 @@ func fire():
 			MoneyState.add_coins(payment.amount)
 	for event in events:
 		EventBus.event_signal.emit(event, 0)
+	for flag in set_flags:
+		GameState.flags[flag] = true
 	return false
 
 static func fire_list(effects: Array[StateEffect]):

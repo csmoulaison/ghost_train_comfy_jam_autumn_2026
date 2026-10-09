@@ -2,7 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/programmer_art/rolling_l2.png" id="1_agfgh"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_agfgh"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_hpxfg"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_xyafi"]
+[ext_resource type="Script" uid="uid://degc2t4yfikdw" path="res://scripts/resource_types/conditions/cargo_condition.gd" id="4_w03ps"]
+[ext_resource type="Script" uid="uid://xvet8bihtahp" path="res://scripts/resource_types/conditions/flag_condition.gd" id="5_v18p4"]
+[ext_resource type="Script" uid="uid://d0n13kn7nixcc" path="res://scripts/resource_types/conditions/location_unlocked_condition.gd" id="6_6hig5"]
+[ext_resource type="Script" uid="uid://jne4qco7bntd" path="res://scripts/resource_types/conditions/money_condition.gd" id="7_bqgo2"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location_condition.gd" id="8_7n20y"]
+[ext_resource type="Script" uid="uid://lwbsfftx0h4b" path="res://scripts/resource_types/conditions/road_unlocked_condition.gd" id="9_niv55"]
+[ext_resource type="Script" uid="uid://cdb4mcpiifiac" path="res://scripts/resource_types/conditions/small_cargo_condition.gd" id="10_s01b6"]
+
+[sub_resource type="Resource" id="Resource_hpxfg"]
+script = ExtResource("5_v18p4")
+id = 2
+metadata/_custom_type_script = "uid://xvet8bihtahp"
+
+[sub_resource type="Resource" id="Resource_w03ps"]
+script = ExtResource("3_hpxfg")
+flags = Array[ExtResource("5_v18p4")]([SubResource("Resource_hpxfg")])
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="FarmersMarket" type="Node2D" unique_id=166533899]
 
@@ -17,6 +35,11 @@ centered = false
 [node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("3_xyafi")]
 position = Vector2(490, 248)
 person_id = 2
+
+[node name="PersonAvatar3" parent="." unique_id=1560765008 instance=ExtResource("3_xyafi")]
+position = Vector2(194, 394)
+person_id = 12
+conditions = Array[ExtResource("3_hpxfg")]([SubResource("Resource_w03ps")])
 
 [node name="PersonAvatar2" parent="." unique_id=1650082257 instance=ExtResource("3_xyafi")]
 position = Vector2(988, 308)

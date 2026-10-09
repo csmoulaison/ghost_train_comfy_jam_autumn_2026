@@ -64,6 +64,7 @@ road_id = 2
 position = Vector2(334.00003, 478)
 rotation = 0.64803904
 road_id = 4
+post_track_dialogue_tutorial = ExtResource("6_5gqha")
 
 [node name="MapRoad4" parent="." unique_id=1356097258 instance=ExtResource("2_ne7uw")]
 position = Vector2(507, 482.00003)
@@ -164,8 +165,7 @@ vertical_alignment = 1
 [node name="ExitMapButton" type="Area2D" parent="." unique_id=927663731]
 position = Vector2(54, 542)
 script = ExtResource("5_jlqwp")
-post_track_dialogue_tutorial = ExtResource("6_5gqha")
-post_track_dialogue_normal = ExtResource("7_raa3b")
+post_track_dialogue = ExtResource("7_raa3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitMapButton" unique_id=1711386558]
 position = Vector2(95.5, 24.5)
