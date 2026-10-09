@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_1n5cw")
 name = "Grimm's Grotto"
+subscene_path = "uid://tuj20fjupehf"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

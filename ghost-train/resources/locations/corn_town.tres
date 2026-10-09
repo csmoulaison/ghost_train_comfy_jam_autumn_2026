@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_bmi67")
 name = "Corn Town"
+subscene_path = "uid://ds8u8rajvysqp"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

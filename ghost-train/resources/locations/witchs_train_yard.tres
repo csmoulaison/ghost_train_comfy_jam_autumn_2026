@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_kkouf")
 name = "Witch's Trainyard"
+subscene_path = "uid://snkm87nfxeea"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

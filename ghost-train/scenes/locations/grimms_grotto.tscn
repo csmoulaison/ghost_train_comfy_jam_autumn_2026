@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://tuj20fjupehf"]
+
+[ext_resource type="Texture2D" uid="uid://dbo4yj666gdbh" path="res://resources/textures/tmp_bg/grimms_grotto.png" id="1_cmgif"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_0xse6"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+position = Vector2(-26, -35)
+scale = Vector2(1.9243243, 1.9243243)
+texture = ExtResource("1_cmgif")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_0xse6")]
+position = Vector2(410, 324.99997)
+scale = Vector2(0.55, 0.55)

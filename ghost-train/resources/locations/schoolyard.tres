@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_5cdq7")
 name = "Schoolyard"
+subscene_path = "uid://8b5y66hqlerl"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

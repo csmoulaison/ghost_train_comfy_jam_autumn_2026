@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bjbx3qpy0l0qs"]
+[gd_scene format=3 uid="uid://cipjt15fe2i1u"]
 
 [ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/programmer_art/rolling_l2.png" id="1_o8xbc"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_o8xbc"]

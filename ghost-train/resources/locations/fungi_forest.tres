@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_tflqw")
 name = "Fungi Forest"
+subscene_path = "uid://benprx4102i13"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

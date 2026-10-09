@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://benprx4102i13"]
+
+[ext_resource type="Texture2D" uid="uid://djy7dht5m6046" path="res://resources/textures/tmp_bg/fungi_forest.png" id="1_ra6js"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_sdydn"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+position = Vector2(-32.000004, -23.000002)
+scale = Vector2(2.2515924, 2.2515924)
+texture = ExtResource("1_ra6js")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_sdydn")]
+position = Vector2(186, 503)
+scale = Vector2(0.55, 0.55)

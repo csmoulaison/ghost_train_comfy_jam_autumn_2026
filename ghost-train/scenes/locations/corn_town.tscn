@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ds8u8rajvysqp"]
+
+[ext_resource type="Texture2D" uid="uid://cj4cbrlf2cjan" path="res://resources/textures/tmp_bg/corn_town.png" id="1_4kq6d"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_s7cgy"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+position = Vector2(-32.000004, -23.000002)
+scale = Vector2(2.1319017, 2.1319017)
+texture = ExtResource("1_4kq6d")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_s7cgy")]
+position = Vector2(759, 228)
+scale = Vector2(0.55, 0.55)

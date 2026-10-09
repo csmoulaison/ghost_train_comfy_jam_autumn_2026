@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bvtb2rit3yjg7"]
+
+[ext_resource type="Texture2D" uid="uid://dhhic1t6g1jc3" path="res://resources/textures/refs/cargo_passenger_table.jpg" id="1_4a08k"]
+[ext_resource type="Texture2D" uid="uid://d1r3elg6fjxva" path="res://resources/textures/refs/flowchart.jpg" id="2_o4rg7"]
+[ext_resource type="Texture2D" uid="uid://cq24kgv4n5rie" path="res://resources/textures/refs/sell_cargo.png" id="3_o4rg7"]
+
+[node name="Refs" type="Node2D" unique_id=493162059]
+
+[node name="CargoPassengerTable" type="Sprite2D" parent="." unique_id=853009508]
+position = Vector2(-220, 325)
+texture = ExtResource("1_4a08k")
+
+[node name="Flowchart" type="Sprite2D" parent="." unique_id=750621624]
+position = Vector2(111, 1977)
+texture = ExtResource("2_o4rg7")
+
+[node name="SellCargo" type="Sprite2D" parent="." unique_id=943320703]
+position = Vector2(2178, 696)
+texture = ExtResource("3_o4rg7")

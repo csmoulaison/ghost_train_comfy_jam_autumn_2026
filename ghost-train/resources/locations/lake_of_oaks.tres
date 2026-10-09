@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_4wxd5")
 name = "Lake of Oaks"
+subscene_path = "uid://bng2ebyi1cugk"
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

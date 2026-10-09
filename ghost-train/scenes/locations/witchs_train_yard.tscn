@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://snkm87nfxeea"]
+
+[ext_resource type="Texture2D" uid="uid://bedoprg2pnkeb" path="res://resources/textures/tmp_bg/witchs_train_yard.png" id="1_8mbgn"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_7v5ef"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+position = Vector2(-32.000004, -23.000002)
+scale = Vector2(2.1319017, 2.1319017)
+texture = ExtResource("1_8mbgn")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_7v5ef")]
+position = Vector2(343, 380)
+scale = Vector2(0.55, 0.55)

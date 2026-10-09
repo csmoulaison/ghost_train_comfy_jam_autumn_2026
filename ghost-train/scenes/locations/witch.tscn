@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dxaqiq0ncjqtk"]
+
+[ext_resource type="Texture2D" uid="uid://0gm2t8schjyb" path="res://resources/textures/programmer_art/def_background.png" id="1_f31pf"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_eg28r"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+texture = ExtResource("1_f31pf")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_eg28r")]
+position = Vector2(431, 398)
+scale = Vector2(0.55, 0.55)

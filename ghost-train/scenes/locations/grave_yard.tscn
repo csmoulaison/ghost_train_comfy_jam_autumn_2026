@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dx4r7mdqpvp4"]
+
+[ext_resource type="Texture2D" uid="uid://cuo80ti8dc154" path="res://resources/textures/tmp_bg/graveyard.png" id="1_no0im"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_h15y4"]
+
+[node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
+position = Vector2(-27, -57)
+scale = Vector2(2.7915196, 2.7915196)
+texture = ExtResource("1_no0im")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_h15y4")]
+position = Vector2(-233, 745)
+scale = Vector2(0.55, 0.55)
