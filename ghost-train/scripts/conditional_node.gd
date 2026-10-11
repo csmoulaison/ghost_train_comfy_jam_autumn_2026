@@ -1,5 +1,6 @@
 extends Node2D
 
+@export_multiline var notes: String = ""
 @export var conditions: Array[StateCondition] = []
 
 func _process(dt: float):
