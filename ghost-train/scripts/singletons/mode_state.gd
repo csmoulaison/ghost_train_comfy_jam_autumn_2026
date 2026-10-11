@@ -158,6 +158,9 @@ func load_subscene(parent: Node, subscene_path: String):
 		var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*", "", false)
 		for avatar in avatars: 
 			avatar.set_state(avatar.person_id, false, TrainState.current_location, true)
+		var conditional_nodes: Array[Node] = loaded_scene_instance.find_children("ConditionalNode*", "", false)
+		for node in conditional_nodes:
+			node.scene_load()
 	else: if mode == GameMode.TRAVEL:
 		train_avatar = travel_scene.get_node("TrainAvatar")
 	assert(train_avatar != null)
@@ -186,6 +189,11 @@ func update_train_avatars(scene_init: bool):
 			var person: ID.Person = TrainState.passenger_slots[total_slot]
 			avatar.set_state(person, true, ID.Location.DEFAULT, scene_init)
 			print("i hvae THIS many " + str(slot))
+		var small_cargo_avatars: Array[Node] = passenger_car_nodes[car_index].find_children("SmallCargoAvatar*", "", false)
+		for avatar in small_cargo_avatars:
+			var first_car: bool = false
+			if car_index == 0: first_car = true
+			avatar.set_state(first_car, scene_init)
 	for index in TrainState.cargo_car_count:
 		var cargo_sprite: Sprite2D = cargo_car_nodes[index].get_node("CargoSprite")
 		assert(cargo_sprite != null)

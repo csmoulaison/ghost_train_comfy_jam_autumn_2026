@@ -10,5 +10,5 @@ texture = ExtResource("1_f31pf")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_eg28r")]
-position = Vector2(431, 398)
-scale = Vector2(0.55, 0.55)
+position = Vector2(971, 173)
+scale = Vector2(0.0759328, 0.0759328)

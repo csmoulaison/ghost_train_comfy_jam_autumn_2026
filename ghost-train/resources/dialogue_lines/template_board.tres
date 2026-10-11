@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cwufhjgykuadh"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_4ff8o"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_jbknf"]
+[ext_resource type="Script" uid="uid://btg77e5of5ld" path="res://scripts/resource_types/effects/board_effect.gd" id="2_lwa86"]
+[ext_resource type="Script" uid="uid://cfeqtvgfxkslg" path="res://scripts/resource_types/effects/cargo_load_effect.gd" id="3_hn24k"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_lupqp"]
+[ext_resource type="Script" uid="uid://4gv0ecpxu5mi" path="res://scripts/resource_types/effects/cargo_sell_effect.gd" id="4_prqac"]
+[ext_resource type="Script" uid="uid://xyeocwj14k3q" path="res://scripts/resource_types/effects/offboard_effect.gd" id="5_ksxxl"]
+[ext_resource type="Script" uid="uid://csqmkwj8m3gqa" path="res://scripts/resource_types/effects/payment_effect.gd" id="6_hqhj5"]
+
+[sub_resource type="Resource" id="Resource_yggga"]
+script = ExtResource("2_lwa86")
+metadata/_custom_type_script = "uid://btg77e5of5ld"
+
+[sub_resource type="Resource" id="Resource_ysbdw"]
+script = ExtResource("1_4ff8o")
+boards = Array[ExtResource("2_lwa86")]([SubResource("Resource_yggga")])
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_3m5kc"]
+script = ExtResource("2_jbknf")
+text = "TMP: Boarding now!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4ff8o"]
+script = ExtResource("2_jbknf")
+text = "TMP: Okay, I won't board!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_jbknf")
+text = "TMP(change dialogue/board effect person fields): Can I board the train?"
+prompt_text = "Board?"
+accept_effects = Array[ExtResource("1_4ff8o")]([SubResource("Resource_ysbdw")])
+default_accept_line = SubResource("Resource_3m5kc")
+default_decline_line = SubResource("Resource_4ff8o")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

@@ -13,7 +13,7 @@ func _process(dt: float):
 			assert(intro_train != null)
 			t += dt
 			intro_train.position.x = -700.0 + t_range(t, 0.0, 4.0) * 2400.0
-			if t > 1.0:
+			if t > 4.0:
 				intro_train = null
 				stop_cinematic()
 				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)

@@ -1,6 +1,6 @@
 @tool extends Sprite2D
 
-var parent: Node = null
+var parent: PersonAvatar = null
 var last_person_id: ID.Person = ID.Person.DEFAULT
 
 func _process(_dt) -> void:

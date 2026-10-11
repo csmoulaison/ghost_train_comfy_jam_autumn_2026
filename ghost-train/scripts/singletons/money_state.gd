@@ -1,6 +1,6 @@
 extends Node
 
-var coins: int = 0
+var coins: int = 1000
 
 func try_coins(amount: int) -> bool:
 	if coins >= amount:

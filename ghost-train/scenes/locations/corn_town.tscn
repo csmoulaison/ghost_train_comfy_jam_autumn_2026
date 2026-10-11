@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cj4cbrlf2cjan" path="res://resources/textures/tmp_bg/corn_town.png" id="1_4kq6d"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_s7cgy"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_s7cgy"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_ot4ga"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -12,5 +14,19 @@ texture = ExtResource("1_4kq6d")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_s7cgy")]
-position = Vector2(759, 228)
-scale = Vector2(0.55, 0.55)
+position = Vector2(745.00006, 220)
+scale = Vector2(0.084847026, 0.084847026)
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_s7cgy")]
+position = Vector2(1030, 442.00003)
+scale = Vector2(2.4852526, 2.393349)
+person_id = 6
+
+[node name="PersonAvatar_2" parent="." unique_id=257438558 instance=ExtResource("3_s7cgy")]
+position = Vector2(206, 443)
+scale = Vector2(1.7587714, 1.7587714)
+person_id = 7
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_ot4ga")]
+position = Vector2(769, 442)
+scale = Vector2(1.7462552, 1.7462552)

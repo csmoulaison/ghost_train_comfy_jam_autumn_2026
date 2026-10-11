@@ -4,3 +4,4 @@
 
 [node name="ConditionalNode" type="Node2D" unique_id=464916204]
 script = ExtResource("1_2xe6k")
+conditions = null

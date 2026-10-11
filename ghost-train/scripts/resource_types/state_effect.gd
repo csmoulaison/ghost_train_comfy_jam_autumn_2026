@@ -1,34 +1,38 @@
 class_name StateEffect extends Resource
 
-@export var events: Array[ID.Event] = []
-@export var set_flags: Array[ID.Flag] = []
-@export var boards: Array[BoardEffect] = []
-@export var offboards: Array[OffboardEffect] = []
-@export var cargo_sells: Array[CargoSellEffect] = []
-@export var cargo_loads: Array[CargoLoadEffect] = []
-@export var payments: Array[PaymentEffect] = []
+@export var fire_event: ID.Event
+@export var set_flag: ID.Flag
+@export var board_person: ID.Person
+@export var offboard_person: ID.Person
+@export var load_cargo: ID.Cargo
+@export var sell_cargo: ID.Cargo
+@export var load_small_cargo: ID.SmallCargo
+@export var unload_small_cargo: ID.SmallCargo
+@export var revenue: int
+@export var cost: int
 
 # TODO: sound effect?
 func fire():
-	for board in boards:
-		assert(TrainState.try_board_passenger(board.person), "Boarded passenger without checking room first!")
-	for offboard in offboards:
-		TrainState.offboard_passenger(offboard.person, TrainState.current_location)
-	for sell in cargo_sells:
-		TrainState.sell_cargo(sell.cargo)
-	for cload in cargo_loads:
-		print("effect load")
-		assert(TrainState.try_load_cargo(cload.cargo), "Loaded cargo without checking room first!")
-	for payment in payments:
-		if payment.losing_money: 
-			MoneyState.remove_coins(payment.amount)
-		else: 
-			print("adding coins from effect")
-			MoneyState.add_coins(payment.amount)
-	for event in events:
-		EventBus.event_signal.emit(event, 0)
-	for flag in set_flags:
-		GameState.flags[flag] = true
+	if board_person != ID.Person.DEFAULT:
+		assert(TrainState.try_board_passenger(board_person), "Boarded passenger without checking room first!")
+	if offboard_person != ID.Person.DEFAULT:
+		TrainState.offboard_passenger(offboard_person, TrainState.current_location)
+	if load_cargo != ID.Cargo.DEFAULT:
+		assert(TrainState.try_load_cargo(load_cargo), "Loaded cargo without checking room first!")
+	if sell_cargo != ID.Cargo.DEFAULT:
+		TrainState.sell_cargo(sell_cargo)
+	if load_small_cargo != ID.SmallCargo.DEFAULT:
+		TrainState.small_cargo_on_train[load_small_cargo] = true
+	if unload_small_cargo != ID.SmallCargo.DEFAULT:
+		TrainState.small_cargo_on_train[unload_small_cargo] = false
+	if revenue > 0:
+		MoneyState.add_coins(revenue)
+	if cost > 0:
+		MoneyState.remove_coins(revenue)
+	if fire_event != ID.Event.DEFAULT:
+		EventBus.event_signal.emit(fire_event, 0)
+	if set_flag != ID.Flag.DEFAULT:
+		GameState.flags[set_flag] = true
 	return false
 
 static func fire_list(effects: Array[StateEffect]):

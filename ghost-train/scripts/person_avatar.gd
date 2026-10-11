@@ -1,10 +1,11 @@
 class_name PersonAvatar extends Node2D
 
+@export_multiline var notes: String
 @export var person_id: ID.Person = ID.Person.DEFAULT
 @export var conditions: Array[StateCondition] = []
 # TODO(now): make this prevent normal interaction and instead just be immediate
 # click which activates new found_jackokid_dialogue field in person resource.
-@export var is_jackokid: bool = false
+@export var is_hiding_jackokid: bool = false
 
 @onready var sprite = get_node("Sprite2D")
 @onready var interactable: Interactable = get_node("Interactable")
@@ -17,6 +18,7 @@ func _ready():
 	assert(sprite != null)
 	assert(interactable != null)
 	interactable.interacted.connect(_on_interacted)
+	interactable.input_event.connect(_on_input_event)
 	
 func _process(dt: float):
 	active = check_active()
@@ -24,12 +26,21 @@ func _process(dt: float):
 	interactable.interaction_active = false
 	if active:
 		target_opacity = 1.0
-		interactable.interaction_active = true
+		if on_train and ModeState.mode == ModeState.GameMode.TRAVEL or !on_train and ModeState.mode == ModeState.GameMode.DESTINATION:
+			interactable.interaction_active = true
+	if is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION:
+		interactable.interaction_active = false
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
 	
 func _on_interacted():
 	var person: Person = ResourceData.people[person_id]
 	DialogueState.open_dialogue(person.conditional_interact_dialogue, person.default_interact_dialogue)
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if !is_hiding_jackokid: return
+		var person: Person = ResourceData.people[person_id]
+		DialogueState.open_dialogue([], person.found_jackokid_dialogue)
 
 func set_state(id: ID.Person, set_on_train: bool, set_location: ID.Location, scene_init: bool):
 	person_id = id

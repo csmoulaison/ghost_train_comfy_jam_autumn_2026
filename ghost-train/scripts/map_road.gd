@@ -9,20 +9,26 @@ class_name MapRoad extends Node2D
 
 @onready var sprite_node: Sprite2D = get_node("Sprite2D")
 
+# TODO: pathfinding on the map.
+
 func ready():
 	assert(sprite_node != null)
 
 # TODO: more feedback for tutorial stage of track buying map 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# TODO(now): need an unlockable() or something which includes special logic like
+		# tutorial, grim's grotto, and adjacency. This affects both click and hover.
 		if !MapState.buying_tracks: return
 		if MapState.roads_unlocked[road_id]: return
+		if !GameState.flags[ID.Flag.GROTTO_ROAD_AVAILABLE] and road_id == ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO: return
 		if !GameState.flags[ID.Flag.FIRST_TRACK_BOUGHT]:
-			assert(post_track_dialogue_tutorial != null)
 			if road_id != ID.Road.FARMERS_MARKET_TO_WITCHS_TRAIN_YARD: return
+			assert(post_track_dialogue_tutorial != null)
 			ModeState.load_destination_mode(TrainState.current_location)
 			GameState.flags[ID.Flag.FIRST_TRACK_BOUGHT] = true
 			DialogueState.open_dialogue([], post_track_dialogue_tutorial)
+			
 		
 		# TODO: confirmation dialog box for road purchases
 		var road: Road = ResourceData.roads[road_id]

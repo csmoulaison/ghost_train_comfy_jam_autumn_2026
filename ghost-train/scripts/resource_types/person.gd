@@ -10,3 +10,5 @@ class_name Person extends Resource
 @export var default_interact_dialogue: DialogueLine
 @export var desired_location: ID.Location
 @export var reached_location_dialogue: DialogueLine
+@export var no_room_on_train_dialogue: DialogueLine
+@export var found_jackokid_dialogue: DialogueLine

@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dbo4yj666gdbh" path="res://resources/textures/tmp_bg/grimms_grotto.png" id="1_cmgif"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_0xse6"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_0xse6"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_46ryg"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -12,5 +14,14 @@ texture = ExtResource("1_cmgif")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_0xse6")]
-position = Vector2(410, 324.99997)
-scale = Vector2(0.55, 0.55)
+position = Vector2(426, 451)
+scale = Vector2(0.043367095, 0.043367095)
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_0xse6")]
+position = Vector2(668, 475.00003)
+scale = Vector2(1.7163833, 1.7163833)
+person_id = 11
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_46ryg")]
+position = Vector2(262, 451)
+scale = Vector2(1.475561, 1.475561)

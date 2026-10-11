@@ -1,17 +1,35 @@
 [gd_scene format=3 uid="uid://csd7nk5xcjpgv"]
 
-[ext_resource type="Texture2D" uid="uid://r8hr1ouu45iq" path="res://resources/textures/programmer_art/train_cargo.png" id="1_sf583"]
+[ext_resource type="Texture2D" uid="uid://ir6dq7r28xsk" path="res://resources/textures/Train/wheel.png" id="1_35g2g"]
+[ext_resource type="Texture2D" uid="uid://dx3vmokilo3yl" path="res://resources/textures/Train/CargoCar-nowheels.png" id="1_lxf33"]
 [ext_resource type="Script" uid="uid://b31uk6s5rf15y" path="res://scripts/car_cargo_avatar.gd" id="2_lxf33"]
 
 [node name="Car_Cargo" type="Node2D" unique_id=7601887]
 
+[node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
+position = Vector2(937, -540)
+scale = Vector2(2.4319515, 2.4319515)
+script = ExtResource("2_lxf33")
+
+[node name="Wheel1" type="Sprite2D" parent="." unique_id=1854479556]
+position = Vector2(116, 93)
+texture = ExtResource("1_35g2g")
+
+[node name="Wheel2" type="Sprite2D" parent="." unique_id=317533995]
+position = Vector2(480, 93)
+texture = ExtResource("1_35g2g")
+
+[node name="Wheel3" type="Sprite2D" parent="." unique_id=1827265298]
+position = Vector2(1438, 93)
+texture = ExtResource("1_35g2g")
+
+[node name="Wheel4" type="Sprite2D" parent="." unique_id=962543663]
+position = Vector2(1799, 93)
+texture = ExtResource("1_35g2g")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1728129817]
-position = Vector2(325, -100)
-texture = ExtResource("1_sf583")
+position = Vector2(997, -235)
+texture = ExtResource("1_lxf33")
 
 [node name="ConnectPosition" type="Node2D" parent="." unique_id=984801459]
-position = Vector2(658, 0)
-
-[node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
-position = Vector2(308, -80)
-script = ExtResource("2_lxf33")
+position = Vector2(1938, 0)

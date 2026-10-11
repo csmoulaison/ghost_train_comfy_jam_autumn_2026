@@ -15,6 +15,7 @@ enum Person {
 	JILLO,
 	WITCH,
 	SCARECROW,
+	CORNBOT,
 	BEES,
 	FISH,
 	SHROOM,
@@ -85,6 +86,8 @@ enum Flag {
 	JACKOKIDS_SNUCK_ON_TRAIN, # the first time they sneak on at pumpkin patch
 	JACKOKIDS_SNUCK_OFF_TRAIN, # after they scatter
 	FIRST_TRACK_BOUGHT, # bought the track to the trainyard
+	GROTTO_ROAD_AVAILABLE,
+	TALKED_TO_SCARECROW,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 

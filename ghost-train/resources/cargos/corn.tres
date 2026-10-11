@@ -7,4 +7,5 @@
 script = ExtResource("1_3ci83")
 name = "Corn"
 car_texture = ExtResource("1_7d4e2")
+revenue = 6
 metadata/_custom_type_script = "uid://cuet5dtsrr14n"

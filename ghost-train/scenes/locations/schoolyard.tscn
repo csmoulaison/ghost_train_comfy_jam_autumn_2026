@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cjlxf8ylr7jdc" path="res://resources/textures/tmp_bg/schoolyard.png" id="1_2cu8h"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_61pdk"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="3_61pdk"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_1so75"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -12,5 +14,13 @@ texture = ExtResource("1_2cu8h")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_61pdk")]
-position = Vector2(645, 344)
-scale = Vector2(0.55, 0.55)
+position = Vector2(613, 350)
+scale = Vector2(0.06807276, 0.06807276)
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_61pdk")]
+position = Vector2(500, 476)
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("4_1so75")]
+position = Vector2(927, 452)
+scale = Vector2(1.6305809, 1.6305809)
+person_id = 8

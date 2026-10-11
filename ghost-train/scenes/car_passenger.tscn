@@ -1,19 +1,38 @@
 [gd_scene format=3 uid="uid://d0rt10v8t8cgl"]
 
-[ext_resource type="Texture2D" uid="uid://dtyw3klnup6j0" path="res://resources/textures/programmer_art/train_passenger.png" id="1_qjt3k"]
+[ext_resource type="Texture2D" uid="uid://ir6dq7r28xsk" path="res://resources/textures/Train/wheel.png" id="1_4jirn"]
+[ext_resource type="Texture2D" uid="uid://08mb3x11fuvd" path="res://resources/textures/Train/PassengerCar-Cutaway-nowheels.png" id="2_8ux1y"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_yq3k8"]
 
 [node name="Car_Passenger" type="Node2D" unique_id=7601887]
 
+[node name="Wheel1" type="Sprite2D" parent="." unique_id=1752711142]
+position = Vector2(107.5, 117)
+texture = ExtResource("1_4jirn")
+
+[node name="Wheel2" type="Sprite2D" parent="." unique_id=882386957]
+position = Vector2(471.5, 117)
+texture = ExtResource("1_4jirn")
+
+[node name="Wheel3" type="Sprite2D" parent="." unique_id=1121488783]
+position = Vector2(1153.5, 117)
+texture = ExtResource("1_4jirn")
+
+[node name="Wheel4" type="Sprite2D" parent="." unique_id=1969418529]
+position = Vector2(1514.5, 117)
+texture = ExtResource("1_4jirn")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1728129817]
-position = Vector2(325, -100)
-texture = ExtResource("1_qjt3k")
+position = Vector2(840.5, -337)
+texture = ExtResource("2_8ux1y")
 
 [node name="ConnectPosition" type="Node2D" parent="." unique_id=984801459]
-position = Vector2(658, 0)
+position = Vector2(1674, 0)
 
 [node name="PersonAvatar_1" parent="." unique_id=1390684158 instance=ExtResource("2_yq3k8")]
-position = Vector2(180, -80)
+position = Vector2(513, -224)
+scale = Vector2(3.2670703, 3.2670703)
 
 [node name="PersonAvatar_2" parent="." unique_id=1265859623 instance=ExtResource("2_yq3k8")]
-position = Vector2(480, -80)
+position = Vector2(1074, -224)
+scale = Vector2(3.2670703, 3.2670703)

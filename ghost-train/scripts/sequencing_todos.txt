@@ -1,4 +1,5 @@
 TODOS (added as I work through main chain)
+- Witch doesn't appear until jackokid stuff
 - Witch dialogue if talk again after declining to board her in farmer's market
 - Other pumpkin (jillo/jacko) during pumpkin patch
 - Crow on train
@@ -6,7 +7,7 @@ TODOS (added as I work through main chain)
 - Jackokid 1 found
 
 WORKING ON MAIN CHAIN
-> magic mushroom to witch 
+	> magic mushroom to witch 
 	> get to grim 
 	> get grims guitar to scarecrow 
 	> get scarecrow's scythe to grim 

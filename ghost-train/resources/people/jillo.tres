@@ -4,13 +4,90 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_jl2mq"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_tvnvx"]
 [ext_resource type="Resource" uid="uid://n43djpkfe2v6" path="res://resources/dialogue_lines/jillo_pumpkin_patch.tres" id="2_yv50y"]
-[ext_resource type="Resource" uid="uid://djyr1fonny6kw" path="res://resources/dialogue_lines/jillo_after_crow_leaves.tres" id="3_6jhe3"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="3_wdu22"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_v4v68"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="5_wdu22"]
+
+[sub_resource type="Resource" id="Resource_t2f52"]
+script = ExtResource("4_v4v68")
+person_on_train = 13
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_31wqb"]
+script = ExtResource("3_wdu22")
+offboard_person = 13
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_jkh76"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "Thanks for finding jackokid number 1!"
+conditions = Array[ExtResource("4_v4v68")]([SubResource("Resource_t2f52")])
+pre_effects = Array[ExtResource("3_wdu22")]([SubResource("Resource_31wqb")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_6jhe3"]
+script = ExtResource("3_wdu22")
+load_cargo = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_3xq2k"]
+script = ExtResource("3_wdu22")
+set_flag = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_wdu22"]
+script = ExtResource("5_wdu22")
+person = 2
+location = 2
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_v4v68"]
+script = ExtResource("4_v4v68")
+person_not_at_location = SubResource("Resource_wdu22")
+cargo_not_loaded = 1
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_xyafi"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "Nice, enjoy the pumpkies!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ky5lb"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "But these pumpkins are fresh as fuck dood!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jl2mq"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "Thanks for getting rid of that guy. Load up pumpkins?"
+conditions = Array[ExtResource("4_v4v68")]([SubResource("Resource_v4v68")])
+prompt_text = "Load 'em up?"
+accept_effects = Array[ExtResource("3_wdu22")]([SubResource("Resource_6jhe3"), SubResource("Resource_3xq2k")])
+default_accept_line = SubResource("Resource_xyafi")
+default_decline_line = SubResource("Resource_ky5lb")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_gsf00"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "Hey there!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_23ef6"]
+script = ExtResource("1_jl2mq")
+person = 4
+text = "TMP default"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_tvnvx")
 name = "Jillo"
 starting_location = 3
 default_texture = ExtResource("1_4hwll")
-conditional_interact_dialogue = Array[ExtResource("1_jl2mq")]([ExtResource("2_yv50y")])
-default_interact_dialogue = ExtResource("3_6jhe3")
+conditional_interact_dialogue = Array[ExtResource("1_jl2mq")]([SubResource("Resource_jkh76"), ExtResource("2_yv50y"), SubResource("Resource_jl2mq"), SubResource("Resource_gsf00")])
+default_interact_dialogue = SubResource("Resource_23ef6")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

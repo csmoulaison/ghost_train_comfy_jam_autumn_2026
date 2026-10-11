@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://djy7dht5m6046" path="res://resources/textures/tmp_bg/fungi_forest.png" id="1_ra6js"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_sdydn"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_sdydn"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_25ntq"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -12,5 +14,14 @@ texture = ExtResource("1_ra6js")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_sdydn")]
-position = Vector2(186, 503)
-scale = Vector2(0.55, 0.55)
+position = Vector2(446.99997, 447)
+scale = Vector2(0.09723509, 0.09723509)
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_sdydn")]
+position = Vector2(279, 427.00003)
+scale = Vector2(3.2094965, 3.2094965)
+person_id = 10
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_25ntq")]
+position = Vector2(820, 479)
+scale = Vector2(1.4791044, 1.4791044)

@@ -1,54 +1,43 @@
 class_name StateCondition extends Resource
 
-@export var flags: Array[FlagCondition] = []
-@export var person_locations: Array[PersonLocationCondition] = []
-@export var cargo: Array[CargoCondition] = []
-@export var small_cargo: Array[SmallCargoCondition] = []
-@export var money_conditions: Array[MoneyCondition] = []
-@export var road_unlocked_conditions: Array[RoadUnlockedCondition] = []
-@export var location_unlocked_conditions: Array[LocationUnlockedCondition] = []
-## at least this many must be available
-@export var passenger_slot_available_condition: bool = false
-## at least this many must be available
-@export var cargo_slot_available_condition: bool = false
+@export var flag_true: ID.Flag = ID.Flag.DEFAULT
+@export var flag_false: ID.Flag = ID.Flag.DEFAULT
+@export var person_at_location: PersonLocationPair
+@export var person_not_at_location: PersonLocationPair
+@export var person_on_train: ID.Person = ID.Person.DEFAULT
+@export var person_not_on_train: ID.Person = ID.Person.DEFAULT
+@export var cargo_loaded: ID.Cargo = ID.Cargo.DEFAULT
+@export var cargo_not_loaded: ID.Cargo = ID.Cargo.DEFAULT
+@export var small_cargo_loaded: ID.SmallCargo = ID.SmallCargo.DEFAULT
+@export var small_cargo_not_loaded: ID.SmallCargo = ID.SmallCargo.DEFAULT
+@export var money_state: MoneyCondition
+@export var road_unlocked: ID.Road = ID.Road.DEFAULT
+@export var road_locked: ID.Road = ID.Road.DEFAULT
+@export var location_unlocked: ID.Location = ID.Location.DEFAULT
+@export var location_locked: ID.Location = ID.Location.DEFAULT
+@export var passenger_slot_available: bool = false
+@export var cargo_slot_available: bool = false
 
 func check() -> bool:
-	for flag in flags:
-		if flag.must_be_false: 
-			if GameState.flags[flag.id]: return false
-		else: if !GameState.flags[flag.id]: return false
-	for pl in person_locations:
-		if pl.must_not_be_in_location: 
-			if GameState.people_locations[pl.person] == pl.location: 
-				return false
-		else: if GameState.people_locations[pl.person] != pl.location: 
-			return false
-	for c in cargo:
-		# TODO: cargo conditions if needed
-		assert(false)
-	for sc in small_cargo:
-		# TODO: small cargo conditions if needed
-		assert(false)
-	for mc in money_conditions:
-		if mc.must_be_below: 
-			if MoneyState.coins >= mc.amount: return false
-		else: if MoneyState.coins < mc.amount: return false
-	for ru in road_unlocked_conditions:
-		if ru.must_be_locked: 
-			if MapState.roads_unlocked[ru.road]: 
-				return false
-		else: if !MapState.roads_unlocked[ru.road]: 
-			return false
-	for lu in location_unlocked_conditions:
-		if lu.must_be_locked: 
-			if MapState.locations_unlocked[lu.road]: 
-				return false
-		else: if !MapState.locations_unlocked[lu.road]: 
-			return false
-	if passenger_slot_available_condition:
-		if TrainState.next_available_passenger_slot() == -1: return false
-	if cargo_slot_available_condition:
-		if TrainState.next_available_cargo_slot() == -1: return false
+	if flag_true != ID.Flag.DEFAULT and !GameState.flags[flag_true]: return false
+	if flag_false != ID.Flag.DEFAULT and GameState.flags[flag_false]: return false
+	if person_at_location != null and person_at_location.person != ID.Person.DEFAULT and person_at_location.location != ID.Location.DEFAULT:
+		if GameState.people_locations[person_at_location.person] != person_at_location.location: return false
+	if person_not_at_location != null and person_not_at_location.person != ID.Person.DEFAULT and person_not_at_location.location != ID.Location.DEFAULT:
+		if GameState.people_locations[person_not_at_location.person] == person_not_at_location.location: return false
+	if person_on_train != ID.Person.DEFAULT and !TrainState.person_on_train(person_on_train): return false
+	if person_not_on_train != ID.Person.DEFAULT and TrainState.person_on_train(person_on_train): return false
+	if cargo_loaded != ID.Cargo.DEFAULT and !TrainState.cargo_on_train(cargo_loaded): return false
+	if cargo_not_loaded != ID.Cargo.DEFAULT and TrainState.cargo_on_train(cargo_not_loaded): return false
+	if small_cargo_loaded != ID.SmallCargo.DEFAULT and !TrainState.small_cargo_on_train[small_cargo_loaded]: return false
+	if small_cargo_not_loaded != ID.SmallCargo.DEFAULT and TrainState.small_cargo_on_train[small_cargo_not_loaded]: return false
+	if money_state != null and money_state.amount != 0: assert(false) # TODO: check
+	if road_unlocked != ID.Road.DEFAULT and !MapState.roads_unlocked[road_unlocked]: return false
+	if road_locked != ID.Road.DEFAULT and MapState.roads_unlocked[road_locked]: return false
+	if location_unlocked != ID.Location.DEFAULT and !MapState.locations_unlocked[location_unlocked]: return false
+	if location_locked != ID.Location.DEFAULT and MapState.locations_unlocked[location_locked]: return false
+	if passenger_slot_available and TrainState.next_available_passenger_slot() == -1: return false
+	if cargo_slot_available and TrainState.next_available_cargo_slot() == -1: return false
 	return true
 
 static func check_list(conditions: Array[StateCondition]) -> bool:

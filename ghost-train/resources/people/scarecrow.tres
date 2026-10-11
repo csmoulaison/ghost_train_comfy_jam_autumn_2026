@@ -3,9 +3,65 @@
 [ext_resource type="Texture2D" uid="uid://bw7m33mjelvpb" path="res://resources/textures/programmer_art/scarecrow.png" id="1_8v83j"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_hfkhs"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_nggyv"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_ix7wh"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_g2ct0"]
+
+[sub_resource type="Resource" id="Resource_ix7wh"]
+script = ExtResource("3_g2ct0")
+flag_false = 5
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_jwxfg"]
+script = ExtResource("2_ix7wh")
+set_flag = 5
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_g2ct0"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Look at him over there. That rust bucket mocks me. He is truly the face of corporate evil."
+conditions = Array[ExtResource("3_g2ct0")]([SubResource("Resource_ix7wh")])
+post_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_jwxfg")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_5m38i"]
+script = ExtResource("2_ix7wh")
+load_cargo = 2
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_s7cgy"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Finally. Some good fucking corn."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_a6lsg"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Your fucking funeral m8."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_fdbpx"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Please have some of our good corn."
+prompt_text = "Load corn?"
+accept_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_5m38i")])
+default_accept_line = SubResource("Resource_s7cgy")
+default_decline_line = SubResource("Resource_a6lsg")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_lb2p0"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Hey there. I'm a scarecrow."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_hfkhs")
 name = "Scarecrow"
+starting_location = 5
 default_texture = ExtResource("1_8v83j")
+conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_g2ct0"), SubResource("Resource_fdbpx")])
+default_interact_dialogue = SubResource("Resource_lb2p0")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

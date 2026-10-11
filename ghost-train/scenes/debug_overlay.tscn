@@ -14,6 +14,7 @@ font_size = 12
 [node name="DebugOverlay" type="Node" unique_id=1848998548]
 
 [node name="Control" type="Control" parent="." unique_id=1700963370]
+visible = false
 z_index = 1000
 layout_mode = 3
 anchors_preset = 0

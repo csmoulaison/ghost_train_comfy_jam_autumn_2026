@@ -17,7 +17,7 @@ class_name GhostPlayer extends Node2D
 ## How floaty the ghost feels: the seconds it takes to get up to top speed, and
 ## to drift to a stop again. 0 is instant (not floaty at all), bigger is
 ## floatier.
-@export var float_time: float = 0.4
+@export var float_time: float = 0.2
 ## Which way the sprite's art is drawn facing. Untick this if the art gets
 ## swapped for one that faces right.
 @export var art_faces_left: bool = true
@@ -36,7 +36,7 @@ var move_state: MoveState = MoveState.IDLE
 var _velocity: Vector2 = Vector2.ZERO
 
 # where the last click told us to go. Only used while _has_click_target is true.
-var _click_target: Vector2 = Vector2.ZERO
+# var _click_target: Vector2 = Vector2.ZERO
 var _has_click_target: bool = false
 # what the last click was on, if anything. Used once the ghost is in reach.
 var _click_interactable: Interactable = null
@@ -54,9 +54,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if ModeState.control_paused(): return
 
 	if event.is_action_pressed("move_to_click"):
-		_click_target = get_global_mouse_position()
-		_has_click_target = true
-		_click_interactable = interactor.find_interactable_at(_click_target)
+		# TODO: these used _click_target and _click_interactable and try_interact
+		# only happened when we actually reached the thing.
+		var click_target = get_global_mouse_position()
+		#_has_click_target = true
+		var click_interactable = interactor.find_interactable_at(click_target)
+		interactor.try_interact(click_interactable)
 
 func _process(delta: float) -> void:
 	# the ghost stays put while someone is talking
@@ -67,12 +70,12 @@ func _process(delta: float) -> void:
 
 	# the ghost doesn't move at this velocity straight away. Its real velocity
 	# drifts toward this one a little each frame, which is what makes it floaty.
-	var wanted_velocity: Vector2 = _get_wanted_direction(delta) * speed
+	var wanted_velocity: float = _get_wanted_direction(delta) * speed
 
 	if float_time <= 0.0:
-		_velocity = wanted_velocity
+		_velocity.x = wanted_velocity
 	else:
-		_velocity = _velocity.move_toward(wanted_velocity, _get_acceleration() * delta)
+		_velocity = _velocity.move_toward(Vector2(wanted_velocity, 0.0), _get_acceleration() * delta)
 
 	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
 
@@ -91,23 +94,23 @@ func _process(delta: float) -> void:
 
 ## The direction the player is asking to go in: from the keys if any are held,
 ## otherwise toward the clicked spot, otherwise nowhere (ZERO).
-func _get_wanted_direction(delta: float) -> Vector2:
-	var key_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if key_direction != Vector2.ZERO:
+func _get_wanted_direction(_delta: float) -> float:
+	var key_direction: float = Input.get_axis("move_left", "move_right")
+	if key_direction != 0.0:
 		# the keys always win, so pressing one cancels a click move
-		_cancel_click_move()
+		#_cancel_click_move()
 		return key_direction
 
-	if _has_click_target:
-		# stop asking to move once we're close enough to drift the rest of the
-		# way, so the ghost glides to a stop on the spot instead of overshooting
-		var distance: float = global_position.distance_to(_click_target)
-		if distance <= maxf(_get_stopping_distance(), speed * delta):
-			_has_click_target = false
-		else:
-			return global_position.direction_to(_click_target)
-
-	return Vector2.ZERO
+	# TODO: this was when we were doing click to move and also assumed vec2 dir
+	#if _has_click_target:
+	#	# stop asking to move once we're close enough to drift the rest of the
+	#	# way, so the ghost glides to a stop on the spot instead of overshooting
+	#	var distance: float = global_position.distance_to(_click_target)
+	#	if distance <= maxf(_get_stopping_distance(), speed * delta):
+	#		_has_click_target = false
+	#	else:
+	#		return global_position.direction_to(_click_target)
+	return 0.0
 
 ## Uses the clicked interactable once it's in reach.
 func _use_clicked_interactable() -> void:

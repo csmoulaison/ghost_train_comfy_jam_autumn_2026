@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bedoprg2pnkeb" path="res://resources/textures/tmp_bg/witchs_train_yard.png" id="1_8mbgn"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_7v5ef"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_7v5ef"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_0vabf"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -12,5 +14,14 @@ texture = ExtResource("1_8mbgn")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_7v5ef")]
-position = Vector2(343, 380)
-scale = Vector2(0.55, 0.55)
+position = Vector2(292, 399.00003)
+scale = Vector2(0.103243954, 0.103243954)
+
+[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_7v5ef")]
+position = Vector2(656, 468)
+scale = Vector2(1.8875774, 1.8875774)
+person_id = 5
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_0vabf")]
+position = Vector2(279, 518)
+scale = Vector2(1.2828772, 1.2828772)

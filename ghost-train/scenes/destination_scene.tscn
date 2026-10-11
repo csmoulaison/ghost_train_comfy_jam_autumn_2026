@@ -1,10 +1,5 @@
 [gd_scene format=3 uid="uid://dsbvbkau42kk3"]
 
-[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="2_ghost"]
-
 [node name="DestinationScene" type="Node" unique_id=1433171603]
 
 [node name="SubsceneParent" type="Node" parent="." unique_id=2141947564]
-
-[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("2_ghost")]
-position = Vector2(700, 400)

@@ -4,11 +4,64 @@
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_db5or"]
 [ext_resource type="Texture2D" uid="uid://b5bsji32ywp57" path="res://resources/textures/programmer_art/witch.png" id="1_r0nfo"]
 [ext_resource type="Resource" uid="uid://uvfbp0eo8ww6" path="res://resources/dialogue_lines/witch_at_market.tres" id="2_dinsc"]
+[ext_resource type="Resource" uid="uid://bu023bjkxf57g" path="res://resources/dialogue_lines/witch_ask_for_ride.tres" id="3_cxhng"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="4_p8uhu"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_cxhng"]
+
+[sub_resource type="Resource" id="Resource_uopof"]
+script = ExtResource("5_cxhng")
+person_on_train = 5
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_7v5ef"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Hey, I'm on a train."
+conditions = Array[ExtResource("5_cxhng")]([SubResource("Resource_uopof")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_26hfi"]
+script = ExtResource("4_p8uhu")
+fire_event = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_cxhng"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Want to buy some tracks?"
+post_effects = Array[ExtResource("4_p8uhu")]([SubResource("Resource_26hfi")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_p8uhu"]
+script = ExtResource("4_p8uhu")
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_r1w0p"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "I AM the market."
+post_effects = Array[ExtResource("4_p8uhu")]([SubResource("Resource_p8uhu")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_p46rs"]
+script = ExtResource("4_p8uhu")
+offboard_person = 5
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_6vsfv"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Thanks for the ride! Now I will sell you tracks."
+pre_effects = Array[ExtResource("4_p8uhu")]([SubResource("Resource_p46rs")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_db5or")
 name = "Witch"
 starting_location = 2
 default_texture = ExtResource("1_r0nfo")
-default_interact_dialogue = ExtResource("2_dinsc")
+conditional_interact_dialogue = Array[ExtResource("1_6vsfv")]([ExtResource("2_dinsc"), ExtResource("3_cxhng"), SubResource("Resource_7v5ef"), SubResource("Resource_cxhng")])
+default_interact_dialogue = SubResource("Resource_r1w0p")
+desired_location = 4
+reached_location_dialogue = SubResource("Resource_6vsfv")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

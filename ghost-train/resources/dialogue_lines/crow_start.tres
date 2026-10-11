@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://b0jds1t1vd4kk"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_xut4o"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_0tjwa"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_wffqm"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="8_ke623"]
+
+[sub_resource type="Resource" id="Resource_10jd1"]
+script = ExtResource("8_ke623")
+person = 2
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_s2dv2"]
+script = ExtResource("3_wffqm")
+person_at_location = SubResource("Resource_10jd1")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_lv56f"]
+script = ExtResource("1_xut4o")
+board_person = 2
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_xut4o"]
+script = ExtResource("2_0tjwa")
+person = 2
+text = "Let’s turn some orange into gold!"
+post_effects = Array[ExtResource("1_xut4o")]([SubResource("Resource_lv56f")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_6jstf"]
+script = ExtResource("2_0tjwa")
+person = 2
+text = "Whatever, you probably don’t even know what a mangosteen is."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_0tjwa")
+person = 2
+text = "Do you wanna help me sell veggies at the farmer’s market? I can cut you in on some pretty pennies."
+conditions = Array[ExtResource("3_wffqm")]([SubResource("Resource_s2dv2")])
+prompt_text = "Board the bird?"
+default_accept_line = SubResource("Resource_xut4o")
+default_decline_line = SubResource("Resource_6jstf")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

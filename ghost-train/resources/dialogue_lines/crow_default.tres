@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("2_ujie0")
 person = 2
-text = "Yeah, what do you want?"
+text = "TMP default"
 metadata/_custom_type_script = "uid://cek7638wfa72g"

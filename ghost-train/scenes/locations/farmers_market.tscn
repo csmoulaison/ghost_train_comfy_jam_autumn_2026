@@ -1,25 +1,14 @@
 [gd_scene format=3 uid="uid://dwpj11brq37qg"]
 
-[ext_resource type="Texture2D" uid="uid://bpu68crrkq46o" path="res://resources/textures/programmer_art/rolling_l2.png" id="1_agfgh"]
+[ext_resource type="Texture2D" uid="uid://c66jcrco7cgqe" path="res://resources/textures/tmp_bg/farmers_market.png" id="1_hpxfg"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_agfgh"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_hpxfg"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_xyafi"]
-[ext_resource type="Script" uid="uid://degc2t4yfikdw" path="res://scripts/resource_types/conditions/cargo_condition.gd" id="4_w03ps"]
-[ext_resource type="Script" uid="uid://xvet8bihtahp" path="res://scripts/resource_types/conditions/flag_condition.gd" id="5_v18p4"]
-[ext_resource type="Script" uid="uid://d0n13kn7nixcc" path="res://scripts/resource_types/conditions/location_unlocked_condition.gd" id="6_6hig5"]
-[ext_resource type="Script" uid="uid://jne4qco7bntd" path="res://scripts/resource_types/conditions/money_condition.gd" id="7_bqgo2"]
-[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location_condition.gd" id="8_7n20y"]
-[ext_resource type="Script" uid="uid://lwbsfftx0h4b" path="res://scripts/resource_types/conditions/road_unlocked_condition.gd" id="9_niv55"]
-[ext_resource type="Script" uid="uid://cdb4mcpiifiac" path="res://scripts/resource_types/conditions/small_cargo_condition.gd" id="10_s01b6"]
-
-[sub_resource type="Resource" id="Resource_hpxfg"]
-script = ExtResource("5_v18p4")
-id = 2
-metadata/_custom_type_script = "uid://xvet8bihtahp"
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="5_xyafi"]
 
 [sub_resource type="Resource" id="Resource_w03ps"]
 script = ExtResource("3_hpxfg")
-flags = Array[ExtResource("5_v18p4")]([SubResource("Resource_hpxfg")])
+flag_true = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="FarmersMarket" type="Node2D" unique_id=166533899]
@@ -29,22 +18,29 @@ position = Vector2(-41.000004, -976)
 scale = Vector2(0.9545664, 2.32207)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
-texture = ExtResource("1_agfgh")
+position = Vector2(32.475483, 417.73077)
+scale = Vector2(2.179472, 0.82674503)
+texture = ExtResource("1_hpxfg")
 centered = false
 
 [node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("3_xyafi")]
-position = Vector2(490, 248)
+position = Vector2(452, 483)
 person_id = 2
 
 [node name="PersonAvatar3" parent="." unique_id=1560765008 instance=ExtResource("3_xyafi")]
 position = Vector2(194, 394)
-person_id = 12
+person_id = 13
 conditions = Array[ExtResource("3_hpxfg")]([SubResource("Resource_w03ps")])
+is_hiding_jackokid = true
 
 [node name="PersonAvatar2" parent="." unique_id=1650082257 instance=ExtResource("3_xyafi")]
-position = Vector2(988, 308)
+position = Vector2(1043, 474)
+scale = Vector2(1.2672312, 1.2672312)
 person_id = 5
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_agfgh")]
-position = Vector2(703, 567)
-scale = Vector2(0.56, 0.56)
+position = Vector2(744, 351)
+scale = Vector2(0.10357774, 0.10357774)
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("5_xyafi")]
+position = Vector2(796, 476)
