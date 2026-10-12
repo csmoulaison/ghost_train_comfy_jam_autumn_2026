@@ -1,16 +1,50 @@
 [gd_scene format=3 uid="uid://dx4r7mdqpvp4"]
 
-[ext_resource type="Texture2D" uid="uid://cuo80ti8dc154" path="res://resources/textures/tmp_bg/graveyard.png" id="1_no0im"]
+[ext_resource type="Texture2D" uid="uid://dnq27n0o6d0hb" path="res://resources/textures/backgrounds/Graveyard - bg-sky and track.jpg" id="1_no0im"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_h15y4"]
+[ext_resource type="Texture2D" uid="uid://esbvolujiun3" path="res://resources/textures/backgrounds/Graveyard - midground.png" id="3_llgyo"]
+[ext_resource type="Texture2D" uid="uid://bwwy270pk11me" path="res://resources/textures/backgrounds/Graveyard - foreground.png" id="4_524u2"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="5_04m30"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="6_62vow"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-27, -57)
-scale = Vector2(2.7915196, 2.7915196)
+[node name="BG_2" type="Node2D" parent="." unique_id=347666701]
+position = Vector2(-7, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=1057252085]
+position = Vector2(6, 65.165)
+scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("1_no0im")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_h15y4")]
-position = Vector2(-12, 35.00006)
-scale = Vector2(0.06959309, 0.06959309)
+position = Vector2(367, 446.00003)
+scale = Vector2(0.040801845, 0.040801845)
+
+[node name="BG_3" type="Node2D" parent="." unique_id=1600185596]
+position = Vector2(-7, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=461487873]
+position = Vector2(6, 65)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("3_llgyo")
+centered = false
+
+[node name="BG_4" type="Node2D" parent="." unique_id=783346776]
+position = Vector2(-7, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1322230143]
+position = Vector2(6, 65)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("4_524u2")
+centered = false
+
+[node name="PersonAvatar_grim" parent="." unique_id=1390684158 instance=ExtResource("5_04m30")]
+position = Vector2(723, 473)
+scale = Vector2(1.7163833, 1.7163833)
+person_id = 11
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("6_62vow")]
+position = Vector2(970, 497.00003)
+scale = Vector2(1.0152067, 1.0152067)

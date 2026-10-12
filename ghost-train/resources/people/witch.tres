@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_6vsfv"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_db5or"]
-[ext_resource type="Texture2D" uid="uid://b5bsji32ywp57" path="res://resources/textures/programmer_art/witch.png" id="1_r0nfo"]
 [ext_resource type="Resource" uid="uid://uvfbp0eo8ww6" path="res://resources/dialogue_lines/witch_at_market.tres" id="2_dinsc"]
 [ext_resource type="Resource" uid="uid://bu023bjkxf57g" path="res://resources/dialogue_lines/witch_ask_for_ride.tres" id="3_cxhng"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="4_p8uhu"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_cxhng"]
+[ext_resource type="Texture2D" uid="uid://bf2s7nlbg4pai" path="res://resources/textures/characters/witch/Witch.png" id="6_cxhng"]
 
 [sub_resource type="Resource" id="Resource_uopof"]
 script = ExtResource("5_cxhng")
@@ -59,7 +59,8 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("1_db5or")
 name = "Witch"
 starting_location = 2
-default_texture = ExtResource("1_r0nfo")
+default_texture = ExtResource("6_cxhng")
+sprite_scale = 0.1
 conditional_interact_dialogue = Array[ExtResource("1_6vsfv")]([ExtResource("2_dinsc"), ExtResource("3_cxhng"), SubResource("Resource_7v5ef"), SubResource("Resource_cxhng")])
 default_interact_dialogue = SubResource("Resource_r1w0p")
 desired_location = 4

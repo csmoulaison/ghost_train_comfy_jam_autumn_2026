@@ -7,9 +7,9 @@
 
 [node name="SubsceneParent" type="Node" parent="." unique_id=472505280]
 
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("1_q2wao")]
+position = Vector2(1065, 314)
+
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("1_um1jw")]
 position = Vector2(957, 488.00006)
 scale = Vector2(0.3979999, 0.3979999)
-
-[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("1_q2wao")]
-position = Vector2(1065, 338)

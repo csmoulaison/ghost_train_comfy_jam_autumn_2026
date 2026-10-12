@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_3ra8t"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_3ra8t"]
-[ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/programmer_art/jackokids.png" id="2_4unmh"]
+[ext_resource type="Texture2D" uid="uid://cxyl5pg57d5ip" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard.png" id="2_4unmh"]
 
 [resource]
 script = ExtResource("2_3ra8t")
 name = "Jackokid"
 default_texture = ExtResource("2_4unmh")
+sprite_scale = 0.2
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

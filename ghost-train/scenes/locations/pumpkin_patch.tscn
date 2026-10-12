@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://coc7w1fu3jav8"]
 
-[ext_resource type="Texture2D" uid="uid://c8ba2abu1a5k5" path="res://resources/textures/backgrounds/hannahs_pumpkin_patch.jpg" id="1_4vhpi"]
+[ext_resource type="Texture2D" uid="uid://buail5eerx3ng" path="res://resources/textures/backgrounds/Pumpkin Patch - bg-sky and track.jpg" id="1_s7r1u"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="2_bitfc"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_qwc58"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_bitfc"]
+[ext_resource type="Texture2D" uid="uid://dxpufv4xjdtln" path="res://resources/textures/backgrounds/Pumpkin Patch - midground.png" id="3_guvyv"]
+[ext_resource type="Texture2D" uid="uid://cmkuc41vmgolu" path="res://resources/textures/backgrounds/Pumpkin Patch - foreground.png" id="5_gyajs"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="7_km3yc"]
+[ext_resource type="Texture2D" uid="uid://s2nee2fjqg08" path="res://resources/textures/cargo/cargo-pumpkins.png" id="8_pxgpn"]
 
 [node name="PumpkinPatch" type="Node2D" unique_id=166533899]
 
@@ -11,31 +15,97 @@
 position = Vector2(0, -55.165)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
-position = Vector2(0, -3.834999)
-scale = Vector2(0.36257637, 0.3625764)
-texture = ExtResource("1_4vhpi")
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_s7r1u")
 centered = false
 
-[node name="GhostPlayer" parent="BG_2" unique_id=123701996 instance=ExtResource("2_bitfc")]
-position = Vector2(480, 517.165)
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_bitfc")]
+position = Vector2(321, 462)
+scale = Vector2(0.08, 0.08)
 
-[node name="PersonAvatar1" parent="." unique_id=1390684158 instance=ExtResource("2_qwc58")]
-position = Vector2(801, 405)
-scale = Vector2(-1, 1)
-person_id = 2
+[node name="BG_3" type="Node2D" parent="." unique_id=1921859469]
+position = Vector2(0, -55.164978)
 
-[node name="PersonAvatar2" parent="." unique_id=1781563468 instance=ExtResource("2_qwc58")]
-position = Vector2(94, 486)
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=1092552553]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("3_guvyv")
+centered = false
+
+[node name="PersonAvatar-Jacko" parent="." unique_id=1781563468 instance=ExtResource("2_qwc58")]
+position = Vector2(814, 474)
+scale = Vector2(3.2491333, 3.2491333)
 person_id = 3
 
-[node name="PersonAvatar3" parent="." unique_id=20633738 instance=ExtResource("2_qwc58")]
+[node name="PersonAvatar_Jillo" parent="." unique_id=20633738 instance=ExtResource("2_qwc58")]
+visible = false
 position = Vector2(186, 483)
 person_id = 4
 
-[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_bitfc")]
-position = Vector2(485, 322)
-scale = Vector2(0.12217692, 0.12217692)
-
-[node name="PersonAvatar_" parent="." unique_id=598116443 instance=ExtResource("2_qwc58")]
-position = Vector2(55, 575)
+[node name="PersonAvatar_kid1" parent="." unique_id=598116443 instance=ExtResource("2_qwc58")]
+position = Vector2(1014, 251)
+scale = Vector2(0.24208346, 0.24208346)
 person_id = 13
+
+[node name="PersonAvatar_kid8" parent="." unique_id=763720997 instance=ExtResource("2_qwc58")]
+position = Vector2(1063, 524)
+scale = Vector2(0.7909037, 0.8394923)
+person_id = 20
+
+[node name="PersonAvatar_kid2" parent="." unique_id=1390684158 instance=ExtResource("2_qwc58")]
+position = Vector2(997, 559.99994)
+scale = Vector2(0.23021515, 0.2300034)
+person_id = 14
+
+[node name="PersonAvatar_kid3" parent="." unique_id=2015042343 instance=ExtResource("2_qwc58")]
+position = Vector2(1044, 326)
+scale = Vector2(0.09576297, 0.09567489)
+person_id = 15
+
+[node name="PersonAvatar_kid4" parent="." unique_id=1596241692 instance=ExtResource("2_qwc58")]
+position = Vector2(1101, 341.00003)
+scale = Vector2(0.46466544, 0.46423802)
+person_id = 16
+
+[node name="PersonAvatar_kid5" parent="." unique_id=2109408556 instance=ExtResource("2_qwc58")]
+position = Vector2(1046.0001, 265)
+scale = Vector2(-0.32881296, 0.30158767)
+person_id = 17
+
+[node name="PersonAvatar_kid7" parent="." unique_id=313850496 instance=ExtResource("2_qwc58")]
+position = Vector2(911, 296)
+scale = Vector2(0.43358916, 0.43319035)
+person_id = 19
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("2_bitfc")]
+position = Vector2(481.99997, 502)
+scale = Vector2(0.8493196, 0.85289335)
+
+[node name="ConditionalNode_pumpkins" parent="." unique_id=464916204 instance=ExtResource("7_km3yc")]
+position = Vector2(144, 552)
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_pumpkins" unique_id=1104188808]
+position = Vector2(89.70202, -0.9999933)
+scale = Vector2(0.28571418, 0.28571424)
+texture = ExtResource("8_pxgpn")
+
+[node name="PersonAvatar_kid6" parent="." unique_id=1699597789 instance=ExtResource("2_qwc58")]
+position = Vector2(329.99994, 603.00006)
+scale = Vector2(1.0188237, 1.0178866)
+person_id = 18
+
+[node name="PersonAvatar-Crow" parent="." unique_id=1026373344 instance=ExtResource("2_qwc58")]
+position = Vector2(247, 441)
+rotation = 3.1415925
+scale = Vector2(-1, -1)
+person_id = 2
+
+[node name="BG_4" type="Node2D" parent="." unique_id=1791667079]
+position = Vector2(0, -55.164978)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1790954255]
+position = Vector2(9, 534.165)
+scale = Vector2(0.59999996, 0.42547175)
+texture = ExtResource("5_gyajs")
+centered = false
