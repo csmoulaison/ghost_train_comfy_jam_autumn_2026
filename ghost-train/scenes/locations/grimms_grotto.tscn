@@ -1,27 +1,56 @@
 [gd_scene format=3 uid="uid://tuj20fjupehf"]
 
-[ext_resource type="Texture2D" uid="uid://dbo4yj666gdbh" path="res://resources/textures/tmp_bg/grimms_grotto.png" id="1_cmgif"]
+[ext_resource type="Texture2D" uid="uid://brdrvtp0i4k6k" path="res://resources/textures/backgrounds/Grim's Groto - bg-sky and track.jpg" id="1_i01vx"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_0xse6"]
+[ext_resource type="Texture2D" uid="uid://bnfll6nu0wtjy" path="res://resources/textures/backgrounds/Grim's Groto - midground.png" id="2_hiyn8"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_0xse6"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_46ryg"]
+[ext_resource type="Texture2D" uid="uid://b3k578obogj7l" path="res://resources/textures/backgrounds/Grim's Groto - foreground.png" id="6_hiyn8"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-26, -35)
-scale = Vector2(1.9243243, 1.9243243)
-texture = ExtResource("1_cmgif")
+[node name="BG_2" type="Node2D" parent="." unique_id=1915166133]
+position = Vector2(-7, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=1644861301]
+position = Vector2(6, 65.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_i01vx")
+centered = false
+
+[node name="BG_3" type="Node2D" parent="." unique_id=1958295924]
+position = Vector2(-7, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=598587648]
+position = Vector2(6, 65.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("2_hiyn8")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_0xse6")]
-position = Vector2(426, 451)
+position = Vector2(738, 299)
 scale = Vector2(0.043367095, 0.043367095)
 
-[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_0xse6")]
-position = Vector2(668, 475.00003)
+[node name="PersonAvatar_grim" parent="." unique_id=1390684158 instance=ExtResource("3_0xse6")]
+position = Vector2(569, 515.99994)
+rotation = 0.9472347
 scale = Vector2(1.7163833, 1.7163833)
 person_id = 11
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_46ryg")]
-position = Vector2(262, 451)
-scale = Vector2(1.475561, 1.475561)
+position = Vector2(134.00003, 498.00003)
+scale = Vector2(1.0152067, 1.0152067)
+
+[node name="PersonAvatar_vamp" parent="." unique_id=95498134 instance=ExtResource("3_0xse6")]
+position = Vector2(886.99994, 492.99997)
+scale = Vector2(1.9066556, 1.9066556)
+person_id = 9
+
+[node name="BG_4" type="Node2D" parent="." unique_id=1257240330]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1994418209]
+position = Vector2(274.00003, 523.16504)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("6_hiyn8")
+centered = false

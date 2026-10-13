@@ -36,6 +36,5 @@ script = ExtResource("2_3ra8t")
 name = "Jacinto"
 starting_location = 4
 default_texture = ExtResource("2_4unmh")
-default_interact_dialogue = SubResource("Resource_5sfjl")
-found_jackokid_dialogue = SubResource("Resource_j287u")
+sprite_scale = 0.2
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

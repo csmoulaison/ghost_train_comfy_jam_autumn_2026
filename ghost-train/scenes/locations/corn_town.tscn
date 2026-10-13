@@ -1,32 +1,50 @@
 [gd_scene format=3 uid="uid://ds8u8rajvysqp"]
 
-[ext_resource type="Texture2D" uid="uid://cj4cbrlf2cjan" path="res://resources/textures/tmp_bg/corn_town.png" id="1_4kq6d"]
+[ext_resource type="Texture2D" uid="uid://4g8ipqcahyga" path="res://resources/textures/backgrounds/Corn Corp - bg-sky and track.jpg" id="1_6wb8e"]
+[ext_resource type="Texture2D" uid="uid://dghybee2luew3" path="res://resources/textures/backgrounds/Corn Corp - midground.png" id="2_78djw"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_s7cgy"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_s7cgy"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_ot4ga"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-32.000004, -23.000002)
-scale = Vector2(2.1319017, 2.1319017)
-texture = ExtResource("1_4kq6d")
+[node name="BG_2" type="Node2D" parent="." unique_id=1222007609]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=780262201]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_6wb8e")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_s7cgy")]
-position = Vector2(745.00006, 220)
-scale = Vector2(0.084847026, 0.084847026)
+position = Vector2(470, 230.00002)
+scale = Vector2(0.05996362, 0.05996362)
 
-[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_s7cgy")]
-position = Vector2(1030, 442.00003)
-scale = Vector2(2.4852526, 2.393349)
+[node name="BG_3" type="Node2D" parent="." unique_id=1307767903]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=932465271]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("2_78djw")
+centered = false
+
+[node name="PersonAvatar_kid3" parent="." unique_id=1390684158 instance=ExtResource("3_s7cgy")]
+position = Vector2(217, 252)
+scale = Vector2(0.2306164, 0.23040429)
+person_id = 15
+
+[node name="PersonAvatar_" parent="." unique_id=267839425 instance=ExtResource("3_s7cgy")]
+position = Vector2(268, 445)
+scale = Vector2(3.048377, 2.9356492)
 person_id = 6
 
 [node name="PersonAvatar_2" parent="." unique_id=257438558 instance=ExtResource("3_s7cgy")]
-position = Vector2(206, 443)
-scale = Vector2(1.7587714, 1.7587714)
+position = Vector2(1003.99994, 441)
+scale = Vector2(3.0733612, 3.0733612)
 person_id = 7
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_ot4ga")]
-position = Vector2(769, 442)
-scale = Vector2(1.7462552, 1.7462552)
+position = Vector2(653, 443)
+scale = Vector2(1.2226295, 1.2226295)

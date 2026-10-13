@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://c2n74lm6uur68"]
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_bwrcm"]
-[ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/programmer_art/jackokids.png" id="2_2mlpe"]
+[ext_resource type="Texture2D" uid="uid://d5r63c40qih4" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford.png" id="2_2mlpe"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_bwrcm"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_g82a1"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_rxvtk"]

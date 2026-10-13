@@ -1,27 +1,61 @@
 [gd_scene format=3 uid="uid://benprx4102i13"]
 
-[ext_resource type="Texture2D" uid="uid://djy7dht5m6046" path="res://resources/textures/tmp_bg/fungi_forest.png" id="1_ra6js"]
+[ext_resource type="Texture2D" uid="uid://d06kgv7fx0jvf" path="res://resources/textures/backgrounds/Fungus Forest - bg-sky and track.jpg" id="1_b3trp"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_sdydn"]
+[ext_resource type="Texture2D" uid="uid://duh13y7y55ylp" path="res://resources/textures/backgrounds/Fungus Forest - midground.png" id="3_87qdq"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_sdydn"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_25ntq"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="4_jnnun"]
+[ext_resource type="Texture2D" uid="uid://rkr6f2t4fwcn" path="res://resources/textures/cargo/cargo-shrooms-scene.png" id="5_38ljw"]
+[ext_resource type="Texture2D" uid="uid://bobfycfd0l8j7" path="res://resources/textures/backgrounds/Fungus Forest - foreground.png" id="8_xubxm"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-32.000004, -23.000002)
-scale = Vector2(2.2515924, 2.2515924)
-texture = ExtResource("1_ra6js")
+[node name="BG_2" type="Node2D" parent="." unique_id=887981545]
+position = Vector2(-2, -63)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=960794771]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_b3trp")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_sdydn")]
-position = Vector2(446.99997, 447)
-scale = Vector2(0.09723509, 0.09723509)
+position = Vector2(293, 492.16504)
+scale = Vector2(0.041854955, 0.041854955)
+
+[node name="BG_3" type="Node2D" parent="." unique_id=1341131767]
+position = Vector2(-2, -63)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=413123006]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("3_87qdq")
+centered = false
+
+[node name="ConditionalNode_shrooms" parent="." unique_id=464916204 instance=ExtResource("4_jnnun")]
+position = Vector2(387, 466.16504)
+scale = Vector2(1.3429444, 1.3429444)
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_shrooms" unique_id=1322182708]
+position = Vector2(148.18185, 48.40113)
+scale = Vector2(0.6408481, 0.64084834)
+texture = ExtResource("5_38ljw")
 
 [node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_sdydn")]
-position = Vector2(279, 427.00003)
+position = Vector2(556, 392.16504)
 scale = Vector2(3.2094965, 3.2094965)
 person_id = 10
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_25ntq")]
-position = Vector2(820, 479)
-scale = Vector2(1.4791044, 1.4791044)
+position = Vector2(146.99997, 513.165)
+scale = Vector2(0.95689875, 0.95689875)
+
+[node name="BG_4" type="Node2D" parent="." unique_id=1557619493]
+position = Vector2(-2, -63)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1145892819]
+position = Vector2(807.00006, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("8_xubxm")
+centered = false

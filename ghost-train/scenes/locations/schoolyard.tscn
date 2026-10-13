@@ -1,26 +1,81 @@
 [gd_scene format=3 uid="uid://8b5y66hqlerl"]
 
-[ext_resource type="Texture2D" uid="uid://cjlxf8ylr7jdc" path="res://resources/textures/tmp_bg/schoolyard.png" id="1_2cu8h"]
+[ext_resource type="Texture2D" uid="uid://cti7hu1ib8lnn" path="res://resources/textures/backgrounds/Buzzford - bg-sky and track.jpg" id="1_v5lta"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_61pdk"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="3_61pdk"]
+[ext_resource type="Texture2D" uid="uid://dflllx8atc806" path="res://resources/textures/backgrounds/Buzzford - midground.png" id="3_74saq"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_1so75"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="4_rj22u"]
+[ext_resource type="Texture2D" uid="uid://bmaa7w5ersy5h" path="res://resources/textures/cargo/cargo-honey-scene.png" id="5_qi2rf"]
+[ext_resource type="Texture2D" uid="uid://dqv1od1xlulye" path="res://resources/textures/cargo/cargo-book.png" id="6_74saq"]
+[ext_resource type="Texture2D" uid="uid://dpo1vqrjnp2k1" path="res://resources/textures/backgrounds/Buzzford - foreground.png" id="6_osqsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
+position = Vector2(-3.000001, -3)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-32.000004, -23.000002)
-scale = Vector2(2.057143, 2.057143)
-texture = ExtResource("1_2cu8h")
+[node name="BG_2" type="Node2D" parent="." unique_id=472135075]
+position = Vector2(9.536743e-07, -59)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=182561331]
+position = Vector2(2.999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_v5lta")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_61pdk")]
-position = Vector2(613, 350)
-scale = Vector2(0.06807276, 0.06807276)
+position = Vector2(578.00006, 192)
+scale = Vector2(0.051098917, 0.051098917)
 
-[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_61pdk")]
-position = Vector2(500, 476)
+[node name="BG_4" type="Node2D" parent="." unique_id=1974790422]
+position = Vector2(7.000001, -55)
 
-[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("4_1so75")]
-position = Vector2(927, 452)
+[node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1462645222]
+position = Vector2(-5.111154, 54.165)
+scale = Vector2(0.6046295, 0.6046296)
+texture = ExtResource("3_74saq")
+centered = false
+
+[node name="ConditionalNode_honey" parent="." unique_id=464916204 instance=ExtResource("4_rj22u")]
+position = Vector2(761, 357)
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_honey" unique_id=1401897660]
+position = Vector2(217.00002, 9.000008)
+scale = Vector2(0.48504353, 0.48504364)
+texture = ExtResource("5_qi2rf")
+
+[node name="ConditionalNode_book" parent="." unique_id=335568199 instance=ExtResource("4_rj22u")]
+position = Vector2(278, 339)
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_book" unique_id=665938111]
+position = Vector2(218.62268, 71.10972)
+scale = Vector2(0.23429182, 0.23429187)
+texture = ExtResource("6_74saq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode_book/Sprite2D" unique_id=1018727164]
+scale = Vector2(22.17018, 20.292177)
+shape = SubResource("RectangleShape2D_wft6q")
+
+[node name="BG_3" type="Node2D" parent="." unique_id=2075512778]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=2134761404]
+position = Vector2(527, 475.165)
+scale = Vector2(0.5164618, 0.5164619)
+texture = ExtResource("6_osqsb")
+centered = false
+
+[node name="PersonAvatar_bee" parent="." unique_id=1390684158 instance=ExtResource("4_1so75")]
+position = Vector2(748, 323)
 scale = Vector2(1.6305809, 1.6305809)
 person_id = 8
+
+[node name="PersonAvatar_kid" parent="." unique_id=967673391 instance=ExtResource("4_1so75")]
+position = Vector2(115.99999, 255)
+scale = Vector2(0.63384926, 0.63384926)
+person_id = 17
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_61pdk")]
+position = Vector2(211, 499)
+scale = Vector2(1.4453902, 1.4453902)

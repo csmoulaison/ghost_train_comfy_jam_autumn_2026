@@ -1,27 +1,83 @@
 [gd_scene format=3 uid="uid://bng2ebyi1cugk"]
 
-[ext_resource type="Texture2D" uid="uid://c8mjlpj10ti0e" path="res://resources/textures/tmp_bg/lake_of_oaks.png" id="1_lng26"]
+[ext_resource type="Texture2D" uid="uid://kx1mm0hj7btk" path="res://resources/textures/backgrounds/Lake of Oaks - bg-sky and track.jpg" id="1_vyjw6"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_bl54c"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="3_bl54c"]
+[ext_resource type="Texture2D" uid="uid://85yrjupshugc" path="res://resources/textures/backgrounds/Lake of Oaks - midground.png" id="3_r16b5"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_6xvxf"]
+[ext_resource type="Texture2D" uid="uid://0dw5qxe5hhpg" path="res://resources/textures/characters/ol-tree/tree-mouth.png" id="5_r16b5"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="6_epxhq"]
+[ext_resource type="Texture2D" uid="uid://cgedy3wr04im5" path="res://resources/textures/characters/vampire/BAT-plain.png" id="7_np0xs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epxhq"]
+size = Vector2(80, 66.5228)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
+size = Vector2(214.25894, 403.44504)
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=876216019]
-position = Vector2(-32.000004, -23.000002)
-scale = Vector2(2.1319017, 2.1319017)
-texture = ExtResource("1_lng26")
+[node name="BG_2" type="Node2D" parent="." unique_id=362213342]
+position = Vector2(-2, -62)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=1740012636]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("1_vyjw6")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_bl54c")]
-position = Vector2(497.00006, 396.00003)
-scale = Vector2(0.1147821, 0.1147821)
+position = Vector2(382, 320.165)
+scale = Vector2(0.07868873, 0.07868873)
+
+[node name="BG_3" type="Node2D" parent="." unique_id=1824852937]
+position = Vector2(-2, -62)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=435015102]
+position = Vector2(1.9999999, 62.165)
+scale = Vector2(0.59999996, 0.6)
+texture = ExtResource("3_r16b5")
+centered = false
+
+[node name="PersonAvatar_tree" parent="." unique_id=1390684158 instance=ExtResource("4_6xvxf")]
+position = Vector2(876.00006, 321.16504)
+scale = Vector2(4.1208105, 4.1208105)
+person_id = 12
+
+[node name="Sprite2D" parent="PersonAvatar_tree" index="0" unique_id=467259015]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_r16b5")
+
+[node name="CollisionShape2D" parent="PersonAvatar_tree/Interactable" parent_id_path=PackedInt32Array(1390684158, 1638684734) index="0" unique_id=1170893020]
+position = Vector2(13.832216, 25.237745)
+shape = SubResource("RectangleShape2D_epxhq")
+
+[node name="PersonAvatar_2" parent="." unique_id=1409533425 instance=ExtResource("4_6xvxf")]
+position = Vector2(570.99994, 456.16498)
+scale = Vector2(1.9053715, 1.9053715)
+person_id = 9
+
+[node name="PersonAvatar_3" parent="." unique_id=1237636042 instance=ExtResource("4_6xvxf")]
+position = Vector2(988.0001, 154.16501)
+scale = Vector2(0.8934346, 0.8934346)
+person_id = 16
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_bl54c")]
-position = Vector2(534, 536)
-scale = Vector2(1.3042781, 1.3042781)
+position = Vector2(159.00002, 502.165)
+scale = Vector2(1.1185486, 1.1185486)
 
-[node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("4_6xvxf")]
-position = Vector2(952, 430.99997)
-scale = Vector2(3.7739458, 3.7739458)
-person_id = 12
+[node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("6_epxhq")]
+position = Vector2(624, 278.165)
+scale = Vector2(0.43872148, 0.43872148)
+notes = "click blinking bat to have vampire appear
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1019351753]
+position = Vector2(36.46961, -312.27103)
+texture = ExtResource("7_np0xs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode/Sprite2D" unique_id=642674923]
+position = Vector2(6.8380127, -17.095123)
+shape = SubResource("RectangleShape2D_wft6q")
+
+[editable path="PersonAvatar_tree"]
