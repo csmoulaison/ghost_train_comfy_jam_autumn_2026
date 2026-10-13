@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b31uk6s5rf15y" path="res://scripts/car_cargo_avatar.gd" id="2_lxf33"]
 
 [node name="Car_Cargo" type="Node2D" unique_id=7601887]
+z_index = 1
 
 [node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
 position = Vector2(937, -540)

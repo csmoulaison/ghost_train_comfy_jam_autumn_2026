@@ -6,6 +6,7 @@ class_name PersonAvatar extends Node2D
 # TODO(now): make this prevent normal interaction and instead just be immediate
 # click which activates new found_jackokid_dialogue field in person resource.
 @export var is_hiding_jackokid: bool = false
+@export var dressing: bool = false
 
 @onready var sprite = get_node("Sprite2D")
 @onready var interactable: Interactable = get_node("Interactable")
@@ -28,7 +29,7 @@ func _process(dt: float):
 		target_opacity = 1.0
 		if on_train and ModeState.mode == ModeState.GameMode.TRAVEL or !on_train and ModeState.mode == ModeState.GameMode.DESTINATION:
 			interactable.interaction_active = true
-	if is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION:
+	if (is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION) or dressing:
 		interactable.interaction_active = false
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
 	
@@ -39,6 +40,7 @@ func _on_interacted():
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if !is_hiding_jackokid: return
+		if GameState.people_locations[person_id] != TrainState.current_location: return
 		var person: Person = ResourceData.people[person_id]
 		DialogueState.open_dialogue([], person.found_jackokid_dialogue)
 

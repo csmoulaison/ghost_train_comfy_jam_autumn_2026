@@ -5,12 +5,24 @@
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="3_bl54c"]
 [ext_resource type="Texture2D" uid="uid://85yrjupshugc" path="res://resources/textures/backgrounds/Lake of Oaks - midground.png" id="3_r16b5"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="4_6xvxf"]
-[ext_resource type="Texture2D" uid="uid://0dw5qxe5hhpg" path="res://resources/textures/characters/ol-tree/tree-mouth.png" id="5_r16b5"]
+[ext_resource type="Texture2D" uid="uid://blq62052tqrix" path="res://resources/textures/characters/ol-tree/tree-plain.png" id="5_r16b5"]
 [ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="6_epxhq"]
 [ext_resource type="Texture2D" uid="uid://cgedy3wr04im5" path="res://resources/textures/characters/vampire/BAT-plain.png" id="7_np0xs"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="8_epxhq"]
+[ext_resource type="Script" uid="uid://kucbauklvjlr" path="res://scripts/bat_clickable.gd" id="10_np0xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epxhq"]
 size = Vector2(80, 66.5228)
+
+[sub_resource type="Resource" id="Resource_np0xs"]
+script = ExtResource("8_epxhq")
+flag_true = 11
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_nhob2"]
+script = ExtResource("8_epxhq")
+flag_false = 11
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 size = Vector2(214.25894, 403.44504)
@@ -56,11 +68,13 @@ shape = SubResource("RectangleShape2D_epxhq")
 position = Vector2(570.99994, 456.16498)
 scale = Vector2(1.9053715, 1.9053715)
 person_id = 9
+conditions = Array[ExtResource("8_epxhq")]([SubResource("Resource_np0xs")])
 
 [node name="PersonAvatar_3" parent="." unique_id=1237636042 instance=ExtResource("4_6xvxf")]
 position = Vector2(988.0001, 154.16501)
 scale = Vector2(0.8934346, 0.8934346)
 person_id = 16
+is_hiding_jackokid = true
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_bl54c")]
 position = Vector2(159.00002, 502.165)
@@ -69,15 +83,19 @@ scale = Vector2(1.1185486, 1.1185486)
 [node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("6_epxhq")]
 position = Vector2(624, 278.165)
 scale = Vector2(0.43872148, 0.43872148)
-notes = "click blinking bat to have vampire appear
-"
+notes = "(nick): click blinking bat to have vampire appear
+(conner): should work now"
+conditions = Array[ExtResource("8_epxhq")]([SubResource("Resource_nhob2")])
 
 [node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1019351753]
 position = Vector2(36.46961, -312.27103)
 texture = ExtResource("7_np0xs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode/Sprite2D" unique_id=642674923]
-position = Vector2(6.8380127, -17.095123)
+[node name="Area2D" type="Area2D" parent="ConditionalNode" unique_id=712932404]
+script = ExtResource("10_np0xs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode/Area2D" unique_id=642674923]
+position = Vector2(43.30774, -329.36618)
 shape = SubResource("RectangleShape2D_wft6q")
 
 [editable path="PersonAvatar_tree"]

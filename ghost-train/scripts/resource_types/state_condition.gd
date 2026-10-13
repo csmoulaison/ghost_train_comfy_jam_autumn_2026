@@ -17,6 +17,8 @@ class_name StateCondition extends Resource
 @export var location_locked: ID.Location = ID.Location.DEFAULT
 @export var passenger_slot_available: bool = false
 @export var cargo_slot_available: bool = false
+@export var cargo_available: ID.Cargo = ID.Cargo.DEFAULT
+@export var cargo_not_available: ID.Cargo = ID.Cargo.DEFAULT
 
 func check() -> bool:
 	if flag_true != ID.Flag.DEFAULT and !GameState.flags[flag_true]: return false
@@ -38,9 +40,12 @@ func check() -> bool:
 	if location_locked != ID.Location.DEFAULT and MapState.locations_unlocked[location_locked]: return false
 	if passenger_slot_available and TrainState.next_available_passenger_slot() == -1: return false
 	if cargo_slot_available and TrainState.next_available_cargo_slot() == -1: return false
+	if cargo_available != ID.Cargo.DEFAULT and GameState.cargo_cooldowns[cargo_available] > 0: return false
+	if cargo_not_available != ID.Cargo.DEFAULT and GameState.cargo_cooldowns[cargo_not_available] <= 0: return false
 	return true
 
 static func check_list(conditions: Array[StateCondition]) -> bool:
 	for condition in conditions:
+		if condition == null: continue
 		if !condition.check(): return false
 	return true

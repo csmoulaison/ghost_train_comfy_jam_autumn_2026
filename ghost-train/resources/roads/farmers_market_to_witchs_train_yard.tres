@@ -6,4 +6,5 @@
 script = ExtResource("1_0xo1x")
 endpoint_1 = 2
 endpoint_2 = 4
+cost = 5
 metadata/_custom_type_script = "uid://b7lduxod8je3s"

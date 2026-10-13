@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_v7vgr"]
 [ext_resource type="Resource" uid="uid://cvvtt2mk88gc7" path="res://resources/dialogue_lines/scarecrow_reaction_b.tres" id="4_4u7yd"]
 [ext_resource type="Resource" uid="uid://bchi8pud12ntx" path="res://resources/dialogue_lines/scarecrow_reaction_a.tres" id="4_v7vgr"]
+[ext_resource type="Texture2D" uid="uid://e563pgjatc8c" path="res://resources/textures/characters/cornbot/_0003_Cornbot-plain.png" id="6_4u7yd"]
 
 [sub_resource type="Resource" id="Resource_tbe2l"]
 script = ExtResource("1_kb64c")
@@ -54,7 +55,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("3_e70mj")
 name = "Cornbot"
 starting_location = 5
-default_texture = ExtResource("4_e70mj")
+default_texture = ExtResource("6_4u7yd")
 sprite_scale = 0.1
 default_interact_dialogue = SubResource("Resource_s7cgy")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

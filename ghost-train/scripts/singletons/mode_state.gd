@@ -89,6 +89,8 @@ func depart_to_travel():
 	var road: Road = ResourceData.roads[TrainState.current_road]
 	load_subscene(travel_subscene_parent, road.subscene_path)
 	ParallaxState.begin_parallax()
+	for index in ID.Cargo.CARGO_COUNT:
+		GameState.cargo_cooldowns[index] -= 1
 
 func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.OPEN_MAP_BUYING_TRACKS:

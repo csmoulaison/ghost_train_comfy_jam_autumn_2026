@@ -26,15 +26,14 @@ func _ready():
 	small_cargo_on_train.fill(ID.SmallCargo.DEFAULT)
 
 func try_load_cargo(cargo_id: ID.Cargo) -> bool:
-	print("try load")
 	assert(ModeState.mode == ModeState.GameMode.DESTINATION, "Tried to load cargo, but not at destination!")
+	var cargo: Cargo = ResourceData.cargos[cargo_id]
 	var slot: int = next_available_cargo_slot()
 	if slot != -1:
-		print("loading it")
+		GameState.cargo_cooldowns[cargo_id] = cargo.respawn_cooldown
 		cargo_slots[slot] = cargo_id
 		ModeState.update_train_avatars(false)
 		return true
-	var cargo: Cargo = ResourceData.cargos[cargo_id]
 	DialogueState.open_dialogue([], cargo.no_room_on_train_dialogue)
 	return false
 

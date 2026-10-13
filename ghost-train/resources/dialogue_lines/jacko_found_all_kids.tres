@@ -3,6 +3,95 @@
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_i068e"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_654lq"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_nuucr"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_654lq"]
+
+[sub_resource type="Resource" id="Resource_7ehf2"]
+script = ExtResource("4_654lq")
+person = 13
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_dmfyx"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_7ehf2")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_654lq"]
+script = ExtResource("4_654lq")
+person = 14
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_nuucr"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_654lq")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_8gdqx"]
+script = ExtResource("4_654lq")
+person = 15
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_qb301"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_8gdqx")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_vay64"]
+script = ExtResource("4_654lq")
+person = 16
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_fr5id"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_vay64")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_64ck8"]
+script = ExtResource("4_654lq")
+person = 17
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_thbu2"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_64ck8")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_bh4qr"]
+script = ExtResource("4_654lq")
+person = 18
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_ikcwt"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_bh4qr")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_omykb"]
+script = ExtResource("4_654lq")
+person = 19
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_qr0qo"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_omykb")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_hbii2"]
+script = ExtResource("4_654lq")
+person = 20
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_w5lgd"]
+script = ExtResource("3_nuucr")
+person_at_location = SubResource("Resource_hbii2")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_wsbrs"]
 script = ExtResource("2_654lq")
@@ -14,6 +103,6 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("2_654lq")
 person = 3
 text = "Now that my kids are back, maybe Jill-o will come back to me!"
-conditions = Array[ExtResource("3_nuucr")]([null, null, null, null, null, null, null, null])
+conditions = Array[ExtResource("3_nuucr")]([SubResource("Resource_dmfyx"), SubResource("Resource_nuucr"), SubResource("Resource_qb301"), SubResource("Resource_fr5id"), SubResource("Resource_thbu2"), SubResource("Resource_ikcwt"), SubResource("Resource_qr0qo"), SubResource("Resource_w5lgd")])
 default_next_line = SubResource("Resource_wsbrs")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

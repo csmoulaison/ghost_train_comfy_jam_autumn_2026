@@ -10,10 +10,8 @@ class_name GhostPlayer extends Node2D
 ## The keys are set in Project Settings -> Input Map: move_left, move_right,
 ## move_up, move_down and move_to_click.
 
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
-
 ## Top speed, in pixels per second.
-@export var speed: float = 400.0
+@export var speed: float = 450.0
 ## How floaty the ghost feels: the seconds it takes to get up to top speed, and
 ## to drift to a stop again. 0 is instant (not floaty at all), bigger is
 ## floatier.
@@ -21,6 +19,9 @@ class_name GhostPlayer extends Node2D
 ## Which way the sprite's art is drawn facing. Untick this if the art gets
 ## swapped for one that faces right.
 @export var art_faces_left: bool = true
+
+var bob_phase: float = 0.0
+var bob_damped: float = 0.0
 
 enum MoveState {
 	IDLE,
@@ -78,12 +79,11 @@ func _process(delta: float) -> void:
 		_velocity = _velocity.move_toward(Vector2(wanted_velocity, 0.0), _get_acceleration() * delta)
 
 	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
-
-	match move_state:
-		MoveState.IDLE:
-			animation_player.play("idle")
-		MoveState.MOVING:
-			animation_player.play("idle") # <- can change later...
+	
+	if bob_damped < abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 12.0)
+	if bob_damped > abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 4.0)
+	bob_phase += 0.025 + abs(bob_damped * 0.0002)
+	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.04)
 
 	global_position += _velocity * delta
 	_keep_on_screen()

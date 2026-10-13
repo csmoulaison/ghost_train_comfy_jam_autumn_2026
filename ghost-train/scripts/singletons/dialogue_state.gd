@@ -21,16 +21,21 @@ func is_active() -> bool:
 	return current_line != null
 
 func open_dialogue(conditional_lines: Array[DialogueLine], default_line: DialogueLine) -> void:
-	if is_active():
-		push_error("Start Dialogue Line: a dialogue line is already playing!")
-		return
+	#if is_active():
+	#	push_error("Start Dialogue Line: a dialogue line is already playing!")
+	#	return
 	var started_line: DialogueLine = try_start_line_from_conditional_list(conditional_lines, default_line, [])
 	if started_line != null: 
 		dialogue_started.emit(started_line)
 
 ## Returns the dialogue line that was chosen.
 func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine], default_line: DialogueLine, post_effects_from_previous: Array[StateEffect]) -> DialogueLine:
+	var stored_line: DialogueLine = current_line
 	StateEffect.fire_list(post_effects_from_previous)
+	if stored_line != current_line: 
+		print("line override!")
+		return null
+	
 	# NOTE: default_line must be set, or the dialogue will close, even if
 	# there are conditional_lines.
 	if default_line == null:
@@ -39,9 +44,10 @@ func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine]
 		
 	var line_to_start: DialogueLine = default_line
 	for line in conditional_lines:
-		if StateCondition.check_list(line.conditions):
-			line_to_start = line
-			break
+		if line.conditions != null:
+			if StateCondition.check_list(line.conditions):
+				line_to_start = line
+				break
 	current_line = line_to_start
 	StateEffect.fire_list(current_line.pre_effects)
 	# TODO(now): before starting line, see if its cyclical and choose a child if
@@ -49,16 +55,12 @@ func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine]
 	if current_line.cycle != ID.DialogueCycle.DEFAULT:
 		var cycle_len: int = current_line.conditional_next_lines.size()
 		var cycle: ID.DialogueCycle = current_line.cycle
-		print("cycle len " + str(cycle_len))
-		print("current line " + str(cycles[cycle]))
 		assert(cycle_len > 0)
 		if cycles[cycle] >= cycle_len: 
-			print("resetting")
 			cycles[cycle] = 0
 		current_line = current_line.conditional_next_lines[cycles[cycle]]
 		StateEffect.fire_list(current_line.pre_effects)
 		cycles[cycle] += 1
-		print("post current line " + str(cycles[cycle]))
 	line_changed.emit(current_line)
 	return current_line
 

@@ -8,6 +8,8 @@
 [node name="DefaultRoad" type="Node2D" unique_id=1691894120]
 
 [node name="ParallaxGroup3" parent="." unique_id=1458647978 instance=ExtResource("1_5cnn1")]
+z_index = -5
+z_as_relative = false
 pixel_repeat_width = 2460
 parallax_scroll_ratio = 0.1
 
@@ -20,6 +22,8 @@ texture = ExtResource("2_qv77l")
 centered = false
 
 [node name="ParallaxGroup2" parent="." unique_id=450757450 instance=ExtResource("1_5cnn1")]
+z_index = -4
+z_as_relative = false
 pixel_repeat_width = 1850
 parallax_scroll_ratio = 0.5
 
@@ -49,6 +53,8 @@ scale = Vector2(0.70126104, 0.70126104)
 texture = ExtResource("4_kbwyt")
 
 [node name="ParallaxGroup1" parent="." unique_id=2048000699 instance=ExtResource("1_5cnn1")]
+z_index = -3
+z_as_relative = false
 
 [node name="BG_1" type="Node2D" parent="ParallaxGroup1" unique_id=131873091]
 position = Vector2(0, -64.695)

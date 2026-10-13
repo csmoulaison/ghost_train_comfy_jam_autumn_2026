@@ -7,22 +7,27 @@
 [node name="Car_Passenger" type="Node2D" unique_id=7601887]
 
 [node name="Wheel1" type="Sprite2D" parent="." unique_id=1752711142]
+z_index = -1
 position = Vector2(107.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel2" type="Sprite2D" parent="." unique_id=882386957]
+z_index = -1
 position = Vector2(471.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel3" type="Sprite2D" parent="." unique_id=1121488783]
+z_index = -1
 position = Vector2(1153.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel4" type="Sprite2D" parent="." unique_id=1969418529]
+z_index = -1
 position = Vector2(1514.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1728129817]
+z_index = -1
 position = Vector2(840.5, -337)
 texture = ExtResource("2_8ux1y")
 

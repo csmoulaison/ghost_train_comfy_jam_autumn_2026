@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_0w1uv"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_0w1uv"]
-[ext_resource type="Texture2D" uid="uid://c5ec10h71ri6g" path="res://resources/textures/characters/jack-o-kids/1-market/jacko-market.png" id="2_nkxi2"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="3_nkxi2"]
+[ext_resource type="Texture2D" uid="uid://c5ec10h71ri6g" path="res://resources/textures/characters/jack-o-kids/1-market/jacko-market.png" id="4_nkxi2"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_rypk4"]
 
 [sub_resource type="Resource" id="Resource_5sfjl"]
@@ -31,11 +31,19 @@ text = "RIP! It’s a Really Invisible Pumpkin!"
 default_next_line = SubResource("Resource_4tpt8")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_7dtsx"]
+script = ExtResource("1_0w1uv")
+person = 13
+text = "There's no room on the train for me!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [resource]
 script = ExtResource("2_0w1uv")
 name = "Julio"
-starting_location = 2
-default_texture = ExtResource("2_nkxi2")
+starting_location = 3
+default_texture = ExtResource("4_nkxi2")
 sprite_scale = 0.2
+default_interact_dialogue = SubResource("Resource_5sfjl")
+no_room_on_train_dialogue = SubResource("Resource_7dtsx")
 found_jackokid_dialogue = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"
