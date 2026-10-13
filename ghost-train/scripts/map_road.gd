@@ -6,6 +6,7 @@ class_name MapRoad extends Node2D
 @export var active_texture: Texture2D
 
 @export var post_track_dialogue_tutorial: DialogueLine
+@export var post_track_dialogue_grotto: DialogueLine
 
 @onready var sprite_node: Sprite2D = get_node("Sprite2D")
 

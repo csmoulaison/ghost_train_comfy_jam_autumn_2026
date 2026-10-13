@@ -2,10 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cuet5dtsrr14n" path="res://scripts/resource_types/cargo.gd" id="1_836as"]
 [ext_resource type="Texture2D" uid="uid://bia3nw4qry0yi" path="res://resources/textures/programmer_art/cargo_shrooms.png" id="1_13812"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_wjkwl"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="3_ggpj8"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_upue0"]
+
+[sub_resource type="Resource" id="Resource_5gqha"]
+script = ExtResource("3_ggpj8")
+person = 10
+text = "Hate to be an unfun guy, but it seems you have no room for shrooms!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_836as")
 name = "Shrooms"
 car_texture = ExtResource("1_13812")
 revenue = 10
+no_room_on_train_dialogue = SubResource("Resource_5gqha")
 metadata/_custom_type_script = "uid://cuet5dtsrr14n"

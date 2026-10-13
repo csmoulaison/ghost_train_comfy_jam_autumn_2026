@@ -3,11 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="1_0wcw4"]
 [ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="2_ne7uw"]
 [ext_resource type="Theme" uid="uid://cm67ku6mq27ta" path="res://resources/gui_theme.tres" id="3_5m4q6"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="4_f0c3g"]
 [ext_resource type="Script" uid="uid://djkcgxi4vqjd6" path="res://scripts/travel_confirmation_dialog.gd" id="4_vlip3"]
 [ext_resource type="Script" uid="uid://bv8qptobcy7o5" path="res://scripts/exit_map_button.gd" id="5_jlqwp"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="5_od1u7"]
 [ext_resource type="Texture2D" uid="uid://cmrorykksyvab" path="res://resources/textures/programmer_art/exit.png" id="5_vsh3c"]
 [ext_resource type="Resource" uid="uid://bg8ejd5e7tmx8" path="res://resources/dialogue_lines/witch_post_map_tutorial.tres" id="6_5gqha"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="6_l1wjf"]
 [ext_resource type="Resource" uid="uid://b8ai4g33vog4c" path="res://resources/dialogue_lines/witch_post_map_normal.tres" id="7_raa3b"]
+
+[sub_resource type="Resource" id="Resource_5gqha"]
+script = ExtResource("5_od1u7")
+person = 5
+text = "Now your train will rise up like mushrooms from a fallen log!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
 size = Vector2(247, 131)
@@ -95,6 +104,7 @@ road_id = 8
 position = Vector2(904, 544)
 rotation = -0.26458028
 road_id = 10
+post_track_dialogue_grotto = SubResource("Resource_5gqha")
 
 [node name="MapRoad7" parent="." unique_id=686074369 instance=ExtResource("2_ne7uw")]
 position = Vector2(428.00003, 422.00003)

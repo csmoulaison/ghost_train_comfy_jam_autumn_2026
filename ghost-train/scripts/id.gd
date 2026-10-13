@@ -17,7 +17,7 @@ enum Person {
 	SCARECROW,
 	CORNBOT,
 	BEES,
-	FISH,
+	VAMPIRE,
 	SHROOM,
 	GRIMM,
 	OL_APPLE,
@@ -88,13 +88,29 @@ enum Flag {
 	FIRST_TRACK_BOUGHT, # bought the track to the trainyard
 	GROTTO_ROAD_AVAILABLE,
 	TALKED_TO_SCARECROW,
+	TALKED_TO_BEES,
+	TALKED_TO_VAMPIRE,
+	TALKED_TO_SHROOM,
+	TALKED_TO_GRIM,
+	TALKED_TO_TREE,
+	GAVE_BOOK_TO_TREE,
+	WITCH_TOLD_OF_GROTTO_ROAD,
+	GRIM_MET_VAMPIRE,
+	VAMPIRE_HEALED,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 
 enum Event {
 	DEFAULT,
 	OPEN_MAP_BUYING_TRACKS,
+	OPEN_MAP_BUYING_GROTTO_TRACK,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
+}
+
+enum DialogueCycle {
+	DEFAULT,
+	CORNBOT,
+	DIALOGUE_CYCLE_COUNT,
 }
 
 enum Cinematic {

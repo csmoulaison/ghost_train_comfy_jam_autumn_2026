@@ -6,22 +6,36 @@
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="3_nkxi2"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_rypk4"]
 
-[sub_resource type="Resource" id="Resource_nkxi2"]
+[sub_resource type="Resource" id="Resource_5sfjl"]
+script = ExtResource("1_0w1uv")
+person = 13
+text = "Jean-Marco is picking on me!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_rypk4"]
 script = ExtResource("3_nkxi2")
 board_person = 13
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
+[sub_resource type="Resource" id="Resource_4tpt8"]
+script = ExtResource("1_0w1uv")
+person = 13
+text = "Oh, you’re just a ghost."
+post_effects = Array[ExtResource("3_nkxi2")]([SubResource("Resource_rypk4")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_0w1uv")
 person = 13
-text = "You found me!!"
-post_effects = Array[ExtResource("3_nkxi2")]([SubResource("Resource_nkxi2")])
+text = "RIP! It’s a Really Invisible Pumpkin!"
+default_next_line = SubResource("Resource_4tpt8")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_0w1uv")
-name = "Jackokid"
+name = "Julio"
 starting_location = 2
 default_texture = ExtResource("2_cw1vi")
+default_interact_dialogue = SubResource("Resource_5sfjl")
 found_jackokid_dialogue = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

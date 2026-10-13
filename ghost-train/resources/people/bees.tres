@@ -3,9 +3,112 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_dosdr"]
 [ext_resource type="Texture2D" uid="uid://ddqchxey6jo1a" path="res://resources/textures/programmer_art/big_cargo_monster.png" id="1_gomio"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_n8gxc"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_m3j2n"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_hpugy"]
+
+[sub_resource type="Resource" id="Resource_m3j2n"]
+script = ExtResource("3_hpugy")
+flag_false = 6
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_4lsr5"]
+script = ExtResource("2_m3j2n")
+load_cargo = 4
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_v2r1y"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Here's your honey; make sure they fill out the survey we included!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_hpugy"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Oh well. I guess we can just do more in-hive testing of our batches."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_rxmhj"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Do ghosts eat honey, too?"
+prompt_text = "Load honey?"
+accept_effects = Array[ExtResource("2_m3j2n")]([SubResource("Resource_4lsr5")])
+default_accept_line = SubResource("Resource_v2r1y")
+default_decline_line = SubResource("Resource_hpugy")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_xh4f1"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Oh, hello! I’m not familiar with your species!"
+default_next_line = SubResource("Resource_rxmhj")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_p6bdj"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Did you try it with the larvae-to-drone demographic?"
+default_next_line = SubResource("Resource_xh4f1")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_5gqha"]
+script = ExtResource("2_m3j2n")
+set_flag = 6
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_55tjt"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "I don’t think the dandelion base sugars synergize with the fructose from the crocuses."
+conditions = Array[ExtResource("3_hpugy")]([SubResource("Resource_m3j2n")])
+post_effects = Array[ExtResource("2_m3j2n")]([SubResource("Resource_5gqha")])
+default_next_line = SubResource("Resource_p6bdj")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_rm64g"]
+script = ExtResource("2_m3j2n")
+load_cargo = 4
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_y0kgr"]
+script = ExtResource("3_hpugy")
+flag_true = 6
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_6gue2"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Here's your honey; make sure they fill out the survey we included!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_u5e4v"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "Oh well. I guess we can just do more in-hive testing of our batches."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_q8igk"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "We're A/B testing our honey. Want to take some?"
+conditions = Array[ExtResource("3_hpugy")]([SubResource("Resource_y0kgr")])
+prompt_text = "Load honey?"
+accept_effects = Array[ExtResource("2_m3j2n")]([SubResource("Resource_rm64g")])
+default_accept_line = SubResource("Resource_6gue2")
+default_decline_line = SubResource("Resource_u5e4v")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_nhvhv"]
+script = ExtResource("1_dosdr")
+person = 8
+text = "We are the Bumblebee Students. We should never reach our default dialogue."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_n8gxc")
 name = "Bees"
 default_texture = ExtResource("1_gomio")
+conditional_interact_dialogue = Array[ExtResource("1_dosdr")]([SubResource("Resource_55tjt"), SubResource("Resource_q8igk")])
+default_interact_dialogue = SubResource("Resource_nhvhv")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

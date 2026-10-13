@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://dbkayabpv8qfr"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_pv380"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_pynqw"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ou1b6"]
+
+[sub_resource type="Resource" id="Resource_5k4ou"]
+script = ExtResource("3_ou1b6")
+small_cargo_loaded = 3
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_pv380"]
+script = ExtResource("2_pynqw")
+person = 11
+text = "You know, I might want to pick up reaping again."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_f0c3g"]
+script = ExtResource("2_pynqw")
+person = 11
+text = "*SLICE*"
+default_next_line = SubResource("Resource_pv380")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_pynqw")
+person = 11
+text = "Alrighty, now Vampire, just stick out your top chompers, just like that..."
+conditions = Array[ExtResource("3_ou1b6")]([SubResource("Resource_5k4ou")])
+default_next_line = SubResource("Resource_f0c3g")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

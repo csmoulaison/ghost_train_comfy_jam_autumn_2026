@@ -109,15 +109,21 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_10jd1"]
 script = ExtResource("1_0so2n")
 person = 2
-text = "TMP: [SHOP OPENS]"
+text = "Welp, nothing ventured, nothing gained."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_uajsq"]
 script = ExtResource("1_0so2n")
 person = 2
-text = "Got anything to sell?"
+text = "So, Ghost, got anything to offload?"
 conditional_next_lines = Array[ExtResource("1_0so2n")]([SubResource("Resource_omvf3"), SubResource("Resource_tluqg"), SubResource("Resource_i48rh"), SubResource("Resource_p52bu"), SubResource("Resource_lr5e3")])
 default_next_line = SubResource("Resource_10jd1")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_0so2n")
+person = 2
+text = "I can't ride in this stuffed wagon. You're full up."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_lxf33"]
@@ -141,4 +147,5 @@ conditional_interact_dialogue = Array[ExtResource("1_0so2n")]([ExtResource("2_0s
 default_interact_dialogue = ExtResource("3_06o6b")
 desired_location = 2
 reached_location_dialogue = ExtResource("5_uajsq")
+no_room_on_train_dialogue = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

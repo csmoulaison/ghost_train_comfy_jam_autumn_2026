@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="Person" format=3 uid="uid://4v8dmr8nol4d"]
+
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_ml87m"]
+[ext_resource type="Texture2D" uid="uid://ddqchxey6jo1a" path="res://resources/textures/programmer_art/big_cargo_monster.png" id="1_teg02"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_17gf0"]
+[ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_ml87m"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ke5tb"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_ke5tb"]
+
+[sub_resource type="Resource" id="Resource_17gf0"]
+script = ExtResource("2_17gf0")
+board_person = 9
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_5gqha"]
+script = ExtResource("4_ke5tb")
+person = 6
+location = 6
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_1r8be"]
+script = ExtResource("3_ke5tb")
+flag_false = 7
+person_at_location = SubResource("Resource_5gqha")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_ct4ee"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Thank you!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_wrco8"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Woe is me!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_qp1xr"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Ghost, can you help me find someone who can reverse my undead curse?"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_o0cry"]
+script = ExtResource("2_17gf0")
+set_flag = 7
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_ke5tb"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "I’m so tired of piercing my tongue, and I’m sick of the taste of pumpkin spiced blood."
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_1r8be")])
+post_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_o0cry")])
+default_next_line = SubResource("Resource_qp1xr")
+prompt_text = "Board the vampire?"
+accept_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_17gf0")])
+default_accept_line = SubResource("Resource_ct4ee")
+default_decline_line = SubResource("Resource_wrco8")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_abrtk"]
+script = ExtResource("2_17gf0")
+board_person = 9
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_7gw2r"]
+script = ExtResource("3_ke5tb")
+flag_true = 7
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_hpugy"]
+script = ExtResource("4_ke5tb")
+person = 9
+location = 6
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_m3j2n"]
+script = ExtResource("3_ke5tb")
+person_at_location = SubResource("Resource_hpugy")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_re5c2"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Thank you!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_68cha"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Woe is me!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_yvsmm"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Do you know anyone who is proficient with life and death stuff?"
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_7gw2r"), SubResource("Resource_m3j2n")])
+prompt_text = "Board the vampire?"
+accept_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_abrtk")])
+default_accept_line = SubResource("Resource_re5c2")
+default_decline_line = SubResource("Resource_68cha")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_16a7o"]
+script = ExtResource("3_ke5tb")
+person_on_train = 9
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_mvadr"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Oh boo, can't anyone help me with my fangs?"
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_16a7o")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_od1u7"]
+script = ExtResource("4_ke5tb")
+person = 9
+location = 9
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_f0c3g"]
+script = ExtResource("3_ke5tb")
+flag_false = 13
+person_at_location = SubResource("Resource_od1u7")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_pp0ok"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Please help Grim get me healed!"
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_f0c3g")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_rqy66"]
+script = ExtResource("4_ke5tb")
+person = 9
+location = 9
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_fcxvp"]
+script = ExtResource("3_ke5tb")
+flag_true = 13
+person_at_location = SubResource("Resource_rqy66")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_m3kf8"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Thanks for everything, ghosty."
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_fcxvp")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_f3quk"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "I'm the Vampire... and if you're reading this, I don't have a line prepared when I should. I'm so sorry to default on you."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_ml87m")
+name = "Vampire"
+starting_location = 6
+default_texture = ExtResource("1_teg02")
+conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_ke5tb"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), SubResource("Resource_pp0ok"), SubResource("Resource_m3kf8")])
+default_interact_dialogue = SubResource("Resource_f3quk")
+metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

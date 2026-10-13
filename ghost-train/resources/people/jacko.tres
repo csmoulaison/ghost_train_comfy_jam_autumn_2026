@@ -4,12 +4,185 @@
 [ext_resource type="Texture2D" uid="uid://xi5jysqrgnyw" path="res://resources/textures/programmer_art/jacko.png" id="1_fxr8t"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_j0htq"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_wsbrs"]
+[ext_resource type="Resource" uid="uid://da36l4fh0ml0e" path="res://resources/dialogue_lines/jacko_found_all_kids.tres" id="3_3sagy"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_k4wkh"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_wsbrs"]
+[ext_resource type="Resource" uid="uid://p8gv47f8fuqq" path="res://resources/dialogue_lines/jacko_havent_found_all_kids.tres" id="5_qi4tn"]
+
+[sub_resource type="Resource" id="Resource_uppcu"]
+script = ExtResource("3_k4wkh")
+person_on_train = 13
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_g5rtn"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Julio!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_uppcu")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_17u6x"]
+script = ExtResource("3_k4wkh")
+person_on_train = 14
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_cu5o3"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Jacinto!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_17u6x")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_2shxd"]
+script = ExtResource("3_k4wkh")
+person_on_train = 15
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_fxwax"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Jojo!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_2shxd")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_oaoc5"]
+script = ExtResource("3_k4wkh")
+person_on_train = 16
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_r2e63"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Juno!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_oaoc5")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_d48ty"]
+script = ExtResource("3_k4wkh")
+person_on_train = 17
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_hcaf5"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Jericho!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_d48ty")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_nox4g"]
+script = ExtResource("3_k4wkh")
+person_on_train = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_ju8dc"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Jethro!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_nox4g")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_l46q0"]
+script = ExtResource("3_k4wkh")
+person_on_train = 19
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_6hkup"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Jean-Marco!"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_l46q0")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jwxfg"]
+script = ExtResource("3_k4wkh")
+person_on_train = 20
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_g2ct0"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for finding Nicholas."
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_jwxfg")])
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
+default_next_line = ExtResource("5_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jl5qu"]
+script = ExtResource("2_wsbrs")
+set_flag = 1
+load_cargo = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_3hfy5"]
+script = ExtResource("4_wsbrs")
+person = 2
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_mj6is"]
+script = ExtResource("3_k4wkh")
+person_not_at_location = SubResource("Resource_3hfy5")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_m23jh"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Time to de-vine!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_qi4tn"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Don't wait too long, harvest doesn't last forever."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Now that the pumpkin-sitter is gone, are you ready to load these pumpies?"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_mj6is")])
+prompt_text = "Load pumpkins?"
+accept_effects = Array[ExtResource("2_wsbrs")]([SubResource("Resource_jl5qu")])
+default_accept_line = SubResource("Resource_m23jh")
+default_decline_line = SubResource("Resource_qi4tn")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3sagy"]
+script = ExtResource("4_wsbrs")
+person = 2
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_k4wkh"]
+script = ExtResource("3_k4wkh")
+person_at_location = SubResource("Resource_3sagy")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_j0htq"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "I would give you my pumpkins to sell, but there is a crow on them."
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_k4wkh")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_wdu22"]
 script = ExtResource("1_j0htq")
 person = 3
-text = "The wife's in charge of business, I'm just a silly old pumpkin."
+text = "I'm Jack-o, and I'm never supposed to say this. Something is amiss."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
@@ -17,5 +190,6 @@ script = ExtResource("1_4nwo6")
 name = "Jacko"
 starting_location = 3
 default_texture = ExtResource("1_fxr8t")
+conditional_interact_dialogue = Array[ExtResource("1_j0htq")]([SubResource("Resource_g5rtn"), SubResource("Resource_cu5o3"), SubResource("Resource_fxwax"), SubResource("Resource_r2e63"), SubResource("Resource_hcaf5"), SubResource("Resource_ju8dc"), SubResource("Resource_6hkup"), SubResource("Resource_g2ct0"), SubResource("Resource_j287u"), SubResource("Resource_j0htq"), null])
 default_interact_dialogue = SubResource("Resource_wdu22")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

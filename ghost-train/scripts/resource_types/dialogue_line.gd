@@ -7,6 +7,11 @@ class_name DialogueLine extends Resource
 @export var post_effects: Array[StateEffect] = []
 @export var conditional_next_lines: Array[DialogueLine] = []
 @export var default_next_line: DialogueLine = null
+## if this is set to other than default, conditional_next_lines acts as an
+## unconditional set of lines which repeat in a cycle every time we hit this
+## node. We also skip past the text and effects of this line, so those fields
+## are ignored and we move straight to one of the cycle lines.
+@export var cycle: ID.DialogueCycle = ID.DialogueCycle.DEFAULT
 
 @export_group("Prompt")
 ## Fill this in to ask the player Accept / Decline once the line has printed.

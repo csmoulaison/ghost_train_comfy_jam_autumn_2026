@@ -3,9 +3,39 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_3ra8t"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_3ra8t"]
 [ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/programmer_art/jackokids.png" id="2_4unmh"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="3_vcl4l"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_c1oqv"]
+
+[sub_resource type="Resource" id="Resource_5sfjl"]
+script = ExtResource("1_3ra8t")
+person = 14
+text = "Can't wait to tell my papa all about magical engineering!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_vcl4l"]
+script = ExtResource("3_vcl4l")
+board_person = 14
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_c1oqv"]
+script = ExtResource("1_3ra8t")
+person = 14
+text = "That’s what happened to the Jefferson family!"
+post_effects = Array[ExtResource("3_vcl4l")]([SubResource("Resource_vcl4l")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_3ra8t")
+person = 14
+text = "Oh no! I don’t want to be put in a white canvas bag."
+default_next_line = SubResource("Resource_c1oqv")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_3ra8t")
-name = "Jackokid"
+name = "Jacinto"
+starting_location = 4
 default_texture = ExtResource("2_4unmh")
+default_interact_dialogue = SubResource("Resource_5sfjl")
+found_jackokid_dialogue = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

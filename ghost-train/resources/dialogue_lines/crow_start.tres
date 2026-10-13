@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [resource]
 script = ExtResource("2_0tjwa")
 person = 2
-text = "Do you wanna help me sell veggies at the farmer’s market? I can cut you in on some pretty pennies."
+text = "Do you wanna help me go sell veggies at the farmer’s market? I can cut you in on some pretty pennies."
 conditions = Array[ExtResource("3_wffqm")]([SubResource("Resource_s2dv2")])
 prompt_text = "Board the bird?"
 default_accept_line = SubResource("Resource_xut4o")

@@ -11,6 +11,11 @@ signal line_changed(line: DialogueLine)
 signal dialogue_ended(line: DialogueLine)
 
 var current_line: DialogueLine
+var cycles: Array[int]
+
+func _ready():
+	cycles.resize(ID.DialogueCycle.DIALOGUE_CYCLE_COUNT)
+	cycles.fill(0)
 
 func is_active() -> bool:
 	return current_line != null
@@ -39,8 +44,23 @@ func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine]
 			break
 	current_line = line_to_start
 	StateEffect.fire_list(current_line.pre_effects)
+	# TODO(now): before starting line, see if its cyclical and choose a child if
+	# so, iterating cycle.
+	if current_line.cycle != ID.DialogueCycle.DEFAULT:
+		var cycle_len: int = current_line.conditional_next_lines.size()
+		var cycle: ID.DialogueCycle = current_line.cycle
+		print("cycle len " + str(cycle_len))
+		print("current line " + str(cycles[cycle]))
+		assert(cycle_len > 0)
+		if cycles[cycle] >= cycle_len: 
+			print("resetting")
+			cycles[cycle] = 0
+		current_line = current_line.conditional_next_lines[cycles[cycle]]
+		StateEffect.fire_list(current_line.pre_effects)
+		cycles[cycle] += 1
+		print("post current line " + str(cycles[cycle]))
 	line_changed.emit(current_line)
-	return line_to_start
+	return current_line
 
 ## Moves on to the next line, or ends the dialogue if that was the last one.
 func advance() -> void:

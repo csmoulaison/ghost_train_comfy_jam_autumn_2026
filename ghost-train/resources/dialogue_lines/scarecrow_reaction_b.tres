@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cvvtt2mk88gc7"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_y47sw"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_misop"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_b1ikb"]
+
+[sub_resource type="Resource" id="Resource_4u7yd"]
+script = ExtResource("2_misop")
+person = 7
+text = "When you buy our corn, you contribute to the success of our growing vegetable stock."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_misop")
+person = 6
+text = "It's Corn Town, not Corn Corp! And who cares if you cornered the market?"
+default_next_line = SubResource("Resource_4u7yd")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

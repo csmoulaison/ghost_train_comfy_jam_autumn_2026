@@ -5,11 +5,50 @@
 [ext_resource type="Texture2D" uid="uid://d7gy6vc1gppo" path="res://resources/textures/programmer_art/cornbot.png" id="2_kb64c"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="3_e70mj"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_v7vgr"]
+[ext_resource type="Resource" uid="uid://cvvtt2mk88gc7" path="res://resources/dialogue_lines/scarecrow_reaction_b.tres" id="4_4u7yd"]
+[ext_resource type="Resource" uid="uid://bchi8pud12ntx" path="res://resources/dialogue_lines/scarecrow_reaction_a.tres" id="4_v7vgr"]
+
+[sub_resource type="Resource" id="Resource_tbe2l"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Since Corn Corp's acquisition, market saturation for corn products has increased by 115%!"
+default_next_line = ExtResource("4_4u7yd")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_v7vgr"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Hello, Apparition. Would you like some efficiently harvested corn?"
+default_next_line = SubResource("Resource_tbe2l")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_tofs3"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Corn Corp's deployment of automated Corn Bots such as myself has reduced harvesting errors by a factor of 2!"
+default_next_line = ExtResource("4_v7vgr")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_e70mj"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Greetings, Ghost. Are you searching for corn to acquire?"
+default_next_line = SubResource("Resource_tofs3")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_hg2y6"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "MALFUNCTIONING... BZZZ... BRRRR..."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_s7cgy"]
 script = ExtResource("1_kb64c")
 person = 7
 text = "Bright and shiny day, visitor! Be sure to stop by and get our buy one, get one free corn bundles!"
+conditional_next_lines = Array[ExtResource("1_kb64c")]([SubResource("Resource_v7vgr"), SubResource("Resource_e70mj")])
+default_next_line = SubResource("Resource_hg2y6")
+cycle = 1
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

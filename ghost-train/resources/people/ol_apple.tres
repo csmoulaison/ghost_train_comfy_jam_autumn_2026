@@ -3,10 +3,110 @@
 [ext_resource type="Texture2D" uid="uid://c7e0qwn37lxmp" path="res://resources/textures/programmer_art/old_oak.png" id="1_cj3kg"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_g21pr"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_s80ha"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_fnbb7"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_nk5j5"]
+
+[sub_resource type="Resource" id="Resource_fnbb7"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "AND NO, YOU CAN'T HAVE ANY APPLES."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_af1be"]
+script = ExtResource("2_fnbb7")
+set_flag = 10
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_nk5j5"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "I'm tired of listening to this vampire mope. Nothing to read around here."
+post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_af1be")])
+default_next_line = SubResource("Resource_fnbb7")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_xga1r"]
+script = ExtResource("3_nk5j5")
+small_cargo_loaded = 1
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_p6bxi"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "You know, I might be able to spare some apples."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_m5b5j"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "..."
+default_next_line = SubResource("Resource_p6bxi")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_xeal5"]
+script = ExtResource("2_fnbb7")
+set_flag = 11
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_n7ay7"]
+script = ExtResource("2_fnbb7")
+unload_small_cargo = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_5gqha"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "I appreciate you finding me something to leaf through."
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_xga1r")])
+pre_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_n7ay7")])
+post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_xeal5")])
+default_next_line = SubResource("Resource_m5b5j")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ydr6d"]
+script = ExtResource("2_fnbb7")
+load_cargo = 3
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_cl7lu"]
+script = ExtResource("3_nk5j5")
+flag_true = 11
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_sumjs"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "Be careful with my precious apples."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3j2bk"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "Oh, I just thought maybe you would want some."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4mbvd"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "I should pass on my apples to an apparition. Here you go."
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_cl7lu")])
+prompt_text = "Load apples?"
+accept_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_ydr6d")])
+default_accept_line = SubResource("Resource_sumjs")
+default_decline_line = SubResource("Resource_3j2bk")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_1h1ix"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "I'm the Ol' Oak. I must be missing a sentence, because I don't have anything to say here."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_g21pr")
-name = "Ol' Apple"
+name = "Ol' Oak"
 starting_location = 6
 default_texture = ExtResource("1_cj3kg")
+conditional_interact_dialogue = Array[ExtResource("1_s80ha")]([SubResource("Resource_nk5j5"), SubResource("Resource_5gqha"), SubResource("Resource_4mbvd")])
+default_interact_dialogue = SubResource("Resource_1h1ix")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

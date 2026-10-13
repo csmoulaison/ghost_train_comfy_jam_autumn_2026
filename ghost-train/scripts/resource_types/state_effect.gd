@@ -14,11 +14,11 @@ class_name StateEffect extends Resource
 # TODO: sound effect?
 func fire():
 	if board_person != ID.Person.DEFAULT:
-		assert(TrainState.try_board_passenger(board_person), "Boarded passenger without checking room first!")
+		TrainState.try_board_passenger(board_person)
 	if offboard_person != ID.Person.DEFAULT:
 		TrainState.offboard_passenger(offboard_person, TrainState.current_location)
 	if load_cargo != ID.Cargo.DEFAULT:
-		assert(TrainState.try_load_cargo(load_cargo), "Loaded cargo without checking room first!")
+		TrainState.try_load_cargo(load_cargo)
 	if sell_cargo != ID.Cargo.DEFAULT:
 		TrainState.sell_cargo(sell_cargo)
 	if load_small_cargo != ID.SmallCargo.DEFAULT:

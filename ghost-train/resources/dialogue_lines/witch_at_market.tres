@@ -5,11 +5,6 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ajpxp"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="13_vo5dg"]
 
-[sub_resource type="Resource" id="Resource_gs6tu"]
-script = ExtResource("1_gs6tu")
-fire_event = 1
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
 [sub_resource type="Resource" id="Resource_xbfb6"]
 script = ExtResource("13_vo5dg")
 person = 5
@@ -22,18 +17,30 @@ flag_false = 3
 person_at_location = SubResource("Resource_xbfb6")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_jrijl"]
+[sub_resource type="Resource" id="Resource_2406q"]
+script = ExtResource("1_gs6tu")
+fire_event = 1
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("2_xbfb6")
 person = 5
-text = "That's okay, not like I worked really hard on them or anything like that :/"
+text = "Bah humbug."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ajpxp"]
+script = ExtResource("2_xbfb6")
+person = 5
+text = "Take me over to my trainyard, and I'll hook you up with plenty."
+prompt_text = "Buy track?"
+accept_effects = Array[ExtResource("1_gs6tu")]([SubResource("Resource_2406q")])
+default_decline_line = SubResource("Resource_5sfjl")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_xbfb6")
 person = 5
-text = "I'll sell you a track to my trainyard and then you ride me there?"
+text = "Oh, hello! Need more track for your train?"
 conditions = Array[ExtResource("3_ajpxp")]([SubResource("Resource_p8uhu")])
-prompt_text = "Buy a track?"
-accept_effects = Array[ExtResource("1_gs6tu")]([SubResource("Resource_gs6tu")])
-default_decline_line = SubResource("Resource_jrijl")
+default_next_line = SubResource("Resource_ajpxp")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

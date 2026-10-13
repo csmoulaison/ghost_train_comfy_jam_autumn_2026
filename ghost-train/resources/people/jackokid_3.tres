@@ -1,11 +1,41 @@
 [gd_resource type="Resource" script_class="Person" format=3 uid="uid://c7n1wdr01bdfo"]
 
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_cww6g"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_5ukd1"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_cww6g"]
 [ext_resource type="Texture2D" uid="uid://gg6atnxwv4uh" path="res://resources/textures/programmer_art/jackokids.png" id="2_g5tbc"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ganhd"]
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_cww6g")
+person = 15
+text = "Jean-Marco is bullying me!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_5ukd1"]
+script = ExtResource("2_5ukd1")
+board_person = 15
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_ganhd"]
+script = ExtResource("1_cww6g")
+person = 13
+text = "Your arms don’t reach that high, and you clearly don’t have a head underneath that sheet."
+post_effects = Array[ExtResource("2_5ukd1")]([SubResource("Resource_5ukd1")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ouvnd"]
+script = ExtResource("1_cww6g")
+person = 15
+text = "How did you put on that hat?"
+default_next_line = SubResource("Resource_ganhd")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_cww6g")
-name = "Jackokid"
+name = "Jojo"
+starting_location = 5
 default_texture = ExtResource("2_g5tbc")
+default_interact_dialogue = SubResource("Resource_j287u")
+found_jackokid_dialogue = SubResource("Resource_ouvnd")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

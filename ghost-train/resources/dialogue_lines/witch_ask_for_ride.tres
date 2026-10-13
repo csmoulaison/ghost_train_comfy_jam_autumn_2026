@@ -25,19 +25,19 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [sub_resource type="Resource" id="Resource_04ac4"]
 script = ExtResource("2_04ac4")
 person = 5
-text = "Thank you ghosty guy."
+text = "Thanks."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_10jd1"]
 script = ExtResource("2_04ac4")
 person = 5
-text = "Fine, dude."
+text = "Bah humbug"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_04ac4")
 person = 5
-text = "Can I get a ride?"
+text = "Mind giving me a ride?"
 conditions = Array[ExtResource("3_okjwl")]([SubResource("Resource_dbepc")])
 prompt_text = "Board the witch?"
 accept_effects = Array[ExtResource("1_y48cv")]([SubResource("Resource_y48cv")])

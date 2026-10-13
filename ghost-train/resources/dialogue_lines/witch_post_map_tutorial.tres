@@ -5,9 +5,16 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_f0068"]
 [ext_resource type="Resource" uid="uid://bu023bjkxf57g" path="res://resources/dialogue_lines/witch_ask_for_ride.tres" id="4_eysvo"]
 
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("2_eysvo")
+person = 5
+text = "Anyway..."
+default_next_line = ExtResource("4_eysvo")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [resource]
 script = ExtResource("2_eysvo")
 person = 5
-text = "You have done the tutorial track sequence and you are congratulated."
-default_next_line = ExtResource("4_eysvo")
+text = "By the way, I saw Jacinto meandering over in that direction. I think the Jack-o'-kids have escaped again."
+default_next_line = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
