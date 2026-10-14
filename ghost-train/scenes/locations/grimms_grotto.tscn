@@ -5,7 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://bnfll6nu0wtjy" path="res://resources/textures/backgrounds/Grim's Groto - midground.png" id="2_hiyn8"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_0xse6"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_46ryg"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_k5ajg"]
 [ext_resource type="Texture2D" uid="uid://b3k578obogj7l" path="res://resources/textures/backgrounds/Grim's Groto - foreground.png" id="6_hiyn8"]
+
+[sub_resource type="Resource" id="Resource_w03ps"]
+script = ExtResource("5_k5ajg")
+flag_true = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -18,7 +24,12 @@ scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("1_i01vx")
 centered = false
 
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_0xse6")]
+position = Vector2(738, 299)
+scale = Vector2(0.043367095, 0.043367095)
+
 [node name="BG_3" type="Node2D" parent="." unique_id=1958295924]
+z_index = 2
 position = Vector2(-7, -66)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=598587648]
@@ -27,26 +38,42 @@ scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("2_hiyn8")
 centered = false
 
-[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_0xse6")]
-position = Vector2(738, 299)
-scale = Vector2(0.043367095, 0.043367095)
+[node name="PersonAvatar3_kid7" parent="." unique_id=1390684158 instance=ExtResource("3_0xse6")]
+z_index = 2
+position = Vector2(713, 592)
+scale = Vector2(2, 2)
+person_id = 19
+conditions = Array[ExtResource("5_k5ajg")]([SubResource("Resource_w03ps")])
+is_hiding_jackokid = true
 
-[node name="PersonAvatar_grim" parent="." unique_id=1390684158 instance=ExtResource("3_0xse6")]
-position = Vector2(569, 515.99994)
-rotation = 0.9472347
+[node name="PersonAvatar_grim" parent="." unique_id=1304619948 instance=ExtResource("3_0xse6")]
+z_index = 2
+position = Vector2(737, 517)
 scale = Vector2(1.7163833, 1.7163833)
+notes = "Grim after giving up guitar
+"
+person_id = 11
+
+[node name="PersonAvatar_grim_boat" parent="." unique_id=1050088554 instance=ExtResource("3_0xse6")]
+z_index = 2
+position = Vector2(497.00003, 512)
+scale = Vector2(1.7163833, 1.7163833)
+notes = "Grim before givining up guitar. "
 person_id = 11
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_46ryg")]
+z_index = 2
 position = Vector2(134.00003, 498.00003)
 scale = Vector2(1.0152067, 1.0152067)
 
 [node name="PersonAvatar_vamp" parent="." unique_id=95498134 instance=ExtResource("3_0xse6")]
+z_index = 2
 position = Vector2(886.99994, 492.99997)
 scale = Vector2(1.9066556, 1.9066556)
 person_id = 9
 
 [node name="BG_4" type="Node2D" parent="." unique_id=1257240330]
+z_index = 2
 position = Vector2(0, -55.165)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1994418209]

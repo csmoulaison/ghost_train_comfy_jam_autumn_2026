@@ -83,6 +83,6 @@ script = ExtResource("3_e70mj")
 name = "Cornbot"
 starting_location = 5
 default_texture = ExtResource("6_4u7yd")
-sprite_scale = 0.1
+sprite_scale = 0.11
 default_interact_dialogue = SubResource("Resource_s7cgy")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgedy3wr04im5" path="res://resources/textures/characters/vampire/BAT-plain.png" id="7_np0xs"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="8_epxhq"]
 [ext_resource type="Script" uid="uid://kucbauklvjlr" path="res://scripts/bat_clickable.gd" id="10_np0xs"]
+[ext_resource type="Texture2D" uid="uid://bohsfgn2y5488" path="res://resources/textures/cargo/cargo-apples-scene.png" id="11_nhob2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epxhq"]
 size = Vector2(80, 66.5228)
@@ -27,6 +28,11 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 size = Vector2(214.25894, 403.44504)
 
+[sub_resource type="Resource" id="Resource_jnnun"]
+script = ExtResource("8_epxhq")
+cargo_available = 3
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=362213342]
@@ -43,6 +49,7 @@ position = Vector2(382, 320.165)
 scale = Vector2(0.07868873, 0.07868873)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1824852937]
+z_index = 2
 position = Vector2(-2, -62)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=435015102]
@@ -52,7 +59,8 @@ texture = ExtResource("3_r16b5")
 centered = false
 
 [node name="PersonAvatar_tree" parent="." unique_id=1390684158 instance=ExtResource("4_6xvxf")]
-position = Vector2(876.00006, 321.16504)
+z_index = 2
+position = Vector2(904, 321.16504)
 scale = Vector2(4.1208105, 4.1208105)
 person_id = 12
 
@@ -65,22 +73,26 @@ position = Vector2(13.832216, 25.237745)
 shape = SubResource("RectangleShape2D_epxhq")
 
 [node name="PersonAvatar_2" parent="." unique_id=1409533425 instance=ExtResource("4_6xvxf")]
+z_index = 2
 position = Vector2(570.99994, 456.16498)
 scale = Vector2(1.9053715, 1.9053715)
 person_id = 9
 conditions = Array[ExtResource("8_epxhq")]([SubResource("Resource_np0xs")])
 
-[node name="PersonAvatar_3" parent="." unique_id=1237636042 instance=ExtResource("4_6xvxf")]
+[node name="PersonAvatar_kid4" parent="." unique_id=1237636042 instance=ExtResource("4_6xvxf")]
+z_index = 2
 position = Vector2(988.0001, 154.16501)
-scale = Vector2(0.8934346, 0.8934346)
+scale = Vector2(1.893, 1.893)
 person_id = 16
 is_hiding_jackokid = true
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_bl54c")]
+z_index = 2
 position = Vector2(159.00002, 502.165)
 scale = Vector2(1.1185486, 1.1185486)
 
 [node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("6_epxhq")]
+z_index = 2
 position = Vector2(624, 278.165)
 scale = Vector2(0.43872148, 0.43872148)
 notes = "(nick): click blinking bat to have vampire appear
@@ -97,5 +109,17 @@ script = ExtResource("10_np0xs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode/Area2D" unique_id=642674923]
 position = Vector2(43.30774, -329.36618)
 shape = SubResource("RectangleShape2D_wft6q")
+
+[node name="ConditionalNode_apples" parent="." unique_id=573755960 instance=ExtResource("6_epxhq")]
+z_index = 2
+position = Vector2(387, 466.16504)
+scale = Vector2(1.3429444, 1.3429444)
+notes = "Added apple pile. Could act like pumpkin pile or mushrooms. "
+conditions = Array[ExtResource("8_epxhq")]([SubResource("Resource_jnnun")])
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_apples" unique_id=798597767]
+position = Vector2(445.29022, 58.703094)
+scale = Vector2(0.4564677, 0.45646787)
+texture = ExtResource("11_nhob2")
 
 [editable path="PersonAvatar_tree"]

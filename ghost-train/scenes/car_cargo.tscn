@@ -8,8 +8,8 @@
 z_index = 1
 
 [node name="CargoSprite" type="Sprite2D" parent="." unique_id=1533061408]
-position = Vector2(937, -540)
-scale = Vector2(2.4319515, 2.4319515)
+position = Vector2(962.99994, -622)
+scale = Vector2(2, 2)
 script = ExtResource("2_lxf33")
 
 [node name="Wheel1" type="Sprite2D" parent="." unique_id=1854479556]

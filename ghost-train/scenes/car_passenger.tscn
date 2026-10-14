@@ -35,9 +35,9 @@ texture = ExtResource("2_8ux1y")
 position = Vector2(1674, 0)
 
 [node name="PersonAvatar_1" parent="." unique_id=1390684158 instance=ExtResource("2_yq3k8")]
-position = Vector2(513, -224)
-scale = Vector2(3.2670703, 3.2670703)
+position = Vector2(458, -236)
+scale = Vector2(2.8, 2.8)
 
 [node name="PersonAvatar_2" parent="." unique_id=1265859623 instance=ExtResource("2_yq3k8")]
-position = Vector2(1074, -224)
-scale = Vector2(3.2670703, 3.2670703)
+position = Vector2(1144, -240)
+scale = Vector2(2.8, 2.8)

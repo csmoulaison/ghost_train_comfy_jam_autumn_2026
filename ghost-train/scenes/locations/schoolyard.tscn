@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_74saq"]
 script = ExtResource("5_rj22u")
-cargo_available = 4
+cargo_available = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_qi2rf"]
@@ -37,10 +37,12 @@ texture = ExtResource("1_v5lta")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_61pdk")]
+z_index = 2
 position = Vector2(578.00006, 192)
 scale = Vector2(0.051098917, 0.051098917)
 
 [node name="BG_4" type="Node2D" parent="." unique_id=1974790422]
+z_index = 2
 position = Vector2(7.000001, -55)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1462645222]
@@ -50,6 +52,7 @@ texture = ExtResource("3_74saq")
 centered = false
 
 [node name="ConditionalNode_honey" parent="." unique_id=464916204 instance=ExtResource("4_rj22u")]
+z_index = 2
 position = Vector2(761, 357)
 conditions = Array[ExtResource("5_rj22u")]([SubResource("Resource_74saq")])
 
@@ -59,6 +62,7 @@ scale = Vector2(0.48504353, 0.48504364)
 texture = ExtResource("5_qi2rf")
 
 [node name="ConditionalNode_book" parent="." unique_id=335568199 instance=ExtResource("4_rj22u")]
+z_index = 2
 position = Vector2(278, 339)
 conditions = Array[ExtResource("5_rj22u")]([SubResource("Resource_qi2rf")])
 
@@ -76,6 +80,7 @@ scale = Vector2(5.1942916, 4.754292)
 shape = SubResource("RectangleShape2D_wft6q")
 
 [node name="BG_3" type="Node2D" parent="." unique_id=2075512778]
+z_index = 2
 position = Vector2(0, -55.165)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=2134761404]
@@ -85,15 +90,18 @@ texture = ExtResource("6_osqsb")
 centered = false
 
 [node name="PersonAvatar_bee" parent="." unique_id=1390684158 instance=ExtResource("4_1so75")]
+z_index = 2
 position = Vector2(748, 323)
 scale = Vector2(1.6305809, 1.6305809)
 person_id = 8
 
 [node name="PersonAvatar_kid" parent="." unique_id=967673391 instance=ExtResource("4_1so75")]
+z_index = 2
 position = Vector2(115.99999, 255)
 scale = Vector2(0.63384926, 0.63384926)
 person_id = 17
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_61pdk")]
+z_index = 2
 position = Vector2(211, 499)
 scale = Vector2(1.4453902, 1.4453902)

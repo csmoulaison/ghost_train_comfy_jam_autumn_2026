@@ -5,6 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="2_s7cgy"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_s7cgy"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_ot4ga"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="6_i1u1b"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="7_0jcm1"]
+[ext_resource type="Texture2D" uid="uid://82q38j8bod22" path="res://resources/textures/cargo/cargo-corn-scene.png" id="8_1s78y"]
+
+[sub_resource type="Resource" id="Resource_74saq"]
+script = ExtResource("7_0jcm1")
+cargo_available = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -22,6 +30,7 @@ position = Vector2(470, 230.00002)
 scale = Vector2(0.05996362, 0.05996362)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1307767903]
+z_index = 2
 position = Vector2(0, -55.165)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=932465271]
@@ -31,21 +40,35 @@ texture = ExtResource("2_78djw")
 centered = false
 
 [node name="PersonAvatar_kid3" parent="." unique_id=1390684158 instance=ExtResource("3_s7cgy")]
-position = Vector2(217, 252)
-scale = Vector2(1, 0.995)
+z_index = 2
+position = Vector2(230, 261)
+scale = Vector2(2, 1.99)
 person_id = 15
 is_hiding_jackokid = true
 
 [node name="PersonAvatar_" parent="." unique_id=267839425 instance=ExtResource("3_s7cgy")]
+z_index = 2
 position = Vector2(268, 445)
-scale = Vector2(3.048377, 2.9356492)
+scale = Vector2(2.548, 2.455)
 person_id = 6
 
 [node name="PersonAvatar_2" parent="." unique_id=257438558 instance=ExtResource("3_s7cgy")]
-position = Vector2(1003.99994, 441)
-scale = Vector2(3.0733612, 3.0733612)
+z_index = 2
+position = Vector2(1019, 464.00003)
+scale = Vector2(2.5, 2.5)
 person_id = 7
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_ot4ga")]
+z_index = 2
 position = Vector2(653, 443)
 scale = Vector2(1.2226295, 1.2226295)
+
+[node name="ConditionalNode_corn" parent="." unique_id=464916204 instance=ExtResource("6_i1u1b")]
+z_index = 2
+position = Vector2(128, 538)
+conditions = Array[ExtResource("7_0jcm1")]([SubResource("Resource_74saq")])
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_corn" unique_id=2081072253]
+position = Vector2(13, 64.000015)
+scale = Vector2(0.48504353, 0.48504364)
+texture = ExtResource("8_1s78y")

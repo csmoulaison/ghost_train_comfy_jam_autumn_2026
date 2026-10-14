@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5knj1obb7wer"
-path="res://.godot/imported/cargo-shrooms.png-b8d6fd1f7c90bf8b8f7245bad801dedf.ctex"
+uid="uid://crpqy20n3ne3j"
+path="res://.godot/imported/jacko-graveyard_0001_found.png-98dbd7ff76134783adf7290f94a7c7f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/cargo/cargo-shrooms.png"
-dest_files=["res://.godot/imported/cargo-shrooms.png-b8d6fd1f7c90bf8b8f7245bad801dedf.ctex"]
+source_file="res://resources/textures/characters/jack-o-kids/8-graveyard/jacko-graveyard_0001_found.png"
+dest_files=["res://.godot/imported/jacko-graveyard_0001_found.png-98dbd7ff76134783adf7290f94a7c7f1.ctex"]
 
 [params]
 

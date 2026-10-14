@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bwwy270pk11me" path="res://resources/textures/backgrounds/Graveyard - foreground.png" id="4_524u2"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="5_04m30"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="6_62vow"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="7_62vow"]
+
+[sub_resource type="Resource" id="Resource_w03ps"]
+script = ExtResource("7_62vow")
+flag_true = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -23,6 +29,7 @@ position = Vector2(367, 446.00003)
 scale = Vector2(0.040801845, 0.040801845)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1600185596]
+z_index = 2
 position = Vector2(-7, -66)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=461487873]
@@ -32,6 +39,7 @@ texture = ExtResource("3_llgyo")
 centered = false
 
 [node name="BG_4" type="Node2D" parent="." unique_id=783346776]
+z_index = 2
 position = Vector2(-7, -66)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1322230143]
@@ -41,10 +49,20 @@ texture = ExtResource("4_524u2")
 centered = false
 
 [node name="PersonAvatar_grim" parent="." unique_id=1390684158 instance=ExtResource("5_04m30")]
+z_index = 2
 position = Vector2(723, 473)
 scale = Vector2(1.7163833, 1.7163833)
 person_id = 11
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("6_62vow")]
+z_index = 2
 position = Vector2(970, 497.00003)
 scale = Vector2(1.0152067, 1.0152067)
+
+[node name="PersonAvatar3_kid8" parent="." unique_id=90458291 instance=ExtResource("5_04m30")]
+z_index = 2
+position = Vector2(134, 500.99997)
+scale = Vector2(0.755, 0.755)
+person_id = 20
+conditions = Array[ExtResource("7_62vow")]([SubResource("Resource_w03ps")])
+is_hiding_jackokid = true

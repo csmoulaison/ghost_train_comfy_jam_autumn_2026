@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2nee2fjqg08"
-path="res://.godot/imported/cargo-pumpkins.png-42eeb13489e0ac455857b69f7b5a5e7a.ctex"
+uid="uid://bjo6bfy1dk41r"
+path="res://.godot/imported/cargo-shrooms-2.png-fc893855c1e0416adaf71fb63de1f4bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/cargo/cargo-pumpkins.png"
-dest_files=["res://.godot/imported/cargo-pumpkins.png-42eeb13489e0ac455857b69f7b5a5e7a.ctex"]
+source_file="res://resources/textures/cargo/cargo-shrooms-2.png"
+dest_files=["res://.godot/imported/cargo-shrooms-2.png-fc893855c1e0416adaf71fb63de1f4bc.ctex"]
 
 [params]
 

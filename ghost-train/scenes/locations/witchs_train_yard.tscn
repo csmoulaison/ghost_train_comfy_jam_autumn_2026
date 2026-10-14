@@ -18,10 +18,12 @@ texture = ExtResource("1_0vabf")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_7v5ef")]
+z_index = 2
 position = Vector2(474, 463.165)
 scale = Vector2(0.050035696, 0.050035696)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1259222753]
+z_index = 2
 position = Vector2(-3, -63)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=1167689783]
@@ -31,21 +33,25 @@ texture = ExtResource("3_6jcbx")
 centered = false
 
 [node name="PersonAvatar_kid2" parent="." unique_id=1390684158 instance=ExtResource("3_7v5ef")]
+z_index = 2
 position = Vector2(1015.0001, 494.165)
-scale = Vector2(0.39571503, 0.41443822)
+scale = Vector2(0.8, 0.836)
 person_id = 14
 is_hiding_jackokid = true
 
 [node name="PersonAvatar_" parent="." unique_id=1609223009 instance=ExtResource("3_7v5ef")]
+z_index = 2
 position = Vector2(899, 465.16507)
-scale = Vector2(2.7929232, 2.7929232)
+scale = Vector2(2, 2)
 person_id = 5
 
 [node name="PersonAvatar_2" parent="." unique_id=946395154 instance=ExtResource("3_7v5ef")]
-position = Vector2(351.00003, 346)
-scale = Vector2(3.8777027, 3.8777027)
+z_index = 2
+position = Vector2(258.99997, 346)
+scale = Vector2(2.7, 2.7)
 person_id = 10
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_0vabf")]
-position = Vector2(276, 510.165)
+z_index = 2
+position = Vector2(613, 510.165)
 scale = Vector2(1.2828772, 1.2828772)

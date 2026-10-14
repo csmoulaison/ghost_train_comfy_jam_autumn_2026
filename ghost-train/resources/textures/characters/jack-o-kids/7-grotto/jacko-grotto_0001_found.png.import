@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxrcp5um2yu6y"
-path="res://.godot/imported/cargo-honey.png-6fde22a34a8aaba398870c2606f5d71f.ctex"
+uid="uid://csl042rdjq3p7"
+path="res://.godot/imported/jacko-grotto_0001_found.png-57392f28388265473c7276c661d711e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/cargo/cargo-honey.png"
-dest_files=["res://.godot/imported/cargo-honey.png-6fde22a34a8aaba398870c2606f5d71f.ctex"]
+source_file="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto_0001_found.png"
+dest_files=["res://.godot/imported/jacko-grotto_0001_found.png-57392f28388265473c7276c661d711e7.ctex"]
 
 [params]
 

@@ -12,7 +12,12 @@
 
 [sub_resource type="Resource" id="Resource_jnnun"]
 script = ExtResource("5_87qdq")
-cargo_available = 5
+cargo_available = 3
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_w03ps"]
+script = ExtResource("5_87qdq")
+flag_true = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
@@ -31,6 +36,7 @@ position = Vector2(293, 492.16504)
 scale = Vector2(0.041854955, 0.041854955)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1341131767]
+z_index = 2
 position = Vector2(-2, -63)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=413123006]
@@ -40,6 +46,7 @@ texture = ExtResource("3_87qdq")
 centered = false
 
 [node name="ConditionalNode_shrooms" parent="." unique_id=464916204 instance=ExtResource("4_jnnun")]
+z_index = 2
 position = Vector2(387, 466.16504)
 scale = Vector2(1.3429444, 1.3429444)
 conditions = Array[ExtResource("5_87qdq")]([SubResource("Resource_jnnun")])
@@ -50,15 +57,18 @@ scale = Vector2(0.6408481, 0.64084834)
 texture = ExtResource("5_38ljw")
 
 [node name="PersonAvatar_" parent="." unique_id=1390684158 instance=ExtResource("3_sdydn")]
+z_index = 2
 position = Vector2(556, 392.16504)
-scale = Vector2(3.2094965, 3.2094965)
+scale = Vector2(2.209, 2.209)
 person_id = 10
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_25ntq")]
+z_index = 2
 position = Vector2(146.99997, 513.165)
 scale = Vector2(0.95689875, 0.95689875)
 
 [node name="BG_4" type="Node2D" parent="." unique_id=1557619493]
+z_index = 2
 position = Vector2(-2, -63)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1145892819]
@@ -66,3 +76,10 @@ position = Vector2(807.00006, 62.165)
 scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("8_xubxm")
 centered = false
+
+[node name="PersonAvatar3_kid5" parent="." unique_id=153864805 instance=ExtResource("3_sdydn")]
+z_index = 2
+position = Vector2(834, 525)
+person_id = 18
+conditions = Array[ExtResource("5_87qdq")]([SubResource("Resource_w03ps")])
+is_hiding_jackokid = true

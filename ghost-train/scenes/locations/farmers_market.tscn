@@ -24,17 +24,19 @@ texture = ExtResource("1_0awqs")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_agfgh")]
-position = Vector2(577, 478)
+position = Vector2(858, 478)
 scale = Vector2(0.074588954, 0.074588954)
 
 [node name="PersonAvatar3_kid1" parent="." unique_id=1560765008 instance=ExtResource("3_xyafi")]
+z_index = 2
 position = Vector2(1056, 304)
-scale = Vector2(0.7550204, 0.7550204)
+scale = Vector2(1.755, 1.755)
 person_id = 13
 conditions = Array[ExtResource("3_hpxfg")]([SubResource("Resource_w03ps")])
 is_hiding_jackokid = true
 
 [node name="BG_3" type="Node2D" parent="." unique_id=270093874]
+z_index = 2
 position = Vector2(-2, -1)
 scale = Vector2(1.045894, 2.4775846)
 
@@ -44,14 +46,17 @@ texture = ExtResource("3_jxca3")
 centered = false
 
 [node name="PersonAvatar" parent="." unique_id=1390684158 instance=ExtResource("3_xyafi")]
+z_index = 2
 position = Vector2(604, 566)
 scale = Vector2(1.5381596, 1.5381596)
 person_id = 2
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("5_xyafi")]
+z_index = 2
 position = Vector2(822, 518)
 
 [node name="PersonAvatar_" parent="." unique_id=977452427 instance=ExtResource("3_xyafi")]
+z_index = 2
 position = Vector2(104, 491)
-scale = Vector2(-2.804, 2.804)
+scale = Vector2(-1.804, 1.804)
 person_id = 5
