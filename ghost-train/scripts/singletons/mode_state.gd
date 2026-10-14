@@ -164,7 +164,7 @@ func load_subscene(parent: Node, subscene_path: String):
 		var avatars: Array[Node] = loaded_scene_instance.find_children("PersonAvatar*", "", false)
 		for avatar in avatars: 
 			avatar.set_state(avatar.person_id, false, TrainState.current_location, true)
-		var conditional_nodes: Array[Node] = loaded_scene_instance.find_children("ConditionalNode*", "", false)
+		var conditional_nodes: Array[Node] = loaded_scene_instance.find_children("ConditionalNode*", "", true)
 		for node in conditional_nodes:
 			node.scene_load()
 	else: if mode == GameMode.TRAVEL:

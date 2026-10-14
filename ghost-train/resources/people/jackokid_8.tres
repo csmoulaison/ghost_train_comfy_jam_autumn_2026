@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_gvco4"]
 script = ExtResource("1_5xfvr")
 person = 20
-text = "Jean-Marco is the worst older brother... *sniff*"
+text = "Have you seen my brother Nicholas? I haven't seen any of my siblings since we left the patch."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_ale1a"]

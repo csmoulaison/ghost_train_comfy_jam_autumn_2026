@@ -64,10 +64,16 @@ text = "..."
 default_next_line = SubResource("Resource_dvnnk")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_62vow"]
+script = ExtResource("1_umcct")
+offboard_person = 11
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
 [resource]
 script = ExtResource("2_wj3ce")
 person = 11
 text = "Sorry for hauling you all the way out here, Ghost."
 conditions = Array[ExtResource("3_vvrla")]([SubResource("Resource_vi14a")])
+pre_effects = Array[ExtResource("1_umcct")]([SubResource("Resource_62vow")])
 default_next_line = SubResource("Resource_ekia4")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

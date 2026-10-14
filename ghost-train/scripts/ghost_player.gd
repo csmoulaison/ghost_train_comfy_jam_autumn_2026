@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 	if bob_damped < abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 1200.0 * delta)
 	if bob_damped > abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 400.0 * delta)
 	bob_phase += (2.0 + abs(bob_damped * 0.025)) * delta
-	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.04) + bob_root
+	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.02) + bob_root
 
 	global_position += _velocity * delta
 	_keep_on_screen()

@@ -64,3 +64,5 @@ text = "Pumpkin Patch"
 label_settings = SubResource("LabelSettings_j287u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=246317801]

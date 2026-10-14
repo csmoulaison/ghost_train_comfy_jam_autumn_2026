@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_iqdhl"]
 script = ExtResource("3_nk5j5")
-cargo_not_available = 5
+cargo_not_available = 3
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_j287u"]
@@ -29,6 +29,11 @@ flag_true = 11
 cargo_available = 3
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_fnbb7"]
+script = ExtResource("3_nk5j5")
+flag_true = 13
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [sub_resource type="Resource" id="Resource_sumjs"]
 script = ExtResource("1_s80ha")
 person = 12
@@ -45,7 +50,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("1_s80ha")
 person = 12
 text = "You were kind enough to bring me some reading material. Take as many apples as you like, small apparition."
-conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_cl7lu")])
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_cl7lu"), SubResource("Resource_fnbb7")])
 prompt_text = "Load apples?"
 accept_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_ydr6d")])
 default_accept_line = SubResource("Resource_sumjs")
@@ -75,6 +80,11 @@ script = ExtResource("2_fnbb7")
 set_flag = 11
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
+[sub_resource type="Resource" id="Resource_5sfjl"]
+script = ExtResource("2_fnbb7")
+set_flag = 13
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
 [sub_resource type="Resource" id="Resource_n7ay7"]
 script = ExtResource("2_fnbb7")
 unload_small_cargo = 1
@@ -86,9 +96,14 @@ person = 12
 text = "I appreciate you finding me something to leaf through."
 conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_xga1r")])
 pre_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_n7ay7")])
-post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_xeal5")])
+post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_xeal5"), SubResource("Resource_5sfjl")])
 default_next_line = SubResource("Resource_m5b5j")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_08jvc"]
+script = ExtResource("3_nk5j5")
+flag_false = 13
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_6nn6u"]
 script = ExtResource("1_s80ha")
@@ -112,6 +127,7 @@ metadata/_custom_type_script = "uid://ds5odfukpyq25"
 script = ExtResource("1_s80ha")
 person = 12
 text = "I'm tired of listening to this vampire mope. Nothing to read around here."
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_08jvc")])
 post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_af1be")])
 default_next_line = SubResource("Resource_1ngw4")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

@@ -15,16 +15,21 @@ func _ready():
 	interactable.interacted.connect(_on_interacted)
 	interactable.input_event.connect(_on_input_event)
 	locomotive_wheel_frame_count = locomotive_wheel_frames.size()
+	for wheel in small_wheel_sprites:
+		wheel.rotation = randf() * 1000.0
 	previous_x = position.x
 	
-func _physics_process(_dt: float):
-	locomotive_t += ((previous_x - position.x) * 0.01) / scale.x
+func _physics_process(dt: float):
+	var delta: float = -(((previous_x - position.x) * 0.01) / scale.x)
+	if ModeState.mode == ModeState.GameMode.TRAVEL: delta = 20.0 * dt
+	
+	locomotive_t += delta
 	previous_x = position.x
 	locomotive_wheel_sprite.texture = locomotive_wheel_frames[int(locomotive_t) % locomotive_wheel_frame_count]
 	for wheel in small_wheel_sprites:
-		wheel.rotation = -locomotive_t
-	
-func _process(dt: float):
+		wheel.rotation = locomotive_t
+
+func _process(_dt: float):
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
 			interactable.interaction_active = false

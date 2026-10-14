@@ -94,7 +94,7 @@ void fragment() {
 	float edge_offset = border_enabled ? wobble(vec3(noise_pos, t)) * wobble_amount : 0.0;
 	float edge = dist + edge_offset;
 	// Never thinner than 2 pixels, so the edge is at least anti-aliased.
-	float feather = max(edge_softness, 2.0) * 0.5;
+	float feather = max(1.0, 1.0) * 0.5;
 	float fill_mask = smoothstep(feather, -feather, edge);
 	float glow = exp(-abs(edge) / glow_width) * glow_strength;
 

@@ -18,6 +18,7 @@ radius = 120.0
 script = ExtResource("2_player")
 
 [node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("2_72glb")]
+modulate = Color(1, 1, 1, 0)
 conditions = Array[ExtResource("3_bxwid")]([SubResource("Resource_s8vr0")])
 
 [node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1138830871]

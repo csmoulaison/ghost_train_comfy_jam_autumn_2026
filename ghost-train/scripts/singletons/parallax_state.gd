@@ -49,6 +49,8 @@ func begin_parallax():
 	assert(ModeState.loaded_scene_instance != null)
 	groups = ModeState.loaded_scene_instance.find_children("ParallaxGroup*")
 	train_ghost_player = ModeState.travel_scene.get_node("GhostPlayer")
+	camera.position.x = train_ghost_player.position.x
+	camera.reset_smoothing()
 	assert(train_ghost_player != null)
 	var size: int = groups.size()
 	copies.resize(size)

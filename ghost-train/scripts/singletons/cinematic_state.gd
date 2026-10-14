@@ -14,6 +14,8 @@ var loaded_scene: Node = null
 
 # state specific to certain cinematics
 var intro_train: Node = null
+var intro_button: Node = null
+var intro_text: Node = null
 var train_arrival_point: float = 0.0
 var arriving_at_destination_with_fade: bool
 
@@ -40,11 +42,11 @@ func _physics_process(dt: float):
 	t += dt
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:
+			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 5.0, 0.0) * 2000.0
+			intro_button.modulate.a = t_range_clamped(t, 0.5, 0.0)
+			intro_text.modulate.a = t_range_clamped(t, 4.0, 3.0)
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
-			fade_sprite.modulate.a = t_range_clamped(t, 1.5, 0.5)
-			assert(intro_train != null)
-			intro_train.position.x = -700.0 + t_range(t, 0.0, 4.0) * 2400.0
-			if t > 4.0:
+			if t > 5.0:
 				intro_train = null
 				stop_cinematic()
 				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)
@@ -64,7 +66,8 @@ func _physics_process(dt: float):
 				for index in ID.Cargo.CARGO_COUNT:
 					GameState.cargo_cooldowns[index] -= 1
 			if t > depart_train_length - 1.0:
-				# TODO(now): load the train scene
+				var zoom = 1.1 + t_range_cubic_clamped(t, depart_train_length - 1.0, depart_train_length) * 0.1
+				camera.zoom = Vector2(zoom, zoom)
 				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length, depart_train_length - 1.0)
 				GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = false
 			if t > depart_train_length:
@@ -111,18 +114,18 @@ func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 	# initialize state for particular cinematics
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:
-			var scene = load("res://scenes/intro_1.tscn")
-			assert(scene != null)
-			loaded_scene = scene.instantiate()
-			assert(loaded_scene != null)
-			intro_train = loaded_scene.get_node("TrainAvatar")
+			intro_train = get_tree().current_scene.get_node("MainMenuScene/Train")
+			intro_button = get_tree().current_scene.get_node("MainMenuScene/PressStart")
+			intro_text = get_tree().current_scene.get_node("MainMenuScene/Title")
 			assert(intro_train != null)
-			get_tree().current_scene.add_child(loaded_scene)
+			assert(intro_button != null)
+			assert(intro_text != null)
 		ID.Cinematic.DEPART_TO_TRAVEL:
 			TrainState.visible_velocity = 0.0
 			pass
 		ID.Cinematic.ARRIVE_AT_DESTINATION:
 			train_arrival_point = ModeState.train_avatar.position.x
+			ModeState.train_avatar.position.x = -1200.0
 
 func stop_cinematic():
 	if loaded_scene != null:

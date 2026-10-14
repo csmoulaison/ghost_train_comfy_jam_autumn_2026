@@ -8,58 +8,23 @@
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="5_cb7ib"]
 [ext_resource type="Texture2D" uid="uid://c1ugcgb01572w" path="res://resources/textures/characters/shroom/Magicshroom-eyesopen.png" id="6_cb7ib"]
 
-[sub_resource type="Resource" id="Resource_cb7ib"]
-script = ExtResource("5_cb7ib")
-person = 10
-location = 8
-metadata/_custom_type_script = "uid://bg0l7uy2exepk"
-
-[sub_resource type="Resource" id="Resource_y5fr6"]
+[sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("3_lrwn2")
-flag_true = 14
-person_at_location = SubResource("Resource_cb7ib")
+person_on_train = 10
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_5sfjl"]
-script = ExtResource("2_26hfi")
-board_person = 10
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_8vdvy"]
+[sub_resource type="Resource" id="Resource_cb7ib"]
 script = ExtResource("1_luhrd")
 person = 10
-text = "Onward!"
+text = "It is far too bright and not nearly damp enough for my spores. These conditions are untenable."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_hysau"]
+[sub_resource type="Resource" id="Resource_f0ee0"]
 script = ExtResource("1_luhrd")
 person = 10
-text = "I am in no rush. But if I know Witcherly, she's very impatient. I would not keep her waiting."
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_4lynm"]
-script = ExtResource("1_luhrd")
-person = 10
-text = "Take me to her yard."
-prompt_text = "Board the giant shroom?"
-accept_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_5sfjl")])
-default_accept_line = SubResource("Resource_8vdvy")
-default_decline_line = SubResource("Resource_hysau")
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_boelp"]
-script = ExtResource("1_luhrd")
-person = 10
-text = "Don't worry; I have an accord with her."
-default_next_line = SubResource("Resource_4lynm")
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_vdtoy"]
-script = ExtResource("1_luhrd")
-person = 10
-text = "Does the witch need more flight magic?"
-conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_y5fr6")])
-default_next_line = SubResource("Resource_boelp")
+text = "Eugh, can't this train move any faster?"
+conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_5sfjl")])
+default_next_line = SubResource("Resource_cb7ib")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_od1u7"]
@@ -113,8 +78,63 @@ post_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_3i0in")])
 default_next_line = SubResource("Resource_os2wj")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_rxw2b"]
+script = ExtResource("5_cb7ib")
+person = 10
+location = 8
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_y5fr6"]
+script = ExtResource("3_lrwn2")
+flag_true = 14
+person_at_location = SubResource("Resource_rxw2b")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_tsmdv"]
+script = ExtResource("2_26hfi")
+board_person = 10
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_8vdvy"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Onward!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_hysau"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "I am in no rush. But if I know Witcherly, she's very impatient. I would not keep her waiting."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4lynm"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Take me to her yard."
+prompt_text = "Board the giant shroom?"
+accept_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_tsmdv")])
+default_accept_line = SubResource("Resource_8vdvy")
+default_decline_line = SubResource("Resource_hysau")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_boelp"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Don't worry; I have an accord with her."
+default_next_line = SubResource("Resource_4lynm")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_vdtoy"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Does the witch need more flight magic?"
+conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_y5fr6")])
+default_next_line = SubResource("Resource_boelp")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_iaq6u"]
 script = ExtResource("3_lrwn2")
+flag_false = 14
 cargo_not_available = 5
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
@@ -135,6 +155,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_hua4o"]
 script = ExtResource("3_lrwn2")
 flag_true = 9
+flag_false = 14
 cargo_available = 5
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
@@ -196,7 +217,7 @@ name = "Shroom"
 starting_location = 8
 default_texture = ExtResource("6_cb7ib")
 sprite_scale = 0.13
-conditional_interact_dialogue = Array[ExtResource("1_luhrd")]([SubResource("Resource_vdtoy"), SubResource("Resource_8sc5g"), SubResource("Resource_lyffn"), SubResource("Resource_w4gov"), SubResource("Resource_j287u")])
+conditional_interact_dialogue = Array[ExtResource("1_luhrd")]([SubResource("Resource_f0ee0"), SubResource("Resource_8sc5g"), SubResource("Resource_lyffn"), SubResource("Resource_vdtoy"), SubResource("Resource_w4gov"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_0ccbk")
 desired_location = 4
 reached_location_dialogue = SubResource("Resource_uuywl")

@@ -9,27 +9,22 @@
 [node name="Car_Passenger" type="Node2D" unique_id=7601887]
 
 [node name="Wheel1" type="Sprite2D" parent="." unique_id=1752711142]
-z_index = -1
 position = Vector2(107.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel2" type="Sprite2D" parent="." unique_id=882386957]
-z_index = -1
 position = Vector2(471.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel3" type="Sprite2D" parent="." unique_id=1121488783]
-z_index = -1
 position = Vector2(1153.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Wheel4" type="Sprite2D" parent="." unique_id=1969418529]
-z_index = -1
 position = Vector2(1514.5, 117)
 texture = ExtResource("1_4jirn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1728129817]
-z_index = -1
 position = Vector2(840.5, -337)
 texture = ExtResource("2_8ux1y")
 
@@ -37,11 +32,11 @@ texture = ExtResource("2_8ux1y")
 position = Vector2(1674, 0)
 
 [node name="PersonAvatar_1" parent="." unique_id=1390684158 instance=ExtResource("2_yq3k8")]
-position = Vector2(458, -236)
+position = Vector2(493.00003, -235.99998)
 scale = Vector2(2.8, 2.8)
 
 [node name="PersonAvatar_2" parent="." unique_id=1265859623 instance=ExtResource("2_yq3k8")]
-position = Vector2(1144, -240)
+position = Vector2(1103, -240)
 scale = Vector2(2.8, 2.8)
 
 [node name="Sprite2D_BoothFront" type="Sprite2D" parent="." unique_id=2131769509]
@@ -49,6 +44,5 @@ position = Vector2(793, -224)
 texture = ExtResource("4_8ux1y")
 
 [node name="Sprite2D_FrontPanel" type="Sprite2D" parent="." unique_id=256138017]
-visible = false
 position = Vector2(841, -410)
 texture = ExtResource("5_ksj37")

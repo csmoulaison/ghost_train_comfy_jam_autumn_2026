@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_cww6g")
 person = 15
-text = "Jean-Marco is bullying me!"
+text = "I was hiding from my brother."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_5ukd1"]
