@@ -1,14 +1,37 @@
 10/13/26 TODOS
 ==============
+
+FROM PLAY
+- didn't check shroom talk
+- shroom still asking if witch needs magic once he's there in the yard.
+
 SEQUENCING
-- Check cargo available for: corn, shrooms, honey, apples
-- Pumpkins turned to hiding: 
-  (bad): trainyard, corn corp, graveyard not visible?, 
-  (good): oaks, farmer's market, schoolyard
-- jacko still references pumpkin sitter when you come back and goods are
-  available
-- book small cargo?
-- try unlock grotto
+- Ending:
+  - Train ride with Grim: ID.Event.GET_ON_TRAIN_WITH_GRIM
+  - Graveyard with grim: after: ID.Event.GO_TO_END_TRAIN
+  - Add cars and everyone on train at end: after talk to Grim: ID.Event.END_GAME
+	- Flag for on end train, check on top of list dialogue line for each character
+  - Final screen: zelda style ending
+- Crow second talk
+- !!shroom asks about flight magic before grotto has been told of
+- vampire sighs twice on train
 
 SYSTEMS
-- 
+- Cargo selling
+- Animations for characters
+- Train upgrades screen
+- Train floating and arrival/depart anims for grotto
+- add train guys and characters
+- prevent player from moving into cargo cars
+- hiding jackokids: schoolyard, no graveyard?
+- bat not turning into vampire
+
+GRAPHICS
+- avatar facing directions and sprite scale for train
+- selections double up on map screen
+- wheels aren't turning in travel mode
+- teleport camera to ghost position on travel mode
+- main menu riding train
+
+BEFORE SHIP
+- Do we have all jack-o-kids in place and is_hiding?

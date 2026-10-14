@@ -4,8 +4,15 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_ujie0"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_qbj1b"]
 
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("2_ujie0")
+person = 2
+text = "Maybe I can finally set up a proper shop in town! Ahh, that'd be the dream."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [resource]
 script = ExtResource("2_ujie0")
 person = 2
-text = "I'm the Crow, and I'm never supposed to say this. You done messed up."
+text = "Hmm, if we keep this up, I should have a nice tidy profit by the end of the fiscal year."
+default_next_line = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

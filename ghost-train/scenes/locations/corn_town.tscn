@@ -32,8 +32,9 @@ centered = false
 
 [node name="PersonAvatar_kid3" parent="." unique_id=1390684158 instance=ExtResource("3_s7cgy")]
 position = Vector2(217, 252)
-scale = Vector2(0.2306164, 0.23040429)
+scale = Vector2(1, 0.995)
 person_id = 15
+is_hiding_jackokid = true
 
 [node name="PersonAvatar_" parent="." unique_id=267839425 instance=ExtResource("3_s7cgy")]
 position = Vector2(268, 445)

@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [resource]
 script = ExtResource("2_dexb2")
 person = 10
-text = "Do you want any mushrooms?"
+text = "Come by and grab more whenever you'd like."
 prompt_text = "Load shrooms?"
 accept_effects = Array[ExtResource("1_friiq")]([SubResource("Resource_friiq")])
 default_accept_line = SubResource("Resource_dexb2")

@@ -1,22 +1,105 @@
 extends Node
 
+@onready var fade_sprite: Sprite2D = get_tree().current_scene.get_node("FadeOverlay/Sprite")
+@onready var title_label: Label = get_tree().current_scene.get_node("TitleOverlay/Label")
+@onready var camera: Camera2D = get_tree().current_scene.get_node("Camera")
+
+var depart_train_length: float = 6.0
+var arrive_train_length: float = 7.0
+var exit_travel_length: float = 1.0
+
 var current_cinematic: ID.Cinematic
 var t: float = 0.0
 var loaded_scene: Node = null
 
 # state specific to certain cinematics
 var intro_train: Node = null
+var train_arrival_point: float = 0.0
+var arriving_at_destination_with_fade: bool
 
-func _process(dt: float):
+func _ready():
+	assert(fade_sprite != null)
+	assert(camera != null)
+	assert(title_label != null)
+	fade_sprite.modulate.a = 0.0
+	title_label.modulate.a = 0.0
+	EventBus.event_signal.connect(_on_event)
+
+func _on_event(event: ID.Event, _arg: int):
+	if event == ID.Event.GET_ON_TRAIN_WITH_GRIMM:
+		# TODO(now): very much untested
+		MapLocation.select_node(ID.Location.GRAVEYARD, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
+		ModeState.depart_to_travel()
+	else: if event == ID.Event.GO_TO_END_TRAIN:
+		start_cinematic(ID.Cinematic.TMP_ENDING, false)
+		#MapLocation.select_node(ID.Location.FARMERS_MARKET, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
+		#ModeState.depart_to_travel()
+
+func _physics_process(dt: float):
+	if DebugOverlay.active: dt *= 25.0
+	t += dt
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:
+			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
+			fade_sprite.modulate.a = t_range_clamped(t, 1.5, 0.5)
 			assert(intro_train != null)
-			t += dt
 			intro_train.position.x = -700.0 + t_range(t, 0.0, 4.0) * 2400.0
-			if t > 0.1:
+			if t > 4.0:
 				intro_train = null
 				stop_cinematic()
 				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)
+				arriving_at_destination_with_fade = false
+		ID.Cinematic.DEPART_TO_TRAVEL:
+			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
+			TrainState.visible_velocity = 0.0
+			if t < depart_train_length - 1.0:
+				ModeState.train_avatar.position.x = train_arrival_point + 960.0 - t_range_cubic_clamped(t, depart_train_length, 0.0) * 960.0
+				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length - 2.0, depart_train_length - 1.0)
+			if t_bang_threshold(t, depart_train_length - 1.0, dt):
+				ModeState.switch_mode(ModeState.GameMode.TRAVEL)
+				TrainState.current_location = ID.Location.DEFAULT
+				var road: Road = ResourceData.roads[TrainState.current_road]
+				ModeState.load_subscene(ModeState.travel_subscene_parent, road.subscene_path)
+				ParallaxState.begin_parallax()
+				for index in ID.Cargo.CARGO_COUNT:
+					GameState.cargo_cooldowns[index] -= 1
+			if t > depart_train_length - 1.0:
+				# TODO(now): load the train scene
+				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length, depart_train_length - 1.0)
+				GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = false
+			if t > depart_train_length:
+				stop_cinematic()
+		ID.Cinematic.EXIT_TRAVEL:
+			fade_sprite.modulate.a = t_range_clamped(t, 0.0, exit_travel_length - 0.0)
+			if t > exit_travel_length:
+				arriving_at_destination_with_fade = true
+				stop_cinematic()
+				ModeState.arrive_at_destination(ModeState.cached_arrival_destination)
+		ID.Cinematic.ARRIVE_AT_DESTINATION:
+			var zoom: float = 1.0
+			if arriving_at_destination_with_fade:
+				fade_sprite.modulate.a = t_range_clamped(t, 1.4, 0.5)
+				zoom = 1.2 - t_range_cubic_clamped(t, 0.0, arrive_train_length) * 0.2
+			camera.zoom = Vector2(zoom, zoom)
+			
+			var location: Location = ResourceData.locations[TrainState.current_location]
+			title_label.text = location.name
+			title_label.modulate = location.color
+			if t < 2.5: title_label.modulate.a = t_range_clamped(t, 1.5, 2.5)
+			else: title_label.modulate.a = t_range_clamped(t, arrive_train_length - 0.0, arrive_train_length - 0.8)
+			
+			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
+			ModeState.train_avatar.position.x = -400.0 + t_range_cubic_clamped(t, 0.0, arrive_train_length) * (train_arrival_point + 400.0)
+			if t > arrive_train_length + 1.0:
+				stop_cinematic()
+				GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = false
+				if ModeState.cached_arrival_dialogue != null:
+					DialogueState.open_dialogue([], ModeState.cached_arrival_dialogue)
+					ModeState.cached_arrival_dialogue = null
+		
+		ID.Cinematic.TMP_ENDING:
+			title_label.text = "The End"
+			title_label.modulate.a = t_range_clamped(t, 0.5, 1.5)
 
 func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 	assert(current_cinematic == ID.Cinematic.DEFAULT, "Started a cinematic without calling stop_cinematic() on an old one, or you are really doing some fucking shenanigans.")
@@ -35,9 +118,16 @@ func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 			intro_train = loaded_scene.get_node("TrainAvatar")
 			assert(intro_train != null)
 			get_tree().current_scene.add_child(loaded_scene)
+		ID.Cinematic.DEPART_TO_TRAVEL:
+			TrainState.visible_velocity = 0.0
+			pass
+		ID.Cinematic.ARRIVE_AT_DESTINATION:
+			train_arrival_point = ModeState.train_avatar.position.x
 
 func stop_cinematic():
-	loaded_scene.queue_free()
+	if loaded_scene != null:
+		loaded_scene.queue_free()
+		loaded_scene = null
 	current_cinematic = ID.Cinematic.DEFAULT
 	
 func debug_text() -> String:
@@ -59,3 +149,11 @@ func t_in_range(rt: float, t1: float, t2: float):
 
 func t_range_clamped(rt: float, t1: float, t2: float):
 	return clamp(t_range(rt, t1, t2), 0.0, 1.0)
+
+func t_bang_threshold(rt: float, threshold: float, dt: float):
+	if rt - dt < threshold and rt >= threshold: return true
+	return false
+
+func t_range_cubic_clamped(rt: float, t1: float, t2: float):
+	var clamped: float = t_range_clamped(rt, t1, t2)
+	return clamped * (2.0 - clamped)

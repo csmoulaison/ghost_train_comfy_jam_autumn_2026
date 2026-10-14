@@ -28,6 +28,7 @@ func _ready():
 			unlock_road(road, false)
 	else:
 		unlock_road(ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH, false)
+		unlock_road(ID.Road.FARMERS_MARKET_TO_WITCHS_TRAIN_YARD, false)
 	
 	road_nodes.resize(ID.Road.ROAD_COUNT)
 	# NOTE: all the roads names need to start with "MapRoad"
@@ -42,6 +43,8 @@ func _ready():
 			if node.location_id == id:
 				location_nodes[id] = node
 	
+	EventBus.event_signal.connect(on_event)
+	
 	# TODO: These asserts should be turned on once we can. They verify that
 	# every Road/Location ID has a corresponding road/location node in the map
 	# scene.
@@ -51,6 +54,11 @@ func _ready():
 	for node in location_nodes:
 		# assert(node != null)
 		pass
+		
+func on_event(event: ID.Event, _arg: int):
+	if event == ID.Event.OPEN_MAP_BUYING_GROTTO_TRACK:
+		# TODO: cinematic for this
+		unlock_road(ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO, false)
 
 func unlock_road(road_id: ID.Road, visual_update: bool):
 	var road: Road = ResourceData.roads[road_id]
@@ -59,8 +67,9 @@ func unlock_road(road_id: ID.Road, visual_update: bool):
 	locations_unlocked[road.endpoint_2] = true
 	if visual_update: init_visual_state()
 
-func open_confirmation_dialog():
+func open_confirmation_dialog(text: String):
 	map_scene.add_child(confirmation_dialog)
+	confirmation_dialog.label.text = text
 	pass
 
 func close_confirmation_dialog():

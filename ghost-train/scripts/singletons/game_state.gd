@@ -40,4 +40,8 @@ func _on_event(event: ID.Event, _arg: int):
 	people_locations[ID.Person.JACKOKID_8] = ID.Location.GRAVEYARD
 
 func debug_text() -> String:
-	return "Vampire Talked To: " + str(flags[ID.Flag.TALKED_TO_VAMPIRE])	
+	var text: String = ""
+	for flag in ID.Flag.FLAG_COUNT:
+		var enum_as_string = ID.Flag.keys()[flag].to_lower()
+		text += enum_as_string + ": " + str(GameState.flags[flag]) + "\n"
+	return text

@@ -11,17 +11,18 @@ class_name GhostPlayer extends Node2D
 ## move_up, move_down and move_to_click.
 
 ## Top speed, in pixels per second.
-@export var speed: float = 450.0
+@export var speed: float = 500.0
 ## How floaty the ghost feels: the seconds it takes to get up to top speed, and
 ## to drift to a stop again. 0 is instant (not floaty at all), bigger is
 ## floatier.
-@export var float_time: float = 0.2
+@export var float_time: float = 0.3
 ## Which way the sprite's art is drawn facing. Untick this if the art gets
 ## swapped for one that faces right.
 @export var art_faces_left: bool = true
 
 var bob_phase: float = 0.0
 var bob_damped: float = 0.0
+var bob_root: float = 0.0
 
 enum MoveState {
 	IDLE,
@@ -30,7 +31,7 @@ enum MoveState {
 
 var move_state: MoveState = MoveState.IDLE
 
-@onready var sprite: Sprite2D = get_node("Sprite2D")
+@onready var sprite: Sprite2D = get_node("ConditionalNode/Sprite2D")
 @onready var interactor: PlayerInteractor = get_node("Interactor")
 
 # how fast, and which way, the ghost is moving right now
@@ -80,10 +81,18 @@ func _process(delta: float) -> void:
 
 	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
 	
-	if bob_damped < abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 12.0)
-	if bob_damped > abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 4.0)
-	bob_phase += 0.025 + abs(bob_damped * 0.0002)
-	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.04)
+	if ModeState.mode == ModeState.GameMode.TRAVEL:
+		var bob_root_target: float = 0.0
+		if position.x < 930.0:
+			bob_root_target = 50.0
+		bob_root = lerp(bob_root, bob_root_target, 7.5 * delta)
+	else:
+		bob_root = 0.0
+	
+	if bob_damped < abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 1200.0 * delta)
+	if bob_damped > abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 400.0 * delta)
+	bob_phase += (2.0 + abs(bob_damped * 0.025)) * delta
+	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.04) + bob_root
 
 	global_position += _velocity * delta
 	_keep_on_screen()

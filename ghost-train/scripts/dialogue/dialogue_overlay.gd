@@ -18,7 +18,7 @@ extends CanvasLayer
 @onready var background: ColorRect = %Background
 
 const SECONDS_PER_CHARACTER: float = 0.03
-const DEBOUNCE_TIME: float = 0.25
+const DEBOUNCE_TIME: float = 0.05
 const MARKER_FADE_TIME: float = 0.15
 
 #const TEST_LINE: DialogueLine = preload("res://resources/dialogue_lines/test_dialogue_line.tres")

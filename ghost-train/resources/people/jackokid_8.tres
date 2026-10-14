@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_jggmx"]
 script = ExtResource("1_5xfvr")
 person = 20
-text = "There's no room on the train for me!"
+text = "Your train is up to your eyeballs in passengers, I can't board. I would have said up to your ears, but I can't see any on you."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

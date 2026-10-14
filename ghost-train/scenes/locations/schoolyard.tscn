@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_rj22u"]
 [ext_resource type="Texture2D" uid="uid://dqv1od1xlulye" path="res://resources/textures/cargo/cargo-book.png" id="6_74saq"]
 [ext_resource type="Texture2D" uid="uid://dpo1vqrjnp2k1" path="res://resources/textures/backgrounds/Buzzford - foreground.png" id="6_osqsb"]
+[ext_resource type="Script" uid="uid://d1bc108e2a4f4" path="res://scenes/locations/book_clickable.gd" id="8_qi2rf"]
 
 [sub_resource type="Resource" id="Resource_74saq"]
 script = ExtResource("5_rj22u")
@@ -18,14 +19,13 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_qi2rf"]
 script = ExtResource("5_rj22u")
-flag_false = 12
+flag_false = 13
 small_cargo_not_loaded = 1
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
-position = Vector2(-3.000001, -3)
 
 [node name="BG_2" type="Node2D" parent="." unique_id=472135075]
 position = Vector2(9.536743e-07, -59)
@@ -67,8 +67,12 @@ position = Vector2(218.62268, 71.10972)
 scale = Vector2(0.23429182, 0.23429187)
 texture = ExtResource("6_74saq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode_book/Sprite2D" unique_id=1018727164]
-scale = Vector2(22.17018, 20.292177)
+[node name="Area2D" type="Area2D" parent="ConditionalNode_book" unique_id=1749899378]
+script = ExtResource("8_qi2rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConditionalNode_book/Area2D" unique_id=1018727164]
+position = Vector2(218.62268, 71.10971)
+scale = Vector2(5.1942916, 4.754292)
 shape = SubResource("RectangleShape2D_wft6q")
 
 [node name="BG_3" type="Node2D" parent="." unique_id=2075512778]

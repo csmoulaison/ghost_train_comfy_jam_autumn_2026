@@ -10,6 +10,8 @@ var passenger_slots: Array[ID.Person]
 var cargo_slots: Array[ID.Cargo]
 var small_cargo_on_train: Array[bool]
 
+var visible_velocity: float = 0.0
+
 const max_cargo_cars: int = 3
 const max_passenger_cars: int = 3
 const max_passengers_per_car: int = 2
@@ -102,4 +104,9 @@ func debug_text() -> String:
 	var text: String = "Current location: " + ID.Location.keys()[current_location]
 	text += "\nNext location: " + ID.Location.keys()[next_location]
 	text += "\nCurrent Road: " + ID.Road.keys()[current_road]
+	
+	text += "\n"
+	for cargo in ID.SmallCargo.SMALL_CARGO_COUNT:
+		var enum_as_string = ID.SmallCargo.keys()[cargo].to_lower()
+		text += enum_as_string + ": " + str(small_cargo_on_train[cargo]) + "\n"
 	return text

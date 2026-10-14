@@ -34,6 +34,7 @@ centered = false
 position = Vector2(1015.0001, 494.165)
 scale = Vector2(0.39571503, 0.41443822)
 person_id = 14
+is_hiding_jackokid = true
 
 [node name="PersonAvatar_" parent="." unique_id=1609223009 instance=ExtResource("3_7v5ef")]
 position = Vector2(899, 465.16507)
@@ -41,7 +42,7 @@ scale = Vector2(2.7929232, 2.7929232)
 person_id = 5
 
 [node name="PersonAvatar_2" parent="." unique_id=946395154 instance=ExtResource("3_7v5ef")]
-position = Vector2(441, 346)
+position = Vector2(351.00003, 346)
 scale = Vector2(3.8777027, 3.8777027)
 person_id = 10
 

@@ -8,50 +8,16 @@
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="5_cb7ib"]
 [ext_resource type="Texture2D" uid="uid://c1ugcgb01572w" path="res://resources/textures/characters/shroom/Magicshroom-eyesopen.png" id="6_cb7ib"]
 
-[sub_resource type="Resource" id="Resource_lrwn2"]
-script = ExtResource("3_lrwn2")
-flag_false = 8
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_ljp0q"]
-script = ExtResource("3_lrwn2")
-flag_false = 12
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_3i0in"]
-script = ExtResource("2_26hfi")
-set_flag = 8
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
 [sub_resource type="Resource" id="Resource_cb7ib"]
-script = ExtResource("1_luhrd")
-text = "What brings you to my fungus? I rarely get visitors out here."
-conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_lrwn2"), SubResource("Resource_ljp0q")])
-post_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_3i0in")])
-default_next_line = ExtResource("4_lrwn2")
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_hua4o"]
-script = ExtResource("3_lrwn2")
-flag_true = 8
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_os2wj"]
-script = ExtResource("3_lrwn2")
-flag_false = 12
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_j287u"]
-script = ExtResource("1_luhrd")
+script = ExtResource("5_cb7ib")
 person = 10
-text = "Hello again!"
-conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_hua4o"), SubResource("Resource_os2wj")])
-default_next_line = ExtResource("4_lrwn2")
-metadata/_custom_type_script = "uid://cek7638wfa72g"
+location = 8
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
 
 [sub_resource type="Resource" id="Resource_y5fr6"]
 script = ExtResource("3_lrwn2")
-flag_true = 12
+flag_true = 14
+person_at_location = SubResource("Resource_cb7ib")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_5sfjl"]
@@ -68,7 +34,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_hysau"]
 script = ExtResource("1_luhrd")
 person = 10
-text = "Whenever works in the future, I guess. I am in no rush."
+text = "I am in no rush. But if I know Witcherly, she's very impatient. I would not keep her waiting."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_4lynm"]
@@ -114,6 +80,71 @@ text = "May your tracks spread like my cousins the slime molds."
 conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_f0c3g")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_lrwn2"]
+script = ExtResource("3_lrwn2")
+flag_false = 9
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_1ax80"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "You can take as many as you like, by the way. I enjoy growing them but never know what to do with them myself."
+default_next_line = ExtResource("4_lrwn2")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_os2wj"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Not many venture into my Fungi Forest. Which is a shame, this place used to be the bee's knees. Everyone flocked here for my shrooms."
+default_next_line = SubResource("Resource_1ax80")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3i0in"]
+script = ExtResource("2_26hfi")
+set_flag = 9
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_lyffn"]
+script = ExtResource("1_luhrd")
+text = "Are you lost?  I rarely get visitors out here."
+conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_lrwn2")])
+post_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_3i0in")])
+default_next_line = SubResource("Resource_os2wj")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_iaq6u"]
+script = ExtResource("3_lrwn2")
+cargo_not_available = 5
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_ny3fs"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "I guess you'll just have to wait a few more earth rotations for more."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_w4gov"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Wait. There aren't any more mushrooms? Huh... That's never happened before."
+conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_iaq6u")])
+default_next_line = SubResource("Resource_ny3fs")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_hua4o"]
+script = ExtResource("3_lrwn2")
+flag_true = 9
+cargo_available = 5
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Hello again!"
+conditions = Array[ExtResource("3_lrwn2")]([SubResource("Resource_hua4o")])
+default_next_line = ExtResource("4_lrwn2")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_0ccbk"]
 script = ExtResource("1_luhrd")
 person = 9
@@ -123,25 +154,38 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_5gqha"]
 script = ExtResource("1_luhrd")
 person = 10
-text = "Looks like there's no room for me!"
+text = "I was already skeptical I would fit in there, and given the current contents of your train, my fears are confirmed."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_sdydn"]
+[sub_resource type="Resource" id="Resource_mxbq8"]
 script = ExtResource("2_26hfi")
 fire_event = 2
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
+[sub_resource type="Resource" id="Resource_dd0oj"]
+script = ExtResource("1_luhrd")
+person = 10
+text = "Not at all, not at all. Ghost has been very kind. I'm happy to help."
+post_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_mxbq8")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_vkp86"]
 script = ExtResource("1_luhrd")
 person = 5
-text = "Thanks, Shroomy!"
-post_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_sdydn")])
+text = "Hey, Shroomy! Sorry to drag you out here on such short notice. But I got a floating track to build for our dear Ghost friend."
+default_next_line = SubResource("Resource_dd0oj")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ljp0q"]
+script = ExtResource("2_26hfi")
+offboard_person = 10
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
 [sub_resource type="Resource" id="Resource_uuywl"]
 script = ExtResource("1_luhrd")
 person = 10
-text = "I am here to infuse your tracks with my mushroom magic!"
+text = "Witcherly, its been an age!"
+pre_effects = Array[ExtResource("2_26hfi")]([SubResource("Resource_ljp0q")])
 default_next_line = SubResource("Resource_vkp86")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
@@ -151,7 +195,7 @@ name = "Shroom"
 starting_location = 8
 default_texture = ExtResource("6_cb7ib")
 sprite_scale = 0.1
-conditional_interact_dialogue = Array[ExtResource("1_luhrd")]([SubResource("Resource_cb7ib"), SubResource("Resource_j287u"), SubResource("Resource_vdtoy"), SubResource("Resource_8sc5g")])
+conditional_interact_dialogue = Array[ExtResource("1_luhrd")]([SubResource("Resource_vdtoy"), SubResource("Resource_8sc5g"), SubResource("Resource_lyffn"), SubResource("Resource_w4gov"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_0ccbk")
 desired_location = 4
 reached_location_dialogue = SubResource("Resource_uuywl")

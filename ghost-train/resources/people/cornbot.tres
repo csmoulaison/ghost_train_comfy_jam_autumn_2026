@@ -38,6 +38,33 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_hg2y6"]
 script = ExtResource("1_kb64c")
+person = 6
+text = "I'll show you factually incorrect, clanker."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4u7yd"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Actually, it isn't! Corn Corp LLC LTD purchase Corn Town three years ago and renamed it. So that is factually incorrect, but thank you for your concern!"
+default_next_line = SubResource("Resource_hg2y6")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_oajc1"]
+script = ExtResource("1_kb64c")
+person = 6
+text = "Its Corn Town!"
+default_next_line = SubResource("Resource_4u7yd")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_g2ct0"]
+script = ExtResource("1_kb64c")
+person = 7
+text = "Hello visitor and welcome to Corn Corp!"
+default_next_line = SubResource("Resource_oajc1")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3t0mo"]
+script = ExtResource("1_kb64c")
 person = 7
 text = "MALFUNCTIONING... BZZZ... BRRRR..."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
@@ -46,8 +73,8 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("1_kb64c")
 person = 7
 text = "Bright and shiny day, visitor! Be sure to stop by and get our buy one, get one free corn bundles!"
-conditional_next_lines = Array[ExtResource("1_kb64c")]([SubResource("Resource_v7vgr"), SubResource("Resource_e70mj")])
-default_next_line = SubResource("Resource_hg2y6")
+conditional_next_lines = Array[ExtResource("1_kb64c")]([SubResource("Resource_v7vgr"), SubResource("Resource_e70mj"), SubResource("Resource_g2ct0")])
+default_next_line = SubResource("Resource_3t0mo")
 cycle = 1
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 

@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_85q28"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_3n0ad"]
 
+[sub_resource type="Resource" id="Resource_g2ct0"]
+script = ExtResource("3_3n0ad")
+flag_true = 6
+cargo_available = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [sub_resource type="Resource" id="Resource_5m38i"]
 script = ExtResource("1_tlvvj")
 load_cargo = 2
@@ -18,15 +24,30 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_a6lsg"]
 script = ExtResource("2_85q28")
 person = 6
-text = "Why'd you come to Corn Town if you're not buying corn?"
+text = "Why'd you come to Corn Town if you're not here to disrupt their bottom line?"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_tlvvj"]
+script = ExtResource("2_85q28")
+person = 6
+text = "Its called a protest. Join me in dismantling capitalist infrastructure."
+prompt_text = "Load corn?"
+accept_effects = Array[ExtResource("1_tlvvj")]([SubResource("Resource_5m38i")])
+default_accept_line = SubResource("Resource_s7cgy")
+default_decline_line = SubResource("Resource_a6lsg")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_85q28"]
+script = ExtResource("2_85q28")
+person = 6
+text = "And before you ask, NO, I don't work for them corpo clankers, and NO I don't technically have the right to give you this corn."
+default_next_line = SubResource("Resource_tlvvj")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_85q28")
 person = 6
-text = "Want any corn?"
-prompt_text = "Load corn?"
-accept_effects = Array[ExtResource("1_tlvvj")]([SubResource("Resource_5m38i")])
-default_accept_line = SubResource("Resource_s7cgy")
-default_decline_line = SubResource("Resource_a6lsg")
+text = "Want some corn?"
+conditions = Array[ExtResource("3_3n0ad")]([SubResource("Resource_g2ct0")])
+default_next_line = SubResource("Resource_85q28")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

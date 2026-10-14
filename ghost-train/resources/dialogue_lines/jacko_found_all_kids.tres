@@ -96,13 +96,13 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [sub_resource type="Resource" id="Resource_wsbrs"]
 script = ExtResource("2_654lq")
 person = 3
-text = " Here, have this orange dye. You're an honorary pumpkin!"
+text = "Here, have this orange dye. You're an honorary pumpkin!"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("2_654lq")
 person = 3
-text = "Now that my kids are back, maybe Jill-o will come back to me!"
+text = "One, two.... eh, four. Eight. Yes, I think that's all of them."
 conditions = Array[ExtResource("3_nuucr")]([SubResource("Resource_dmfyx"), SubResource("Resource_nuucr"), SubResource("Resource_qb301"), SubResource("Resource_fr5id"), SubResource("Resource_thbu2"), SubResource("Resource_ikcwt"), SubResource("Resource_qr0qo"), SubResource("Resource_w5lgd")])
 default_next_line = SubResource("Resource_wsbrs")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

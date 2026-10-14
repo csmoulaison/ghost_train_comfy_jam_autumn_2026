@@ -3,15 +3,35 @@
 [ext_resource type="Script" uid="uid://biqhc3kxoe2gm" path="res://scripts/train_avatar.gd" id="1_l7vmw"]
 [ext_resource type="PackedScene" uid="uid://d0rt10v8t8cgl" path="res://scenes/car_passenger.tscn" id="2_d686f"]
 [ext_resource type="Texture2D" uid="uid://ckr0h2xqu10r7" path="res://resources/textures/Train/Locomotion-nowheels.png" id="2_l7vmw"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="2_olia6"]
 [ext_resource type="Script" uid="uid://d2bhdcjm53ur4" path="res://scripts/interaction/interactable.gd" id="2_v4i8w"]
 [ext_resource type="PackedScene" uid="uid://csd7nk5xcjpgv" path="res://scenes/car_cargo.tscn" id="3_4hlee"]
+[ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="3_8xjk0"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_mh6jo"]
+[ext_resource type="Texture2D" uid="uid://b2c7tqeamhash" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.02.png" id="4_06oa8"]
 [ext_resource type="Texture2D" uid="uid://23pj6bnsjl30" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.00.png" id="4_qe1a0"]
+[ext_resource type="Texture2D" uid="uid://bppj8p5ulh0s0" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.04.png" id="6_tbufn"]
+[ext_resource type="Texture2D" uid="uid://bwglhgnbxhvbk" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.06.png" id="8_vncsa"]
+
+[sub_resource type="Resource" id="Resource_b1spe"]
+script = ExtResource("3_mh6jo")
+flag_true = 17
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7vmw"]
 size = Vector2(2608, 1507)
 
 [node name="TrainAvatar" type="Node2D" unique_id=1648796774]
 script = ExtResource("1_l7vmw")
+locomotive_wheel_frames = Array[Texture2D]([ExtResource("8_vncsa"), ExtResource("6_tbufn"), ExtResource("4_06oa8"), ExtResource("4_qe1a0")])
+
+[node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("2_olia6")]
+conditions = Array[ExtResource("3_mh6jo")]([SubResource("Resource_b1spe")])
+
+[node name="GhostIdle" type="Sprite2D" parent="ConditionalNode" unique_id=989968662]
+position = Vector2(265, -436.99997)
+scale = Vector2(-0.403, 0.403)
+texture = ExtResource("3_8xjk0")
 
 [node name="Locomotive" type="Node2D" parent="." unique_id=1033588246]
 position = Vector2(0, 30)
@@ -28,7 +48,7 @@ prompt_text = "def"
 position = Vector2(1177, -534.5)
 shape = SubResource("RectangleShape2D_l7vmw")
 
-[node name="LocoWheels_00" type="Sprite2D" parent="." unique_id=1485467203]
+[node name="LocomotiveWheelSprite" type="Sprite2D" parent="." unique_id=1485467203]
 position = Vector2(816, 17)
 texture = ExtResource("4_qe1a0")
 

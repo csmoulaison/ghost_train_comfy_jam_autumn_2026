@@ -69,7 +69,7 @@ dressing = true
 
 [node name="PersonAvatar_kid3" parent="." unique_id=2015042343 instance=ExtResource("2_qwc58")]
 position = Vector2(1044, 326)
-scale = Vector2(0.09576297, 0.09567489)
+scale = Vector2(0.4, 0.4)
 person_id = 15
 dressing = true
 

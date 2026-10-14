@@ -9,9 +9,23 @@ script = ExtResource("3_l0042")
 person_on_train = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_tu6vt"]
+script = ExtResource("2_fdfhf")
+person = 2
+text = "Speaking of, it looks like your pumpkins are moving. You might have your first stowaway. "
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("2_fdfhf")
+person = 2
+text = "Maybe we start another venture in the future where we start charging for passengers, eh?"
+default_next_line = SubResource("Resource_tu6vt")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [resource]
 script = ExtResource("2_fdfhf")
 person = 2
-text = "It looks like your pumpkins are moving."
+text = "Hey partner! This train of yours is real cozy. I could get used to traveling like this."
 conditions = Array[ExtResource("3_l0042")]([SubResource("Resource_irsaq")])
+default_next_line = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

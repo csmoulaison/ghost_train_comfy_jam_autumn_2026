@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cw5kptpd1060s"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_ktmpc"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_yjwp1"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_d5gr7"]
+
+[sub_resource type="Resource" id="Resource_lv56f"]
+script = ExtResource("1_ktmpc")
+board_person = 2
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_ute3c"]
+script = ExtResource("2_yjwp1")
+person = 2
+text = "Ha! That's what I'm talking about. Let’s turn some orange into gold!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_53kay"]
+script = ExtResource("2_yjwp1")
+person = 2
+text = "Whatever, you probably don’t even know what a mangosteen is. "
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_yjwp1")
+person = 2
+text = "How 'bout it? Wanna help a bird out? I can cut you in on some pretty pennies. "
+prompt_text = "Board the bird?"
+accept_effects = Array[ExtResource("1_ktmpc")]([SubResource("Resource_lv56f")])
+default_accept_line = SubResource("Resource_ute3c")
+default_decline_line = SubResource("Resource_53kay")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

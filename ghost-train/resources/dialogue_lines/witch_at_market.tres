@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_gs6tu"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_xbfb6"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ajpxp"]
+[ext_resource type="Resource" uid="uid://dxdfw40vwxv04" path="res://resources/dialogue_lines/witch_request_ride.tres" id="5_ajpxp"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="13_vo5dg"]
 
 [sub_resource type="Resource" id="Resource_xbfb6"]
@@ -13,34 +14,41 @@ metadata/_custom_type_script = "uid://bg0l7uy2exepk"
 
 [sub_resource type="Resource" id="Resource_p8uhu"]
 script = ExtResource("3_ajpxp")
-flag_false = 3
+flag_false = 5
 person_at_location = SubResource("Resource_xbfb6")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_2406q"]
-script = ExtResource("1_gs6tu")
-fire_event = 1
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_5sfjl"]
-script = ExtResource("2_xbfb6")
-person = 5
-text = "Bah humbug."
-metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_ajpxp"]
 script = ExtResource("2_xbfb6")
 person = 5
-text = "Take me over to my trainyard, and I'll hook you up with plenty."
-prompt_text = "Buy track?"
-accept_effects = Array[ExtResource("1_gs6tu")]([SubResource("Resource_2406q")])
-default_decline_line = SubResource("Resource_5sfjl")
+text = "Anyhow, I was headed back to my Trainyard when you rolled up."
+default_next_line = ExtResource("5_ajpxp")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jivoq"]
+script = ExtResource("2_xbfb6")
+person = 5
+text = " I'm an engineer by trade. Learned the craft from ma, who learned it from her ma; Back six whole generations."
+default_next_line = SubResource("Resource_ajpxp")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jrijl"]
+script = ExtResource("2_xbfb6")
+person = 5
+text = "I'm Witcherly, but you can just call me Witch. Everyone else does."
+default_next_line = SubResource("Resource_jivoq")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_whrla"]
+script = ExtResource("1_gs6tu")
+set_flag = 5
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
 [resource]
 script = ExtResource("2_xbfb6")
 person = 5
-text = "Oh, hello! Need more track for your train?"
+text = "Hiya. You must be Ghost. I heard you were the new spirit that's taken up the Ghost Goods mantle. Good on ya, kid."
 conditions = Array[ExtResource("3_ajpxp")]([SubResource("Resource_p8uhu")])
-default_next_line = SubResource("Resource_ajpxp")
+post_effects = Array[ExtResource("1_gs6tu")]([SubResource("Resource_whrla")])
+default_next_line = SubResource("Resource_jrijl")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

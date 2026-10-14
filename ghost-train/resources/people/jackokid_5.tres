@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_rxvtk"]
 script = ExtResource("1_bwrcm")
 person = 17
-text = "There's no room on the train for me!"
+text = "I can't board right now, the train is full. You have, as these bees would say, an unfulfilled prerequisite to accomplish."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

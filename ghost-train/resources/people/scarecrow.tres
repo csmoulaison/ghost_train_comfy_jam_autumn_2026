@@ -12,30 +12,70 @@ script = ExtResource("3_g2ct0")
 small_cargo_loaded = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_5m38i"]
+[sub_resource type="Resource" id="Resource_p0cmq"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Thanks, Ghost. Means alot."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_jwxfg"]
 script = ExtResource("2_ix7wh")
 load_small_cargo = 3
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_do0v2"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Here, have my scythe! My corn cutting days are over anyhow."
+pre_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_jwxfg")])
+default_next_line = SubResource("Resource_p0cmq")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_pnu6m"]
+script = ExtResource("2_ix7wh")
 unload_small_cargo = 2
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
-[sub_resource type="Resource" id="Resource_a6lsg"]
+[sub_resource type="Resource" id="Resource_qhynr"]
 script = ExtResource("1_nggyv")
 person = 6
-text = "Here, have my scythe!"
-pre_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_5m38i")])
+text = "Back in my day we didn't accept no gifts from folk, we traded for things."
+pre_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_pnu6m")])
+default_next_line = SubResource("Resource_do0v2")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_cuxci"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Wait. Are you giving me this guitar? That's... I can't accept this for nothing."
+default_next_line = SubResource("Resource_qhynr")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_lb2p0"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Sorry. That was a corny joke. I thought I'd try my hand at stand-up comedy. You didn't laugh so... I guess its not for me."
+default_next_line = SubResource("Resource_cuxci")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_5m38i"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "....."
+default_next_line = SubResource("Resource_lb2p0")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("1_nggyv")
 person = 6
-text = "In my day, we didn't pay for things, we traded!"
+text = "Hey Ghost, what's poppin'? Not corn that's for sure. Har har har."
 conditions = Array[ExtResource("3_g2ct0")]([SubResource("Resource_g2ct0")])
-default_next_line = SubResource("Resource_a6lsg")
+default_next_line = SubResource("Resource_5m38i")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_ix7wh"]
 script = ExtResource("3_g2ct0")
-flag_false = 5
+flag_false = 6
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_hxj33"]
@@ -52,16 +92,16 @@ text = "The dadgummit tin man can't even move corn shipments yet."
 default_next_line = SubResource("Resource_hxj33")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_cuxci"]
+[sub_resource type="Resource" id="Resource_qhqw5"]
 script = ExtResource("1_nggyv")
 person = 6
 text = "First they change the name, and then this son of a bee sting goes and gets me laid off from my one job."
 default_next_line = SubResource("Resource_aitja")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_jwxfg"]
+[sub_resource type="Resource" id="Resource_brmxx"]
 script = ExtResource("2_ix7wh")
-set_flag = 5
+set_flag = 6
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
 [sub_resource type="Resource" id="Resource_fdbpx"]
@@ -69,11 +109,51 @@ script = ExtResource("1_nggyv")
 person = 6
 text = "Gosh darn town has gone down the fritter."
 conditions = Array[ExtResource("3_g2ct0")]([SubResource("Resource_ix7wh")])
-post_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_jwxfg")])
-default_next_line = SubResource("Resource_cuxci")
+post_effects = Array[ExtResource("2_ix7wh")]([SubResource("Resource_brmxx")])
+default_next_line = SubResource("Resource_qhqw5")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_lb2p0"]
+[sub_resource type="Resource" id="Resource_oufke"]
+script = ExtResource("3_g2ct0")
+cargo_not_available = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_g23f5"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Maybe I should learn to play guitar or something. That sounds nice."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_bbcbm"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "I should pick a new hobby. Protesting is great n' all but turns out its not very fulfilling."
+default_next_line = SubResource("Resource_g23f5")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Now what?... Its not like I can go anywhere..."
+default_next_line = SubResource("Resource_bbcbm")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_o4u4n"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "......."
+default_next_line = SubResource("Resource_j287u")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4sxnt"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "Well I'll be darned, you pulled off quite the little corn heist. My hats off to you."
+conditions = Array[ExtResource("3_g2ct0")]([SubResource("Resource_oufke")])
+default_next_line = SubResource("Resource_o4u4n")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_a6lsg"]
 script = ExtResource("1_nggyv")
 person = 6
 text = "I am the Scarecrow and this is my default line. It shouldn't reach this point, ever."
@@ -85,6 +165,6 @@ name = "Scarecrow"
 starting_location = 5
 default_texture = ExtResource("5_g2ct0")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_5sfjl"), SubResource("Resource_fdbpx"), ExtResource("4_g2ct0")])
-default_interact_dialogue = SubResource("Resource_lb2p0")
+conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_5sfjl"), SubResource("Resource_fdbpx"), ExtResource("4_g2ct0"), SubResource("Resource_4sxnt")])
+default_interact_dialogue = SubResource("Resource_a6lsg")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

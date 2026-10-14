@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_6vsfv"]
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="1_db5or"]
 [ext_resource type="Resource" uid="uid://uvfbp0eo8ww6" path="res://resources/dialogue_lines/witch_at_market.tres" id="2_dinsc"]
-[ext_resource type="Resource" uid="uid://bu023bjkxf57g" path="res://resources/dialogue_lines/witch_ask_for_ride.tres" id="3_cxhng"]
+[ext_resource type="Resource" uid="uid://dxdfw40vwxv04" path="res://resources/dialogue_lines/witch_request_ride.tres" id="3_k5410"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="4_p8uhu"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_cxhng"]
 [ext_resource type="Resource" uid="uid://bbrjrbm6ah2wd" path="res://resources/dialogue_lines/witch_open_shop.tres" id="6_k5410"]
@@ -14,30 +14,71 @@ script = ExtResource("5_cxhng")
 person_on_train = 5
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_k5410"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = " I remember racing trains on my steam-powered broom in my youth. Oh, how time flies."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_cxhng"]
 script = ExtResource("1_6vsfv")
 person = 5
-text = "Oh, how time flies."
+text = "Man, nothing beats trains."
+default_next_line = SubResource("Resource_k5410")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_7v5ef"]
 script = ExtResource("1_6vsfv")
 person = 5
-text = "I remember racing trains on my steam-powered broom in my youth."
+text = "You feel the shake of the engine? The squeak of wheels sliding across metal? The aroma of engine grease?"
 conditions = Array[ExtResource("5_cxhng")]([SubResource("Resource_uopof")])
 default_next_line = SubResource("Resource_cxhng")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_fb12x"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "So if you're struggling to fulfill your dreams, than you're doing it right."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_r1w0p"]
 script = ExtResource("1_6vsfv")
 person = 5
-text = "I am the Trainyard Witch, and I should never utter this sentence, or something has gone horribly wrong."
+text = "Lemme share a little secret my ol' grandma used to tell me.  Nothing worth doing is easy."
+default_next_line = SubResource("Resource_fb12x")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_5gqha"]
 script = ExtResource("1_6vsfv")
 person = 5
 text = "There's no room on your train!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Talk to me if you really want this cat to purr! I have a couple of brooms to shake at it."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_uh2qv"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Not only that, but I can use some of the old boxcars around here to upgrade your train."
+default_next_line = SubResource("Resource_j287u")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_uvqje"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "I build tracks lickety split. With a few coins my way, I can build out your connections between stops."
+default_next_line = SubResource("Resource_uh2qv")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4pxqi"]
+script = ExtResource("1_6vsfv")
+person = 5
+text = "Now, I told you I'd make it worth you while so I won't skimp on the details."
+default_next_line = SubResource("Resource_uvqje")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_p46rs"]
@@ -48,9 +89,9 @@ metadata/_custom_type_script = "uid://ds5odfukpyq25"
 [sub_resource type="Resource" id="Resource_6vsfv"]
 script = ExtResource("1_6vsfv")
 person = 5
-text = "Talk to me if you really want this cat to purr! I have a couple of brooms to shake at it."
+text = "Ghost, you've done my heart good giving me a ride. You've got one heck of a train on your hands. A beautiful piece of machinery."
 pre_effects = Array[ExtResource("4_p8uhu")]([SubResource("Resource_p46rs")])
-default_next_line = ExtResource("6_k5410")
+default_next_line = SubResource("Resource_4pxqi")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
@@ -59,7 +100,7 @@ name = "Witch"
 starting_location = 2
 default_texture = ExtResource("7_k5410")
 sprite_scale = 0.1
-conditional_interact_dialogue = Array[ExtResource("1_6vsfv")]([ExtResource("2_dinsc"), ExtResource("3_cxhng"), SubResource("Resource_7v5ef"), ExtResource("6_k5410")])
+conditional_interact_dialogue = Array[ExtResource("1_6vsfv")]([ExtResource("2_dinsc"), ExtResource("3_k5410"), SubResource("Resource_7v5ef"), ExtResource("6_k5410")])
 default_interact_dialogue = SubResource("Resource_r1w0p")
 desired_location = 4
 reached_location_dialogue = SubResource("Resource_6vsfv")

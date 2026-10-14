@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_yhhsn"]
 script = ExtResource("1_cww6g")
 person = 15
-text = "There's no room on the train for me!"
+text = "There's no room, silly! I wanted to keep watching the robot anyways."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

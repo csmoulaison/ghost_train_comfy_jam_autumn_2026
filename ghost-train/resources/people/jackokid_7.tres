@@ -20,14 +20,14 @@ metadata/_custom_type_script = "uid://ds5odfukpyq25"
 [sub_resource type="Resource" id="Resource_o1muc"]
 script = ExtResource("1_672po")
 person = 19
-text = "Can you help me find some pumpkin pie? I'm really in the mood for a good pumpkin pie."
+text = "I'm bobbing like an apple in this water. All good things come to an end I guess."
 post_effects = Array[ExtResource("2_3p384")]([SubResource("Resource_3p384")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_qiohf"]
 script = ExtResource("1_672po")
 person = 19
-text = "There's no room on the train for me!"
+text = "Awww, the train is full! Guess I'll keep practicing my swimming."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

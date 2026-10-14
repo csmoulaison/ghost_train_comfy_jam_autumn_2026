@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://d1v3cahq1wuw4"]
+
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="1_umcct"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_wj3ce"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_vvrla"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_6noxd"]
+
+[sub_resource type="Resource" id="Resource_0ix6f"]
+script = ExtResource("4_6noxd")
+person = 11
+location = 1
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_vi14a"]
+script = ExtResource("3_vvrla")
+person_at_location = SubResource("Resource_0ix6f")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_aiol6"]
+script = ExtResource("1_umcct")
+fire_event = 5
+set_flag = 18
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_lesc6"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "You ready for your own journey, Ghost? Don't worry, you won't make it alone."
+post_effects = Array[ExtResource("1_umcct")]([SubResource("Resource_aiol6")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_pl811"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "So inspiring in fact, I got some work to catch up on."
+default_next_line = SubResource("Resource_lesc6")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_5u6e2"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "You're pretty awesome. A very inspiring little dude."
+default_next_line = SubResource("Resource_pl811")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_igwfp"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "You've done a lot of good around here with your train. Kinda picking up my slack and making everyone happy."
+default_next_line = SubResource("Resource_5u6e2")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_dvnnk"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "I just wanted to say, thanks. Even though I was off ignoring life and death stuff, I've been paying attention to what you've been up to."
+default_next_line = SubResource("Resource_igwfp")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ekia4"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "..."
+default_next_line = SubResource("Resource_dvnnk")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[resource]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "Sorry for hauling you all the way out here, Ghost."
+conditions = Array[ExtResource("3_vvrla")]([SubResource("Resource_vi14a")])
+default_next_line = SubResource("Resource_ekia4")
+metadata/_custom_type_script = "uid://cek7638wfa72g"

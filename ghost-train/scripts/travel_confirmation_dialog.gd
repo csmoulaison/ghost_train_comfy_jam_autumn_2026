@@ -2,8 +2,12 @@ extends Control
 
 @onready var yes_button: Button = get_node("Panel/HBoxContainer/TravelConfirmationYes")
 @onready var no_button: Button = get_node("Panel/HBoxContainer/TravelConfirmationNo")
+@onready var label: Label = get_node("Panel/Label")
 
 func _ready():
+	assert(yes_button != null)
+	assert(no_button != null)
+	assert(label != null)
 	yes_button.pressed.connect(on_yes)
 	no_button.pressed.connect(on_no)
 

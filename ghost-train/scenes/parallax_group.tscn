@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cjnnmvuwufswj" path="res://scripts/parallax_group.gd" id="1_qswhh"]
 
 [node name="ParallaxGroup_" type="Node2D" unique_id=1458647978]
+physics_interpolation_mode = 1
 script = ExtResource("1_qswhh")

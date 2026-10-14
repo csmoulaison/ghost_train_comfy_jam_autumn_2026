@@ -52,7 +52,7 @@ shader_parameter/ribbon_spread = 20.0
 shader_parameter/ribbon_tightness = 0.7
 shader_parameter/ribbon_brightness = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_whrla"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82fuv"]
 shader = ExtResource("6_yc8ip")
 shader_parameter/recolor = Color(1, 1, 1, 1)
 shader_parameter/amount = 0.8
@@ -165,7 +165,7 @@ corner_detail = 12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prompt"]
 shader = ExtResource("4_border")
-shader_parameter/rect_size = Vector2(268, 220)
+shader_parameter/rect_size = Vector2(326, 220)
 shader_parameter/padding = 40.0
 shader_parameter/corner_radius = 56.0
 shader_parameter/border_enabled = false
@@ -242,7 +242,7 @@ fit_content = true
 
 [node name="NextMarker" type="TextureRect" parent="DialoguePanel" unique_id=1416883236]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_whrla")
+material = SubResource("ShaderMaterial_82fuv")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -279,6 +279,7 @@ label_settings = SubResource("LabelSettings_k7ikv")
 
 [node name="SpeakerImage" type="TextureRect" parent="DialoguePanel" unique_id=1622419622]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = -241.0
 offset_top = -88.0
@@ -307,7 +308,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -340.0
 offset_top = -161.0
-offset_right = -152.0
+offset_right = -94.0
 offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -325,7 +326,7 @@ exit_transition = 2
 layout_mode = 0
 offset_left = 14.0
 offset_top = 14.0
-offset_right = 174.0
+offset_right = 232.0
 offset_bottom = 126.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PromptPanel/VBoxContainer" unique_id=264391449]

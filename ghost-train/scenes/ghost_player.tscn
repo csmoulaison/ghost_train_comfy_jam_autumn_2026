@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://cwfyb3tsjv2hu"]
 
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="2_72glb"]
 [ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="2_jp5f1"]
 [ext_resource type="Script" uid="uid://cdhq5qgadaw4p" path="res://scripts/ghost_player.gd" id="2_player"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_bxwid"]
 [ext_resource type="Script" uid="uid://b54jyetkgvw5b" path="res://scripts/interaction/player_interactor.gd" id="3_interactor"]
+
+[sub_resource type="Resource" id="Resource_s8vr0"]
+script = ExtResource("3_bxwid")
+flag_false = 17
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_reach"]
 radius = 120.0
@@ -10,7 +17,10 @@ radius = 120.0
 [node name="GhostPlayer" type="Node2D" unique_id=123701996]
 script = ExtResource("2_player")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1138830871]
+[node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("2_72glb")]
+conditions = Array[ExtResource("3_bxwid")]([SubResource("Resource_s8vr0")])
+
+[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1138830871]
 scale = Vector2(0.14, 0.13999994)
 texture = ExtResource("2_jp5f1")
 offset = Vector2(0, -3.7715263)

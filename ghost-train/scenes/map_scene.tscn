@@ -8,14 +8,26 @@
 [ext_resource type="Script" uid="uid://bv8qptobcy7o5" path="res://scripts/exit_map_button.gd" id="5_jlqwp"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="5_od1u7"]
 [ext_resource type="Texture2D" uid="uid://cmrorykksyvab" path="res://resources/textures/programmer_art/exit.png" id="5_vsh3c"]
-[ext_resource type="Resource" uid="uid://bg8ejd5e7tmx8" path="res://resources/dialogue_lines/witch_post_map_tutorial.tres" id="6_5gqha"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="6_l1wjf"]
 [ext_resource type="Resource" uid="uid://b8ai4g33vog4c" path="res://resources/dialogue_lines/witch_post_map_normal.tres" id="7_raa3b"]
 
-[sub_resource type="Resource" id="Resource_5gqha"]
+[sub_resource type="Resource" id="Resource_u73mt"]
 script = ExtResource("5_od1u7")
 person = 5
-text = "Now your train will rise up like mushrooms from a fallen log!"
+text = "A flying track will do the trick. I need special help from a magic mushroom."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_f0c3g"]
+script = ExtResource("4_f0c3g")
+set_flag = 14
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_qe1a0"]
+script = ExtResource("5_od1u7")
+person = 5
+text = "Ah! To get there we'll need to fly."
+post_effects = Array[ExtResource("4_f0c3g")]([SubResource("Resource_f0c3g")])
+default_next_line = SubResource("Resource_u73mt")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
@@ -73,7 +85,6 @@ road_id = 2
 position = Vector2(334.00003, 478)
 rotation = 0.64803904
 road_id = 4
-post_track_dialogue_tutorial = ExtResource("6_5gqha")
 
 [node name="MapRoad4" parent="." unique_id=1356097258 instance=ExtResource("2_ne7uw")]
 position = Vector2(507, 482.00003)
@@ -104,7 +115,7 @@ road_id = 8
 position = Vector2(904, 544)
 rotation = -0.26458028
 road_id = 10
-post_track_dialogue_grotto = SubResource("Resource_5gqha")
+try_grotto_dialogue = SubResource("Resource_qe1a0")
 
 [node name="MapRoad7" parent="." unique_id=686074369 instance=ExtResource("2_ne7uw")]
 position = Vector2(428.00003, 422.00003)
@@ -167,8 +178,6 @@ anchor_right = 1.0
 offset_bottom = 152.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0)
-text = "Do you want to go 
-to Farmer's Market?"
 horizontal_alignment = 1
 vertical_alignment = 1
 

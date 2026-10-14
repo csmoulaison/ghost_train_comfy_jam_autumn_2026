@@ -16,12 +16,12 @@ size = Vector2(80, 66.5228)
 
 [sub_resource type="Resource" id="Resource_np0xs"]
 script = ExtResource("8_epxhq")
-flag_true = 11
+flag_true = 12
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_nhob2"]
 script = ExtResource("8_epxhq")
-flag_false = 11
+flag_false = 12
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]

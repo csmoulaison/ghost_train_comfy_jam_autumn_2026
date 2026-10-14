@@ -4,24 +4,46 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="1_qv4s2"]
 [ext_resource type="Texture2D" uid="uid://bsgtheu7tulck" path="res://resources/textures/programmer_art/grim.png" id="2_qv4s2"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_vcw4g"]
-[ext_resource type="Resource" uid="uid://df8lvemx5bjje" path="res://grim_intro_no_vampire.tres" id="2_vit54"]
-[ext_resource type="Resource" uid="uid://b8yqd6w1kiwri" path="res://grim_next_no_vampire.tres" id="3_3s7td"]
+[ext_resource type="Resource" uid="uid://df8lvemx5bjje" path="res://resources/dialogue_lines/grim_intro_no_vampire.tres" id="2_vit54"]
+[ext_resource type="Resource" uid="uid://b8yqd6w1kiwri" path="res://resources/dialogue_lines/grim_next_no_vampire.tres" id="3_3s7td"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_6fp3t"]
-[ext_resource type="Resource" uid="uid://1fwrqipwx76t" path="res://grims_first_meeting_with_vampire.tres" id="4_vit54"]
-[ext_resource type="Resource" uid="uid://cr2l2wntreche" path="res://grims_next_with_vampire_no_scythe.tres" id="5_3s7td"]
-[ext_resource type="Resource" uid="uid://dbkayabpv8qfr" path="res://grim_with_scythe.tres" id="6_5k4ou"]
+[ext_resource type="Resource" uid="uid://1fwrqipwx76t" path="res://resources/dialogue_lines/grims_first_meeting_with_vampire.tres" id="4_vit54"]
+[ext_resource type="Resource" uid="uid://cr2l2wntreche" path="res://resources/dialogue_lines/grims_next_with_vampire_no_scythe.tres" id="5_3s7td"]
+[ext_resource type="Resource" uid="uid://dbkayabpv8qfr" path="res://resources/dialogue_lines/grim_with_scythe.tres" id="6_5k4ou"]
+[ext_resource type="Resource" uid="uid://d1v3cahq1wuw4" path="res://resources/dialogue_lines/grim_at_the_graveyard.tres" id="10_0ix6f"]
+
+[sub_resource type="Resource" id="Resource_5k4ou"]
+script = ExtResource("3_6fp3t")
+person_on_train = 11
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_j287u"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "You've done well for yourself, Ghost. This train of yours is great. I might have to modify mine to be way cozier like this. "
+conditions = Array[ExtResource("3_6fp3t")]([SubResource("Resource_5k4ou")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_3s7td"]
 script = ExtResource("1_qv4s2")
 person = 11
-text = "Because I'm Grim, I know who wrote me. And they didn't write me a line here. Oh well."
+text = "Hm? Oh don't mind me. Just vibing. "
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_vi14a"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "TMP: no room on train. (conner will force it in this case, just hasn't yet)"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_6frcn")
 name = "Cornbot"
-starting_location = 5
+starting_location = 9
 default_texture = ExtResource("2_qv4s2")
-conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou")])
+conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_3s7td")
+desired_location = 1
+reached_location_dialogue = ExtResource("10_0ix6f")
+no_room_on_train_dialogue = SubResource("Resource_vi14a")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

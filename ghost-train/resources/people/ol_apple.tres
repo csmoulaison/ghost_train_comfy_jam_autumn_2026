@@ -6,23 +6,50 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_nk5j5"]
 [ext_resource type="Texture2D" uid="uid://blq62052tqrix" path="res://resources/textures/characters/ol-tree/tree-plain.png" id="4_fnbb7"]
 
-[sub_resource type="Resource" id="Resource_fnbb7"]
+[sub_resource type="Resource" id="Resource_iqdhl"]
+script = ExtResource("3_nk5j5")
+cargo_not_available = 5
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_s80ha")
 person = 12
-text = "AND NO, YOU CAN'T HAVE ANY APPLES."
+text = "I'm plum out of apples, apparition. Come back next season. "
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_iqdhl")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_af1be"]
+[sub_resource type="Resource" id="Resource_ydr6d"]
 script = ExtResource("2_fnbb7")
-set_flag = 10
+load_cargo = 3
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
-[sub_resource type="Resource" id="Resource_nk5j5"]
+[sub_resource type="Resource" id="Resource_cl7lu"]
+script = ExtResource("3_nk5j5")
+flag_true = 11
+cargo_available = 3
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_sumjs"]
 script = ExtResource("1_s80ha")
 person = 12
-text = "I'm tired of listening to this vampire mope. Nothing to read around here."
-post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_af1be")])
-default_next_line = SubResource("Resource_fnbb7")
+text = "You wouldn't happen to be the ghost of Johnny Appleseed, would you?"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3j2bk"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "Hmph. I guess I'll have to share my autumn victuals with a more appreciative guest."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_4mbvd"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "You were kind enough to bring me some reading material. Take as many apples as you like, small apparition."
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_cl7lu")])
+prompt_text = "Load apples?"
+accept_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_ydr6d")])
+default_accept_line = SubResource("Resource_sumjs")
+default_decline_line = SubResource("Resource_3j2bk")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_xga1r"]
@@ -63,43 +90,43 @@ post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_xeal5")])
 default_next_line = SubResource("Resource_m5b5j")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_ydr6d"]
+[sub_resource type="Resource" id="Resource_6nn6u"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "AND NO, YOU CAN'T HAVE ANY APPLES."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_1ngw4"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "If only I had a good book to distract me. But, as it turns out, the options are dry as dirt around here."
+default_next_line = SubResource("Resource_6nn6u")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_af1be"]
 script = ExtResource("2_fnbb7")
-load_cargo = 3
+set_flag = 11
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
-[sub_resource type="Resource" id="Resource_cl7lu"]
-script = ExtResource("3_nk5j5")
-flag_true = 11
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_sumjs"]
+[sub_resource type="Resource" id="Resource_nk5j5"]
 script = ExtResource("1_s80ha")
 person = 12
-text = "Be careful with my precious apples."
+text = "I'm tired of listening to this vampire mope. Nothing to read around here."
+post_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_af1be")])
+default_next_line = SubResource("Resource_1ngw4")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_3j2bk"]
+[sub_resource type="Resource" id="Resource_4mtrm"]
 script = ExtResource("1_s80ha")
 person = 12
-text = "Oh, I just thought maybe you would want some."
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_4mbvd"]
-script = ExtResource("1_s80ha")
-person = 12
-text = "I should pass on my apples to an apparition. Here you go."
-conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_cl7lu")])
-prompt_text = "Load apples?"
-accept_effects = Array[ExtResource("2_fnbb7")]([SubResource("Resource_ydr6d")])
-default_accept_line = SubResource("Resource_sumjs")
-default_decline_line = SubResource("Resource_3j2bk")
+text = "Please read between the lines. "
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_1h1ix"]
 script = ExtResource("1_s80ha")
 person = 12
-text = "I'm the Ol' Oak. I must be missing a sentence, because I don't have anything to say here."
+text = "Would you care for a story little ghost? Once upon a time, an old tree was left alone. The end."
+default_next_line = SubResource("Resource_4mtrm")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
@@ -108,6 +135,6 @@ name = "Ol' Oak"
 starting_location = 6
 default_texture = ExtResource("4_fnbb7")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_s80ha")]([SubResource("Resource_nk5j5"), SubResource("Resource_5gqha"), SubResource("Resource_4mbvd")])
+conditional_interact_dialogue = Array[ExtResource("1_s80ha")]([SubResource("Resource_j287u"), SubResource("Resource_4mbvd"), SubResource("Resource_5gqha"), SubResource("Resource_nk5j5")])
 default_interact_dialogue = SubResource("Resource_1h1ix")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

@@ -4,8 +4,15 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_7ehf2"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_085fg"]
 
+[sub_resource type="Resource" id="Resource_dmfyx"]
+script = ExtResource("2_7ehf2")
+person = 3
+text = "If you bring them back, I'd be very grateful."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [resource]
 script = ExtResource("2_7ehf2")
 person = 3
-text = "There are still more pumpkins to find, please bring them home!"
+text = "There's still a few rascals out there that need to come home, Ghost."
+default_next_line = SubResource("Resource_dmfyx")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

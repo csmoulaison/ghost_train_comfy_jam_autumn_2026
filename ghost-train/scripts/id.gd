@@ -87,6 +87,7 @@ enum Flag {
 	JACKOKIDS_SNUCK_OFF_TRAIN, # after they scatter
 	FIRST_TRACK_BOUGHT, # bought the track to the trainyard
 	GROTTO_ROAD_AVAILABLE,
+	TALKED_TO_WITCH,
 	TALKED_TO_SCARECROW,
 	TALKED_TO_BEES,
 	TALKED_TO_VAMPIRE,
@@ -98,6 +99,8 @@ enum Flag {
 	WITCH_TOLD_OF_GROTTO_ROAD,
 	GRIM_MET_VAMPIRE,
 	VAMPIRE_HEALED,
+	GHOST_TRAIN_DESTINATION_AVATAR,
+	ON_END_TRAIN,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 
@@ -106,6 +109,9 @@ enum Event {
 	OPEN_MAP_BUYING_TRACKS,
 	OPEN_MAP_BUYING_GROTTO_TRACK,
 	SCATTER_JACKOKIDS,
+	GET_ON_TRAIN_WITH_GRIMM,
+	GO_TO_END_TRAIN,
+	END_GAME,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
 
@@ -118,5 +124,9 @@ enum DialogueCycle {
 enum Cinematic {
 	DEFAULT,
 	INTRO_1,
+	DEPART_TO_TRAVEL,
+	EXIT_TRAVEL, # these need split because there's an arrival at the beginning with no exit
+	ARRIVE_AT_DESTINATION,
+	TMP_ENDING,
 	CINEMATIC_COUNT,
 }

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ke5tb"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_ke5tb"]
 [ext_resource type="Texture2D" uid="uid://6rq4gspi8hp6" path="res://resources/textures/characters/vampire/vamp-sad.png" id="5_ke5tb"]
+[ext_resource type="Resource" uid="uid://dxiyoemnr3vhx" path="res://resources/dialogue_lines/vampire_at_grotto_unhealed.tres" id="5_o0cry"]
 
 [sub_resource type="Resource" id="Resource_5gqha"]
 script = ExtResource("4_ke5tb")
@@ -15,7 +16,7 @@ metadata/_custom_type_script = "uid://bg0l7uy2exepk"
 
 [sub_resource type="Resource" id="Resource_1r8be"]
 script = ExtResource("3_ke5tb")
-flag_false = 7
+flag_false = 8
 person_at_location = SubResource("Resource_5gqha")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
@@ -27,34 +28,90 @@ metadata/_custom_type_script = "uid://ds5odfukpyq25"
 [sub_resource type="Resource" id="Resource_ct4ee"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Thank you!"
+text = "I suppose it wouldn't hurt to get some fresh air. Its about the only thing I can do, I suppose. "
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ke5tb"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "How silly of me..."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_wrco8"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Woe is me!"
+text = "Ah. I apologize for misunderstanding. Must be wishful thinking."
+default_next_line = SubResource("Resource_ke5tb")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_qp1xr"]
+[sub_resource type="Resource" id="Resource_jbut4"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Ghost, can you help me find someone who can reverse my undead curse?"
+text = "Are you suggesting I board your locomotive? "
 prompt_text = "Board the vampire?"
 accept_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_j287u")])
 default_accept_line = SubResource("Resource_ct4ee")
 default_decline_line = SubResource("Resource_wrco8")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_o0cry"]
-script = ExtResource("2_17gf0")
-set_flag = 7
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_ke5tb"]
+[sub_resource type="Resource" id="Resource_k0awt"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "I’m so tired of piercing my tongue, and I’m sick of the taste of pumpkin spiced blood."
+text = "....."
+default_next_line = SubResource("Resource_jbut4")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_hmb2b"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "But, tis folly. There are no vampiric dental practices around here nor any experts on afterlife affairs. Tis pointless, I'm afraid."
+default_next_line = SubResource("Resource_k0awt")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_2a3ai"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Oh what I wouldn't give to nap the day away."
+default_next_line = SubResource("Resource_hmb2b")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_0ys1a"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "I get the worst sunburns. Blood has a very boring, iron flavor. My teeth keep piercing my tongue. I don't even sleep!"
+default_next_line = SubResource("Resource_2a3ai")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_t21jq"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Sure, I've enjoyed a few centuries to pursue my greatest passions, but at what cost?"
+default_next_line = SubResource("Resource_0ys1a")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_56j57"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Not that its anything you care to know but I've grown rather tired of immortality."
+default_next_line = SubResource("Resource_t21jq")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_qp1xr"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "*sigh* Oh. Apologies. I was just lamenting."
+default_next_line = SubResource("Resource_56j57")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_o0cry"]
+script = ExtResource("2_17gf0")
+set_flag = 8
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_0bobq"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "A bitter taste, the only taste. Oh how I doth miss the sweet juice of an apple."
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_1r8be")])
 post_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_o0cry")])
 default_next_line = SubResource("Resource_qp1xr")
@@ -73,26 +130,26 @@ metadata/_custom_type_script = "uid://bg0l7uy2exepk"
 
 [sub_resource type="Resource" id="Resource_7gw2r"]
 script = ExtResource("3_ke5tb")
-flag_true = 7
+flag_true = 8
 person_at_location = SubResource("Resource_yyhx5")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_re5c2"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Thank you!"
+text = "I suppose it wouldn't hurt to get some fresh air. Its about the only thing I can do, I suppose."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_68cha"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Woe is me!"
+text = "How silly of me..."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_yvsmm"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Do you know anyone who is proficient with life and death stuff?"
+text = "Do you still wish for me to join your locomotive? I don't see the point but if it makes you happy, I'll accept."
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_7gw2r")])
 prompt_text = "Board the vampire?"
 accept_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_abrtk")])
@@ -105,30 +162,32 @@ script = ExtResource("3_ke5tb")
 person_on_train = 9
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_l8mkx"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "I shouldn't burden you with my sad stories. Carry on your duties, conductor."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_a7ovh"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "... *sigh*"
+default_next_line = SubResource("Resource_l8mkx")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_wjflr"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "You know, in my youth, all I wanted to do was be a vampire. Living forever just seemed so fun, so novel! *sigh*"
+default_next_line = SubResource("Resource_a7ovh")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_mvadr"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Oh boo, can't anyone help me with my fangs?"
+text = "This air is quite nice. This train has a lovely rythym to it. Thank you for taking me on board, Ghost."
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_16a7o")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_od1u7"]
-script = ExtResource("4_ke5tb")
-person = 9
-location = 9
-metadata/_custom_type_script = "uid://bg0l7uy2exepk"
-
-[sub_resource type="Resource" id="Resource_f0c3g"]
-script = ExtResource("3_ke5tb")
-flag_false = 13
-person_at_location = SubResource("Resource_od1u7")
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_pp0ok"]
-script = ExtResource("1_ml87m")
-person = 9
-text = "Please help Grim get me healed!"
-conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_f0c3g")])
+default_next_line = SubResource("Resource_wjflr")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_rqy66"]
@@ -139,21 +198,41 @@ metadata/_custom_type_script = "uid://bg0l7uy2exepk"
 
 [sub_resource type="Resource" id="Resource_fcxvp"]
 script = ExtResource("3_ke5tb")
-flag_true = 13
+flag_true = 16
 person_at_location = SubResource("Resource_rqy66")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_m3kf8"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "Thanks for everything, ghosty."
+text = "Oh thank you, thank you Grim Reaper! Now I can eat marmalade on sourdough toast in the morning sunlight again!"
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_fcxvp")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_sj4yh"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Maybe I'll just write a poem about blood. Again. Ugh."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_f3quk"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "I'm the Vampire... and if you're reading this, I don't have a line prepared when I should. I'm so sorry to default on you."
+text = "Hmm, perhaps my next poem should be about sunlight. But darn it all, I can't quite remember what it feels like."
+default_next_line = SubResource("Resource_sj4yh")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_k31ta"]
+script = ExtResource("2_17gf0")
+offboard_person = 9
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_6jcbx"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Oh Ghost, can this be?"
+pre_effects = Array[ExtResource("2_17gf0")]([SubResource("Resource_k31ta")])
+default_next_line = ExtResource("5_o0cry")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
@@ -162,6 +241,8 @@ name = "Vampire"
 starting_location = 6
 default_texture = ExtResource("5_ke5tb")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_ke5tb"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), SubResource("Resource_pp0ok"), SubResource("Resource_m3kf8")])
+conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_0bobq"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), ExtResource("5_o0cry"), SubResource("Resource_m3kf8")])
 default_interact_dialogue = SubResource("Resource_f3quk")
+desired_location = 9
+reached_location_dialogue = SubResource("Resource_6jcbx")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

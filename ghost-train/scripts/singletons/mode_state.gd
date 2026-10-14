@@ -26,6 +26,11 @@ var mode: GameMode = GameMode.DESTINATION
 var initialized: bool = false
 var pause_menu: bool = false
 
+# cached state for transitions
+var cached_to_travel_destination: ID.Location = ID.Location.DEFAULT
+var cached_arrival_dialogue: DialogueLine = null
+var cached_arrival_destination: ID.Location = ID.Location.DEFAULT
+
 func _ready() :
 	assert(travel_scene != null)
 	assert(travel_subscene_parent != null)
@@ -44,7 +49,6 @@ func _process(_dt: float):
 	# of the Project Settings->Globals->Autoload list
 	if !initialized:
 		initialized = true
-		# TODO: start at main menu, presumably
 		TrainState.current_location = ID.Location.FARMERS_MARKET
 		switch_mode(GameMode.MAIN_MENU)
 	
@@ -59,9 +63,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # TODO(now): it is time to do transitions. First, a fade in and out, which will
 # require switching to a cinematic mode and queuing the proper data.
+	
 
 func start_from_menu():
 	CinematicState.start_cinematic(ID.Cinematic.INTRO_1, true)
+	
+func exit_travel_mode(location_id: ID.Location):
+	cached_arrival_destination = location_id
+	CinematicState.start_cinematic(ID.Cinematic.EXIT_TRAVEL, false)
 	
 func arrive_at_destination(location_id: ID.Location):
 	switch_mode(GameMode.DESTINATION)
@@ -69,13 +78,14 @@ func arrive_at_destination(location_id: ID.Location):
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
 	load_destination_mode(location_id)
+	CinematicState.start_cinematic(ID.Cinematic.ARRIVE_AT_DESTINATION, false)
 	for passenger_index in TrainState.passenger_car_count * TrainState.max_passengers_per_car:
 		var passenger_id: ID.Person = TrainState.passenger_slots[passenger_index]
 		if passenger_id == ID.Person.DEFAULT: 
 			continue
 		var passenger: Person = ResourceData.people[passenger_id]
 		if passenger.desired_location == TrainState.current_location:
-			DialogueState.open_dialogue([], passenger.reached_location_dialogue)
+			cached_arrival_dialogue = passenger.reached_location_dialogue
 
 func load_destination_mode(location_id: ID.Location):
 	if mode != GameMode.DESTINATION: 
@@ -84,13 +94,8 @@ func load_destination_mode(location_id: ID.Location):
 	load_subscene(destination_subscene_parent, location.subscene_path)	
 	
 func depart_to_travel():
-	switch_mode(GameMode.TRAVEL)
-	TrainState.current_location = ID.Location.DEFAULT
-	var road: Road = ResourceData.roads[TrainState.current_road]
-	load_subscene(travel_subscene_parent, road.subscene_path)
-	ParallaxState.begin_parallax()
-	for index in ID.Cargo.CARGO_COUNT:
-		GameState.cargo_cooldowns[index] -= 1
+	load_destination_mode(TrainState.current_location)
+	CinematicState.start_cinematic(ID.Cinematic.DEPART_TO_TRAVEL, false)
 
 func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.OPEN_MAP_BUYING_TRACKS:
@@ -102,8 +107,7 @@ func enter_map_mode(buying_tracks: bool):
 	MapState.init_visual_state()
 
 func switch_mode(new_mode: GameMode):
-	if mode == GameMode.TRAVEL:
-		ParallaxState.end_parallax()
+	ParallaxState.end_parallax()
 
 	mode = new_mode
 	remove_all_scenes()

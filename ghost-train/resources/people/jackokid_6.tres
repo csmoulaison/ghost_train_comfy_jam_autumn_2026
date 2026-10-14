@@ -27,14 +27,14 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("1_xefmn")
 person = 18
-text = "I'm lost. Have you seen my Ma?"
+text = "Where are the sporks? I heard there were sporks in this forest. All I see are spores. Oh."
 default_next_line = SubResource("Resource_2jchp")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_vn278"]
 script = ExtResource("1_xefmn")
 person = 18
-text = "There's no room on the train for me!"
+text = "I want to stay with the cozy and bouncy mushrooms. Plus your train is stuffed, I won't fit."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

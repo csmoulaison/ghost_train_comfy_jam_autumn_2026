@@ -85,7 +85,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_tvnvx")
-name = "Jillo"
+name = "Jacko"
 starting_location = 3
 default_texture = ExtResource("1_4hwll")
 conditional_interact_dialogue = Array[ExtResource("1_jl2mq")]([SubResource("Resource_jkh76"), ExtResource("2_yv50y"), SubResource("Resource_jl2mq"), SubResource("Resource_gsf00")])
