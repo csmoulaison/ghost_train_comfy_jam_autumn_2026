@@ -54,4 +54,4 @@ person_id = 10
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_0vabf")]
 z_index = 2
 position = Vector2(613, 510.165)
-scale = Vector2(1.2828772, 1.2828772)
+scale = Vector2(1.6854677, 1.6854677)

@@ -12,11 +12,67 @@
 [ext_resource type="Texture2D" uid="uid://23pj6bnsjl30" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.00.png" id="4_qe1a0"]
 [ext_resource type="Texture2D" uid="uid://bppj8p5ulh0s0" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.04.png" id="6_tbufn"]
 [ext_resource type="Texture2D" uid="uid://bwglhgnbxhvbk" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.06.png" id="8_vncsa"]
+[ext_resource type="Texture2D" uid="uid://cpnjsdvd31hmw" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke01.png" id="9_3i5qb"]
+[ext_resource type="Texture2D" uid="uid://jnrkopa20yae" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke02.png" id="10_divsf"]
+[ext_resource type="Texture2D" uid="uid://tpl1qeo1r0d4" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke03.png" id="11_u1rcg"]
+[ext_resource type="Texture2D" uid="uid://dsioxawjto2ko" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke04.png" id="12_kgmuo"]
+[ext_resource type="Texture2D" uid="uid://yun5igmwkfi8" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke05.png" id="13_rh3tj"]
+[ext_resource type="Texture2D" uid="uid://67j1ttrxmrtl" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke06.png" id="14_v42xh"]
+[ext_resource type="Texture2D" uid="uid://c3nf1bxdtf66s" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke07.png" id="15_3bax8"]
+[ext_resource type="Texture2D" uid="uid://duu0qls3ilkm2" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke08.png" id="16_cmfwb"]
+[ext_resource type="Texture2D" uid="uid://bjr0b3b66mocm" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke09.png" id="17_x3cbs"]
+[ext_resource type="Texture2D" uid="uid://btxje14t6i6ks" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke10.png" id="18_vfrle"]
+[ext_resource type="Texture2D" uid="uid://cj0fivnahnvej" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke11.png" id="19_xxvw2"]
+[ext_resource type="Texture2D" uid="uid://d4dwud886tndc" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke12.png" id="20_nk1n4"]
 
 [sub_resource type="Resource" id="Resource_b1spe"]
 script = ExtResource("3_mh6jo")
 flag_true = 17
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkumi"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("9_3i5qb")
+}, {
+"duration": 0.8,
+"texture": ExtResource("10_divsf")
+}, {
+"duration": 0.8,
+"texture": ExtResource("11_u1rcg")
+}, {
+"duration": 0.8,
+"texture": ExtResource("12_kgmuo")
+}, {
+"duration": 0.8,
+"texture": ExtResource("13_rh3tj")
+}, {
+"duration": 0.8,
+"texture": ExtResource("14_v42xh")
+}, {
+"duration": 0.8,
+"texture": ExtResource("15_3bax8")
+}, {
+"duration": 0.8,
+"texture": ExtResource("16_cmfwb")
+}, {
+"duration": 0.8,
+"texture": ExtResource("17_x3cbs")
+}, {
+"duration": 0.8,
+"texture": ExtResource("18_vfrle")
+}, {
+"duration": 0.8,
+"texture": ExtResource("19_xxvw2")
+}, {
+"duration": 0.8,
+"texture": ExtResource("20_nk1n4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7vmw"]
 size = Vector2(2608, 1507)
@@ -30,11 +86,19 @@ conditions = Array[ExtResource("3_mh6jo")]([SubResource("Resource_b1spe")])
 
 [node name="GhostIdle" type="Sprite2D" parent="ConditionalNode" unique_id=989968662]
 position = Vector2(265, -436.99997)
-scale = Vector2(-0.403, 0.403)
+scale = Vector2(-0.3294477, 0.3294477)
 texture = ExtResource("3_8xjk0")
 
 [node name="Locomotive" type="Node2D" parent="." unique_id=1033588246]
 position = Vector2(0, 30)
+
+[node name="SmokeAnimation" type="AnimatedSprite2D" parent="Locomotive" unique_id=45664232]
+position = Vector2(633, -1897.9999)
+scale = Vector2(2.8924437, 2.8924437)
+sprite_frames = SubResource("SpriteFrames_hkumi")
+autoplay = "default"
+frame = 1
+frame_progress = 0.27893218
 
 [node name="Sprite2D" type="Sprite2D" parent="Locomotive" unique_id=336635364]
 position = Vector2(1177, -532)

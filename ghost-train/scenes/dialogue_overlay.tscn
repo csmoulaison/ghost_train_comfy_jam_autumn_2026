@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhxq7fncsu2a3" path="res://scripts/dialogue/dialogue_overlay.gd" id="1_t5kwb"]
 [ext_resource type="Shader" uid="uid://cdjb1dr12h4dl" path="res://resources/shaders/dialogue_border.gdshader" id="4_border"]
-[ext_resource type="Texture2D" uid="uid://rcp0ls40vdxe" path="res://resources/textures/dialogue/dialogue_bg.png" id="4_rbq1e"]
+[ext_resource type="Texture2D" uid="uid://cynywbgc5ogm4" path="res://resources/textures/dialogue/dialog_paper-noborder.png" id="4_whrla"]
 [ext_resource type="Script" uid="uid://m5cpoyd32hic" path="res://scripts/dialogue/dialogue_panel.gd" id="5_border"]
 [ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="5_whrla"]
 [ext_resource type="Texture2D" uid="uid://dt4ascbe8v1aw" path="res://resources/textures/dialogue/continue_bubble_1.png" id="6_777c5"]
@@ -15,8 +15,8 @@
 [ext_resource type="FontFile" uid="uid://dkmmopnpbsfkj" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Italic.ttf" id="8_ilkg5"]
 [ext_resource type="FontFile" uid="uid://3t7qjhxoybor" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Bold.ttf" id="11_82fuv"]
 [ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/programmer_art/guy.png" id="11_il06f"]
-[ext_resource type="Texture2D" uid="uid://r5n8choonc3h" path="res://resources/textures/buttons/button_normal.png" id="12_btn_normal"]
 [ext_resource type="Texture2D" uid="uid://cgmeyba0ca14" path="res://resources/textures/buttons/button_hover.png" id="13_btn_hover"]
+[ext_resource type="Texture2D" uid="uid://cpki7d66spppm" path="res://resources/textures/dialogue/dialog_nameplate.png" id="14_pjdyx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbq1e"]
 bg_color = Color(0.37413922, 0.37413928, 0.37413913, 1)
@@ -37,9 +37,9 @@ shader_parameter/plain_fill_color = Color(0.37413922, 0.37413928, 0.37413913, 1)
 shader_parameter/edge_softness = 4.0
 shader_parameter/fill_color = Color(0.035, 0.03, 0.05, 0.9)
 shader_parameter/glow_color = Color(1, 0.8, 0.22, 1)
-shader_parameter/pattern_texture = ExtResource("4_rbq1e")
-shader_parameter/pattern_opacity = 0.9
-shader_parameter/pattern_scale = 0.627
+shader_parameter/pattern_texture = ExtResource("4_whrla")
+shader_parameter/pattern_opacity = 1.0
+shader_parameter/pattern_scale = 0.587
 shader_parameter/pattern_scroll = Vector2(0, 0)
 shader_parameter/glow_width = 14.0
 shader_parameter/glow_strength = 0.4
@@ -52,7 +52,7 @@ shader_parameter/ribbon_spread = 20.0
 shader_parameter/ribbon_tightness = 0.7
 shader_parameter/ribbon_brightness = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_82fuv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whrla"]
 shader = ExtResource("6_yc8ip")
 shader_parameter/recolor = Color(1, 1, 1, 1)
 shader_parameter/amount = 0.8
@@ -120,36 +120,9 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_k7ikv"]
 font = ExtResource("11_82fuv")
-font_size = 34
-outline_size = 2
+font_size = 23
+font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 outline_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 0.3372549)
-stacked_shadow_count = 8
-stacked_shadow_0/offset = Vector2(0, 2)
-stacked_shadow_0/color = Color(0, 0, 0, 0.05)
-stacked_shadow_0/outline_size = 3
-stacked_shadow_1/offset = Vector2(0, 2)
-stacked_shadow_1/color = Color(0, 0, 0, 0.05)
-stacked_shadow_1/outline_size = 6
-stacked_shadow_2/offset = Vector2(0, 2)
-stacked_shadow_2/color = Color(0, 0, 0, 0.05)
-stacked_shadow_2/outline_size = 9
-stacked_shadow_3/offset = Vector2(0, 2)
-stacked_shadow_3/color = Color(0, 0, 0, 0.05)
-stacked_shadow_3/outline_size = 12
-stacked_shadow_4/offset = Vector2(0, 2)
-stacked_shadow_4/color = Color(0, 0, 0, 0.05)
-stacked_shadow_4/outline_size = 15
-stacked_shadow_5/offset = Vector2(0, 2)
-stacked_shadow_5/color = Color(0, 0, 0, 0.05)
-stacked_shadow_5/outline_size = 18
-stacked_shadow_6/offset = Vector2(0, 2)
-stacked_shadow_6/color = Color(0, 0, 0, 0.05)
-stacked_shadow_6/outline_size = 21
-stacked_shadow_7/offset = Vector2(0, 2)
-stacked_shadow_7/color = Color(0, 0, 0, 0.05)
-stacked_shadow_7/outline_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjb8m"]
 content_margin_left = 14.0
@@ -172,10 +145,11 @@ shader_parameter/border_enabled = false
 shader_parameter/plain_corner_radius = 12.0
 shader_parameter/plain_fill_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 shader_parameter/edge_softness = 3.0
-shader_parameter/fill_color = Color(0.035, 0.03, 0.05, 0.9)
+shader_parameter/fill_color = Color(1, 1, 1, 1)
 shader_parameter/glow_color = Color(1, 0.8, 0.22, 1)
-shader_parameter/pattern_opacity = 0.0
-shader_parameter/pattern_scale = 0.627
+shader_parameter/pattern_texture = ExtResource("4_whrla")
+shader_parameter/pattern_opacity = 1.0
+shader_parameter/pattern_scale = 0.486
 shader_parameter/pattern_scroll = Vector2(0, 0)
 shader_parameter/glow_width = 14.0
 shader_parameter/glow_strength = 0.4
@@ -213,9 +187,9 @@ background_pattern = true
 edge_softness = 4.0
 effects_material = SubResource("ShaderMaterial_border")
 line_tightness = 0.7
-pattern_texture = ExtResource("4_rbq1e")
-pattern_opacity = 0.9
-pattern_scale = 0.627
+pattern_texture = ExtResource("4_whrla")
+pattern_opacity = 1.0
+pattern_scale = 0.587
 
 [node name="MarginContainer" type="MarginContainer" parent="DialoguePanel" unique_id=295531172]
 layout_mode = 1
@@ -232,17 +206,18 @@ theme_override_constants/margin_bottom = 16
 [node name="DialogueText" type="RichTextLabel" parent="DialoguePanel/MarginContainer" unique_id=1573471300]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/default_color = Color(0.008837297, 0.10917444, 0.14883852, 1)
 theme_override_fonts/normal_font = ExtResource("5_whrla")
 theme_override_fonts/bold_font = ExtResource("11_82fuv")
 theme_override_fonts/bold_italics_font = ExtResource("7_pjdyx")
 theme_override_fonts/italics_font = ExtResource("8_ilkg5")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 24
 text = "Hello world!"
 fit_content = true
 
 [node name="NextMarker" type="TextureRect" parent="DialoguePanel" unique_id=1416883236]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_82fuv")
+material = SubResource("ShaderMaterial_whrla")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -270,12 +245,29 @@ autoplay = &"bounce"
 [node name="SpeakerNameText" type="Label" parent="DialoguePanel" unique_id=697296642]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 28.0
+offset_left = 29.0
 offset_top = -16.0
-offset_right = 184.0
-offset_bottom = 19.0
+offset_right = 319.0
+offset_bottom = 27.0
 text = "Name name"
 label_settings = SubResource("LabelSettings_k7ikv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="DialoguePanel/SpeakerNameText" unique_id=382631952]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_pjdyx")
+expand_mode = 1
 
 [node name="SpeakerImage" type="TextureRect" parent="DialoguePanel" unique_id=1622419622]
 unique_name_in_owner = true
@@ -306,19 +298,21 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -340.0
-offset_top = -161.0
-offset_right = -94.0
-offset_bottom = -21.0
+offset_left = -368.0
+offset_top = -153.0
+offset_right = -122.0
+offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("6_prompt")
 theme_override_styles/panel = SubResource("StyleBoxFlat_hjb8m")
 script = ExtResource("5_border")
+background_pattern = true
 edge_softness = 3.0
 effects_material = SubResource("ShaderMaterial_prompt")
-pattern_opacity = 0.9
-pattern_scale = 0.627
+pattern_texture = ExtResource("4_whrla")
+pattern_opacity = 1.0
+pattern_scale = 0.486
 enter_transition = 2
 exit_transition = 2
 
@@ -336,6 +330,7 @@ theme_override_constants/margin_bottom = 10
 [node name="PromptText" type="RichTextLabel" parent="PromptPanel/VBoxContainer/MarginContainer" unique_id=877999942]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/default_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 theme_override_fonts/normal_font = ExtResource("7_pjdyx")
 theme_override_font_sizes/normal_font_size = 22
 text = "Okay?"
@@ -343,9 +338,10 @@ fit_content = true
 
 [node name="PromptAcceptButton" type="TextureButton" parent="PromptPanel/VBoxContainer" unique_id=1199635544]
 unique_name_in_owner = true
+self_modulate = Color(0.9254902, 0.70980394, 0.30980393, 1)
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("12_btn_normal")
+texture_normal = ExtResource("14_pjdyx")
 texture_pressed = ExtResource("13_btn_hover")
 texture_hover = ExtResource("13_btn_hover")
 texture_focused = ExtResource("13_btn_hover")
@@ -359,9 +355,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.98, 0.95, 0.88, 1)
-theme_override_colors/font_outline_color = Color(0.025, 0.025, 0.025, 1)
-theme_override_constants/outline_size = 4
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 theme_override_fonts/font = ExtResource("11_82fuv")
 theme_override_font_sizes/font_size = 24
 text = "Accept"
@@ -372,7 +366,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("12_btn_normal")
+texture_normal = ExtResource("14_pjdyx")
 texture_pressed = ExtResource("13_btn_hover")
 texture_hover = ExtResource("13_btn_hover")
 texture_focused = ExtResource("13_btn_hover")
@@ -386,9 +380,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.98, 0.95, 0.88, 1)
-theme_override_colors/font_outline_color = Color(0.025, 0.025, 0.025, 1)
-theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("11_82fuv")
 theme_override_font_sizes/font_size = 24
 text = "Decline"

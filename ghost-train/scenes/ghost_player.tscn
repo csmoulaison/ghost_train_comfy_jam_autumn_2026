@@ -21,7 +21,7 @@ script = ExtResource("2_player")
 conditions = Array[ExtResource("3_bxwid")]([SubResource("Resource_s8vr0")])
 
 [node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1138830871]
-scale = Vector2(0.14, 0.13999994)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_jp5f1")
 offset = Vector2(0, -3.7715263)
 
@@ -29,6 +29,7 @@ offset = Vector2(0, -3.7715263)
 script = ExtResource("3_interactor")
 
 [node name="Reach" type="CollisionShape2D" parent="Interactor" unique_id=1977250316]
+scale = Vector2(0.7814884, 0.7814884)
 shape = SubResource("CircleShape2D_reach")
 
 [node name="Prompt" type="Node2D" parent="Interactor" unique_id=851336942]

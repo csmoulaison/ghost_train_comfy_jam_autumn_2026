@@ -61,7 +61,7 @@ person_id = 7
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_ot4ga")]
 z_index = 2
 position = Vector2(653, 443)
-scale = Vector2(1.2226295, 1.2226295)
+scale = Vector2(1.5674834, 1.5674834)
 
 [node name="ConditionalNode_corn" parent="." unique_id=464916204 instance=ExtResource("6_i1u1b")]
 z_index = 2
