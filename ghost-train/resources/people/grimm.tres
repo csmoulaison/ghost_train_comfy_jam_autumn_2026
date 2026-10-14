@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_6frcn")
-name = "Cornbot"
+name = "Grimm"
 starting_location = 9
 default_texture = ExtResource("2_qv4s2")
 conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])

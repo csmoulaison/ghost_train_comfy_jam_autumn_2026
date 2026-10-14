@@ -1,6 +1,5 @@
 10/13/26 TODOS
 ==============
-
 FROM PLAY
 - didn't check shroom talk
 - shroom still asking if witch needs magic once he's there in the yard.
@@ -35,3 +34,14 @@ GRAPHICS
 
 BEFORE SHIP
 - Do we have all jack-o-kids in place and is_hiding?
+
+HOLLY'S CURSED PLAYTHROUGH
+==========================
+OL OAK
+- Accepts book and you don't have it
+- Have talked to before
+- After give it to him: still exists at schoolyard
+- Load apples
+
+SHROOM
+- Offered cargo while on train
