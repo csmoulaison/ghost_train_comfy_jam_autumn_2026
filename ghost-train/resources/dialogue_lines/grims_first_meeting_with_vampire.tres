@@ -22,11 +22,16 @@ script = ExtResource("1_bjrcy")
 load_small_cargo = 2
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
+[sub_resource type="Resource" id="Resource_k5ajg"]
+script = ExtResource("1_bjrcy")
+set_flag = 19
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
 [sub_resource type="Resource" id="Resource_ad02g"]
 script = ExtResource("2_y3slu")
 person = 11
 text = "Here, you can have my guitar to trade."
-pre_effects = Array[ExtResource("1_bjrcy")]([SubResource("Resource_1vp7v")])
+pre_effects = Array[ExtResource("1_bjrcy")]([SubResource("Resource_1vp7v"), SubResource("Resource_k5ajg")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_tvy7d"]

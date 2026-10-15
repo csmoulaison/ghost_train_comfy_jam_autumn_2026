@@ -4,18 +4,25 @@
 [ext_resource type="Script" uid="uid://ipo2igb0xn5x" path="res://scripts/map_road.gd" id="1_k6kgt"]
 [ext_resource type="Texture2D" uid="uid://t80w3yewc0dt" path="res://resources/textures/programmer_art/map_track_locked.png" id="2_ysbdw"]
 [ext_resource type="Texture2D" uid="uid://csj5d70mbfxd8" path="res://resources/textures/programmer_art/map_track_active.png" id="3_spvpg"]
+[ext_resource type="Texture2D" uid="uid://2n36xqftwhtu" path="res://resources/textures/upgrades_and_stuff/track buying/map-track-buy-5.png" id="5_yggga"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysbdw"]
-size = Vector2(140, 60)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yggga"]
+size = Vector2(58.263863, 48.997467)
 
 [node name="MapRoad" type="Area2D" unique_id=341124107]
+z_index = 100
+z_as_relative = false
 script = ExtResource("1_k6kgt")
 locked_texture = ExtResource("2_ysbdw")
 inactive_texture = ExtResource("1_aol8t")
 active_texture = ExtResource("3_spvpg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095780766]
-texture = ExtResource("1_aol8t")
+[node name="BuyIndicator" type="Sprite2D" parent="." unique_id=1361446274]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_yggga")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900307172]
-shape = SubResource("RectangleShape2D_ysbdw")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=722518616]
+z_index = 100
+position = Vector2(0, -10)
+scale = Vector2(1.2014308, 1.020461)
+shape = SubResource("RectangleShape2D_yggga")

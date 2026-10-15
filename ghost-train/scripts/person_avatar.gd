@@ -7,6 +7,7 @@ class_name PersonAvatar extends Node2D
 # click which activates new found_jackokid_dialogue field in person resource.
 @export var is_hiding_jackokid: bool = false
 @export var dressing: bool = false
+@export var is_grimm_at_end: bool = false
 
 @onready var sprite = get_node("Sprite2D")
 @onready var interactable: Interactable = get_node("Interactable")
@@ -25,6 +26,7 @@ func _process(dt: float):
 	active = check_active()
 	var target_opacity: float = 0.0
 	interactable.interaction_active = false
+	interactable.input_pickable = false
 	if active:
 		target_opacity = 1.0
 		if on_train and ModeState.mode == ModeState.GameMode.TRAVEL or !on_train and ModeState.mode == ModeState.GameMode.DESTINATION:
@@ -39,8 +41,9 @@ func _on_interacted():
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if !is_hiding_jackokid: return
-		if GameState.people_locations[person_id] != TrainState.current_location: return
+		if !is_grimm_at_end:
+			if !is_hiding_jackokid: return
+			if GameState.people_locations[person_id] != TrainState.current_location: return
 		var person: Person = ResourceData.people[person_id]
 		DialogueState.open_dialogue([], person.found_jackokid_dialogue)
 
@@ -57,6 +60,7 @@ func set_state(id: ID.Person, set_on_train: bool, set_location: ID.Location, sce
 		else: sprite.modulate.a = 0.0
 
 func check_active() -> bool:
+	if is_grimm_at_end and GameState.flags[ID.Flag.ON_END_TRAIN]: return true
 	if person_id == ID.Person.DEFAULT: return false
 	if on_train and !TrainState.person_on_train(person_id): return false
 	else: if !on_train and GameState.people_locations[person_id] != TrainState.current_location: return false

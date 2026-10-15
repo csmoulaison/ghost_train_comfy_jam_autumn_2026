@@ -9,6 +9,12 @@
 [sub_resource type="Resource" id="Resource_5ukd1"]
 script = ExtResource("1_uai5o")
 person = 16
+text = "I want more of that honey the Bees had. I should ask if they want to do another customer study with me."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_3qxmc"]
+script = ExtResource("1_uai5o")
+person = 16
 text = "That was a very pretty lake, but I'm getting tired now."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
@@ -36,7 +42,8 @@ name = "Juno"
 starting_location = 3
 default_texture = ExtResource("4_xdkwo")
 sprite_scale = 0.1
-default_interact_dialogue = SubResource("Resource_5ukd1")
+conditional_interact_dialogue = Array[ExtResource("1_uai5o")]([SubResource("Resource_5ukd1")])
+default_interact_dialogue = SubResource("Resource_3qxmc")
 no_room_on_train_dialogue = SubResource("Resource_wkmae")
 found_jackokid_dialogue = SubResource("Resource_ale1a")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

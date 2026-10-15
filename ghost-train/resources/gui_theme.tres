@@ -1,28 +1,22 @@
 [gd_resource type="Theme" format=3 uid="uid://cm67ku6mq27ta"]
 
-[ext_resource type="FontFile" uid="uid://dw45axpg1oeba" path="res://resources/fonts/Et_Bembo.ttf" id="1_qjbne"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="1_qjbne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcdf5"]
 content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-bg_color = Color(0.8185598, 0.7017566, 0.3623637, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.6665502, 0.36388886, 0.16056281, 1)
+bg_color = Color(0.9345695, 0.90692276, 0.83764064, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
 border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 corner_detail = 16
 shadow_color = Color(0, 0, 0, 0.16862746)
-shadow_size = 7
-shadow_offset = Vector2(0, 4)
-anti_aliasing_size = 4.0
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8rcm"]
 content_margin_left = 4.0

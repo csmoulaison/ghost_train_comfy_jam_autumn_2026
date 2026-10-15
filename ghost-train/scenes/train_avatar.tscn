@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://23pj6bnsjl30" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.00.png" id="4_qe1a0"]
 [ext_resource type="Texture2D" uid="uid://ir6dq7r28xsk" path="res://resources/textures/Train/wheel.png" id="6_divsf"]
 [ext_resource type="Texture2D" uid="uid://bppj8p5ulh0s0" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.04.png" id="6_tbufn"]
+[ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="8_u1rcg"]
 [ext_resource type="Texture2D" uid="uid://bwglhgnbxhvbk" path="res://resources/textures/Train/Locomotion - big wheels animation/loco-wheels.06.png" id="8_vncsa"]
 [ext_resource type="Texture2D" uid="uid://cpnjsdvd31hmw" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke01.png" id="9_3i5qb"]
 [ext_resource type="Texture2D" uid="uid://jnrkopa20yae" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke02.png" id="10_divsf"]
@@ -25,6 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://btxje14t6i6ks" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke10.png" id="18_vfrle"]
 [ext_resource type="Texture2D" uid="uid://cj0fivnahnvej" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke11.png" id="19_xxvw2"]
 [ext_resource type="Texture2D" uid="uid://d4dwud886tndc" path="res://resources/textures/Train/Locomotion - big wheels animation/smoke/smoke12.png" id="20_nk1n4"]
+
+[sub_resource type="Resource" id="Resource_u1rcg"]
+script = ExtResource("3_mh6jo")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_b1spe"]
 script = ExtResource("3_mh6jo")
@@ -87,6 +93,13 @@ size = Vector2(2608, 1507)
 script = ExtResource("1_l7vmw")
 locomotive_wheel_frames = Array[Texture2D]([ExtResource("4_qe1a0"), ExtResource("4_06oa8"), ExtResource("6_tbufn"), ExtResource("8_vncsa")])
 
+[node name="PersonAvatar_Grimm" parent="." unique_id=1390684158 instance=ExtResource("8_u1rcg")]
+position = Vector2(297.6667, -375.5)
+scale = Vector2(3.6887794, 3.6887794)
+person_id = 11
+conditions = Array[ExtResource("3_mh6jo")]([SubResource("Resource_u1rcg")])
+is_grimm_at_end = true
+
 [node name="Wheel1" type="Sprite2D" parent="." unique_id=789629810]
 position = Vector2(1553, 139)
 texture = ExtResource("6_divsf")
@@ -95,7 +108,7 @@ texture = ExtResource("6_divsf")
 position = Vector2(1989, 139)
 texture = ExtResource("6_divsf")
 
-[node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("2_olia6")]
+[node name="ConditionalNode" parent="." unique_id=1791847322 instance=ExtResource("2_olia6")]
 conditions = Array[ExtResource("3_mh6jo")]([SubResource("Resource_b1spe")])
 
 [node name="GhostIdle" type="Sprite2D" parent="ConditionalNode" unique_id=989968662]
@@ -149,6 +162,18 @@ position = Vector2(99999, 99999)
 position = Vector2(99999, 99999)
 
 [node name="Car_Passenger6" parent="." unique_id=306918648 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger7" parent="." unique_id=955248783 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger8" parent="." unique_id=917980559 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger9" parent="." unique_id=1546642526 instance=ExtResource("2_d686f")]
+position = Vector2(99999, 99999)
+
+[node name="Car_Passenger10" parent="." unique_id=266855064 instance=ExtResource("2_d686f")]
 position = Vector2(99999, 99999)
 
 [node name="Car_Cargo1" parent="." unique_id=1855407557 instance=ExtResource("3_4hlee")]

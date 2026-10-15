@@ -12,6 +12,81 @@
 [ext_resource type="Texture2D" uid="uid://dyvfhhiqqbyq8" path="res://resources/textures/characters/grim/Grim-standing_0003_grim-standing-no-items-2.png" id="9_0ix6f"]
 [ext_resource type="Resource" uid="uid://d1v3cahq1wuw4" path="res://resources/dialogue_lines/grim_at_the_graveyard.tres" id="10_0ix6f"]
 
+[sub_resource type="Resource" id="Resource_0ix6f"]
+script = ExtResource("3_6fp3t")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_5u6e2"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "Have a nice death, little dude. I'll come visit from time to time. "
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_nhob2"]
+script = ExtResource("2_vcw4g")
+fire_event = 6
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_dvnnk"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "I feel like you were born ready. Ha ha ha."
+post_effects = Array[ExtResource("2_vcw4g")]([SubResource("Resource_nhob2")])
+default_next_line = SubResource("Resource_5u6e2")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_igwfp"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "No worries, bro. Take your time. It's your afterlife, after all."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_wnj7c"]
+script = ExtResource("2_vcw4g")
+fire_event = 6
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_vi14a"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "Have a nice death, little dude. I'll come visit from time to time. "
+post_effects = Array[ExtResource("2_vcw4g")]([SubResource("Resource_wnj7c")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_pl811"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "I feel like you were born ready. Ha ha ha."
+default_next_line = SubResource("Resource_vi14a")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_go6ng"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "No worries, bro. Take your time. It's your afterlife, after all."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_lesc6"]
+script = ExtResource("1_qv4s2")
+person = 2
+text = "You ready for the next phase of your spirit journey?"
+prompt_text = "Move on?"
+default_accept_line = SubResource("Resource_pl811")
+default_decline_line = SubResource("Resource_go6ng")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ekia4"]
+script = ExtResource("1_qv4s2")
+person = 11
+text = "Looks like your stop is coming up."
+conditions = Array[ExtResource("3_6fp3t")]([SubResource("Resource_0ix6f")])
+default_next_line = SubResource("Resource_lesc6")
+prompt_text = "Move on?"
+default_accept_line = SubResource("Resource_dvnnk")
+default_decline_line = SubResource("Resource_igwfp")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_5k4ou"]
 script = ExtResource("3_6fp3t")
 person_on_train = 11
@@ -30,7 +105,7 @@ person = 11
 text = "Hm? Oh don't mind me. Just vibing. "
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_vi14a"]
+[sub_resource type="Resource" id="Resource_aiol6"]
 script = ExtResource("1_qv4s2")
 person = 11
 text = "TMP: no room on train. (conner will force it in this case, just hasn't yet)"
@@ -42,9 +117,9 @@ name = "Grimm"
 starting_location = 9
 default_texture = ExtResource("9_0ix6f")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])
+conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([SubResource("Resource_ekia4"), ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_3s7td")
 desired_location = 1
 reached_location_dialogue = ExtResource("10_0ix6f")
-no_room_on_train_dialogue = SubResource("Resource_vi14a")
+no_room_on_train_dialogue = SubResource("Resource_aiol6")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

@@ -101,6 +101,8 @@ enum Flag {
 	VAMPIRE_HEALED,
 	GHOST_TRAIN_DESTINATION_AVATAR,
 	ON_END_TRAIN,
+	GRIMM_GAVE_GUITAR,
+	ALL_JACKOKIDS_FOUND,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 
@@ -128,5 +130,6 @@ enum Cinematic {
 	EXIT_TRAVEL, # these need split because there's an arrival at the beginning with no exit
 	ARRIVE_AT_DESTINATION,
 	TMP_ENDING,
+	END_GAME,
 	CINEMATIC_COUNT,
 }

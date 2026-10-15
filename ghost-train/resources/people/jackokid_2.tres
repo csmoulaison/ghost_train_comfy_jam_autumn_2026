@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_c1oqv"]
 [ext_resource type="Texture2D" uid="uid://cxyl5pg57d5ip" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard.png" id="4_vcl4l"]
 
+[sub_resource type="Resource" id="Resource_poy0e"]
+script = ExtResource("4_c1oqv")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_o42b4"]
+script = ExtResource("1_3ra8t")
+person = 14
+text = "I still have so much to say about magical engineering!"
+conditions = Array[ExtResource("4_c1oqv")]([SubResource("Resource_poy0e")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("1_3ra8t")
 person = 14
@@ -43,6 +55,7 @@ name = "Jacinto"
 starting_location = 3
 default_texture = ExtResource("4_vcl4l")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_3ra8t")]([SubResource("Resource_o42b4")])
 default_interact_dialogue = SubResource("Resource_5sfjl")
 no_room_on_train_dialogue = SubResource("Resource_5ybig")
 found_jackokid_dialogue = SubResource("Resource_j287u")

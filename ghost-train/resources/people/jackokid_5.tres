@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_rxvtk"]
 [ext_resource type="Texture2D" uid="uid://d5r63c40qih4" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford.png" id="4_g82a1"]
 
+[sub_resource type="Resource" id="Resource_syugv"]
+script = ExtResource("3_rxvtk")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_srtvw"]
+script = ExtResource("1_bwrcm")
+person = 17
+text = "I loved eavesdropping on Oak's stories. He has a pleasant voice."
+conditions = Array[ExtResource("3_rxvtk")]([SubResource("Resource_syugv")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_3qxmc"]
 script = ExtResource("1_bwrcm")
 person = 17
@@ -36,6 +48,7 @@ name = "Jericho"
 starting_location = 3
 default_texture = ExtResource("4_g82a1")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_bwrcm")]([SubResource("Resource_srtvw")])
 default_interact_dialogue = SubResource("Resource_3qxmc")
 no_room_on_train_dialogue = SubResource("Resource_rxvtk")
 found_jackokid_dialogue = SubResource("Resource_xdkwo")

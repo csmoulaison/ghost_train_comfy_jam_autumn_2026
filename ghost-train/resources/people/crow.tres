@@ -18,6 +18,25 @@
 [ext_resource type="Texture2D" uid="uid://dm2gd0ti1qnm2" path="res://resources/textures/characters/crow/Crow-stand.png" id="11_omvf3"]
 [ext_resource type="Texture2D" uid="uid://cnsdbwlnpnhdl" path="res://resources/textures/characters/crow/Crow-stand-mouth.png" id="12_v1584"]
 
+[sub_resource type="Resource" id="Resource_tluqg"]
+script = ExtResource("5_v1584")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_1xnmu"]
+script = ExtResource("1_0so2n")
+person = 2
+text = "I filled out the LLC paperwork earlier today!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_m3j2n"]
+script = ExtResource("1_0so2n")
+person = 2
+text = "Ghost, your spirit has given me the confidence to open my own shop!"
+conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_tluqg")])
+default_next_line = SubResource("Resource_1xnmu")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_v1584"]
 script = ExtResource("5_tluqg")
 person = 2
@@ -65,7 +84,7 @@ script = ExtResource("4_omvf3")
 sell_cargo = 2
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
-[sub_resource type="Resource" id="Resource_tluqg"]
+[sub_resource type="Resource" id="Resource_kx6iy"]
 script = ExtResource("1_0so2n")
 person = 2
 text = "Corn? Gimme that corn."
@@ -137,7 +156,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("1_0so2n")
 person = 2
 text = "So, Ghost, got anything to offload?"
-conditional_next_lines = Array[ExtResource("1_0so2n")]([SubResource("Resource_7tvlj"), SubResource("Resource_tluqg"), SubResource("Resource_i48rh"), SubResource("Resource_p52bu"), SubResource("Resource_lr5e3")])
+conditional_next_lines = Array[ExtResource("1_0so2n")]([SubResource("Resource_7tvlj"), SubResource("Resource_kx6iy"), SubResource("Resource_i48rh"), SubResource("Resource_p52bu"), SubResource("Resource_lr5e3")])
 default_next_line = SubResource("Resource_10jd1")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
@@ -164,7 +183,7 @@ starting_location = 3
 default_texture = ExtResource("4_qh7yj")
 texture_pack = SubResource("Resource_lxf33")
 sprite_scale = 0.15
-conditional_interact_dialogue = Array[ExtResource("1_0so2n")]([ExtResource("2_0so2n"), SubResource("Resource_ufu2b"), ExtResource("3_uajsq"), SubResource("Resource_uajsq")])
+conditional_interact_dialogue = Array[ExtResource("1_0so2n")]([SubResource("Resource_m3j2n"), ExtResource("2_0so2n"), SubResource("Resource_ufu2b"), ExtResource("3_uajsq"), SubResource("Resource_uajsq")])
 default_interact_dialogue = ExtResource("3_06o6b")
 desired_location = 2
 reached_location_dialogue = ExtResource("5_uajsq")

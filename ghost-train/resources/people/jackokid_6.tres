@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_2jchp"]
 [ext_resource type="Texture2D" uid="uid://bax5vicdymp7l" path="res://resources/textures/characters/jack-o-kids/6-fungusforest/jacko-fungus.png" id="4_o1muc"]
 
+[sub_resource type="Resource" id="Resource_pewj6"]
+script = ExtResource("3_2jchp")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_et3u1"]
+script = ExtResource("1_xefmn")
+person = 18
+text = "I never found that pumpkin pie. Son of a biscuit."
+conditions = Array[ExtResource("3_2jchp")]([SubResource("Resource_pewj6")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_xefmn")
 person = 18
@@ -43,6 +55,7 @@ name = "Jethro"
 starting_location = 3
 default_texture = ExtResource("4_o1muc")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_xefmn")]([SubResource("Resource_et3u1")])
 default_interact_dialogue = SubResource("Resource_j287u")
 no_room_on_train_dialogue = SubResource("Resource_vn278")
 found_jackokid_dialogue = SubResource("Resource_5sfjl")

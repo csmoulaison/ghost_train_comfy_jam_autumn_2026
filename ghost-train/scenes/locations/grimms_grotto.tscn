@@ -15,10 +15,12 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_k5ajg"]
 script = ExtResource("5_k5ajg")
+flag_true = 19
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_nqvu0"]
 script = ExtResource("5_k5ajg")
+flag_false = 19
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]

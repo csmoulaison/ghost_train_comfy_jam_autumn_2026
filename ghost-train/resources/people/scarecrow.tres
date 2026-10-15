@@ -7,6 +7,18 @@
 [ext_resource type="Resource" uid="uid://0aqy6od3k4ll" path="res://resources/dialogue_lines/scarecrow_offer_corn.tres" id="4_g2ct0"]
 [ext_resource type="Texture2D" uid="uid://c54bqlp051b8q" path="res://resources/textures/characters/scarecrow/scarecrow3_0001_sc-scythe-upset-mouth.png" id="5_g2ct0"]
 
+[sub_resource type="Resource" id="Resource_nk5j5"]
+script = ExtResource("3_g2ct0")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_fnbb7"]
+script = ExtResource("1_nggyv")
+person = 6
+text = "I'm loving this guitar. Thanks, Ghost."
+conditions = Array[ExtResource("3_g2ct0")]([SubResource("Resource_nk5j5")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_g2ct0"]
 script = ExtResource("3_g2ct0")
 small_cargo_loaded = 2
@@ -165,6 +177,6 @@ name = "Scarecrow"
 starting_location = 5
 default_texture = ExtResource("5_g2ct0")
 sprite_scale = 0.23
-conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_5sfjl"), SubResource("Resource_fdbpx"), ExtResource("4_g2ct0"), SubResource("Resource_4sxnt")])
+conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_fnbb7"), SubResource("Resource_5sfjl"), SubResource("Resource_fdbpx"), ExtResource("4_g2ct0"), SubResource("Resource_4sxnt")])
 default_interact_dialogue = SubResource("Resource_a6lsg")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

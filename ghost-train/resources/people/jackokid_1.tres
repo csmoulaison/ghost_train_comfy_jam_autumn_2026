@@ -6,6 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://c5ec10h71ri6g" path="res://resources/textures/characters/jack-o-kids/1-market/jacko-market.png" id="4_nkxi2"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_rypk4"]
 
+[sub_resource type="Resource" id="Resource_nkxi2"]
+script = ExtResource("4_rypk4")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_nhob2"]
+script = ExtResource("1_0w1uv")
+person = 13
+text = "Do you want to be our second dad?"
+conditions = Array[ExtResource("4_rypk4")]([SubResource("Resource_nkxi2")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("1_0w1uv")
 person = 13
@@ -43,6 +55,7 @@ name = "Julio"
 starting_location = 3
 default_texture = ExtResource("4_nkxi2")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_0w1uv")]([SubResource("Resource_nhob2")])
 default_interact_dialogue = SubResource("Resource_5sfjl")
 no_room_on_train_dialogue = SubResource("Resource_7dtsx")
 found_jackokid_dialogue = SubResource("Resource_j287u")

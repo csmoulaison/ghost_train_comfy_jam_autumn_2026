@@ -33,10 +33,11 @@ func _on_event(event: ID.Event, _arg: int):
 		MapLocation.select_node(ID.Location.GRAVEYARD, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
 	else: if event == ID.Event.GO_TO_END_TRAIN:
-		#start_cinematic(ID.Cinematic.TMP_ENDING, false)
-		TrainState.passenger_car_count = 6
+		GameState.flags[ID.Flag.ON_END_TRAIN] = true
 		MapLocation.select_node(ID.Location.FARMERS_MARKET, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
+	else: if event == ID.Event.END_GAME:
+		start_cinematic(ID.Cinematic.END_GAME, false)
 
 func _physics_process(dt: float):
 	if DebugOverlay.active: dt *= 25.0
@@ -67,6 +68,23 @@ func _physics_process(dt: float):
 				ModeState.train_avatar.position.x = train_arrival_point + 960.0 - t_range_cubic_clamped(t, depart_train_length, 0.0) * 960.0
 				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length - 2.0, depart_train_length - 1.0)
 			if t_bang_threshold(t, depart_train_length - 1.0, dt):
+				if GameState.flags[ID.Flag.ON_END_TRAIN]:
+					TrainState.passenger_car_count = 9
+					if TrainState.total_cargo_sold[ID.Cargo.HONEY] > 0: TrainState.try_board_passenger(ID.Person.BEES)
+					if GameState.people_locations[ID.Person.CROW] == ID.Location.FARMERS_MARKET: TrainState.try_board_passenger(ID.Person.CROW)
+					TrainState.try_board_passenger(ID.Person.VAMPIRE)
+					if GameState.flags[ID.Flag.GAVE_BOOK_TO_TREE]: TrainState.try_board_passenger(ID.Person.OL_APPLE)
+					TrainState.try_board_passenger(ID.Person.WITCH)
+					TrainState.try_board_passenger(ID.Person.JACKO)
+					TrainState.try_board_passenger(ID.Person.SCARECROW)
+					if GameState.people_locations[ID.Person.JACKOKID_2] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_2)
+					if GameState.people_locations[ID.Person.JACKOKID_1] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_1)
+					if GameState.people_locations[ID.Person.JACKOKID_4] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_4)
+					if GameState.people_locations[ID.Person.JACKOKID_3] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_3)
+					if GameState.people_locations[ID.Person.JACKOKID_6] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_6)
+					if GameState.people_locations[ID.Person.JACKOKID_5] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_5)
+					if GameState.people_locations[ID.Person.JACKOKID_8] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_8)
+					if GameState.people_locations[ID.Person.JACKOKID_7] == ID.Location.PUMPKIN_PATCH: TrainState.try_board_passenger(ID.Person.JACKOKID_7)
 				ModeState.switch_mode(ModeState.GameMode.TRAVEL)
 				TrainState.current_location = ID.Location.DEFAULT
 				var road: Road = ResourceData.roads[TrainState.current_road]
@@ -113,10 +131,16 @@ func _physics_process(dt: float):
 				if ModeState.cached_arrival_dialogue != null:
 					DialogueState.open_dialogue([], ModeState.cached_arrival_dialogue)
 					ModeState.cached_arrival_dialogue = null
-
+		ID.Cinematic.END_GAME:
+			AudioState.set_volume(t_range_clamped(t, 2.0, 1.0), AudioState.train_sound_player_1)
+			if t < 3.0: fade_sprite.modulate.a = t_range_clamped(t, 0.0, 2.0)
+			if t_bang_threshold(t, 3.0, dt): ModeState.switch_mode(ModeState.GameMode.END_SCREEN)
+			if t > 3.0: fade_sprite.modulate.a = t_range_clamped(t, 5.0, 3.0)
+			if t_bang_threshold(t, 3.5, dt): AudioState.play_offset_from_end(AudioState.music_player_1.intro_music, AudioState.music_player_1, -0.66)
+			if t > 3.5: AudioState.set_volume(t_range_clamped(t, 3.5, 4.5) * 0.75, AudioState.music_player_1)
+			if t > 5.0: stop_cinematic()
 		ID.Cinematic.TMP_ENDING:
-			title_label.text = "The End"
-			title_label.modulate.a = t_range_clamped(t, 0.5, 1.5)
+			pass
 
 func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 	assert(current_cinematic == ID.Cinematic.DEFAULT, "Started a cinematic without calling stop_cinematic() on an old one, or you are really doing some fucking shenanigans.")
@@ -124,7 +148,7 @@ func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 	t = 0.0
 	if no_mode:
 		ModeState.switch_mode(ModeState.GameMode.ONLY_CINEMATIC)
-	
+
 	# initialize state for particular cinematics
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:

@@ -20,6 +20,8 @@ func _ready():
 	previous_x = position.x
 	
 func _physics_process(dt: float):
+	if GameState.flags[ID.Flag.ON_END_TRAIN]: interactable.interaction_active = false
+	
 	var delta: float = -(((previous_x - position.x) * 0.01) / scale.x)
 	if ModeState.mode == ModeState.GameMode.TRAVEL: delta = 20.0 * dt
 	
@@ -32,22 +34,24 @@ func _physics_process(dt: float):
 func _process(_dt: float):
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
+			#interactable.input_pickable = true
 			interactable.interaction_active = false
 			interactable.prompt_text = "Depart"
 		ModeState.GameMode.TRAVEL:
+			#interactable.input_pickable = false
 			interactable.interaction_active = true
 			interactable.prompt_text = "Arrive"
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if !ModeState.control_paused() and ModeState.GameMode.DESTINATION:
+		if !ModeState.control_paused() and ModeState.mode == ModeState.GameMode.DESTINATION:
 			ModeState.enter_map_mode(false)
 
 func _on_interacted():
+	if GameState.flags[ID.Flag.ON_END_TRAIN]: return
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
-			pass
-			#ModeState.enter_map_mode(false)
+			return
 		ModeState.GameMode.TRAVEL:
 			ModeState.exit_travel_mode(TrainState.next_location)
 		_:

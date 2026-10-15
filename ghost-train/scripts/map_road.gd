@@ -9,14 +9,18 @@ class_name MapRoad extends Node2D
 @export var post_grotto_unlock_dialogue: DialogueLine
 
 @onready var sprite_node: Sprite2D = get_node("Sprite2D")
+@onready var buy_indicator_node: Sprite2D = get_node("BuyIndicator")
 
-func ready():
+var buyable: bool = false
+
+func _ready():
 	assert(sprite_node != null)
+	assert(buy_indicator_node != null)
 
 # TODO: more feedback for tutorial stage of track buying map 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if ModeState.control_paused(): return
+		#if ModeState.control_paused(): return
 		if !MapState.buying_tracks: return
 		if MapState.roads_unlocked[road_id]: return
 		
@@ -29,7 +33,7 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		if !GameState.flags[ID.Flag.GROTTO_ROAD_AVAILABLE] and road_id == ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO: 
 			DialogueState.open_dialogue([], try_grotto_dialogue)
 			return
-			
+		
 		# TODO: confirmation dialog box for road purchases
 		if MoneyState.try_coins(road.cost):
 			MapState.unlock_road(road_id, true)
@@ -38,7 +42,14 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 			print("player didn't have enough coins to purchase track.")
 
 # NOTE: this is virtually identical to set_visual_active_state in MapLocation
-func set_visual_active_state(active: bool):
+func set_visual_active_state(active: bool, buy: bool, buy_texture: Texture2D):
+	buyable = buy
+	if buyable: 
+		buy_indicator_node.modulate.a = 1.0
+	else: 
+		buy_indicator_node.modulate.a = 0.0
+	buy_indicator_node.texture = buy_texture
+	
 	if !MapState.roads_unlocked[road_id]:
 		sprite_node.texture = locked_texture
 		return

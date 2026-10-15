@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ganhd"]
 [ext_resource type="Texture2D" uid="uid://da6q6gbj0ljb8" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corncorp.png" id="4_5ukd1"]
 
+[sub_resource type="Resource" id="Resource_2dso7"]
+script = ExtResource("3_ganhd")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_hyr0h"]
+script = ExtResource("1_cww6g")
+person = 15
+text = "Just for 10 minutes, gonna close my eyes... Don't want to fall asleep just yet..."
+conditions = Array[ExtResource("3_ganhd")]([SubResource("Resource_2dso7")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_cww6g")
 person = 15
@@ -43,6 +55,7 @@ name = "Jojo"
 starting_location = 3
 default_texture = ExtResource("4_5ukd1")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_cww6g")]([SubResource("Resource_hyr0h")])
 default_interact_dialogue = SubResource("Resource_j287u")
 no_room_on_train_dialogue = SubResource("Resource_yhhsn")
 found_jackokid_dialogue = SubResource("Resource_ouvnd")

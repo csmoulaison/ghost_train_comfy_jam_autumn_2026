@@ -8,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://6rq4gspi8hp6" path="res://resources/textures/characters/vampire/vamp-sad.png" id="5_ke5tb"]
 [ext_resource type="Resource" uid="uid://dxiyoemnr3vhx" path="res://resources/dialogue_lines/vampire_at_grotto_unhealed.tres" id="5_o0cry"]
 
+[sub_resource type="Resource" id="Resource_hua4o"]
+script = ExtResource("3_ke5tb")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_cb7ib"]
+script = ExtResource("1_ml87m")
+person = 9
+text = "Ah, can't wait to get to the beach."
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_hua4o")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_5gqha"]
 script = ExtResource("4_ke5tb")
 person = 9
@@ -241,7 +253,7 @@ name = "Vampire"
 starting_location = 6
 default_texture = ExtResource("5_ke5tb")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_0bobq"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), ExtResource("5_o0cry"), SubResource("Resource_m3kf8")])
+conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_cb7ib"), SubResource("Resource_0bobq"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), ExtResource("5_o0cry"), SubResource("Resource_m3kf8")])
 default_interact_dialogue = SubResource("Resource_f3quk")
 desired_location = 9
 reached_location_dialogue = SubResource("Resource_6jcbx")

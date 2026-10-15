@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_jggmx"]
 [ext_resource type="Texture2D" uid="uid://j24xrmk7m045" path="res://resources/textures/characters/jack-o-kids/8-graveyard/jacko-graveyard.png" id="4_ale1a"]
 
+[sub_resource type="Resource" id="Resource_ypcaa"]
+script = ExtResource("3_jggmx")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_q8gjo"]
+script = ExtResource("1_5xfvr")
+person = 20
+text = "You know, it was a really nice day today. I like playing with my other siblings. They come up with good games."
+conditions = Array[ExtResource("3_jggmx")]([SubResource("Resource_ypcaa")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_gvco4"]
 script = ExtResource("1_5xfvr")
 person = 20
@@ -36,6 +48,7 @@ name = "Nicholas"
 starting_location = 3
 default_texture = ExtResource("4_ale1a")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_5xfvr")]([SubResource("Resource_q8gjo")])
 default_interact_dialogue = SubResource("Resource_gvco4")
 no_room_on_train_dialogue = SubResource("Resource_jggmx")
 found_jackokid_dialogue = SubResource("Resource_j287u")

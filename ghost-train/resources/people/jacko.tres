@@ -10,12 +10,60 @@
 [ext_resource type="Texture2D" uid="uid://dq8mmjqvipdxn" path="res://resources/textures/characters/jack-o/OlJacko.png" id="7_3sagy"]
 [ext_resource type="Resource" uid="uid://5ylsgblqgp4e" path="res://resources/dialogue_lines/jacko_load_pumpkins.tres" id="7_qi4tn"]
 
+[sub_resource type="Resource" id="Resource_7reh5"]
+script = ExtResource("3_k4wkh")
+flag_true = 20
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_qi4tn"]
+script = ExtResource("3_k4wkh")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_l4grm"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Shows me for judging a book by its cover."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_0ix6f"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "I was surprised, because I thought ghosts were known for their whole disappearing thing."
+default_next_line = SubResource("Resource_l4grm")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_nhob2"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Thanks for your pro sleuthing, Ghost! You really showed up for me today."
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_7reh5"), SubResource("Resource_qi4tn")])
+default_next_line = SubResource("Resource_0ix6f")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_m23jh"]
+script = ExtResource("3_k4wkh")
+flag_false = 20
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_hes22"]
+script = ExtResource("3_k4wkh")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_prxr3"]
+script = ExtResource("1_j0htq")
+person = 3
+text = "Now... where did those kids go...?"
+conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_m23jh"), SubResource("Resource_hes22")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_uppcu"]
 script = ExtResource("3_k4wkh")
 person_on_train = 13
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_qi4tn"]
+[sub_resource type="Resource" id="Resource_yod3e"]
 script = ExtResource("1_j0htq")
 person = 3
 text = "Thanks for finding Julio, Ghost."
@@ -34,7 +82,7 @@ text = "At the markets again, Julio? At least be a sport, and bring me back some
 conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_uppcu")])
 pre_effects = Array[ExtResource("2_wsbrs")]([SubResource("Resource_3sagy")])
 conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
-default_next_line = SubResource("Resource_qi4tn")
+default_next_line = SubResource("Resource_yod3e")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_17u6x"]
@@ -239,7 +287,7 @@ person_not_at_location = SubResource("Resource_3hfy5")
 cargo_available = 1
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_m23jh"]
+[sub_resource type="Resource" id="Resource_g35ib"]
 script = ExtResource("1_j0htq")
 person = 3
 text = "Don't wait too long, harvest doesn't last forever."
@@ -251,7 +299,7 @@ person = 3
 text = "Now that the pumpkin-sitter is gone, we can get that train of yours loaded up."
 conditions = Array[ExtResource("3_k4wkh")]([SubResource("Resource_mj6is")])
 default_next_line = ExtResource("7_qi4tn")
-default_decline_line = SubResource("Resource_m23jh")
+default_decline_line = SubResource("Resource_g35ib")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_i4k8x"]
@@ -337,6 +385,6 @@ name = "Jacko"
 starting_location = 3
 default_texture = ExtResource("7_3sagy")
 sprite_scale = 0.15
-conditional_interact_dialogue = Array[ExtResource("1_j0htq")]([SubResource("Resource_g5rtn"), SubResource("Resource_cu5o3"), SubResource("Resource_fxwax"), SubResource("Resource_r2e63"), SubResource("Resource_hcaf5"), SubResource("Resource_ju8dc"), SubResource("Resource_6hkup"), SubResource("Resource_g2ct0"), SubResource("Resource_j287u"), SubResource("Resource_vrrll"), SubResource("Resource_j0htq"), SubResource("Resource_jl5qu")])
+conditional_interact_dialogue = Array[ExtResource("1_j0htq")]([SubResource("Resource_nhob2"), SubResource("Resource_prxr3"), SubResource("Resource_g5rtn"), SubResource("Resource_cu5o3"), SubResource("Resource_fxwax"), SubResource("Resource_r2e63"), SubResource("Resource_hcaf5"), SubResource("Resource_ju8dc"), SubResource("Resource_6hkup"), SubResource("Resource_g2ct0"), SubResource("Resource_j287u"), SubResource("Resource_vrrll"), SubResource("Resource_j0htq"), SubResource("Resource_jl5qu")])
 default_interact_dialogue = SubResource("Resource_wdu22")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

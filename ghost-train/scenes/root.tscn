@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://c00hwfybbahsq" path="res://resources/sounds/sfx/Train Exterior Travel.wav" id="12_l5cgh"]
 [ext_resource type="AudioStream" uid="uid://6fcicutwfrwu" path="res://resources/sounds/sfx/chit_single.ogg" id="12_log26"]
 [ext_resource type="AudioStream" uid="uid://6o6uvbutjt0l" path="res://resources/sounds/sfx/Train Interior.wav" id="13_vgks2"]
+[ext_resource type="PackedScene" uid="uid://bhhictgdmwob2" path="res://scenes/thanks_for_playing.tscn" id="18_gt4lb"]
 
 [sub_resource type="Gradient" id="Gradient_j287u"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -102,3 +103,5 @@ arrival_sound = ExtResource("10_y3xxt")
 depart_sound = ExtResource("11_xsp7o")
 exterior = ExtResource("12_l5cgh")
 interior = ExtResource("13_vgks2")
+
+[node name="ThanksForPlaying" parent="." unique_id=216287202 instance=ExtResource("18_gt4lb")]

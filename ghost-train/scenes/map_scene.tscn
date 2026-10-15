@@ -2,14 +2,77 @@
 
 [ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="1_0wcw4"]
 [ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="2_ne7uw"]
+[ext_resource type="Texture2D" uid="uid://bhipmhus32ls7" path="res://resources/textures/map/map-track-buzzford-grotto-inactive.png" id="2_od1u7"]
 [ext_resource type="Theme" uid="uid://cm67ku6mq27ta" path="res://resources/gui_theme.tres" id="3_5m4q6"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="4_f0c3g"]
+[ext_resource type="Texture2D" uid="uid://ctkrdo4gatt1j" path="res://resources/textures/map/map-track-grave-market-active-1.png" id="4_rj0op"]
+[ext_resource type="Texture2D" uid="uid://4pwti54o8om1" path="res://resources/textures/map/map-track-grave-market-active.png" id="4_tk4s2"]
 [ext_resource type="Script" uid="uid://djkcgxi4vqjd6" path="res://scripts/travel_confirmation_dialog.gd" id="4_vlip3"]
+[ext_resource type="Texture2D" uid="uid://dwv5jwldpenc4" path="res://resources/textures/map/map-track-market-patch-inactive.png" id="5_c25he"]
 [ext_resource type="Script" uid="uid://bv8qptobcy7o5" path="res://scripts/exit_map_button.gd" id="5_jlqwp"]
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="5_od1u7"]
-[ext_resource type="Texture2D" uid="uid://cmrorykksyvab" path="res://resources/textures/programmer_art/exit.png" id="5_vsh3c"]
+[ext_resource type="Texture2D" uid="uid://jc3wwrvmxjdm" path="res://resources/textures/upgrades_and_stuff/exit button.png" id="5_wolmv"]
+[ext_resource type="Texture2D" uid="uid://ccl0x3ytmsw36" path="res://resources/textures/map/map-track-market-patch-active.png" id="5_xb8oc"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="6_l1wjf"]
 [ext_resource type="Resource" uid="uid://b8ai4g33vog4c" path="res://resources/dialogue_lines/witch_post_map_normal.tres" id="7_raa3b"]
+[ext_resource type="Texture2D" uid="uid://pq7hpnrww6o4" path="res://resources/textures/map/map-track-market-corntown-active.png" id="8_l1wjf"]
+[ext_resource type="Texture2D" uid="uid://c5glvitlrvuo4" path="res://resources/textures/map/map-track-market-trainyard-inactive.png" id="8_mopvg"]
+[ext_resource type="Texture2D" uid="uid://bx4l7l81o3mar" path="res://resources/textures/map/map-track-market-trainyard-active.png" id="8_u17w7"]
+[ext_resource type="Texture2D" uid="uid://bud7qp220iaj6" path="res://resources/textures/map/map-track-corn-trainyard-active-1.png" id="10_g7u27"]
+[ext_resource type="Texture2D" uid="uid://cm1l0vm6wnnv4" path="res://resources/textures/map/Map.jpg" id="11_f0c3g"]
+[ext_resource type="Texture2D" uid="uid://cg4gefo841hmc" path="res://resources/textures/map/map-track-corn-trainyard-active.png" id="11_jm8hh"]
+[ext_resource type="Texture2D" uid="uid://dflbc7q2cp1v2" path="res://resources/textures/map/map-track-patch-lake-active-1.png" id="12_28v4i"]
+[ext_resource type="Texture2D" uid="uid://b5fp4xu2a4q5m" path="res://resources/textures/map/map-track-patch-lake-active.png" id="12_jm8hh"]
+[ext_resource type="Texture2D" uid="uid://dhjjep4ndgua5" path="res://resources/textures/map/map-track-corn-lake-inactive.png" id="14_mluc3"]
+[ext_resource type="Texture2D" uid="uid://mbw4xs26pipy" path="res://resources/textures/map/map-track-corn-lake-active.png" id="14_qeys6"]
+[ext_resource type="Texture2D" uid="uid://b5qckc6ere5v7" path="res://resources/textures/map/map-track-corn-buzzford-lake-inactive.png" id="16_iypqv"]
+[ext_resource type="Texture2D" uid="uid://bqb5dmdq6udq5" path="res://resources/textures/map/map-track-lake-foerst-inactive.png" id="16_wolmv"]
+[ext_resource type="Texture2D" uid="uid://8npp6rv4w3ld" path="res://resources/textures/map/map-track-lake-foerst-active.png" id="17_eh8sv"]
+[ext_resource type="Texture2D" uid="uid://ddn1u4elo685a" path="res://resources/textures/map/map-track-corn-buzzford-lake-active.png" id="17_eodtw"]
+[ext_resource type="Texture2D" uid="uid://bxb4bv4plenym" path="res://resources/textures/map/map-track-buzzford-lake-inactive.png" id="18_8gi6c"]
+[ext_resource type="Texture2D" uid="uid://bxibbwg2jf2pc" path="res://resources/textures/map/map-track-buzzford-grotto-active.png" id="21_iypqv"]
+[ext_resource type="Texture2D" uid="uid://b17f8wsli88v8" path="res://resources/textures/map/map-track-market-corntown-inactive.png" id="22_eodtw"]
+
+[sub_resource type="Gradient" id="Gradient_wolmv"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hck3a"]
+gradient = SubResource("Gradient_wolmv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wolmv"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9854973, 0.81002986, 0.4167541, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fovy"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9345695, 0.90692276, 0.83764064, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
+size = Vector2(68.91449, 64.538864)
 
 [sub_resource type="Resource" id="Resource_u73mt"]
 script = ExtResource("5_od1u7")
@@ -30,109 +93,26 @@ post_effects = Array[ExtResource("4_f0c3g")]([SubResource("Resource_f0c3g")])
 default_next_line = SubResource("Resource_u73mt")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
-size = Vector2(247, 131)
+[node name="MapScene" type="Node2D" unique_id=57497232]
+z_index = 50
 
-[node name="MapScene" type="Node" unique_id=2143619772]
-
-[node name="MapLocation4" parent="." unique_id=566530891 instance=ExtResource("1_0wcw4")]
-position = Vector2(65, 326)
-location_id = 1
-
-[node name="MapLocation2" parent="." unique_id=454798389 instance=ExtResource("1_0wcw4")]
-position = Vector2(251, 419)
-location_id = 2
-
-[node name="MapLocation3" parent="." unique_id=1068569206 instance=ExtResource("1_0wcw4")]
-position = Vector2(436, 328)
-location_id = 3
-
-[node name="MapLocation5" parent="." unique_id=1950627953 instance=ExtResource("1_0wcw4")]
-position = Vector2(418, 541)
-location_id = 4
-
-[node name="MapLocation6" parent="." unique_id=2038569085 instance=ExtResource("1_0wcw4")]
-position = Vector2(616, 420)
-location_id = 5
-
-[node name="MapLocation9" parent="." unique_id=1105816486 instance=ExtResource("1_0wcw4")]
-position = Vector2(1032, 518)
-location_id = 9
-
-[node name="MapLocation10" parent="." unique_id=128894855 instance=ExtResource("1_0wcw4")]
-position = Vector2(780, 561)
-location_id = 7
-
-[node name="MapLocation7" parent="." unique_id=1585212064 instance=ExtResource("1_0wcw4")]
-position = Vector2(658, 243)
-location_id = 6
-
-[node name="MapLocation8" parent="." unique_id=1139390593 instance=ExtResource("1_0wcw4")]
-position = Vector2(915, 313)
-location_id = 8
-
-[node name="MapRoad1" parent="." unique_id=1083504268 instance=ExtResource("2_ne7uw")]
-position = Vector2(156, 371)
-rotation = 0.43151438
-road_id = 1
-
-[node name="MapRoad2" parent="." unique_id=2004557442 instance=ExtResource("2_ne7uw")]
-position = Vector2(346, 369)
-rotation = -0.5111757
-road_id = 2
-
-[node name="MapRoad3" parent="." unique_id=1896063310 instance=ExtResource("2_ne7uw")]
-position = Vector2(334.00003, 478)
-rotation = 0.64803904
-road_id = 4
-
-[node name="MapRoad4" parent="." unique_id=1356097258 instance=ExtResource("2_ne7uw")]
-position = Vector2(507, 482.00003)
-rotation = -0.5111757
-road_id = 6
-
-[node name="MapRoad5" parent="." unique_id=1352527845 instance=ExtResource("2_ne7uw")]
-position = Vector2(546, 283)
-rotation = -0.37952697
-road_id = 5
-
-[node name="MapRoad6" parent="." unique_id=954768214 instance=ExtResource("2_ne7uw")]
-position = Vector2(643, 332)
-rotation = 1.7793882
-road_id = 7
-
-[node name="MapRoad8" parent="." unique_id=1741071717 instance=ExtResource("2_ne7uw")]
-position = Vector2(786, 277.99997)
-rotation = 0.26132363
-road_id = 9
-
-[node name="MapRoad9" parent="." unique_id=701845879 instance=ExtResource("2_ne7uw")]
-position = Vector2(699.00006, 491.00006)
-rotation = 0.79082733
-road_id = 8
-
-[node name="MapRoad10" parent="." unique_id=1523023618 instance=ExtResource("2_ne7uw")]
-position = Vector2(904, 544)
-rotation = -0.26458028
-road_id = 10
-try_grotto_dialogue = SubResource("Resource_qe1a0")
-
-[node name="MapRoad7" parent="." unique_id=686074369 instance=ExtResource("2_ne7uw")]
-position = Vector2(428.00003, 422.00003)
-rotation = 0.018921375
-road_id = 3
-
-[node name="TODO_ConfirmDestinationMenu" type="Node" parent="." unique_id=1334949847]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314851662]
+modulate = Color(1, 1, 1, 0.3372549)
+position = Vector2(551, 322.99997)
+rotation = -3.1415927
+scale = Vector2(5.008021, -738.0206)
+texture = SubResource("GradientTexture1D_hck3a")
 
 [node name="TravelConfirmationDialog" type="Control" parent="." unique_id=174202964]
+z_index = 1000
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -402.0
-offset_top = 13.0
-offset_right = -13.0
-offset_bottom = 268.0
+offset_left = 381.0
+offset_top = 85.0
+offset_right = 770.0
+offset_bottom = 340.0
 grow_horizontal = 0
 theme = ExtResource("3_5m4q6")
 script = ExtResource("4_vlip3")
@@ -164,11 +144,13 @@ alignment = 1
 [node name="TravelConfirmationYes" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=981160516]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_wolmv")
 text = "Yes"
 
 [node name="TravelConfirmationNo" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=1429588607]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0fovy")
 text = "No"
 
 [node name="Label" type="Label" parent="TravelConfirmationDialog/Panel" unique_id=450365849]
@@ -178,18 +160,221 @@ anchor_right = 1.0
 offset_bottom = 152.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0)
+text = "Pumpkin Patch -"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitMapButton" type="Area2D" parent="." unique_id=927663731]
-position = Vector2(54, 542)
+position = Vector2(796.99994, 55.000004)
+scale = Vector2(0.9141779, 0.9141779)
 script = ExtResource("5_jlqwp")
 post_track_dialogue = ExtResource("7_raa3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitMapButton" unique_id=1711386558]
-position = Vector2(95.5, 24.5)
+position = Vector2(95.71454, 7.110285)
+scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_hck3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="ExitMapButton" unique_id=1511633454]
 position = Vector2(97, 26)
-texture = ExtResource("5_vsh3c")
+texture = ExtResource("5_wolmv")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=278085140]
+position = Vector2(575, 372)
+scale = Vector2(0.46713462, 0.4671346)
+texture = ExtResource("11_f0c3g")
+
+[node name="MapLocation4" parent="Map" unique_id=566530891 instance=ExtResource("1_0wcw4")]
+position = Vector2(-458.85687, -280.79306)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 1
+
+[node name="MapLocation2" parent="Map" unique_id=454798389 instance=ExtResource("1_0wcw4")]
+position = Vector2(-426.326, -121.562836)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 2
+
+[node name="MapLocation3" parent="Map" unique_id=1068569206 instance=ExtResource("1_0wcw4")]
+position = Vector2(-95.88049, -178.06387)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 3
+
+[node name="MapLocation5" parent="Map" unique_id=1950627953 instance=ExtResource("1_0wcw4")]
+position = Vector2(-313.3239, 335.5819)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 4
+
+[node name="MapLocation6" parent="Map" unique_id=2038569085 instance=ExtResource("1_0wcw4")]
+position = Vector2(-61.63745, 68.486084)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 5
+
+[node name="MapLocation9" parent="Map" unique_id=1105816486 instance=ExtResource("1_0wcw4")]
+position = Vector2(611.23846, 273.94446)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 9
+
+[node name="MapLocation10" parent="Map" unique_id=128894855 instance=ExtResource("1_0wcw4")]
+position = Vector2(172.92743, 256.82294)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 7
+
+[node name="MapLocation7" parent="Map" unique_id=1585212064 instance=ExtResource("1_0wcw4")]
+position = Vector2(337.29413, -297.91458)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 6
+
+[node name="MapLocation8" parent="Map" unique_id=1139390593 instance=ExtResource("1_0wcw4")]
+position = Vector2(463.99335, -65.0618)
+scale = Vector2(1.7121526, 1.7121527)
+location_id = 8
+
+[node name="MapRoad1" parent="Map" unique_id=1083504268 instance=ExtResource("2_ne7uw")]
+position = Vector2(-342.51364, -220.49324)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 1
+locked_texture = ExtResource("4_rj0op")
+inactive_texture = ExtResource("4_tk4s2")
+active_texture = ExtResource("4_tk4s2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad1" unique_id=1255192901]
+z_index = 75
+z_as_relative = false
+position = Vector2(-32.814053, 1.2187448)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("4_tk4s2")
+
+[node name="MapRoad2" parent="Map" unique_id=2004557442 instance=ExtResource("2_ne7uw")]
+position = Vector2(-268.80792, -126.69931)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 2
+locked_texture = ExtResource("5_c25he")
+inactive_texture = ExtResource("5_xb8oc")
+active_texture = ExtResource("5_xb8oc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad2" unique_id=733516851]
+z_index = 75
+z_as_relative = false
+position = Vector2(0.8465347, -1.0380936)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("5_xb8oc")
+
+[node name="MapRoad3" parent="Map" unique_id=1896063310 instance=ExtResource("2_ne7uw")]
+position = Vector2(-355.35794, 92.05056)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 4
+locked_texture = ExtResource("8_mopvg")
+inactive_texture = ExtResource("8_u17w7")
+active_texture = ExtResource("8_u17w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad3" unique_id=740557936]
+z_index = 75
+z_as_relative = false
+position = Vector2(-5.0546794, 4.0145826)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("8_u17w7")
+
+[node name="MapRoad4" parent="Map" unique_id=1356097258 instance=ExtResource("2_ne7uw")]
+position = Vector2(-184.91248, 217.44342)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 6
+locked_texture = ExtResource("10_g7u27")
+inactive_texture = ExtResource("11_jm8hh")
+active_texture = ExtResource("11_jm8hh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad4" unique_id=680136917]
+z_index = 75
+z_as_relative = false
+position = Vector2(2.6702042, -3.2327347)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("11_jm8hh")
+
+[node name="MapRoad5" parent="Map" unique_id=1352527845 instance=ExtResource("2_ne7uw")]
+position = Vector2(109.17619, -284.71454)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 5
+locked_texture = ExtResource("12_28v4i")
+inactive_texture = ExtResource("12_jm8hh")
+active_texture = ExtResource("12_jm8hh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad5" unique_id=842196399]
+z_index = 75
+z_as_relative = false
+position = Vector2(6.517564, 10.964785)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("12_jm8hh")
+
+[node name="MapRoad6" parent="Map" unique_id=954768214 instance=ExtResource("2_ne7uw")]
+position = Vector2(94.19126, -117.73907)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 7
+locked_texture = ExtResource("14_mluc3")
+inactive_texture = ExtResource("14_qeys6")
+active_texture = ExtResource("14_qeys6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad6" unique_id=492020931]
+z_index = 75
+z_as_relative = false
+position = Vector2(11.252766, 2.5006027)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("14_qeys6")
+
+[node name="MapRoad8" parent="Map" unique_id=1741071717 instance=ExtResource("2_ne7uw")]
+position = Vector2(513.7705, -224.77463)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 9
+locked_texture = ExtResource("16_wolmv")
+inactive_texture = ExtResource("17_eh8sv")
+active_texture = ExtResource("17_eh8sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad8" unique_id=172012606]
+z_index = 75
+z_as_relative = false
+position = Vector2(-27.19682, 3.4860296)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("17_eh8sv")
+
+[node name="MapRoad9" parent="Map" unique_id=701845879 instance=ExtResource("2_ne7uw")]
+position = Vector2(47.095703, 199.08609)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 8
+locked_texture = ExtResource("18_8gi6c")
+inactive_texture = ExtResource("16_iypqv")
+active_texture = ExtResource("17_eodtw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad9" unique_id=691343655]
+z_index = 75
+z_as_relative = false
+position = Vector2(-3.4704208, -2.9600067)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("17_eodtw")
+
+[node name="MapRoad10" parent="Map" unique_id=1523023618 instance=ExtResource("2_ne7uw")]
+position = Vector2(408.8758, 346.7951)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 10
+locked_texture = ExtResource("2_od1u7")
+inactive_texture = ExtResource("21_iypqv")
+active_texture = ExtResource("21_iypqv")
+try_grotto_dialogue = SubResource("Resource_qe1a0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad10" unique_id=1434271370]
+z_index = 75
+z_as_relative = false
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("21_iypqv")
+
+[node name="MapRoad7" parent="Map" unique_id=686074369 instance=ExtResource("2_ne7uw")]
+position = Vector2(-249.97424, -3.4243164)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 3
+locked_texture = ExtResource("22_eodtw")
+inactive_texture = ExtResource("8_l1wjf")
+active_texture = ExtResource("8_l1wjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad7" unique_id=1931883729]
+z_index = 75
+z_as_relative = false
+position = Vector2(1.4545975, 2.5325851)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_l1wjf")

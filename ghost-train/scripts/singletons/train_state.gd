@@ -8,12 +8,13 @@ var passenger_car_count: int = 1
 var cargo_car_count: int = 1
 var passenger_slots: Array[ID.Person]
 var cargo_slots: Array[ID.Cargo]
+var total_cargo_sold: Array[int]
 var small_cargo_on_train: Array[bool]
 
 var visible_velocity: float = 0.0
 
 const max_cargo_cars: int = 3
-const max_passenger_cars: int = 8
+const max_passenger_cars: int = 9
 const max_passengers_per_car: int = 2
 
 func _ready():
@@ -24,6 +25,8 @@ func _ready():
 	passenger_slots.fill(ID.Person.DEFAULT)
 	cargo_slots.resize(max_cargo_cars)
 	cargo_slots.fill(ID.Cargo.DEFAULT)
+	total_cargo_sold.resize(ID.Cargo.CARGO_COUNT)
+	total_cargo_sold.fill(0)
 	small_cargo_on_train.resize(ID.SmallCargo.SMALL_CARGO_COUNT)
 	small_cargo_on_train.fill(ID.SmallCargo.DEFAULT)
 
@@ -44,6 +47,7 @@ func sell_cargo(cargo_id: ID.Cargo):
 	for slot in cargo_slots.size():
 		if cargo_slots[slot] == cargo_id:
 			cargo_slots[slot] = ID.Cargo.DEFAULT
+			total_cargo_sold[cargo_id] += 1
 			MoneyState.add_coins(cargo.revenue)
 			ModeState.update_train_avatars(false)
 			return

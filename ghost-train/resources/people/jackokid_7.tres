@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_qiohf"]
 [ext_resource type="Texture2D" uid="uid://vnhid6uwt57w" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto.png" id="4_3p384"]
 
+[sub_resource type="Resource" id="Resource_gvco4"]
+script = ExtResource("3_qiohf")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_ehqfp"]
+script = ExtResource("1_672po")
+person = 19
+text = "Honk the train horn! Honk the train horn!"
+conditions = Array[ExtResource("3_qiohf")]([SubResource("Resource_gvco4")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_672po")
 person = 19
@@ -36,6 +48,7 @@ name = "Jean-Marco"
 starting_location = 3
 default_texture = ExtResource("4_3p384")
 sprite_scale = 0.1
+conditional_interact_dialogue = Array[ExtResource("1_672po")]([SubResource("Resource_ehqfp")])
 default_interact_dialogue = SubResource("Resource_j287u")
 no_room_on_train_dialogue = SubResource("Resource_qiohf")
 found_jackokid_dialogue = SubResource("Resource_o1muc")

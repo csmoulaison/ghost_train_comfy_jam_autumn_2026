@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bhhictgdmwob2"]
+
+[ext_resource type="Texture2D" uid="uid://dnawch45m6xgr" path="res://resources/textures/repeatingtrainbackgroundwatercolor.jpg" id="1_cfell"]
+[ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="2_gplpo"]
+[ext_resource type="FontFile" uid="uid://b4w81t5rvo36k" path="res://resources/fonts/1689 GLC Garamond W00SC Italic.ttf" id="3_io7xl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hck3a"]
+line_spacing = 0.0
+paragraph_spacing = -27.745
+font = ExtResource("3_io7xl")
+font_size = 72
+font_color = Color(0.8934419, 0.82296354, 0.79240966, 1)
+
+[node name="ThanksForPlaying" type="Node" unique_id=216287202]
+
+[node name="Repeatingtrainbackgroundwatercolor" type="Sprite2D" parent="." unique_id=2037258236]
+position = Vector2(743, 524.00006)
+scale = Vector2(1.3323528, 1.3323528)
+texture = ExtResource("1_cfell")
+
+[node name="GhostIdle" type="Sprite2D" parent="." unique_id=1281986707]
+modulate = Color(1, 1, 1, 0.62352943)
+position = Vector2(564, 222.99998)
+scale = Vector2(-0.05079195, 0.05079195)
+texture = ExtResource("2_gplpo")
+
+[node name="Label" type="Label" parent="." unique_id=1835241250]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thanks for
+Playing
+Ghost Train"
+label_settings = SubResource("LabelSettings_hck3a")
+horizontal_alignment = 1
+vertical_alignment = 1

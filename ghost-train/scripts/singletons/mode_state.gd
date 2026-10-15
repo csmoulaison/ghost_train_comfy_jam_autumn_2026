@@ -6,6 +6,7 @@ enum GameMode {
 	DESTINATION,
 	MAP,
 	MAIN_MENU,
+	END_SCREEN,
 }
 
 # WARNING: IF YOU ADD A SCENE NODE HERE, UPDATE remove_all_scenes() FUNCTION
@@ -17,6 +18,7 @@ enum GameMode {
 @onready var map_scene: Node = scene_parent.find_child("MapScene")
 @onready var main_menu_scene: Node = scene_parent.find_child("MainMenuScene")
 @onready var pause_menu_scene: Node = scene_parent.find_child("PauseMenuScene")
+@onready var end_scene: Node = scene_parent.find_child("ThanksForPlaying")
 
 var loaded_scene_instance: Node = null
 var train_avatar: Node = null
@@ -39,6 +41,7 @@ func _ready() :
 	assert(map_scene != null)
 	assert(main_menu_scene != null)
 	assert(pause_menu_scene != null)
+	assert(end_scene != null)
 	EventBus.event_signal.connect(_on_event)
 
 func _process(_dt: float):
@@ -110,27 +113,33 @@ func switch_mode(new_mode: GameMode):
 	ParallaxState.end_parallax()
 
 	mode = new_mode
-	remove_all_scenes()
 	match mode:
 		GameMode.TRAVEL:
+			remove_all_scenes()
 			add_scene(travel_scene)
 		GameMode.DESTINATION:
+			remove_all_scenes(destination_scene)
 			add_scene(destination_scene)
 		GameMode.MAP:
 			add_scene(map_scene)
 		GameMode.MAIN_MENU:
+			remove_all_scenes()
 			add_scene(main_menu_scene)
+		GameMode.END_SCREEN:
+			remove_all_scenes()
+			add_scene(end_scene)
 		GameMode.ONLY_CINEMATIC:
 			pass
 
 ## removes scenes from the root's children, but keeps their state in memory for
 ## retrieval later.
-func remove_all_scenes():
-	scene_parent.remove_child(travel_scene)
-	scene_parent.remove_child(destination_scene)
-	scene_parent.remove_child(map_scene)
-	scene_parent.remove_child(main_menu_scene)
-	scene_parent.remove_child(pause_menu_scene)
+func remove_all_scenes(exclude: Node = null):
+	if travel_scene != exclude: scene_parent.remove_child(travel_scene)
+	if destination_scene != exclude: scene_parent.remove_child(destination_scene)
+	if map_scene != exclude: scene_parent.remove_child(map_scene)
+	if main_menu_scene != exclude: scene_parent.remove_child(main_menu_scene)
+	if pause_menu_scene != exclude: scene_parent.remove_child(pause_menu_scene)
+	if end_scene != exclude: scene_parent.remove_child(end_scene)
 
 ## adds a node to the root's children, restoring whatever state it had before it
 ## was removed (unless it was screwed with somehow in the interim)
@@ -186,6 +195,10 @@ func load_subscene(parent: Node, subscene_path: String):
 	update_train_avatars(true)
 
 func update_train_avatars(scene_init: bool):
+	var grimm_avatar: PersonAvatar = train_avatar.get_node("PersonAvatar_Grimm")
+	assert(grimm_avatar != null)
+	grimm_avatar.set_state(ID.Person.GRIMM, true, ID.Location.DEFAULT, scene_init)
+	
 	for car_index in TrainState.passenger_car_count:
 		var avatars: Array[Node] = passenger_car_nodes[car_index].find_children("PersonAvatar*", "", false)
 		assert(avatars.size() == TrainState.max_passengers_per_car)

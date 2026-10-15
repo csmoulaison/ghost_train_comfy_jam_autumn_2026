@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_nk5j5"]
 [ext_resource type="Texture2D" uid="uid://blq62052tqrix" path="res://resources/textures/characters/ol-tree/tree-plain.png" id="4_fnbb7"]
 
+[sub_resource type="Resource" id="Resource_c1oqv"]
+script = ExtResource("3_nk5j5")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_vcl4l"]
+script = ExtResource("1_s80ha")
+person = 12
+text = "I hope there are more books where we're going!"
+conditions = Array[ExtResource("3_nk5j5")]([SubResource("Resource_c1oqv")])
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_iqdhl"]
 script = ExtResource("3_nk5j5")
 cargo_not_available = 3
@@ -151,6 +163,6 @@ name = "Ol' Oak"
 starting_location = 6
 default_texture = ExtResource("4_fnbb7")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_s80ha")]([SubResource("Resource_j287u"), SubResource("Resource_4mbvd"), SubResource("Resource_5gqha"), SubResource("Resource_nk5j5")])
+conditional_interact_dialogue = Array[ExtResource("1_s80ha")]([SubResource("Resource_vcl4l"), SubResource("Resource_j287u"), SubResource("Resource_4mbvd"), SubResource("Resource_5gqha"), SubResource("Resource_nk5j5")])
 default_interact_dialogue = SubResource("Resource_1h1ix")
 metadata/_custom_type_script = "uid://c4kc5m2y7bq3u"

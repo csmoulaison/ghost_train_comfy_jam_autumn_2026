@@ -83,6 +83,11 @@ func init_visual_state():
 			node.set_visual_active_state(node.location_id == TrainState.current_location)
 	for id in ID.Road.ROAD_COUNT:
 		var node: MapRoad = road_nodes[id]
+		var buyable: bool = false
+		var road: Road = ResourceData.roads[id]
+		if !MapState.roads_unlocked[id] and (MapState.locations_unlocked[road.endpoint_1] or MapState.locations_unlocked[road.endpoint_2]):
+			buyable = true
+		if !MapState.buying_tracks: buyable = false
 		if node != null:
-			node.set_visual_active_state(false)
+			node.set_visual_active_state(false, buyable, road.buy_texture)
 	close_confirmation_dialog()
