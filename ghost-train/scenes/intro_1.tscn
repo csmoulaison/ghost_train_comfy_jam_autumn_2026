@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://b1skuc5yksq82"]
 
+[ext_resource type="Texture2D" uid="uid://cm1l0vm6wnnv4" path="res://resources/textures/map/Map.jpg" id="1_bml7g"]
 [ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="1_cmnvx"]
-[ext_resource type="Texture2D" uid="uid://c8ba2abu1a5k5" path="res://resources/textures/backgrounds/hannahs_pumpkin_patch.jpg" id="3_bml7g"]
 
 [node name="Intro1" type="Node2D" unique_id=1277225679]
 
 [node name="HannahsPumpkinPatch" type="Sprite2D" parent="." unique_id=531851821]
-position = Vector2(1033, 994)
+position = Vector2(593, 388)
 scale = Vector2(0.9305556, 0.9305556)
-texture = ExtResource("3_bml7g")
+texture = ExtResource("1_bml7g")
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("1_cmnvx")]
-position = Vector2(-1300, 661)
-scale = Vector2(0.58531564, 0.58531564)
+position = Vector2(-193, 452)
+scale = Vector2(0.17068309, 0.17068309)

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bx5cwtokbh13t" path="res://resources/textures/buttons/Ghost Train - titletext.png" id="1_7hcs8"]
 [ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="2_6ad1t"]
 [ext_resource type="Texture2D" uid="uid://bels7dl3ebm4t" path="res://resources/textures/buttons/Press start.png" id="2_7hcs8"]
+[ext_resource type="Texture2D" uid="uid://dcmq3mxvjytdi" path="res://resources/textures/buttons/GameByText.png" id="2_up3hk"]
 [ext_resource type="Script" uid="uid://dfth4emlj5d58" path="res://scripts/tmp_press_start_button.gd" id="3_7hcs8"]
 [ext_resource type="Texture2D" uid="uid://con4hrgw04yqk" path="res://resources/textures/backgrounds/back-background.png" id="5_wbyn4"]
 [ext_resource type="Texture2D" uid="uid://c2q33iy5xdt1a" path="res://resources/textures/backgrounds/repeating-bg--hills2.png" id="6_8fdqi"]
@@ -527,6 +528,14 @@ z_as_relative = false
 position = Vector2(562, 179)
 scale = Vector2(0.5387293, 0.5387293)
 texture = ExtResource("1_7hcs8")
+
+[node name="IntroCredits" type="Sprite2D" parent="." unique_id=1030611403]
+modulate = Color(1, 1, 1, 0)
+z_index = 8
+z_as_relative = false
+position = Vector2(562, 243)
+scale = Vector2(0.5387293, 0.5387293)
+texture = ExtResource("2_up3hk")
 
 [node name="PressStart" type="Sprite2D" parent="." unique_id=726334913]
 z_index = 8

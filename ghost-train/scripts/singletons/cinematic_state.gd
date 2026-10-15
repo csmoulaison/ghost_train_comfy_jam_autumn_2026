@@ -16,6 +16,7 @@ var loaded_scene: Node = null
 var intro_train: Node = null
 var intro_button: Node = null
 var intro_text: Node = null
+var intro_credits: Node = null
 var train_arrival_point: float = 0.0
 var arriving_at_destination_with_fade: bool
 
@@ -44,17 +45,20 @@ func _physics_process(dt: float):
 	t += dt
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:
-			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 5.0, 0.0) * 2000.0
+			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 7.0, 0.0) * 2000.0
 			intro_button.modulate.a = t_range_clamped(t, 0.5, 0.0)
-			intro_text.modulate.a = t_range_clamped(t, 2.0, 1.0)
+			intro_text.modulate.a = t_range_clamped(t, 1.0, 0.5)
+			intro_credits.modulate.a = t_range_clamped(t, 2.5, 3.5) * t_range_clamped(t, 5.5, 4.5) 
+			fade_sprite.modulate.a = t_range_clamped(t, 5.0, 6.0)
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			AudioState.set_volume(t_range_clamped(t, 3.0, 0.0), AudioState.music_player_1)
 			AudioState.set_volume(0.33 + t_range_clamped(t, 1.0, 4.0) * 0.66, AudioState.train_sound_player_1)
-			if t > 5.0:
+			if t > 6.0:
 				intro_train = null
 				stop_cinematic()
 				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)
-				arriving_at_destination_with_fade = false
+				arriving_at_destination_with_fade = true
+			
 		ID.Cinematic.DEPART_TO_TRAVEL:
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			TrainState.visible_velocity = 0.0
@@ -155,9 +159,11 @@ func start_cinematic(cinematic_id: ID.Cinematic, no_mode: bool):
 			intro_train = get_tree().current_scene.get_node("MainMenuScene/Train")
 			intro_button = get_tree().current_scene.get_node("MainMenuScene/PressStart")
 			intro_text = get_tree().current_scene.get_node("MainMenuScene/Title")
+			intro_credits = get_tree().current_scene.get_node("MainMenuScene/IntroCredits")
 			assert(intro_train != null)
 			assert(intro_button != null)
 			assert(intro_text != null)
+			assert(intro_credits != null)
 		ID.Cinematic.DEPART_TO_TRAVEL:
 			TrainState.visible_velocity = 0.0
 			pass

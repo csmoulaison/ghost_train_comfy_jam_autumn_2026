@@ -6,9 +6,13 @@ class_name MapLocation extends Node2D
 @export var active_texture: Texture2D
 
 @onready var sprite_node: Sprite2D = get_node("Sprite2D")
+@onready var here_marker: Sprite2D = get_node("HereMarker")
+@onready var destination_marker: AnimatedSprite2D = get_node("DestinationMarker")
 
 func _ready():
 	assert(sprite_node != null)
+	assert(here_marker != null)
+	assert(destination_marker != null)
 	assert(location_id != ID.Location.DEFAULT and location_id != ID.Location.LOCATION_COUNT, "Location_id unset in map node " + self.to_string())
 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
@@ -38,6 +42,7 @@ static func select_node(new_location_id: ID.Location, road_id: ID.Road, confirma
 	for index in ID.Location.LOCATION_COUNT:
 		if index == 0: continue
 		MapState.location_nodes[index].set_visual_active_state(false)
+		MapState.location_nodes[index].set_markers(index == TrainState.current_location, index == new_location_id)
 	MapState.location_nodes[TrainState.current_location].set_visual_active_state(true)
 	MapState.location_nodes[new_location_id].set_visual_active_state(true)
 	TrainState.next_location = new_location_id
@@ -55,3 +60,14 @@ func set_visual_active_state(active: bool):
 		sprite_node.texture = active_texture
 	else:
 		sprite_node.texture = inactive_texture
+		
+func set_markers(is_here: bool, is_destination: bool):
+	if is_here:
+		here_marker.visible = true
+	else:
+		here_marker.visible = false
+	if is_destination:
+		destination_marker.visible = true
+	else:
+		destination_marker.visible = false
+	

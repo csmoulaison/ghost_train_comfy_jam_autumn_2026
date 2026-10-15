@@ -81,6 +81,7 @@ func init_visual_state():
 		var node: MapLocation = location_nodes[id]
 		if node != null:
 			node.set_visual_active_state(node.location_id == TrainState.current_location)
+			node.set_markers(node.location_id == TrainState.current_location, false)
 	for id in ID.Road.ROAD_COUNT:
 		var node: MapRoad = road_nodes[id]
 		var buyable: bool = false

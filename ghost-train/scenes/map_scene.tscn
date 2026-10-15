@@ -184,51 +184,6 @@ position = Vector2(575, 372)
 scale = Vector2(0.46713462, 0.4671346)
 texture = ExtResource("11_f0c3g")
 
-[node name="MapLocation4" parent="Map" unique_id=566530891 instance=ExtResource("1_0wcw4")]
-position = Vector2(-458.85687, -280.79306)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 1
-
-[node name="MapLocation2" parent="Map" unique_id=454798389 instance=ExtResource("1_0wcw4")]
-position = Vector2(-426.326, -121.562836)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 2
-
-[node name="MapLocation3" parent="Map" unique_id=1068569206 instance=ExtResource("1_0wcw4")]
-position = Vector2(-95.88049, -178.06387)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 3
-
-[node name="MapLocation5" parent="Map" unique_id=1950627953 instance=ExtResource("1_0wcw4")]
-position = Vector2(-313.3239, 335.5819)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 4
-
-[node name="MapLocation6" parent="Map" unique_id=2038569085 instance=ExtResource("1_0wcw4")]
-position = Vector2(-61.63745, 68.486084)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 5
-
-[node name="MapLocation9" parent="Map" unique_id=1105816486 instance=ExtResource("1_0wcw4")]
-position = Vector2(611.23846, 273.94446)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 9
-
-[node name="MapLocation10" parent="Map" unique_id=128894855 instance=ExtResource("1_0wcw4")]
-position = Vector2(172.92743, 256.82294)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 7
-
-[node name="MapLocation7" parent="Map" unique_id=1585212064 instance=ExtResource("1_0wcw4")]
-position = Vector2(337.29413, -297.91458)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 6
-
-[node name="MapLocation8" parent="Map" unique_id=1139390593 instance=ExtResource("1_0wcw4")]
-position = Vector2(463.99335, -65.0618)
-scale = Vector2(1.7121526, 1.7121527)
-location_id = 8
-
 [node name="MapRoad1" parent="Map" unique_id=1083504268 instance=ExtResource("2_ne7uw")]
 position = Vector2(-342.51364, -220.49324)
 scale = Vector2(1.7121526, 1.7121527)
@@ -378,3 +333,48 @@ z_as_relative = false
 position = Vector2(1.4545975, 2.5325851)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_l1wjf")
+
+[node name="MapLocation4" parent="Map" unique_id=566530891 instance=ExtResource("1_0wcw4")]
+position = Vector2(-458.8568, -280.7931)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 1
+
+[node name="MapLocation2" parent="Map" unique_id=454798389 instance=ExtResource("1_0wcw4")]
+position = Vector2(-426.32593, -121.562805)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 2
+
+[node name="MapLocation3" parent="Map" unique_id=1068569206 instance=ExtResource("1_0wcw4")]
+position = Vector2(-95.88049, -178.0639)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 3
+
+[node name="MapLocation5" parent="Map" unique_id=1950627953 instance=ExtResource("1_0wcw4")]
+position = Vector2(-313.32385, 335.5818)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 4
+
+[node name="MapLocation6" parent="Map" unique_id=2038569085 instance=ExtResource("1_0wcw4")]
+position = Vector2(-61.63745, 68.486084)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 5
+
+[node name="MapLocation9" parent="Map" unique_id=1105816486 instance=ExtResource("1_0wcw4")]
+position = Vector2(611.2384, 273.94446)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 9
+
+[node name="MapLocation10" parent="Map" unique_id=128894855 instance=ExtResource("1_0wcw4")]
+position = Vector2(172.92749, 256.82288)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 7
+
+[node name="MapLocation7" parent="Map" unique_id=1585212064 instance=ExtResource("1_0wcw4")]
+position = Vector2(337.29407, -297.9146)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 6
+
+[node name="MapLocation8" parent="Map" unique_id=1139390593 instance=ExtResource("1_0wcw4")]
+position = Vector2(463.9934, -65.06183)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 8

@@ -2,7 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bajnipk02o70i" path="res://scripts/map_location.gd" id="1_nnfp3"]
 [ext_resource type="Texture2D" uid="uid://bae4xlhk5vkh0" path="res://resources/textures/map/map-location-inactive.png" id="3_fqic6"]
+[ext_resource type="Texture2D" uid="uid://uf12ghvuw5os" path="res://resources/textures/map/map-location-current.png" id="4_dy3k1"]
+[ext_resource type="Texture2D" uid="uid://ba1uvn0veslwq" path="res://resources/textures/map/map-location-focused-1.png" id="5_411pv"]
 [ext_resource type="Texture2D" uid="uid://bd3e4ef4xd7nn" path="res://resources/textures/map/map-location-active.png" id="5_mg11p"]
+[ext_resource type="Texture2D" uid="uid://qyga4jwo8uxc" path="res://resources/textures/map/map-location-focused-2.png" id="6_7ly8u"]
+[ext_resource type="Texture2D" uid="uid://d2ujs8al6mebb" path="res://resources/textures/map/map-location-focused-3.png" id="7_3tswc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wft6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_411pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ly8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3tswc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hck3a"]
 radius = 29.529646
@@ -16,6 +37,20 @@ active_texture = ExtResource("5_mg11p")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=906341924]
 scale = Vector2(0.5722014, 0.5722014)
 texture = ExtResource("5_mg11p")
+
+[node name="HereMarker" type="Sprite2D" parent="." unique_id=230886549]
+visible = false
+position = Vector2(0, -7.000001)
+scale = Vector2(0.5882353, 0.5882353)
+texture = ExtResource("4_dy3k1")
+
+[node name="DestinationMarker" type="AnimatedSprite2D" parent="." unique_id=1192121837]
+visible = false
+scale = Vector2(0.5882353, 0.5882353)
+sprite_frames = SubResource("SpriteFrames_wft6q")
+autoplay = "default"
+frame = 1
+frame_progress = 0.89850825
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2047523467]
 scale = Vector2(0.9461539, 0.9461539)

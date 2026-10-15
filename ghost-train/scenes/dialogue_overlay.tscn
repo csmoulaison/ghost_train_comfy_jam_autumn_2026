@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhxq7fncsu2a3" path="res://scripts/dialogue/dialogue_overlay.gd" id="1_t5kwb"]
 [ext_resource type="Shader" uid="uid://cdjb1dr12h4dl" path="res://resources/shaders/dialogue_border.gdshader" id="4_border"]
+[ext_resource type="Texture2D" uid="uid://db8ipt6l8cktq" path="res://resources/textures/dialogue/dialog_paper-noborder -light.jpg" id="4_pjdyx"]
 [ext_resource type="Texture2D" uid="uid://cynywbgc5ogm4" path="res://resources/textures/dialogue/dialog_paper-noborder.png" id="4_whrla"]
 [ext_resource type="Script" uid="uid://m5cpoyd32hic" path="res://scripts/dialogue/dialogue_panel.gd" id="5_border"]
 [ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="5_whrla"]
@@ -15,8 +16,10 @@
 [ext_resource type="FontFile" uid="uid://dkmmopnpbsfkj" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Italic.ttf" id="8_ilkg5"]
 [ext_resource type="FontFile" uid="uid://3t7qjhxoybor" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Bold.ttf" id="11_82fuv"]
 [ext_resource type="Texture2D" uid="uid://dp5no476766r2" path="res://resources/textures/programmer_art/guy.png" id="11_il06f"]
-[ext_resource type="Texture2D" uid="uid://cgmeyba0ca14" path="res://resources/textures/buttons/button_hover.png" id="13_btn_hover"]
 [ext_resource type="Texture2D" uid="uid://cpki7d66spppm" path="res://resources/textures/dialogue/dialog_nameplate.png" id="14_pjdyx"]
+[ext_resource type="Texture2D" uid="uid://cpknqpcoyrkvb" path="res://resources/textures/dialogue/dialog_nameplate -pressed.png" id="18_qqe7f"]
+[ext_resource type="Texture2D" uid="uid://dauypvhvd3cg" path="res://resources/textures/dialogue/dialog_nameplate -hover.png" id="19_h7525"]
+[ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="20_ru2v8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbq1e"]
 bg_color = Color(0.6133905, 0.6133902, 0.61339027, 1)
@@ -39,9 +42,9 @@ shader_parameter/plain_fill_color = Color(0.6133905, 0.6133902, 0.61339027, 1)
 shader_parameter/edge_softness = 4.0
 shader_parameter/fill_color = Color(0.035, 0.03, 0.05, 0.9)
 shader_parameter/glow_color = Color(0.93916655, 0.8325729, 0, 1)
-shader_parameter/pattern_texture = ExtResource("4_whrla")
-shader_parameter/pattern_opacity = 1.0
-shader_parameter/pattern_scale = 0.587
+shader_parameter/pattern_texture = ExtResource("4_pjdyx")
+shader_parameter/pattern_opacity = 0.86
+shader_parameter/pattern_scale = 0.627
 shader_parameter/pattern_scroll = Vector2(0, 0)
 shader_parameter/glow_width = 0.0
 shader_parameter/glow_strength = 0.4
@@ -54,7 +57,7 @@ shader_parameter/ribbon_spread = 20.0
 shader_parameter/ribbon_tightness = 0.7
 shader_parameter/ribbon_brightness = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_whrla"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilkg5"]
 shader = ExtResource("6_yc8ip")
 shader_parameter/recolor = Color(1, 1, 1, 1)
 shader_parameter/amount = 0.8
@@ -189,9 +192,9 @@ background_pattern = true
 edge_softness = 4.0
 effects_material = SubResource("ShaderMaterial_border")
 line_tightness = 0.7
-pattern_texture = ExtResource("4_whrla")
-pattern_opacity = 1.0
-pattern_scale = 0.587
+pattern_texture = ExtResource("4_pjdyx")
+pattern_opacity = 0.86
+pattern_scale = 0.627
 
 [node name="MarginContainer" type="MarginContainer" parent="DialoguePanel" unique_id=295531172]
 layout_mode = 1
@@ -219,7 +222,7 @@ fit_content = true
 
 [node name="NextMarker" type="TextureRect" parent="DialoguePanel" unique_id=1416883236]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_whrla")
+material = SubResource("ShaderMaterial_ilkg5")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -342,13 +345,12 @@ fit_content = true
 
 [node name="PromptAcceptButton" type="TextureButton" parent="PromptPanel/VBoxContainer" unique_id=1199635544]
 unique_name_in_owner = true
-self_modulate = Color(0.9254902, 0.70980394, 0.30980393, 1)
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("14_pjdyx")
-texture_pressed = ExtResource("13_btn_hover")
-texture_hover = ExtResource("13_btn_hover")
-texture_focused = ExtResource("13_btn_hover")
+texture_pressed = ExtResource("18_qqe7f")
+texture_hover = ExtResource("19_h7525")
+texture_focused = ExtResource("20_ru2v8")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -371,9 +373,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture_normal = ExtResource("14_pjdyx")
-texture_pressed = ExtResource("13_btn_hover")
-texture_hover = ExtResource("13_btn_hover")
-texture_focused = ExtResource("13_btn_hover")
+texture_pressed = ExtResource("18_qqe7f")
+texture_hover = ExtResource("19_h7525")
+texture_focused = ExtResource("20_ru2v8")
 ignore_texture_size = true
 stretch_mode = 0
 
