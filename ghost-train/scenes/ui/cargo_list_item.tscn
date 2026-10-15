@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cohyonvp8ctnv"]
+
+[ext_resource type="Texture2D" uid="uid://c15vttp842sts" path="res://resources/textures/buttons/checkmark.png" id="1_mabig"]
+[ext_resource type="Texture2D" uid="uid://mjjuvrpifidq" path="res://resources/textures/cargo/UI-icon-pumpkin.png" id="2_wdbv3"]
+[ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="3_mmymn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wolmv"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.98039216, 0.972549, 0.9607843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wft6q"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="CargoListItem" type="PanelContainer" unique_id=2058856441]
+custom_minimum_size = Vector2(380, 40)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wolmv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=438898774]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CheckBox" type="Panel" parent="HBoxContainer" unique_id=448164392]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wft6q")
+
+[node name="Checkmark" type="TextureRect" parent="HBoxContainer/CheckBox" unique_id=91708228]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+anchor_bottom = 0.579
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mabig")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CargoIcon" type="TextureRect" parent="HBoxContainer" unique_id=1179749172]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wdbv3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CargoName" type="Label" parent="HBoxContainer" unique_id=840852162]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 20
+text = "Pumpkin"
+
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=601987763]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=2105644552]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="CoinAmount" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=1349292936]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 18
+text = "10"
+
+[node name="CoinIcon" type="TextureRect" parent="HBoxContainer/HBoxContainer" unique_id=356808705]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("3_mmymn")
+expand_mode = 1
+stretch_mode = 5

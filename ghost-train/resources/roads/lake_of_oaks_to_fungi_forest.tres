@@ -1,12 +1,10 @@
 [gd_resource type="Resource" script_class="Road" format=3 uid="uid://0reeu6jkxshq"]
 
 [ext_resource type="Script" uid="uid://b7lduxod8je3s" path="res://scripts/resource_types/road.gd" id="1_v6wg0"]
-[ext_resource type="Texture2D" uid="uid://b6gfglw4lrk1e" path="res://resources/textures/upgrades_and_stuff/track buying/map-track-buy-30.png" id="1_w7a4o"]
 
 [resource]
 script = ExtResource("1_v6wg0")
 endpoint_1 = 6
 endpoint_2 = 8
 cost = 30
-buy_texture = ExtResource("1_w7a4o")
 metadata/_custom_type_script = "uid://b7lduxod8je3s"

@@ -212,7 +212,7 @@ theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 
 theme_override_font_sizes/font_size = 13
 text = "20 Coins"
 
-[node name="Control" type="Control" parent="BuyTrackPopup/VBoxContainer" unique_id=378928139]
+[node name="Spacer" type="Control" parent="BuyTrackPopup/VBoxContainer" unique_id=378928139]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 

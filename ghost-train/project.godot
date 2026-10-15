@@ -37,6 +37,7 @@ AudioState="*uid://0epepym1fg6g"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://bnwut4jl6fc8d"
 
 [gui]
 

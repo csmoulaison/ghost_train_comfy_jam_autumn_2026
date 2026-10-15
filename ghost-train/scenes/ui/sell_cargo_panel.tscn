@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://dx37yyp384trl"]
+
+[ext_resource type="PackedScene" uid="uid://cohyonvp8ctnv" path="res://scenes/ui/cargo_list_item.tscn" id="1_fgoh4"]
+[ext_resource type="Texture2D" uid="uid://df76w5g0w2lyx" path="res://resources/textures/cargo/UI-icon-corn.png" id="2_qwb87"]
+[ext_resource type="Texture2D" uid="uid://c763i3i54i4d" path="res://resources/textures/cargo/UI-icon-apple.png" id="3_vwghq"]
+[ext_resource type="Texture2D" uid="uid://b6tgx4hf57dpa" path="res://resources/textures/cargo/UI-icon-honey.png" id="4_j4y03"]
+[ext_resource type="Texture2D" uid="uid://cuk1hmsvt8udj" path="res://resources/textures/cargo/UI-icon-mushroom.png" id="5_1wivh"]
+[ext_resource type="Texture2D" uid="uid://dauypvhvd3cg" path="res://resources/textures/dialogue/dialog_nameplate -hover.png" id="6_j4y03"]
+[ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="7_1wivh"]
+[ext_resource type="Texture2D" uid="uid://c1cis3elljncv" path="res://resources/textures/dialogue/dialog_nameplate -disabled.png" id="8_cofda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cofda"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.9490196, 0.93333334, 0.9019608, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="SellCargoScreen" type="CenterContainer" unique_id=191284959]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SellCargoPanel" type="PanelContainer" parent="." unique_id=1363783685]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cofda")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SellCargoPanel" unique_id=1600671372]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Question" type="Label" parent="SellCargoPanel/VBoxContainer" unique_id=1823086090]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(406, -1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 26
+text = "Hey Ghost, what do you have to sell?"
+autowrap_mode = 3
+
+[node name="CargoList" type="VBoxContainer" parent="SellCargoPanel/VBoxContainer" unique_id=1231942625]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Pumpkins" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=2058856441 instance=ExtResource("1_fgoh4")]
+layout_mode = 2
+
+[node name="Checkmark" parent="SellCargoPanel/VBoxContainer/CargoList/Pumpkins/HBoxContainer/CheckBox" parent_id_path=PackedInt32Array(2058856441, 448164392) index="0" unique_id=91708228]
+visible = false
+
+[node name="Corn" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1017658114 instance=ExtResource("1_fgoh4")]
+layout_mode = 2
+
+[node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="1" unique_id=1179749172]
+texture = ExtResource("2_qwb87")
+
+[node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="2" unique_id=840852162]
+text = "Corn"
+
+[node name="Apples" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1035352689 instance=ExtResource("1_fgoh4")]
+layout_mode = 2
+
+[node name="Checkmark" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer/CheckBox" parent_id_path=PackedInt32Array(1035352689, 448164392) index="0" unique_id=91708228]
+visible = false
+
+[node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="1" unique_id=1179749172]
+texture = ExtResource("3_vwghq")
+
+[node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="2" unique_id=840852162]
+text = "Apples"
+
+[node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 2105644552) index="0" unique_id=1349292936]
+text = "15"
+
+[node name="Honey" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1106293493 instance=ExtResource("1_fgoh4")]
+layout_mode = 2
+
+[node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="1" unique_id=1179749172]
+texture = ExtResource("4_j4y03")
+
+[node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="2" unique_id=840852162]
+text = "Honey"
+
+[node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 2105644552) index="0" unique_id=1349292936]
+text = "15"
+
+[node name="Shrooms" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1006848750 instance=ExtResource("1_fgoh4")]
+layout_mode = 2
+
+[node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="1" unique_id=1179749172]
+texture = ExtResource("5_1wivh")
+
+[node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="2" unique_id=840852162]
+text = "Mushrooms"
+
+[node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 2105644552) index="0" unique_id=1349292936]
+text = "20"
+
+[node name="Buttons2" type="HBoxContainer" parent="SellCargoPanel/VBoxContainer" unique_id=292476990]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="SellButton" type="TextureButton" parent="SellCargoPanel/VBoxContainer/Buttons2" unique_id=2047178447]
+unique_name_in_owner = true
+self_modulate = Color(0.9098039, 0.70980394, 0.3019608, 1)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_j4y03")
+texture_pressed = ExtResource("7_1wivh")
+texture_hover = ExtResource("7_1wivh")
+texture_disabled = ExtResource("8_cofda")
+texture_focused = ExtResource("7_1wivh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SellCargoPanel/VBoxContainer/Buttons2/SellButton" unique_id=1201888272]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 18
+text = "Sell selected +25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NotYetButton" type="TextureButton" parent="SellCargoPanel/VBoxContainer/Buttons2" unique_id=451264498]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_j4y03")
+texture_pressed = ExtResource("7_1wivh")
+texture_hover = ExtResource("7_1wivh")
+texture_disabled = ExtResource("8_cofda")
+texture_focused = ExtResource("7_1wivh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SellCargoPanel/VBoxContainer/Buttons2/NotYetButton" unique_id=1010617628]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 18
+text = "Not yet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="SellCargoPanel/VBoxContainer/CargoList/Pumpkins"]
+[editable path="SellCargoPanel/VBoxContainer/CargoList/Corn"]
+[editable path="SellCargoPanel/VBoxContainer/CargoList/Apples"]
+[editable path="SellCargoPanel/VBoxContainer/CargoList/Honey"]
+[editable path="SellCargoPanel/VBoxContainer/CargoList/Shrooms"]

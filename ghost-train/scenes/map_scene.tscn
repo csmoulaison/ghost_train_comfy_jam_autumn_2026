@@ -217,10 +217,15 @@ text = "No"
 
 [node name="Label" type="Label" parent="TravelConfirmationDialog/Panel" unique_id=450365849]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 152.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -106.0
 grow_horizontal = 2
+grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 text = "Pumpkin Patch -"
