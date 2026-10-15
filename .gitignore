@@ -25,3 +25,7 @@ mono_crash.*.json
 # Uncomment if your project does not version PCK files as runtime dependencies.
 # *.pck
 .DS_Store
+ghost-train/web_export/ghost_train.zip
+/ghost-train/web_export
+ghost-train/web_export/index.pck
+ghost-train/web_export/index.html

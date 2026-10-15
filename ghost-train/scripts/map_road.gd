@@ -10,8 +10,6 @@ class_name MapRoad extends Node2D
 
 @onready var sprite_node: Sprite2D = get_node("Sprite2D")
 
-# TODO: pathfinding on the map.
-
 func ready():
 	assert(sprite_node != null)
 
@@ -21,12 +19,18 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		if ModeState.control_paused(): return
 		if !MapState.buying_tracks: return
 		if MapState.roads_unlocked[road_id]: return
+		
+		var road: Road = ResourceData.roads[road_id]
+		
+		# TODO: feedback for not having adjacent roads
+		if !MapState.locations_unlocked[road.endpoint_1] and !MapState.locations_unlocked[road.endpoint_2]:
+			return
+			
 		if !GameState.flags[ID.Flag.GROTTO_ROAD_AVAILABLE] and road_id == ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO: 
 			DialogueState.open_dialogue([], try_grotto_dialogue)
 			return
-		
+			
 		# TODO: confirmation dialog box for road purchases
-		var road: Road = ResourceData.roads[road_id]
 		if MoneyState.try_coins(road.cost):
 			MapState.unlock_road(road_id, true)
 		else:

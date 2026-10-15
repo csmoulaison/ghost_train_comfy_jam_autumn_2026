@@ -13,6 +13,14 @@ script = ExtResource("5_k5ajg")
 flag_true = 2
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_k5ajg"]
+script = ExtResource("5_k5ajg")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_nqvu0"]
+script = ExtResource("5_k5ajg")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=1915166133]
@@ -53,6 +61,7 @@ scale = Vector2(1.7163833, 1.7163833)
 notes = "Grim after giving up guitar
 "
 person_id = 11
+conditions = Array[ExtResource("5_k5ajg")]([SubResource("Resource_k5ajg")])
 
 [node name="PersonAvatar_grim_boat" parent="." unique_id=1050088554 instance=ExtResource("3_0xse6")]
 z_index = 2
@@ -60,6 +69,7 @@ position = Vector2(497.00003, 512)
 scale = Vector2(1.7163833, 1.7163833)
 notes = "Grim before givining up guitar. "
 person_id = 11
+conditions = Array[ExtResource("5_k5ajg")]([SubResource("Resource_nqvu0")])
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("4_46ryg")]
 z_index = 2

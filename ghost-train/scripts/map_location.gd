@@ -16,25 +16,29 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		if MapState.buying_tracks: return
 		
 		var valid_path: bool = false
-		if MapState.locations_unlocked[location_id]:
-			for road_id in ID.Road.ROAD_COUNT:
-				var road: Road = ResourceData.roads[road_id]
-				# TODO: pathfinding? or just single road travels?
-				if road.endpoint_1 == TrainState.current_location and road.endpoint_2 == location_id:
-					select_node(road.endpoint_2, road_id, true)
-					valid_path = true
-					break
-				if road.endpoint_2 == TrainState.current_location and road.endpoint_1 == location_id:
-					select_node(road.endpoint_1, road_id, true)
-					valid_path = true
-					break
-					
+		if MapState.locations_unlocked[location_id] and location_id != TrainState.current_location:
+			select_node(location_id, ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH, true)
+			#for road_id in ID.Road.ROAD_COUNT:
+				#var road: Road = ResourceData.roads[road_id]
+				#if road.endpoint_1 == TrainState.current_location and road.endpoint_2 == location_id:
+					#select_node(road.endpoint_2, road_id, true)
+					#valid_path = true
+					#break
+				#if road.endpoint_2 == TrainState.current_location and road.endpoint_1 == location_id:
+					#select_node(road.endpoint_1, road_id, true)
+					#valid_path = true
+					#break
+
 		if !valid_path:
 			# TODO: feedback to player that the selection was invalid
 			print("Invalid map path selected by player.")
 
 static func select_node(new_location_id: ID.Location, road_id: ID.Road, confirmation: bool):
-	MapState.road_nodes[road_id].set_visual_active_state(true)
+	#MapState.road_nodes[road_id].set_visual_active_state(true)
+	for index in ID.Location.LOCATION_COUNT:
+		if index == 0: continue
+		MapState.location_nodes[index].set_visual_active_state(false)
+	MapState.location_nodes[TrainState.current_location].set_visual_active_state(true)
 	MapState.location_nodes[new_location_id].set_visual_active_state(true)
 	TrainState.next_location = new_location_id
 	TrainState.current_road = road_id

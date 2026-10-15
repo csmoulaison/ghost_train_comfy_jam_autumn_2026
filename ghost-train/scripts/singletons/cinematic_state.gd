@@ -33,9 +33,10 @@ func _on_event(event: ID.Event, _arg: int):
 		MapLocation.select_node(ID.Location.GRAVEYARD, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
 	else: if event == ID.Event.GO_TO_END_TRAIN:
-		start_cinematic(ID.Cinematic.TMP_ENDING, false)
-		#MapLocation.select_node(ID.Location.FARMERS_MARKET, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
-		#ModeState.depart_to_travel()
+		#start_cinematic(ID.Cinematic.TMP_ENDING, false)
+		TrainState.passenger_car_count = 6
+		MapLocation.select_node(ID.Location.FARMERS_MARKET, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
+		ModeState.depart_to_travel()
 
 func _physics_process(dt: float):
 	if DebugOverlay.active: dt *= 25.0
