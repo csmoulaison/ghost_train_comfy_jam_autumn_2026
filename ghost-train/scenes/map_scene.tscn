@@ -44,7 +44,55 @@ content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-bg_color = Color(0.9854973, 0.81002986, 0.4167541, 1)
+bg_color = Color(0.9843137, 0.8117647, 0.41568628, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu6p2"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.80815667, 0.62841487, 0.13125017, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0k22"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9924547, 0.86262804, 0.57801396, 1)
+border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+shadow_color = Color(0, 0, 0, 0.16862746)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlid7"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.80815667, 0.62841487, 0.13125017, 1)
 border_color = Color(0.6666667, 0.3647059, 0.16078432, 0)
 border_blend = true
 corner_radius_top_left = 16
@@ -144,13 +192,27 @@ alignment = 1
 [node name="TravelConfirmationYes" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=981160516]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_focus_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_hover_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_wolmv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hu6p2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r0k22")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_mlid7")
 text = "Yes"
 
 [node name="TravelConfirmationNo" type="Button" parent="TravelConfirmationDialog/Panel/HBoxContainer" unique_id=1429588607]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_focus_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_hover_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_0fovy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0fovy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0fovy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0fovy")
 text = "No"
 
 [node name="Label" type="Label" parent="TravelConfirmationDialog/Panel" unique_id=450365849]
@@ -160,6 +222,7 @@ anchor_right = 1.0
 offset_bottom = 152.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
 text = "Pumpkin Patch -"
 horizontal_alignment = 1
 vertical_alignment = 1

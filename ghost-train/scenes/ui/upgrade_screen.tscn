@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://d3f1dbwqwf2br"]
+
+[ext_resource type="Texture2D" uid="uid://bx4f18mgi3bio" path="res://resources/textures/upgrades_and_stuff/upgrade comp/Withch_s Trainyard - comp-1.jpg" id="1_5glte"]
+[ext_resource type="PackedScene" uid="uid://c85nird7r44nu" path="res://scenes/ui/upgrade_card.tscn" id="1_clnow"]
+[ext_resource type="Texture2D" uid="uid://cpknqpcoyrkvb" path="res://resources/textures/dialogue/dialog_nameplate -pressed.png" id="1_to70l"]
+[ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="2_5glte"]
+[ext_resource type="Texture2D" uid="uid://jc3wwrvmxjdm" path="res://resources/textures/upgrades_and_stuff/exit button.png" id="5_g4jv7"]
+[ext_resource type="Texture2D" uid="uid://1fsd55a2hfl3" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-1of3.png" id="5_to70l"]
+[ext_resource type="Texture2D" uid="uid://c0ywy7xt0fsts" path="res://resources/textures/upgrades_and_stuff/PassengerCar-mini.png" id="6_5glte"]
+[ext_resource type="Texture2D" uid="uid://dauypvhvd3cg" path="res://resources/textures/dialogue/dialog_nameplate -hover.png" id="8_g4jv7"]
+[ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="9_cnp6h"]
+[ext_resource type="Texture2D" uid="uid://c1cis3elljncv" path="res://resources/textures/dialogue/dialog_nameplate -disabled.png" id="10_ygxdb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to70l"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9490196, 0.93333334, 0.9019608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpnye"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9490196, 0.93333334, 0.9019608, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[node name="UpgradeScreen" type="Control" unique_id=1053150587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="comp mockup" type="TextureRect" parent="." unique_id=2043667045]
+visible = false
+self_modulate = Color(1, 1, 1, 0.25490198)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.5955697, 0.5992766)
+texture = ExtResource("1_5glte")
+
+[node name="Header" type="Control" parent="." unique_id=646042787]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameTag" type="TextureRect" parent="Header" unique_id=1612076454]
+custom_minimum_size = Vector2(168, 26)
+layout_mode = 0
+offset_left = 77.0
+offset_top = 26.0
+offset_right = 245.0
+offset_bottom = 53.0
+texture = ExtResource("1_to70l")
+expand_mode = 1
+
+[node name="SpeakerName" type="Label" parent="Header/NameTag" unique_id=484656786]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 14
+text = "Witch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Headline" type="Label" parent="Header" unique_id=911019198]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 77.0
+offset_top = 52.0
+offset_right = 314.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0.9999998, 0.9443456, 0.91160727, 1)
+theme_override_font_sizes/font_size = 38
+text = "What'll it be?"
+
+[node name="CoinCounter" type="Control" parent="." unique_id=1306972283]
+anchors_preset = 0
+offset_left = 879.0
+offset_top = 40.0
+offset_right = 919.0
+offset_bottom = 80.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CoinCounter" unique_id=992572548]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_to70l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoinCounter/PanelContainer" unique_id=1667593145]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="CoinIcon" type="TextureRect" parent="CoinCounter/PanelContainer/HBoxContainer" unique_id=1654727761]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+texture = ExtResource("2_5glte")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinAmount" type="Label" parent="CoinCounter/PanelContainer/HBoxContainer" unique_id=1665381173]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "20"
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=1678085672]
+layout_mode = 0
+offset_left = 993.0
+offset_top = 40.0
+offset_right = 1031.0
+offset_bottom = 76.0
+texture_normal = ExtResource("5_g4jv7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MapCard" type="PanelContainer" parent="." unique_id=564274912]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 113.0
+offset_right = 722.0
+offset_bottom = 609.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xpnye")
+
+[node name="MapPlaceholder" type="ColorRect" parent="MapCard" unique_id=1780027450]
+custom_minimum_size = Vector2(635, 463)
+layout_mode = 2
+color = Color(0.9043267, 0.92555475, 0.9106136, 1)
+
+[node name="Label" type="Label" parent="MapCard/MapPlaceholder" unique_id=214671479]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 95.0
+offset_right = 474.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.49803922, 0.57254905, 0.5803922, 0.38431373)
+text = "MAP GOES HERE"
+
+[node name="BoxcarCard" parent="." unique_id=858226585 instance=ExtResource("1_clnow")]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 113.0
+offset_right = 1033.0
+offset_bottom = 343.0
+
+[node name="CoachCard" parent="." unique_id=783867874 instance=ExtResource("1_clnow")]
+layout_mode = 0
+offset_left = 737.0
+offset_top = 365.0
+offset_right = 1033.0
+offset_bottom = 595.0
+
+[node name="LevelPips" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="0" unique_id=1808755555]
+texture = ExtResource("5_to70l")
+
+[node name="CarImage" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="1" unique_id=1721280966]
+texture = ExtResource("6_5glte")
+
+[node name="Title" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="2" unique_id=2124318086]
+text = "Coach car"
+
+[node name="Description" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="3" unique_id=681891724]
+text = "Room for more passengers."
+
+[node name="BuyTrackPopup" type="PanelContainer" parent="." unique_id=491579579]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 255.0
+offset_right = 540.0
+offset_bottom = 423.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_to70l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuyTrackPopup" unique_id=1451508978]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="RouteName" type="Label" parent="BuyTrackPopup/VBoxContainer" unique_id=212003380]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(259, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 22
+text = "Pumpkin Patch – Lake of Oaks"
+autowrap_mode = 2
+
+[node name="Cost" type="Label" parent="BuyTrackPopup/VBoxContainer" unique_id=1986860590]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 13
+text = "20 Coins"
+
+[node name="Control" type="Control" parent="BuyTrackPopup/VBoxContainer" unique_id=378928139]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="BuyTrackPopup/VBoxContainer" unique_id=1406703543]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="BuyTrack" type="TextureButton" parent="BuyTrackPopup/VBoxContainer/Buttons" unique_id=2126733574]
+unique_name_in_owner = true
+self_modulate = Color(0.9098039, 0.70980394, 0.3019608, 1)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("8_g4jv7")
+texture_pressed = ExtResource("9_cnp6h")
+texture_hover = ExtResource("9_cnp6h")
+texture_disabled = ExtResource("10_ygxdb")
+texture_focused = ExtResource("9_cnp6h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="BuyTrackPopup/VBoxContainer/Buttons/BuyTrack" unique_id=1334102159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 18
+text = "Buy Track"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cancel" type="TextureButton" parent="BuyTrackPopup/VBoxContainer/Buttons" unique_id=1054025255]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("8_g4jv7")
+texture_pressed = ExtResource("9_cnp6h")
+texture_hover = ExtResource("9_cnp6h")
+texture_disabled = ExtResource("10_ygxdb")
+texture_focused = ExtResource("9_cnp6h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="BuyTrackPopup/VBoxContainer/Buttons/Cancel" unique_id=278865883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 18
+text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[editable path="CoachCard"]

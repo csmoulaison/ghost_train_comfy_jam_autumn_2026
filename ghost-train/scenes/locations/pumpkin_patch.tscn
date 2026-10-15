@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmkuc41vmgolu" path="res://resources/textures/backgrounds/Pumpkin Patch - foreground.png" id="5_gyajs"]
 [ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="7_km3yc"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="7_ssvon"]
-[ext_resource type="Texture2D" uid="uid://dlekkkp4rrgt5" path="res://resources/textures/cargo/cargo-pumpkins-2.png" id="8_ssvon"]
+[ext_resource type="Texture2D" uid="uid://s2nee2fjqg08" path="res://resources/textures/cargo/cargo-pumpkins.png" id="8_ssvon"]
 
 [sub_resource type="Resource" id="Resource_gyajs"]
 script = ExtResource("7_ssvon")
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [node name="PumpkinPatch" type="Node2D" unique_id=166533899]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
-position = Vector2(0, -55.165)
+position = Vector2(0, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
 position = Vector2(1.9999999, 62.165)
@@ -107,8 +107,8 @@ conditions = Array[ExtResource("7_ssvon")]([SubResource("Resource_gyajs")])
 
 [node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_pumpkins" unique_id=1104188808]
 z_index = 2
-position = Vector2(74.99999, -21.999992)
-scale = Vector2(0.47524524, 0.47524533)
+position = Vector2(84.99999, -2.9999943)
+scale = Vector2(0.33473822, 0.33473828)
 texture = ExtResource("8_ssvon")
 
 [node name="PersonAvatar_kid6" parent="." unique_id=1699597789 instance=ExtResource("2_qwc58")]
