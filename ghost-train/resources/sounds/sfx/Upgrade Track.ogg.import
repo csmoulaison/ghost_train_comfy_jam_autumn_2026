@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3xdtkoe1bdtx"
+path="res://.godot/imported/Upgrade Track.ogg-bf784959c66e457f0bfefc3ee9f0958f.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/sounds/sfx/Upgrade Track.ogg"
+dest_files=["res://.godot/imported/Upgrade Track.ogg-bf784959c66e457f0bfefc3ee9f0958f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

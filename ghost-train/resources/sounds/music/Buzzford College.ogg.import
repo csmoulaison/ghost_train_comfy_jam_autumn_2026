@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmy0v6ixr8oln"
+path="res://.godot/imported/Buzzford College.ogg-36e43b5378611b86760bea19ef355e1e.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/sounds/music/Buzzford College.ogg"
+dest_files=["res://.godot/imported/Buzzford College.ogg-36e43b5378611b86760bea19ef355e1e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

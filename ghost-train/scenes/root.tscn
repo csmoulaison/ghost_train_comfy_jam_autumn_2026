@@ -8,6 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://24ub07feidlb" path="res://scenes/debug_overlay.tscn" id="7_5sfjl"]
 [ext_resource type="PackedScene" uid="uid://dla4vq56708s" path="res://scenes/dialogue_overlay.tscn" id="7_j287u"]
 [ext_resource type="FontFile" uid="uid://3t7qjhxoybor" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Bold.ttf" id="8_5sfjl"]
+[ext_resource type="Script" uid="uid://1r4trck3l2ec" path="res://scenes/train_sound_player.gd" id="9_3hfy5"]
+[ext_resource type="Script" uid="uid://dcbntg4ics7gv" path="res://scenes/music_player.gd" id="9_vgks2"]
+[ext_resource type="AudioStream" uid="uid://dmgmismxwnwba" path="res://resources/sounds/music/Train Ride.ogg" id="10_dylgi"]
+[ext_resource type="AudioStream" uid="uid://b6ornwkrq8wyb" path="res://resources/sounds/sfx/Train Arrival.ogg" id="10_y3xxt"]
+[ext_resource type="Script" uid="uid://bk48he1fgv3yf" path="res://scenes/dialogue_sound_player.gd" id="11_jrhyn"]
+[ext_resource type="AudioStream" uid="uid://bsjtayqqc53d6" path="res://resources/sounds/sfx/Train Departure.ogg" id="11_xsp7o"]
+[ext_resource type="AudioStream" uid="uid://c00hwfybbahsq" path="res://resources/sounds/sfx/Train Exterior Travel.wav" id="12_l5cgh"]
+[ext_resource type="AudioStream" uid="uid://6fcicutwfrwu" path="res://resources/sounds/sfx/chit_single.ogg" id="12_log26"]
+[ext_resource type="AudioStream" uid="uid://6o6uvbutjt0l" path="res://resources/sounds/sfx/Train Interior.wav" id="13_vgks2"]
 
 [sub_resource type="Gradient" id="Gradient_j287u"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -65,4 +74,31 @@ label_settings = SubResource("LabelSettings_j287u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=246317801]
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="." unique_id=246317801]
+script = ExtResource("9_vgks2")
+intro_music = ExtResource("10_dylgi")
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=1840336494]
+
+[node name="ChitPlayer" type="AudioStreamPlayer" parent="." unique_id=1407033477]
+stream = ExtResource("12_log26")
+volume_db = 1.0
+
+[node name="DialogueSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1784943384]
+script = ExtResource("11_jrhyn")
+chit_sound = ExtResource("12_log26")
+
+[node name="TrainSoundPlayer1" type="AudioStreamPlayer" parent="." unique_id=342983380]
+volume_db = -9.63
+script = ExtResource("9_3hfy5")
+arrival_sound = ExtResource("10_y3xxt")
+depart_sound = ExtResource("11_xsp7o")
+exterior = ExtResource("12_l5cgh")
+interior = ExtResource("13_vgks2")
+
+[node name="TrainSoundPlayer2" type="AudioStreamPlayer" parent="." unique_id=539199568]
+script = ExtResource("9_3hfy5")
+arrival_sound = ExtResource("10_y3xxt")
+depart_sound = ExtResource("11_xsp7o")
+exterior = ExtResource("12_l5cgh")
+interior = ExtResource("13_vgks2")

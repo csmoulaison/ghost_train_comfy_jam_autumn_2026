@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://df3yry1bwtnag"]
 
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_xgqgn"]
+[ext_resource type="AudioStream" uid="uid://c76y4nimlkl02" path="res://resources/sounds/music/Farmer_s Market.ogg" id="1_ygprj"]
 
 [resource]
 script = ExtResource("1_xgqgn")
 name = "Farmer's Market"
 subscene_path = "uid://dwpj11brq37qg"
+music = ExtResource("1_ygprj")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

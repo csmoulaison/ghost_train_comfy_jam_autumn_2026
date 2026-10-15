@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://bq84hyylopg2h"]
 
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_1n5cw"]
+[ext_resource type="AudioStream" uid="uid://c7rndhhq62x6s" path="res://resources/sounds/music/Grimm_s Grotto.ogg" id="1_n6ed6"]
 
 [resource]
 script = ExtResource("1_1n5cw")
 name = "Grimm's Grotto"
 subscene_path = "uid://tuj20fjupehf"
+music = ExtResource("1_n6ed6")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

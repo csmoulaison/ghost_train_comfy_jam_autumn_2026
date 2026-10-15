@@ -44,8 +44,10 @@ func _physics_process(dt: float):
 		ID.Cinematic.INTRO_1:
 			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 5.0, 0.0) * 2000.0
 			intro_button.modulate.a = t_range_clamped(t, 0.5, 0.0)
-			intro_text.modulate.a = t_range_clamped(t, 4.0, 3.0)
+			intro_text.modulate.a = t_range_clamped(t, 2.0, 1.0)
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
+			AudioState.set_volume(t_range_clamped(t, 3.0, 0.0), AudioState.music_player_1)
+			AudioState.set_volume(0.33 + t_range_clamped(t, 1.0, 4.0) * 0.66, AudioState.train_sound_player_1)
 			if t > 5.0:
 				intro_train = null
 				stop_cinematic()
@@ -54,6 +56,12 @@ func _physics_process(dt: float):
 		ID.Cinematic.DEPART_TO_TRAVEL:
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			TrainState.visible_velocity = 0.0
+			
+			if t_bang_threshold(t, 0.1, dt): AudioState.play(AudioState.train_sound_player_2.depart_sound, AudioState.train_sound_player_2)
+			AudioState.set_volume(t_range_clamped(t, depart_train_length - 0.1, depart_train_length - 4.0), AudioState.music_player_1)
+			if t_bang_threshold(t, 4.5, dt): AudioState.play(AudioState.train_sound_player_1.exterior, AudioState.train_sound_player_1)
+			AudioState.set_volume(t_range_clamped(t, 4.5, 5.5), AudioState.train_sound_player_1)
+			
 			if t < depart_train_length - 1.0:
 				ModeState.train_avatar.position.x = train_arrival_point + 960.0 - t_range_cubic_clamped(t, depart_train_length, 0.0) * 960.0
 				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length - 2.0, depart_train_length - 1.0)
@@ -91,6 +99,11 @@ func _physics_process(dt: float):
 			if t < 2.5: title_label.modulate.a = t_range_clamped(t, 1.5, 2.5)
 			else: title_label.modulate.a = t_range_clamped(t, arrive_train_length - 0.0, arrive_train_length - 0.8)
 			
+			if t_bang_threshold(t, 0.2, dt): AudioState.play(AudioState.train_sound_player_2.arrival_sound, AudioState.train_sound_player_2)
+			if t_bang_threshold(t, 4.2, dt): AudioState.play_offset_from_end(location.music, AudioState.music_player_1, 0.66)
+			AudioState.set_volume(t_range_clamped(t, 1.0, 0.0), AudioState.train_sound_player_1)
+			AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_1)
+			
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			ModeState.train_avatar.position.x = -400.0 + t_range_cubic_clamped(t, 0.0, arrive_train_length) * (train_arrival_point + 400.0)
 			if t > arrive_train_length + 1.0:
@@ -99,7 +112,7 @@ func _physics_process(dt: float):
 				if ModeState.cached_arrival_dialogue != null:
 					DialogueState.open_dialogue([], ModeState.cached_arrival_dialogue)
 					ModeState.cached_arrival_dialogue = null
-		
+
 		ID.Cinematic.TMP_ENDING:
 			title_label.text = "The End"
 			title_label.modulate.a = t_range_clamped(t, 0.5, 1.5)

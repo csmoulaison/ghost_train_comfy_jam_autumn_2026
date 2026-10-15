@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://bbvdwsje14xl"]
 
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_5cdq7"]
+[ext_resource type="AudioStream" uid="uid://dmy0v6ixr8oln" path="res://resources/sounds/music/Buzzford College.ogg" id="1_ads0u"]
 
 [resource]
 script = ExtResource("1_5cdq7")
 name = "Schoolyard"
 subscene_path = "uid://8b5y66hqlerl"
+music = ExtResource("1_ads0u")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

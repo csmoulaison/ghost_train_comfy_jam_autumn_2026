@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvxbju8rmjmr2"
+path="res://.godot/imported/Witch_s Trainyard.ogg-13fc6c97e0404fce40ce8d332f49026e.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/sounds/music/Witch_s Trainyard.ogg"
+dest_files=["res://.godot/imported/Witch_s Trainyard.ogg-13fc6c97e0404fce40ce8d332f49026e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

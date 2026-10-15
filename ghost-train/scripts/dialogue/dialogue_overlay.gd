@@ -55,6 +55,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.pressed and event.keycode == KEY_F2:
 			pass
 			#DialogueState.start_dialogue_line(TEST_LINE)
+	
+	if event.is_action_pressed("skip_dialogue"):
+		_on_continue_pressed()
 
 	# keyboard / gamepad version of clicking the background
 	#if DialogueState.is_active() and event.is_action_pressed("ui_accept"):
@@ -134,10 +137,24 @@ func read_line(line: DialogueLine):
 	dialogue_text.visible_ratio = 0.0
 	var duration: float = dialogue_text.get_total_character_count() * SECONDS_PER_CHARACTER
 	_line_tween = create_tween()
-	_line_tween.tween_property(dialogue_text, "visible_ratio", 1.0, duration)
+	
+	# TODO(now):trying this shit
+	#_line_tween.tween_property(dialogue_text, "visible_ratio", 1.0, duration)
+	_line_tween.tween_method(update_visible_characters, 0, dialogue_text.get_total_character_count(), duration)
+	last_char_index = 0
+	
 	_line_tween.tween_callback(_finish_current_line)
 
 	_debounce()
+
+var last_char_index: int = 0
+func update_visible_characters(char_count: int) -> void:
+	dialogue_text.visible_characters = char_count
+	# Play sound if a new character was revealed
+	if char_count / 2 > last_char_index:
+		AudioState.chit_player.pitch_scale = 1.5 + randf() * 1.0
+		AudioState.chit_player.play()
+		last_char_index = char_count / 2
 
 ## Called both when the line finishes printing on its own and when the player
 ## skips ahead.

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://bnio8qp3xyvhc"]
 
+[ext_resource type="AudioStream" uid="uid://cvxbju8rmjmr2" path="res://resources/sounds/music/Witch_s Trainyard.ogg" id="1_cqctc"]
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_kkouf"]
 
 [resource]
 script = ExtResource("1_kkouf")
 name = "Witch's Trainyard"
 subscene_path = "uid://snkm87nfxeea"
+music = ExtResource("1_cqctc")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

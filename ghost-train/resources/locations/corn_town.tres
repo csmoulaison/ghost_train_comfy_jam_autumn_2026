@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://dvmk57bgyw7x1"]
 
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_bmi67"]
+[ext_resource type="AudioStream" uid="uid://cwtrqrrcvbx4a" path="res://resources/sounds/music/Corn Fields.ogg" id="1_trrp4"]
 
 [resource]
 script = ExtResource("1_bmi67")
 name = "Corn Town"
 subscene_path = "uid://ds8u8rajvysqp"
+music = ExtResource("1_trrp4")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Location" format=3 uid="uid://fcnh1k4wn0tb"]
 
 [ext_resource type="Script" uid="uid://5ykxo1la74mv" path="res://scripts/resource_types/location.gd" id="1_6njhq"]
+[ext_resource type="AudioStream" uid="uid://bkhtb04f5x5lb" path="res://resources/sounds/music/Pumpkin Patch.ogg" id="1_ej6vq"]
 
 [resource]
 script = ExtResource("1_6njhq")
 name = "Pumpkin Patch"
 subscene_path = "uid://coc7w1fu3jav8"
+music = ExtResource("1_ej6vq")
 metadata/_custom_type_script = "uid://5ykxo1la74mv"

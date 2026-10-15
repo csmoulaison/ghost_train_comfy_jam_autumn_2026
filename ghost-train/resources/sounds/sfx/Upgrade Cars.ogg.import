@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtbkigdxt1p0g"
+path="res://.godot/imported/Upgrade Cars.ogg-fa3200a5421392088fadc262876071d5.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/sounds/sfx/Upgrade Cars.ogg"
+dest_files=["res://.godot/imported/Upgrade Cars.ogg-fa3200a5421392088fadc262876071d5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

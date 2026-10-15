@@ -4,6 +4,7 @@
 # Godot 4+ specific ignores
 .godot/
 .nomedia
+ghost-train/web_export/
 
 # Godot-specific ignores
 .import/
@@ -24,4 +25,3 @@ mono_crash.*.json
 # Uncomment if your project does not version PCK files as runtime dependencies.
 # *.pck
 .DS_Store
-
