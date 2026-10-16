@@ -64,7 +64,7 @@ func _physics_process(dt: float):
 				sequence = DialogueState.current_line.talk_override_sequence
 		sequence_t += sequence.speed * 2.0 * dt
 		if sequence_t > 1.0: sequence_t -= 1.0
-		print(str(sequence_t))
+		#print(str(sequence_t))
 		var sequence_len: int = sequence.frames.size()
 		sprite.texture = sequence.frames[int(sequence_t * sequence_len) % sequence_len]
 

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="6_epxhq"]
 [ext_resource type="Texture2D" uid="uid://cgedy3wr04im5" path="res://resources/textures/characters/vampire/BAT-plain.png" id="7_np0xs"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="8_epxhq"]
+[ext_resource type="Texture2D" uid="uid://uaemu60gi1he" path="res://resources/textures/characters/vampire/BAT-closedeyes.png" id="10_giqpx"]
 [ext_resource type="Script" uid="uid://kucbauklvjlr" path="res://scripts/bat_clickable.gd" id="10_np0xs"]
 [ext_resource type="Texture2D" uid="uid://bohsfgn2y5488" path="res://resources/textures/cargo/cargo-apples-scene.png" id="11_nhob2"]
 
@@ -24,6 +25,20 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 script = ExtResource("8_epxhq")
 flag_false = 12
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkumi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_np0xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_giqpx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 size = Vector2(214.25894, 403.44504)
@@ -99,9 +114,10 @@ notes = "(nick): click blinking bat to have vampire appear
 (conner): should work now"
 conditions = Array[ExtResource("8_epxhq")]([SubResource("Resource_nhob2")])
 
-[node name="Sprite2D" type="Sprite2D" parent="ConditionalNode" unique_id=1019351753]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="ConditionalNode" unique_id=972990720]
 position = Vector2(36.46961, -312.27103)
-texture = ExtResource("7_np0xs")
+sprite_frames = SubResource("SpriteFrames_hkumi")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="ConditionalNode" unique_id=712932404]
 script = ExtResource("10_np0xs")

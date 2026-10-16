@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="8_1r8be"]
 [ext_resource type="Texture2D" uid="uid://kp8p1vok2twc" path="res://resources/textures/characters/vampire/vamp-talk.png" id="9_ct4ee"]
 [ext_resource type="Texture2D" uid="uid://bykwcimq3lj1j" path="res://resources/textures/characters/vampire/human-talk.png" id="9_wrco8"]
+[ext_resource type="Texture2D" uid="uid://crklgdwkexhqe" path="res://resources/textures/characters/vampire/vamp-smile.png" id="10_wrco8"]
 
 [sub_resource type="Resource" id="Resource_hua4o"]
 script = ExtResource("3_ke5tb")
@@ -254,6 +255,34 @@ talk = SubResource("Resource_fwdl0")
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_324cg")])
 metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
+[sub_resource type="Resource" id="Resource_aitja"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("10_wrco8")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_a6lsg"]
+script = ExtResource("3_ke5tb")
+person_on_train = 9
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_cuxci"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("10_wrco8")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_hxj33"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("9_ct4ee"), ExtResource("10_wrco8")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_lb2p0"]
+script = ExtResource("6_qp1xr")
+idle = SubResource("Resource_cuxci")
+blink = SubResource("Resource_aitja")
+talk = SubResource("Resource_hxj33")
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_a6lsg")])
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
+
 [sub_resource type="Resource" id="Resource_sj4yh"]
 script = ExtResource("1_ml87m")
 person = 9
@@ -307,7 +336,7 @@ script = ExtResource("2_ml87m")
 name = "Vampire"
 starting_location = 6
 default_texture = ExtResource("5_ke5tb")
-conditional_texture_packs = Array[ExtResource("6_qp1xr")]([SubResource("Resource_lplyt")])
+conditional_texture_packs = Array[ExtResource("6_qp1xr")]([SubResource("Resource_lplyt"), SubResource("Resource_lb2p0")])
 default_texture_pack = SubResource("Resource_dkj7t")
 sprite_scale = 0.2
 conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_cb7ib"), SubResource("Resource_0bobq"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), ExtResource("5_o0cry"), SubResource("Resource_m3kf8")])

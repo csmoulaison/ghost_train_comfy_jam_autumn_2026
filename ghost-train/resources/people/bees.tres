@@ -6,6 +6,15 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_hpugy"]
 [ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="4_hpugy"]
 [ext_resource type="Texture2D" uid="uid://blqyrb3qayixl" path="res://resources/textures/characters/bees/bees-1.png" id="4_m3j2n"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="6_u5e4v"]
+[ext_resource type="Texture2D" uid="uid://dd5pqplcqoxii" path="res://resources/textures/characters/bees/bees-2.png" id="7_4lsr5"]
+[ext_resource type="Texture2D" uid="uid://dlirto6b5khko" path="res://resources/textures/characters/bees/bees-3.png" id="8_y0kgr"]
+[ext_resource type="Texture2D" uid="uid://dua5ecmbs48ac" path="res://resources/textures/characters/bees/bees-4.png" id="9_q8igk"]
+[ext_resource type="Texture2D" uid="uid://cgr3s2qwykr1j" path="res://resources/textures/characters/bees/bees-5.png" id="10_ecsx8"]
+[ext_resource type="Texture2D" uid="uid://c46qn6j66w400" path="res://resources/textures/characters/bees/bees-6.png" id="11_wmx05"]
+[ext_resource type="Texture2D" uid="uid://bvolj5sqsrd7e" path="res://resources/textures/characters/bees/bees-7.png" id="12_p1tmp"]
+[ext_resource type="Texture2D" uid="uid://hkucsltprfjh" path="res://resources/textures/characters/bees/bees-8.png" id="13_pysxt"]
+[ext_resource type="Texture2D" uid="uid://bktfhwx5qytxj" path="res://resources/textures/characters/bees/bees-9.png" id="14_s54yy"]
 
 [sub_resource type="Resource" id="Resource_giqpx"]
 script = ExtResource("3_hpugy")
@@ -145,11 +154,35 @@ person = 8
 text = "Buzz off, we're busy."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_08jvc"]
+script = ExtResource("6_u5e4v")
+frames = Array[Texture2D]([ExtResource("4_m3j2n")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_6nn6u"]
+script = ExtResource("6_u5e4v")
+frames = Array[Texture2D]([ExtResource("4_m3j2n"), ExtResource("7_4lsr5"), ExtResource("8_y0kgr"), ExtResource("9_q8igk"), ExtResource("10_ecsx8"), ExtResource("11_wmx05"), ExtResource("12_p1tmp"), ExtResource("13_pysxt"), ExtResource("14_s54yy")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_6j835"]
+script = ExtResource("6_u5e4v")
+frames = Array[Texture2D]([ExtResource("4_m3j2n"), ExtResource("7_4lsr5"), ExtResource("8_y0kgr"), ExtResource("9_q8igk"), ExtResource("10_ecsx8"), ExtResource("11_wmx05"), ExtResource("12_p1tmp"), ExtResource("13_pysxt"), ExtResource("14_s54yy")])
+speed = 0.6
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_4mtrm"]
+script = ExtResource("4_hpugy")
+idle = SubResource("Resource_6nn6u")
+blink = SubResource("Resource_08jvc")
+talk = SubResource("Resource_6j835")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
+
 [resource]
 script = ExtResource("1_n8gxc")
 name = "Bees"
 starting_location = 7
 default_texture = ExtResource("4_m3j2n")
+default_texture_pack = SubResource("Resource_4mtrm")
 sprite_scale = 0.2
 conditional_interact_dialogue = Array[ExtResource("1_dosdr")]([SubResource("Resource_nhob2"), SubResource("Resource_tlvvj"), SubResource("Resource_55tjt"), SubResource("Resource_q8igk")])
 default_interact_dialogue = SubResource("Resource_nhvhv")

@@ -21,8 +21,10 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		
 		var valid_path: bool = false
 		if MapState.locations_unlocked[location_id] and location_id != TrainState.current_location:
-			select_node(location_id, ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH, true)
-
+			var road_id: ID.Road = ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH
+			if location_id == ID.Location.GRIMMS_GROTTO or TrainState.current_location == ID.Location.GRIMMS_GROTTO:
+				road_id = ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO
+			select_node(location_id, road_id, true)
 		if !valid_path:
 			# TODO: feedback to player that the selection was invalid
 			print("Invalid map path selected by player.")
@@ -39,7 +41,7 @@ static func select_node(new_location_id: ID.Location, road_id: ID.Road, confirma
 	TrainState.current_road = road_id
 	var location: Location = ResourceData.locations[new_location_id]
 	if confirmation:
-		MapState.open_confirmation_dialog(location.name, "Do you want to depart?", "Depart", "Stay")
+		MapState.open_confirmation_dialog(location.name, "Do you want to depart?", "Yes", "Stay")
 
 func set_visual_active_state(active: bool):
 	if !MapState.locations_unlocked[location_id]:

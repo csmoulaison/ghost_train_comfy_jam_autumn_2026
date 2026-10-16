@@ -4,7 +4,12 @@
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_bwrcm"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_g82a1"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_rxvtk"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="4_3erpi"]
 [ext_resource type="Texture2D" uid="uid://d5r63c40qih4" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford.png" id="4_g82a1"]
+[ext_resource type="Texture2D" uid="uid://dmgsd3m8lpeof" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford_0002_default.png" id="6_5ccjc"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="7_7f0h4"]
+[ext_resource type="Texture2D" uid="uid://dk8ubgm4succi" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford_0000_found.png" id="8_87k5c"]
+[ext_resource type="Texture2D" uid="uid://dbo0jy8c3je0o" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford_0001_relieved.png" id="9_cxrjc"]
 
 [sub_resource type="Resource" id="Resource_syugv"]
 script = ExtResource("3_rxvtk")
@@ -23,6 +28,29 @@ script = ExtResource("1_bwrcm")
 person = 17
 text = "I feel bad for Nicholas. Jean-Marco picks on him the most."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_ts22x"]
+script = ExtResource("7_7f0h4")
+frames = Array[Texture2D]([ExtResource("6_5ccjc")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_w23cs"]
+script = ExtResource("7_7f0h4")
+frames = Array[Texture2D]([ExtResource("6_5ccjc")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_mweh6"]
+script = ExtResource("7_7f0h4")
+frames = Array[Texture2D]([ExtResource("8_87k5c"), ExtResource("9_cxrjc"), ExtResource("6_5ccjc")])
+speed = 0.5
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_eg5ii"]
+script = ExtResource("4_3erpi")
+idle = SubResource("Resource_w23cs")
+blink = SubResource("Resource_ts22x")
+talk = SubResource("Resource_mweh6")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [sub_resource type="Resource" id="Resource_g82a1"]
 script = ExtResource("2_g82a1")
@@ -47,6 +75,7 @@ script = ExtResource("2_bwrcm")
 name = "Jericho"
 starting_location = 3
 default_texture = ExtResource("4_g82a1")
+default_texture_pack = SubResource("Resource_eg5ii")
 sprite_scale = 0.1
 conditional_interact_dialogue = Array[ExtResource("1_bwrcm")]([SubResource("Resource_srtvw")])
 default_interact_dialogue = SubResource("Resource_3qxmc")
