@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://csikxaenqiwfw" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-3of4.png" id="4_8fymt"]
 [ext_resource type="Texture2D" uid="uid://dirdfbmuyuhtd" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-4of4.png" id="5_m8k7k"]
 [ext_resource type="AudioStream" uid="uid://dtbkigdxt1p0g" path="res://resources/sounds/sfx/Upgrade Cars.ogg" id="6_8fymt"]
+[ext_resource type="Texture2D" uid="uid://c1cis3elljncv" path="res://resources/textures/dialogue/dialog_nameplate -disabled.png" id="11_m8k7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdprk"]
 content_margin_left = 16.0
@@ -83,6 +84,7 @@ layout_mode = 2
 texture_normal = ExtResource("3_jocwj")
 texture_pressed = ExtResource("3_mmvrv")
 texture_hover = ExtResource("3_mmvrv")
+texture_disabled = ExtResource("11_m8k7k")
 texture_focused = ExtResource("3_mmvrv")
 ignore_texture_size = true
 stretch_mode = 0

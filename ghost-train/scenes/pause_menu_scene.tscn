@@ -213,7 +213,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1" unique_id=558653209]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -238,7 +238,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot2" unique_id=1905904071]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -263,7 +263,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot3" unique_id=1891001838]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -288,7 +288,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot4" unique_id=1684714856]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -313,7 +313,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot5" unique_id=1620167402]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -338,7 +338,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot6" unique_id=488652807]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -363,7 +363,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot7" unique_id=1244327612]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,7 +388,7 @@ custom_minimum_size = Vector2(56, 56)
 layout_mode = 2
 
 [node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot8" unique_id=1354952851]
-self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

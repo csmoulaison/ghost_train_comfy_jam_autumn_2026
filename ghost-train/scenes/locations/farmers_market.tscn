@@ -24,6 +24,7 @@ texture = ExtResource("1_0awqs")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_agfgh")]
+modulate = Color(0.7913525, 0.89100057, 0.86653244, 1)
 position = Vector2(858, 478)
 scale = Vector2(0.074588954, 0.074588954)
 
