@@ -58,7 +58,7 @@ func _process(_dt: float):
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		return
+		#return
 		if ModeState.pause_menu:
 			scene_parent.remove_child(pause_menu_scene)
 			pause_menu = false

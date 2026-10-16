@@ -16,6 +16,6 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 script = ExtResource("1_3ci83")
 name = "Corn"
 car_texture = ExtResource("1_axdgv")
-revenue = 10
+revenue = 20
 no_room_on_train_dialogue = SubResource("Resource_g2ct0")
 metadata/_custom_type_script = "uid://cuet5dtsrr14n"

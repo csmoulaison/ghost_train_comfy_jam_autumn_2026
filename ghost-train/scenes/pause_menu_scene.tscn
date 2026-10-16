@@ -1,9 +1,409 @@
 [gd_scene format=3 uid="uid://decxs73vimwb7"]
 
-[ext_resource type="Texture2D" uid="uid://cxviiuy143wh2" path="res://trash/programmer_art/paused.png" id="1_f8ffc"]
+[ext_resource type="Texture2D" uid="uid://cynywbgc5ogm4" path="res://resources/textures/dialogue/dialog_paper-noborder.png" id="2_jt3wq"]
+[ext_resource type="Texture2D" uid="uid://46hs26jdqnl1" path="res://resources/textures/buttons/Paused-1.png" id="2_yujxr"]
+[ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="3_jt3wq"]
+[ext_resource type="PackedScene" uid="uid://d08s4x0pwpuuq" path="res://scenes/conditional_node.tscn" id="4_jt3wq"]
+[ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="4_xuh5n"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_pmqoe"]
+[ext_resource type="Script" uid="uid://bnscjs86ve3xf" path="res://scenes/pause_coin_label.gd" id="5_vp6pg"]
+[ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="6_rv42e"]
+[ext_resource type="Texture2D" uid="uid://c5ec10h71ri6g" path="res://resources/textures/characters/jack-o-kids/1-market/jacko-market.png" id="7_rv42e"]
+[ext_resource type="Texture2D" uid="uid://be1bi1sbqh30s" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard_0002_default.png" id="8_ia5p4"]
+[ext_resource type="Texture2D" uid="uid://bywlev0nroc16" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corn_0000_relieved.png" id="9_hxrum"]
+[ext_resource type="Texture2D" uid="uid://bu3miw82q52m3" path="res://resources/textures/characters/jack-o-kids/4-lakeofoaks/jacko-lakeofoaks.png" id="10_m5nxs"]
+[ext_resource type="Texture2D" uid="uid://dmgsd3m8lpeof" path="res://resources/textures/characters/jack-o-kids/5-buzzford/jacko-buzzford_0002_default.png" id="11_xuh5n"]
+[ext_resource type="Texture2D" uid="uid://bax5vicdymp7l" path="res://resources/textures/characters/jack-o-kids/6-fungusforest/jacko-fungus.png" id="12_vp6pg"]
+[ext_resource type="Texture2D" uid="uid://vnhid6uwt57w" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto.png" id="13_hxrum"]
+[ext_resource type="Texture2D" uid="uid://j24xrmk7m045" path="res://resources/textures/characters/jack-o-kids/8-graveyard/jacko-graveyard.png" id="14_m5nxs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgge2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.9490196, 0.93333334, 0.9019608, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="Resource" id="Resource_jgge2"]
+script = ExtResource("5_pmqoe")
+flag_true = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_junmu"]
+script = ExtResource("6_rv42e")
+person = 13
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_8bg5c"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_junmu")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_vp6pg"]
+script = ExtResource("6_rv42e")
+person = 14
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_0ijar"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_vp6pg")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_6yhe5"]
+script = ExtResource("6_rv42e")
+person = 15
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_rgp5c"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_6yhe5")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_ux14v"]
+script = ExtResource("6_rv42e")
+person = 16
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_afnay"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_ux14v")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_kow7a"]
+script = ExtResource("6_rv42e")
+person = 17
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_46rf3"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_kow7a")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_e7iur"]
+script = ExtResource("6_rv42e")
+person = 18
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_e2xly"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_e7iur")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_lxxib"]
+script = ExtResource("6_rv42e")
+person = 19
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_m5nxs"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_lxxib")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_f60xj"]
+script = ExtResource("6_rv42e")
+person = 20
+location = 3
+metadata/_custom_type_script = "uid://bg0l7uy2exepk"
+
+[sub_resource type="Resource" id="Resource_xuh5n"]
+script = ExtResource("5_pmqoe")
+person_at_location = SubResource("Resource_f60xj")
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="PauseMenuScene" type="Node" unique_id=1818382822]
 
-[node name="Paused" type="Sprite2D" parent="." unique_id=1987344706]
-position = Vector2(806, 419)
-texture = ExtResource("1_f8ffc")
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=262174802]
+layer = 20
+
+[node name="Dim" type="ColorRect" parent="PauseLayer" unique_id=953250811]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.433)
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseLayer" unique_id=1444720679]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="PauseLayer/CenterContainer" unique_id=469231632]
+clip_children = 2
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jgge2")
+
+[node name="TextureRect" type="TextureRect" parent="PauseLayer/CenterContainer/Panel" unique_id=29776294]
+custom_minimum_size = Vector2(630, 360)
+layout_mode = 2
+texture = ExtResource("2_jt3wq")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/CenterContainer/Panel/TextureRect" unique_id=1090974292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Paused" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer" unique_id=1968910313]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_yujxr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Ghost" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer" unique_id=1325441705]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+texture = ExtResource("3_jt3wq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinRow" type="HBoxContainer" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer" unique_id=1467793939]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CoinIcon" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/CoinRow" unique_id=976917767]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_xuh5n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinAmount" type="Label" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/CoinRow" unique_id=1693241564]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_font_sizes/font_size = 28
+text = "0"
+script = ExtResource("5_vp6pg")
+
+[node name="Spacer" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer" unique_id=1055459690]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+
+[node name="JackoRow" type="HBoxContainer" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer" unique_id=1595145673]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Slot1" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=1790425773]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1" unique_id=558653209]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rv42e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1" unique_id=464916204 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_8bg5c")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1/Found" unique_id=1870371876]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_rv42e")
+
+[node name="Slot2" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=1800109637]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot2" unique_id=1905904071]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ia5p4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot2" unique_id=2009611941 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_0ijar")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot2/Found" unique_id=312233971]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_ia5p4")
+
+[node name="Slot3" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=857416288]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot3" unique_id=1891001838]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_hxrum")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot3" unique_id=540919096 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_rgp5c")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot3/Found" unique_id=1326799490]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_hxrum")
+
+[node name="Slot4" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=775705134]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot4" unique_id=1684714856]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_m5nxs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot4" unique_id=1175883998 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_afnay")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot4/Found" unique_id=1670476185]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_m5nxs")
+
+[node name="Slot5" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=1077345660]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot5" unique_id=1620167402]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_xuh5n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot5" unique_id=572715863 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_46rf3")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot5/Found" unique_id=1180965334]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_xuh5n")
+
+[node name="Slot6" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=1016440628]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot6" unique_id=488652807]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vp6pg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot6" unique_id=1699112709 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_e2xly")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot6/Found" unique_id=1150876977]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_vp6pg")
+
+[node name="Slot7" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=787390003]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot7" unique_id=1244327612]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_hxrum")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot7" unique_id=1306873520 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_m5nxs")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot7/Found" unique_id=458451647]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_hxrum")
+
+[node name="Slot8" type="Control" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow" unique_id=1798295693]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+
+[node name="Gray" type="TextureRect" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot8" unique_id=1354952851]
+self_modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_m5nxs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot8" unique_id=1199529060 instance=ExtResource("4_jt3wq")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(28, 28)
+conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_xuh5n")])
+
+[node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot8/Found" unique_id=1797283794]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_m5nxs")
