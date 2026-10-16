@@ -83,6 +83,8 @@ func _process(delta: float) -> void:
 	# drifts toward this one a little each frame, which is what makes it floaty.
 	var wanted_velocity: Vector2 = _get_wanted_direction(delta) * speed
 	wanted_velocity.y = 0.0
+	if ModeState.mode == ModeState.GameMode.DESTINATION and _position_off_screen(global_position + wanted_velocity.normalized() * 66.0): 
+		wanted_velocity.x = 0.0
 
 	if float_time <= 0.0:
 		_velocity = wanted_velocity
@@ -92,7 +94,6 @@ func _process(delta: float) -> void:
 	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
 
 	global_position += _velocity * delta
-	_keep_on_screen()
 	_face_heading()
 	_use_clicked_interactable()
 
@@ -121,8 +122,24 @@ func _physics_process(delta):
 	if bob_damped > abs(_velocity.x): bob_damped = move_toward(bob_damped, abs(_velocity.x), 400.0 * delta)
 	bob_phase += (2.0 + abs(bob_damped * 0.025)) * delta
 	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.02) + bob_root
-
+	
+	if ModeState.mode == ModeState.GameMode.TRAVEL:
+		for index in TrainState.passenger_car_count:
+			var car_node = ModeState.passenger_car_nodes[index]
+			if _inside_rect_collision(car_node.collision):
+				car_node.target_opacity = 0.0
+			else:
+				car_node.target_opacity = 1.0
+			
 ## private functions
+
+func _inside_rect_collision(collision: CollisionShape2D) -> bool:
+	var rect_shape := collision.shape as RectangleShape2D
+	if rect_shape:
+		# Bring our position into the collision shape's local space
+		var local_point := collision.global_transform.affine_inverse() * global_position
+		return rect_shape.get_rect().has_point(local_point)
+	return false
 
 ## The direction the player is asking to go in: from the keys if any are held,
 ## otherwise toward the clicked spot, otherwise nowhere (ZERO).
@@ -166,7 +183,7 @@ func _get_stopping_distance() -> float:
 	return _velocity.length_squared() / (2.0 * _get_acceleration())
 
 ## Pushes the ghost back inside the screen if it has drifted past an edge.
-func _keep_on_screen() -> void:
+func _position_off_screen(pos: Vector2) -> bool:
 	var screen: Rect2 = _get_screen_rect()
 	# half the sprite's size, so the whole ghost stays visible and not just its
 	# middle
@@ -176,12 +193,11 @@ func _keep_on_screen() -> void:
 
 	# hitting an edge also stops the ghost in that direction, otherwise it would
 	# feel stuck to the edge while its leftover velocity ran out
-	if global_position.x < min_position.x or global_position.x > max_position.x:
-		_velocity.x = 0.0
-	if global_position.y < min_position.y or global_position.y > max_position.y:
-		_velocity.y = 0.0
-
-	global_position = global_position.clamp(min_position, max_position)
+	if pos.x < min_position.x or pos.x > max_position.x:
+		return true
+	if pos.y < min_position.y or pos.y > max_position.y:
+		return true
+	return false
 
 ## Flips the sprite to face the way the ghost is moving. When it isn't moving
 ## left or right, it keeps facing the way it last was.

@@ -33,7 +33,7 @@ func _ready():
 	change(Type.NORMAL)
 	
 func _process(dt: float):
-	var pause_cursor: bool = ModeState.control_paused() and !DialogueState.is_active()
+	var pause_cursor: bool = ModeState.control_paused() and !DialogueState.is_active() and ModeState.mode != ModeState.GameMode.MAP
 	if pause_cursor: 
 		change(Type.NORMAL)
 		opacity = 0.0

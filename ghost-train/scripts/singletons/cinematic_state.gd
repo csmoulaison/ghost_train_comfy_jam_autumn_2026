@@ -30,7 +30,6 @@ func _ready():
 
 func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.GET_ON_TRAIN_WITH_GRIMM:
-		# TODO(now): very much untested
 		MapLocation.select_node(ID.Location.GRAVEYARD, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
 	else: if event == ID.Event.GO_TO_END_TRAIN:
@@ -48,12 +47,12 @@ func _physics_process(dt: float):
 			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 7.0, 0.0) * 2000.0
 			intro_button.modulate.a = t_range_clamped(t, 0.5, 0.0)
 			intro_text.modulate.a = t_range_clamped(t, 1.0, 0.5)
-			intro_credits.modulate.a = t_range_clamped(t, 2.5, 3.5) * t_range_clamped(t, 5.5, 4.5) 
-			fade_sprite.modulate.a = t_range_clamped(t, 5.0, 6.0)
+			intro_credits.modulate.a = t_range_clamped(t, 2.5, 3.5) * t_range_clamped(t, 9.5, 8.5) 
+			fade_sprite.modulate.a = t_range_clamped(t, 9.5, 10.5)
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
-			AudioState.set_volume(t_range_clamped(t, 3.0, 0.0), AudioState.music_player_1)
+			AudioState.set_volume(t_range_clamped(t, 5.0, 0.0), AudioState.music_player_1)
 			AudioState.set_volume(0.33 + t_range_clamped(t, 1.0, 4.0) * 0.66, AudioState.train_sound_player_1)
-			if t > 6.0:
+			if t > 11.5:
 				intro_train = null
 				stop_cinematic()
 				ModeState.arrive_at_destination(ID.Location.PUMPKIN_PATCH)
@@ -124,10 +123,14 @@ func _physics_process(dt: float):
 			if t < 2.5: title_label.modulate.a = t_range_clamped(t, 1.5, 2.5)
 			else: title_label.modulate.a = t_range_clamped(t, arrive_train_length - 0.0, arrive_train_length - 0.8)
 			
+			var grimm_guitar: bool = true if TrainState.current_location == ID.Location.GRIMMS_GROTTO and !GameState.flags[ID.Flag.GRIMM_GAVE_GUITAR] else false
 			if t_bang_threshold(t, 0.2, dt): AudioState.play(AudioState.train_sound_player_2.arrival_sound, AudioState.train_sound_player_2)
-			if t_bang_threshold(t, 4.2, dt): AudioState.play_offset_from_end(location.music, AudioState.music_player_1, 0.66)
+			if t_bang_threshold(t, 4.2, dt): 
+				AudioState.play_offset_from_end(location.music, AudioState.music_player_1, 0.66)
+				if grimm_guitar: AudioState.play_offset_from_end(AudioState.music_player_1.grimm_guitar, AudioState.music_player_2, 0.66)
 			AudioState.set_volume(t_range_clamped(t, 1.0, 0.0), AudioState.train_sound_player_1)
 			AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_1)
+			if grimm_guitar: AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_2)
 			
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			ModeState.train_avatar.position.x = -400.0 + t_range_cubic_clamped(t, 0.0, arrive_train_length) * (train_arrival_point + 400.0)

@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 	if _focused != null:
 		prompt_label.text = PROMPT_FORMAT % _focused.prompt_text
 		prompt.global_position = _focused.get_prompt_position()
+	prompt.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and _focused != null:

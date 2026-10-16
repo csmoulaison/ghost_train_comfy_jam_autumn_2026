@@ -152,6 +152,7 @@ func add_scene(scene_node: Node):
 ## Dynamic state that we want to pause, for instance, during cinematics or while
 ## a pause screen is active, should check if this returns true.
 func control_paused() -> bool:
+	if mode == GameMode.MAP: return true
 	if mode == GameMode.ONLY_CINEMATIC: return true
 	if CinematicState.current_cinematic != ID.Cinematic.DEFAULT: return true
 	if pause_menu: return true
@@ -196,9 +197,20 @@ func place_train_cars():
 		car.global_position = Vector2(99999.0, 99999.0)
 	var car_x: float = 0
 	for car_index in TrainState.passenger_car_count:
-		car_x = place_car_iterate_x(passenger_car_nodes[car_index], car_x)
+		var car_node: Node = passenger_car_nodes[car_index]
+		car_node.z_index = -1 if ModeState.mode == ModeState.GameMode.TRAVEL else 0
+		set_train_z_front(car_node.front)
+		set_train_z_front(car_node.booth)
+		car_x = place_car_iterate_x(car_node, car_x)
 	for index in TrainState.cargo_car_count:
 		car_x = place_car_iterate_x(cargo_car_nodes[index], car_x)
+func set_train_z_front(node: Node):
+	if ModeState.mode == ModeState.GameMode.TRAVEL:
+		node.z_as_relative = false
+		node.z_index = 10
+	else:
+		node.z_as_relative = true
+		node.z_index = 0
 
 func update_train_avatars(scene_init: bool):
 	var grimm_avatar: PersonAvatar = train_avatar.get_node("PersonAvatar_Grimm")

@@ -134,11 +134,21 @@ frame_progress = 0.27893218
 position = Vector2(1177, -532)
 texture = ExtResource("2_l7vmw")
 
-[node name="Interactable" type="Area2D" parent="Locomotive" unique_id=42072195]
+[node name="DepartInteractable" type="Area2D" parent="Locomotive" unique_id=42072195]
 script = ExtResource("2_v4i8w")
 prompt_text = "def"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Locomotive/Interactable" unique_id=513132311]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locomotive/DepartInteractable" unique_id=513132311]
+position = Vector2(1177, -534.5)
+shape = SubResource("RectangleShape2D_l7vmw")
+
+[node name="ArriveInteractable" type="Area2D" parent="Locomotive" unique_id=1791242412]
+position = Vector2(-77.00001, -31.000004)
+scale = Vector2(0.38443696, 0.9084895)
+script = ExtResource("2_v4i8w")
+prompt_text = "def"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locomotive/ArriveInteractable" unique_id=1724555047]
 position = Vector2(1177, -534.5)
 shape = SubResource("RectangleShape2D_l7vmw")
 

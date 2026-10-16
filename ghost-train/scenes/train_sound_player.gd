@@ -4,3 +4,4 @@ extends AudioStreamPlayer
 @export var depart_sound: AudioStream
 @export var exterior: AudioStream
 @export var interior: AudioStream
+@export var road_buy: AudioStream

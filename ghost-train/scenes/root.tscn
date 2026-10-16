@@ -10,20 +10,27 @@
 [ext_resource type="Script" uid="uid://1r4trck3l2ec" path="res://scenes/train_sound_player.gd" id="9_3hfy5"]
 [ext_resource type="Script" uid="uid://dcbntg4ics7gv" path="res://scenes/music_player.gd" id="9_vgks2"]
 [ext_resource type="AudioStream" uid="uid://dmgmismxwnwba" path="res://resources/sounds/music/Train Ride.ogg" id="10_dylgi"]
+[ext_resource type="AudioStream" uid="uid://byt7be2qhth7f" path="res://resources/sounds/music/Melancholy Guitar.ogg" id="10_phl1g"]
 [ext_resource type="AudioStream" uid="uid://b6ornwkrq8wyb" path="res://resources/sounds/sfx/Train Arrival.ogg" id="10_y3xxt"]
+[ext_resource type="AudioStream" uid="uid://b1yy2ksb6geth" path="res://resources/sounds/music/Hopeful Guitar.ogg" id="11_58tnd"]
+[ext_resource type="AudioStream" uid="uid://bscd5xeq3r5bw" path="res://resources/sounds/sfx/CargoSold_4.ogg" id="11_jehah"]
 [ext_resource type="Script" uid="uid://bk48he1fgv3yf" path="res://scenes/dialogue_sound_player.gd" id="11_jrhyn"]
 [ext_resource type="AudioStream" uid="uid://bsjtayqqc53d6" path="res://resources/sounds/sfx/Train Departure.ogg" id="11_xsp7o"]
+[ext_resource type="AudioStream" uid="uid://dj38l15ef3jwu" path="res://resources/sounds/sfx/CargoSold_1.ogg" id="12_isfgf"]
 [ext_resource type="AudioStream" uid="uid://c00hwfybbahsq" path="res://resources/sounds/sfx/Train Exterior Travel.wav" id="12_l5cgh"]
 [ext_resource type="AudioStream" uid="uid://6fcicutwfrwu" path="res://resources/sounds/sfx/chit_single.ogg" id="12_log26"]
+[ext_resource type="AudioStream" uid="uid://cxmr5rfid2rbq" path="res://resources/sounds/sfx/CargoSold_2.ogg" id="13_ihmk7"]
 [ext_resource type="AudioStream" uid="uid://6o6uvbutjt0l" path="res://resources/sounds/sfx/Train Interior.wav" id="13_vgks2"]
+[ext_resource type="AudioStream" uid="uid://c4b2qjel2qhu" path="res://resources/sounds/sfx/CargoSold_3.ogg" id="14_phl1g"]
 [ext_resource type="PackedScene" uid="uid://bhhictgdmwob2" path="res://scenes/thanks_for_playing.tscn" id="18_gt4lb"]
 [ext_resource type="Script" uid="uid://c2p62kqleelt8" path="res://scenes/cursor_state.gd" id="19_mflgo"]
 [ext_resource type="PackedScene" uid="uid://d3f1dbwqwf2br" path="res://scenes/ui/upgrade_screen.tscn" id="19_ya6yc"]
-[ext_resource type="Texture2D" uid="uid://bnwut4jl6fc8d" path="res://resources/textures/pointers/pointer-default.png-1.png" id="20_f3p2p"]
-[ext_resource type="Texture2D" uid="uid://80krprkdewro" path="res://resources/textures/pointers/pointer-chat.png-1.png" id="21_ccljq"]
-[ext_resource type="Texture2D" uid="uid://hryd0uuoesw8" path="res://resources/textures/pointers/pointer-pointing.png-1.png" id="22_jehah"]
-[ext_resource type="Texture2D" uid="uid://ch6sbc05lve3g" path="res://resources/textures/pointers/pointer-train.png-1.png" id="23_e2w8j"]
+[ext_resource type="AudioStream" uid="uid://3xdtkoe1bdtx" path="res://resources/sounds/sfx/Upgrade Track.ogg" id="21_ihmk7"]
 [ext_resource type="PackedScene" uid="uid://dxt04p7r8v7vo" path="res://scenes/ui/coin_counter.tscn" id="24_ccljq"]
+[ext_resource type="Texture2D" uid="uid://dnrujy7amp8ix" path="res://resources/textures/pointers/pointer-default.png.png" id="24_isfgf"]
+[ext_resource type="Texture2D" uid="uid://bkinp6748qf5" path="res://resources/textures/pointers/pointer-chat.png.png" id="25_ihmk7"]
+[ext_resource type="Texture2D" uid="uid://evu4wb5tfe3k" path="res://resources/textures/pointers/pointer-pointing.png.png" id="26_phl1g"]
+[ext_resource type="Texture2D" uid="uid://cvofgq7n2jvrh" path="res://resources/textures/pointers/pointer-train.png.png" id="27_58tnd"]
 
 [sub_resource type="Gradient" id="Gradient_j287u"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -82,6 +89,8 @@ vertical_alignment = 1
 [node name="MusicPlayer1" type="AudioStreamPlayer" parent="." unique_id=246317801]
 script = ExtResource("9_vgks2")
 intro_music = ExtResource("10_dylgi")
+grimm_guitar = ExtResource("10_phl1g")
+scarecrow_guitar = ExtResource("11_58tnd")
 
 [node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=1840336494]
 
@@ -92,6 +101,7 @@ volume_db = 1.0
 [node name="DialogueSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1784943384]
 script = ExtResource("11_jrhyn")
 chit_sound = ExtResource("12_log26")
+cargo_sell_sounds = Array[AudioStream]([ExtResource("12_isfgf"), ExtResource("13_ihmk7"), ExtResource("14_phl1g"), ExtResource("11_jehah")])
 
 [node name="TrainSoundPlayer1" type="AudioStreamPlayer" parent="." unique_id=342983380]
 volume_db = -9.63
@@ -107,6 +117,7 @@ arrival_sound = ExtResource("10_y3xxt")
 depart_sound = ExtResource("11_xsp7o")
 exterior = ExtResource("12_l5cgh")
 interior = ExtResource("13_vgks2")
+road_buy = ExtResource("21_ihmk7")
 
 [node name="ThanksForPlaying" parent="." unique_id=216287202 instance=ExtResource("18_gt4lb")]
 
@@ -116,15 +127,16 @@ z_index = 3000
 [node name="CursorState" type="CanvasLayer" parent="." unique_id=1351167945]
 layer = 100
 script = ExtResource("19_mflgo")
-set_normal = ExtResource("20_f3p2p")
-set_chat = ExtResource("21_ccljq")
-set_point = ExtResource("22_jehah")
-set_train = ExtResource("23_e2w8j")
+set_normal = ExtResource("24_isfgf")
+set_chat = ExtResource("25_ihmk7")
+set_point = ExtResource("26_phl1g")
+set_train = ExtResource("27_58tnd")
 
 [node name="Sprite" type="Sprite2D" parent="CursorState" unique_id=964538083]
 top_level = true
 visibility_layer = 2
 z_index = 4096
+scale = Vector2(0.5, 0.5)
 centered = false
 
 [node name="CoinCounter" parent="." unique_id=695249888 instance=ExtResource("24_ccljq")]

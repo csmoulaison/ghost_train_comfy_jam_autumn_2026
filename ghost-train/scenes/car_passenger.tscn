@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://d0rt10v8t8cgl"]
 
 [ext_resource type="Texture2D" uid="uid://ir6dq7r28xsk" path="res://resources/textures/Train/wheel.png" id="1_4jirn"]
+[ext_resource type="Script" uid="uid://dsbevvcjs8d5l" path="res://scenes/car_passenger.gd" id="1_8fkfr"]
 [ext_resource type="Texture2D" uid="uid://08mb3x11fuvd" path="res://resources/textures/Train/PassengerCar-Cutaway-nowheels.png" id="2_8ux1y"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="2_yq3k8"]
 [ext_resource type="Texture2D" uid="uid://v6w830ehbik5" path="res://resources/textures/Train/PassengerCar-foreground seats.png" id="4_8ux1y"]
 [ext_resource type="Texture2D" uid="uid://cpnbsdomovggc" path="res://resources/textures/Train/PassengerCar-front-panel-nowheels.png" id="5_ksj37"]
 
-[node name="Car_Passenger" type="Node2D" unique_id=7601887]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hck3a"]
+size = Vector2(1308, 576)
+
+[node name="Car_Passenger" type="Node2D" unique_id=7601887 node_paths=PackedStringArray("front", "booth", "collision")]
+script = ExtResource("1_8fkfr")
+front = NodePath("Sprite2D_FrontPanel")
+booth = NodePath("Sprite2D_BoothFront")
+collision = NodePath("Area2D/CollisionShape2D")
 
 [node name="Wheel1" type="Sprite2D" parent="." unique_id=1752711142]
 position = Vector2(107.5, 117)
@@ -46,3 +54,10 @@ texture = ExtResource("4_8ux1y")
 [node name="Sprite2D_FrontPanel" type="Sprite2D" parent="." unique_id=256138017]
 position = Vector2(841, -410)
 texture = ExtResource("5_ksj37")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1347240773]
+position = Vector2(813, -231)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=707020387]
+position = Vector2(-20, -70)
+shape = SubResource("RectangleShape2D_hck3a")

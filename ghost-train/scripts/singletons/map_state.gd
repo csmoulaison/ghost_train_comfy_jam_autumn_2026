@@ -113,6 +113,7 @@ func _on_confirm_button():
 	if buying_tracks:
 		var road: Road = ResourceData.roads[confirmation_road]
 		if MoneyState.try_coins(road.cost):
+			AudioState.play(AudioState.train_sound_player_2.road_buy, AudioState.train_sound_player_2)
 			MapState.unlock_road(confirmation_road, true)
 		else:
 			# NOTE: we should never hit this point, as we check player money

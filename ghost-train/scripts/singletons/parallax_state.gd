@@ -18,10 +18,11 @@ func _ready():
 func _physics_process(dt: float):
 	if active:
 		var xdelta: float = scroll_speed * dt
-		var original_x: float = camera.position.x
+		#var original_x: float = camera.position.x
 		camera.position.x = lerp(camera.position.x, train_ghost_player.position.x, 10.0 * dt)
-		var cam_xdelta: float = camera.position.x - original_x
-		threshold_offset = camera.position.x - center_camera_x
+		#var cam_xdelta: float = camera.position.x - original_x
+		threshold_offset = camera.position.x - center_camera_x # because camera center isn't at far left
+		#threshold_offset = camera.position.x
 		#xdelta += cam_xdelta
 		move(xdelta)
 	else:
@@ -33,13 +34,19 @@ func move(xdelta: float):
 		var copy: ParallaxGroup = copies[index]
 		group.global_position.x -= xdelta * group.parallax_scroll_ratio
 		if copy_is_leftmost[index] and copy.global_position.x < -copy.pixel_repeat_width + threshold_offset:
-			print("copy leapfrogging")
 			copy_is_leftmost[index] = false
 			copy.position.x = group.pixel_repeat_width
 		else: if !copy_is_leftmost[index] and group.global_position.x < -group.pixel_repeat_width + threshold_offset:
-			print("group leapfrogging")
 			copy_is_leftmost[index] = true
 			group.position.x += group.pixel_repeat_width
+			copy.position.x = -group.pixel_repeat_width
+		# cases for moving left
+		else: if copy_is_leftmost[index] and group.global_position.x > group.pixel_repeat_width + threshold_offset:
+			copy_is_leftmost[index] = false
+			copy.position.x = group.pixel_repeat_width
+		else: if !copy_is_leftmost[index] and copy.global_position.x > copy.pixel_repeat_width + threshold_offset:
+			copy_is_leftmost[index] = true
+			group.position.x -= group.pixel_repeat_width
 			copy.position.x = -group.pixel_repeat_width
 
 func begin_parallax():
