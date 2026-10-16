@@ -106,7 +106,7 @@ func _physics_process(delta):
 		next_blink_time = 2.0 + randf() * 4.0
 		in_blink_time = 0.1 + randf() * 0.1
 	sprite.texture = idle_blink_texture if blinking else idle_texture
-	if abs(_velocity.x) > 0.1:
+	if abs(_velocity.x) > 2:
 		sprite.texture = walk_blink_texture if blinking else walk_texture
 	
 	if ModeState.mode == ModeState.GameMode.TRAVEL:

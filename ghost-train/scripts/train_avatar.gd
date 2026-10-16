@@ -22,9 +22,6 @@ func _ready():
 	interactable.interaction_active = false
 	
 func _physics_process(dt: float):
-	#if GameState.flags[ID.Flag.ON_END_TRAIN]: 
-	interactable.interaction_active = false
-	
 	var delta: float = -(((previous_x - position.x) * 0.01) / scale.x)
 	if ModeState.mode == ModeState.GameMode.TRAVEL: delta = 20.0 * dt
 	
@@ -41,6 +38,7 @@ func _process(_dt: float):
 			interactable.prompt_text = ""
 		ModeState.GameMode.TRAVEL:
 			interactable.interaction_active = true
+			if GameState.flags[ID.Flag.ON_END_TRAIN]: interactable.interaction_active = false
 			interactable.prompt_text = ""
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
