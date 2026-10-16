@@ -37,6 +37,7 @@ func _process(dt: float):
 			set_interactable(true)
 	if (is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION) or dressing:
 		set_interactable(false)
+	if is_hiding_jackokid: interactable.input_pickable = true
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
 
 func _physics_process(dt: float):
@@ -82,9 +83,8 @@ func _on_interacted():
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if !is_grimm_at_end:
-			if !is_hiding_jackokid: return
-			if GameState.people_locations[person_id] != TrainState.current_location: return
+		if !is_hiding_jackokid: return
+		if GameState.people_locations[person_id] != TrainState.current_location: return
 		var person: Person = ResourceData.people[person_id]
 		DialogueState.open_dialogue([], person.found_jackokid_dialogue)
 
