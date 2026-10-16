@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [node name="PumpkinPatch" type="Node2D" unique_id=166533899]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
-position = Vector2(0, -64)
+position = Vector2(-2, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
 position = Vector2(1.9999999, 62.165)
@@ -27,12 +27,12 @@ texture = ExtResource("1_s7r1u")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_bitfc")]
-position = Vector2(321, 462)
+position = Vector2(319, 462)
 scale = Vector2(0.08, 0.08)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1921859469]
 z_index = 2
-position = Vector2(0, -55.164978)
+position = Vector2(-2, -55.164978)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_3" unique_id=1092552553]
 position = Vector2(1.9999999, 62.165)
@@ -42,47 +42,47 @@ centered = false
 
 [node name="PersonAvatar-Jacko" parent="." unique_id=1781563468 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(814, 474)
+position = Vector2(812, 474)
 scale = Vector2(2.249, 2.249)
 person_id = 3
 
 [node name="PersonAvatar_kid1" parent="." unique_id=598116443 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(1014, 251)
+position = Vector2(1012, 251)
 scale = Vector2(0.67, 0.67)
 person_id = 13
 dressing = true
 
 [node name="PersonAvatar_kid8" parent="." unique_id=763720997 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(1063, 524)
+position = Vector2(1061, 524)
 scale = Vector2(1.791, 1.9)
 person_id = 20
 dressing = true
 
 [node name="PersonAvatar_kid2" parent="." unique_id=1390684158 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(997, 559.99994)
+position = Vector2(995, 559.99994)
 scale = Vector2(2, 2)
 person_id = 14
 dressing = true
 
 [node name="PersonAvatar_kid3" parent="." unique_id=2015042343 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(1044, 326)
+position = Vector2(1042, 326)
 person_id = 15
 dressing = true
 
 [node name="PersonAvatar_kid4" parent="." unique_id=1596241692 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(1101, 341.00003)
+position = Vector2(1099, 341.00003)
 scale = Vector2(1.002, 1)
 person_id = 16
 dressing = true
 
 [node name="PersonAvatar_kid5" parent="." unique_id=2109408556 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(1046.0001, 265)
+position = Vector2(1044.0001, 265)
 rotation = -3.1415927
 scale = Vector2(0.729, -0.669)
 person_id = 17
@@ -90,19 +90,19 @@ dressing = true
 
 [node name="PersonAvatar_kid7" parent="." unique_id=313850496 instance=ExtResource("2_qwc58")]
 z_index = 2
-position = Vector2(911, 296)
+position = Vector2(909, 296)
 scale = Vector2(1, 0.998)
 person_id = 19
 dressing = true
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("2_bitfc")]
 z_index = 2
-position = Vector2(481.99997, 502)
+position = Vector2(479.99997, 502)
 scale = Vector2(1.1457467, 1.1505678)
 
 [node name="ConditionalNode_pumpkins" parent="." unique_id=464916204 instance=ExtResource("7_km3yc")]
 z_index = 2
-position = Vector2(144, 552)
+position = Vector2(142, 552)
 conditions = Array[ExtResource("7_ssvon")]([SubResource("Resource_gyajs")])
 
 [node name="Sprite2D" type="Sprite2D" parent="ConditionalNode_pumpkins" unique_id=1104188808]
@@ -113,14 +113,14 @@ texture = ExtResource("8_ssvon")
 
 [node name="PersonAvatar_kid6" parent="." unique_id=1699597789 instance=ExtResource("2_qwc58")]
 z_index = 4
-position = Vector2(329.99994, 603.00006)
+position = Vector2(327.99994, 603.00006)
 scale = Vector2(2.019, 2.017)
 person_id = 18
 dressing = true
 
 [node name="BG_4" type="Node2D" parent="." unique_id=1791667079]
 z_index = 4
-position = Vector2(0, -55.164978)
+position = Vector2(-2, -55.164978)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_4" unique_id=1790954255]
 position = Vector2(9, 534.165)
@@ -130,10 +130,11 @@ centered = false
 
 [node name="PersonAvatar-Crow" parent="." unique_id=1026373344 instance=ExtResource("2_qwc58")]
 z_index = 4
-position = Vector2(247, 441)
+position = Vector2(245, 441)
 rotation = 3.1415925
 scale = Vector2(-1, -1)
 person_id = 2
 
 [node name="Kids" type="Node2D" parent="." unique_id=1616666333]
 z_index = 2
+position = Vector2(-2, 0)

@@ -14,7 +14,7 @@
 
 [sub_resource type="Resource" id="Resource_74saq"]
 script = ExtResource("5_rj22u")
-cargo_available = 2
+cargo_available = 4
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_qi2rf"]

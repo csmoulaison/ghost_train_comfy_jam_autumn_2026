@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://24ub07feidlb"]
 
-[ext_resource type="FontFile" uid="uid://dy1f627dstu88" path="res://resources/fonts/CommitMono-700-Regular.otf" id="1_wl0fn"]
+[ext_resource type="FontFile" uid="uid://dy1f627dstu88" path="res://trash/CommitMono-700-Regular.otf" id="1_wl0fn"]
 
 [sub_resource type="Theme" id="Theme_5m4q6"]
 

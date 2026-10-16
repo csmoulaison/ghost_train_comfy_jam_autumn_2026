@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cipjt15fe2i1u"]
+
+[ext_resource type="Texture2D" uid="uid://cuo80ti8dc154" path="res://trash/tmp_bg/graveyard.png" id="1_23y0j"]
+[ext_resource type="PackedScene" uid="uid://dte1yxaf2d8vt" path="res://scenes/train_avatar.tscn" id="3_23y0j"]
+[ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="3_ei2wb"]
+
+[node name="Graveyard" type="Node2D" unique_id=166533899]
+
+[node name="BG_2" type="Node2D" parent="." unique_id=1959776967]
+position = Vector2(0, -55.165)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=728166108]
+position = Vector2(-3, 53.165)
+scale = Vector2(2.7190225, 2.377787)
+texture = ExtResource("1_23y0j")
+centered = false
+
+[node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("3_23y0j")]
+position = Vector2(10.0000305, 119.00003)
+scale = Vector2(0.094164126, 0.094164126)
+
+[node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_ei2wb")]
+position = Vector2(877, 435)
+scale = Vector2(1.5575569, 1.5575569)
