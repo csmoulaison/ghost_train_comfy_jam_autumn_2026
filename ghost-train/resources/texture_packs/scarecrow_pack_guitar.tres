@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="PersonTexturePack" format=3 uid="uid://diexrmh3icu22"]
+
+[ext_resource type="Texture2D" uid="uid://bgexp7f41unth" path="res://resources/textures/characters/scarecrow/scarecrow3_0009_sc-guitar-1-blink.png" id="1_yiik5"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="2_wmwxp"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_yiik5"]
+[ext_resource type="Texture2D" uid="uid://bamf7p8qgv2ek" path="res://resources/textures/characters/scarecrow/scarecrow3_0008_sc-guitar-2.png" id="4_0a635"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="5_mqu8f"]
+[ext_resource type="Texture2D" uid="uid://d1uudjndg1pnx" path="res://resources/textures/characters/scarecrow/scarecrow3_0007_sc-guitar-2-mouth.png" id="6_mqu8f"]
+[ext_resource type="Texture2D" uid="uid://d18qhcm1iacny" path="res://resources/textures/characters/scarecrow/scarecrow3_0011_sc-guitar-1.png" id="7_oht0o"]
+[ext_resource type="Texture2D" uid="uid://b1c5wrn6no2mc" path="res://resources/textures/characters/scarecrow/scarecrow3_0010_sc-guitar-1-mouth.png" id="8_4003a"]
+
+[sub_resource type="Resource" id="Resource_85ybs"]
+script = ExtResource("2_wmwxp")
+frames = Array[Texture2D]([ExtResource("1_yiik5")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_wmwxp"]
+script = ExtResource("2_wmwxp")
+frames = Array[Texture2D]([ExtResource("4_0a635")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_yiik5"]
+script = ExtResource("2_wmwxp")
+frames = Array[Texture2D]([ExtResource("6_mqu8f"), ExtResource("7_oht0o"), ExtResource("8_4003a")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[resource]
+script = ExtResource("5_mqu8f")
+idle = SubResource("Resource_wmwxp")
+blink = SubResource("Resource_85ybs")
+talk = SubResource("Resource_yiik5")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"

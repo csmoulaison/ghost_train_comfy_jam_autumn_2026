@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="2_jp5f1"]
 [ext_resource type="Script" uid="uid://cdhq5qgadaw4p" path="res://scripts/ghost_player.gd" id="2_player"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_bxwid"]
+[ext_resource type="Texture2D" uid="uid://ce1ucpdqjf7bt" path="res://resources/textures/characters/ghost/ghost-idle-blink.png" id="3_f6u5d"]
 [ext_resource type="Script" uid="uid://b54jyetkgvw5b" path="res://scripts/interaction/player_interactor.gd" id="3_interactor"]
+[ext_resource type="Texture2D" uid="uid://bah8jxy4mo4bu" path="res://resources/textures/characters/ghost/ghost-walking.png" id="3_to8bf"]
+[ext_resource type="Texture2D" uid="uid://yio5yu0t1k8o" path="res://resources/textures/characters/ghost/ghost-walking-blink.png" id="5_bgf71"]
 
 [sub_resource type="Resource" id="Resource_s8vr0"]
 script = ExtResource("3_bxwid")
@@ -16,6 +19,10 @@ radius = 120.0
 
 [node name="GhostPlayer" type="Node2D" unique_id=123701996]
 script = ExtResource("2_player")
+idle_texture = ExtResource("2_jp5f1")
+walk_texture = ExtResource("3_to8bf")
+idle_blink_texture = ExtResource("3_f6u5d")
+walk_blink_texture = ExtResource("5_bgf71")
 
 [node name="ConditionalNode" parent="." unique_id=464916204 instance=ExtResource("2_72glb")]
 modulate = Color(1, 1, 1, 0)

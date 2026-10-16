@@ -20,9 +20,16 @@ class_name GhostPlayer extends Node2D
 ## swapped for one that faces right.
 @export var art_faces_left: bool = true
 
+@export var idle_texture: Texture2D
+@export var walk_texture: Texture2D
+@export var idle_blink_texture: Texture2D
+@export var walk_blink_texture: Texture2D
+
 var bob_phase: float = 0.0
 var bob_damped: float = 0.0
 var bob_root: float = 0.0
+var in_blink_time: float = randf() * 2.0
+var next_blink_time: float = randf() * 4.0
 
 enum MoveState {
 	IDLE,
@@ -98,6 +105,18 @@ func _process(delta: float) -> void:
 	_keep_on_screen()
 	_face_heading()
 	_use_clicked_interactable()
+	
+	var blinking: bool = false
+	if in_blink_time > 0.0:
+		blinking = true
+		in_blink_time -= delta
+	next_blink_time -= delta
+	if next_blink_time < 0.0:
+		next_blink_time = 2.0 + randf() * 4.0
+		in_blink_time = 0.1 + randf() * 0.1
+	sprite.texture = idle_blink_texture if blinking else idle_texture
+	if abs(_velocity.x) > 0.1:
+		sprite.texture = walk_blink_texture if blinking else walk_texture
 
 ## private functions
 

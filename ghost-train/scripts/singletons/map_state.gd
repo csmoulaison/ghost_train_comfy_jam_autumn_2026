@@ -96,7 +96,6 @@ func _process(dt):
 	map_scene.modulate.a = lerp(map_scene.modulate.a, target_opacity, dt * 16.0)
 	if map_scene.modulate.a < 0.01: 
 		map_scene.modulate.a = 0.0
-		print("0.0!!")
 		map_scene.visible = false
 	else: map_scene.visible = true
 	coin_amount.text = str(MoneyState.coins)

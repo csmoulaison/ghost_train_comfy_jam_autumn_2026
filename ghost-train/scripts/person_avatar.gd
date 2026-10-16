@@ -15,6 +15,9 @@ class_name PersonAvatar extends Node2D
 var active: bool = false
 var on_train: bool = false
 var location: ID.Location = ID.Location.DEFAULT
+var sequence_t: float = 0.0
+var next_blink_time: float = 0.0
+var in_blink_time: float = 0.0
 
 func _ready():
 	assert(sprite != null)
@@ -35,6 +38,35 @@ func _process(dt: float):
 	if (is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION) or dressing:
 		set_interactable(false)
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
+
+func _physics_process(dt: float):
+	var person: Person = ResourceData.people[person_id]
+	if person.default_texture_pack == null: 
+		assert(person.default_texture != null)
+		sprite.texture = person.default_texture
+	else:
+		var pack: PersonTexturePack = person.default_texture_pack
+		for option in person.conditional_texture_packs:
+			if StateCondition.check_list(option.conditions):
+				pack = option
+				break
+		var sequence: FrameSequence = pack.idle
+		if in_blink_time > 0.0:
+			sequence = pack.blink
+			in_blink_time -= dt
+		next_blink_time -= dt
+		if next_blink_time < 0.0:
+			in_blink_time = 0.1 + randf() * 0.1
+			next_blink_time = 2.0 + randf() * 5.0
+		if DialogueState.is_active() and DialogueState.current_line.person == person_id:
+			sequence = pack.talk
+			if DialogueState.current_line.talk_override_sequence != null:
+				sequence = DialogueState.current_line.talk_override_sequence
+		sequence_t += sequence.speed * 2.0 * dt
+		if sequence_t > 1.0: sequence_t -= 1.0
+		print(str(sequence_t))
+		var sequence_len: int = sequence.frames.size()
+		sprite.texture = sequence.frames[int(sequence_t * sequence_len) % sequence_len]
 
 func set_interactable(isit: bool):
 	interactable.interaction_active = isit

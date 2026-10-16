@@ -10,6 +10,7 @@ class_name StateEffect extends Resource
 @export var unload_small_cargo: ID.SmallCargo
 @export var revenue: int
 @export var cost: int
+@export var play_sound: AudioStream = null
 
 # TODO: sound effect?
 func fire():
@@ -33,6 +34,8 @@ func fire():
 		EventBus.event_signal.emit(fire_event, 0)
 	if set_flag != ID.Flag.DEFAULT:
 		GameState.flags[set_flag] = true
+	if play_sound != null:
+		AudioState.play(play_sound, AudioState.dialogue_sound_player)
 	return false
 
 static func fire_list(effects: Array[StateEffect]):

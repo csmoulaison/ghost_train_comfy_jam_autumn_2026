@@ -103,6 +103,7 @@ enum Flag {
 	ON_END_TRAIN,
 	GRIMM_GAVE_GUITAR,
 	ALL_JACKOKIDS_FOUND,
+	GAVE_GUITAR_TO_SCARECROW,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 

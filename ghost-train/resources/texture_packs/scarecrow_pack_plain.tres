@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="PersonTexturePack" format=3 uid="uid://c10p6tn4njq02"]
+
+[ext_resource type="Texture2D" uid="uid://c0uj4vbhyv2pq" path="res://resources/textures/characters/scarecrow/scarecrow3_0000_sc-scythe-blink.png" id="1_7s5yy"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="2_xnrok"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_qcudh"]
+[ext_resource type="Texture2D" uid="uid://bfppflceboc4d" path="res://resources/textures/characters/scarecrow/scarecrow3_0005_sc-scythe-plain.png" id="4_pnulk"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="5_xllwy"]
+[ext_resource type="Texture2D" uid="uid://bma4ey5atalk6" path="res://resources/textures/characters/scarecrow/scarecrow3_0004_sc-scythe-plain-mouth.png" id="6_g450u"]
+
+[sub_resource type="Resource" id="Resource_xohmq"]
+script = ExtResource("2_xnrok")
+frames = Array[Texture2D]([ExtResource("1_7s5yy")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_ytlhi"]
+script = ExtResource("2_xnrok")
+frames = Array[Texture2D]([ExtResource("4_pnulk")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_5f5kt"]
+script = ExtResource("2_xnrok")
+frames = Array[Texture2D]([ExtResource("6_g450u"), ExtResource("4_pnulk")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[resource]
+script = ExtResource("5_xllwy")
+idle = SubResource("Resource_ytlhi")
+blink = SubResource("Resource_xohmq")
+talk = SubResource("Resource_5f5kt")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"

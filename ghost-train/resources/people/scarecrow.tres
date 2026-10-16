@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_g2ct0"]
 [ext_resource type="Resource" uid="uid://0aqy6od3k4ll" path="res://resources/dialogue_lines/scarecrow_offer_corn.tres" id="4_g2ct0"]
 [ext_resource type="Texture2D" uid="uid://c54bqlp051b8q" path="res://resources/textures/characters/scarecrow/scarecrow3_0001_sc-scythe-upset-mouth.png" id="5_g2ct0"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="5_jwxfg"]
+[ext_resource type="Resource" uid="uid://bbxwhdvq2o8pl" path="res://resources/texture_packs/scarecrow_pack_angry.tres" id="6_lb2p0"]
+[ext_resource type="Resource" uid="uid://diexrmh3icu22" path="res://resources/texture_packs/scarecrow_pack_guitar.tres" id="7_a6lsg"]
+[ext_resource type="Resource" uid="uid://c10p6tn4njq02" path="res://resources/texture_packs/scarecrow_pack_plain.tres" id="7_fdbpx"]
 
 [sub_resource type="Resource" id="Resource_nk5j5"]
 script = ExtResource("3_g2ct0")
@@ -176,6 +180,8 @@ script = ExtResource("1_hfkhs")
 name = "Scarecrow"
 starting_location = 5
 default_texture = ExtResource("5_g2ct0")
+conditional_texture_packs = Array[ExtResource("5_jwxfg")]([ExtResource("6_lb2p0"), ExtResource("7_a6lsg")])
+default_texture_pack = ExtResource("7_fdbpx")
 sprite_scale = 0.23
 conditional_interact_dialogue = Array[ExtResource("1_nggyv")]([SubResource("Resource_fnbb7"), SubResource("Resource_5sfjl"), SubResource("Resource_fdbpx"), ExtResource("4_g2ct0"), SubResource("Resource_4sxnt")])
 default_interact_dialogue = SubResource("Resource_a6lsg")

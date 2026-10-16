@@ -12,6 +12,7 @@ class_name DialogueLine extends Resource
 ## node. We also skip past the text and effects of this line, so those fields
 ## are ignored and we move straight to one of the cycle lines.
 @export var cycle: ID.DialogueCycle = ID.DialogueCycle.DEFAULT
+@export var talk_override_sequence: FrameSequence = null
 
 @export_group("Prompt")
 ## Fill this in to ask the player Accept / Decline once the line has printed.
