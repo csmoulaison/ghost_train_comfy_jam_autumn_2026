@@ -12,6 +12,7 @@ var previous_x: float = 0.0
 
 func _ready():
 	assert(interactable != null)
+	Cursor.define_hover(interactable, Cursor.Type.TRAIN)
 	interactable.interacted.connect(_on_interacted)
 	interactable.input_event.connect(_on_input_event)
 	locomotive_wheel_frame_count = locomotive_wheel_frames.size()
@@ -34,11 +35,9 @@ func _physics_process(dt: float):
 func _process(_dt: float):
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
-			#interactable.input_pickable = true
 			interactable.interaction_active = false
 			interactable.prompt_text = "Depart"
 		ModeState.GameMode.TRAVEL:
-			#interactable.input_pickable = false
 			interactable.interaction_active = true
 			interactable.prompt_text = "Arrive"
 
@@ -46,6 +45,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if !ModeState.control_paused() and ModeState.mode == ModeState.GameMode.DESTINATION:
 			ModeState.enter_map_mode(false)
+	if ModeState.mode != ModeState.GameMode.DESTINATION:
+		Cursor.change(Cursor.Type.NORMAL)
 
 func _on_interacted():
 	if GameState.flags[ID.Flag.ON_END_TRAIN]: return

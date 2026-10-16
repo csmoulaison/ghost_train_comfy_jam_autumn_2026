@@ -22,16 +22,6 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		var valid_path: bool = false
 		if MapState.locations_unlocked[location_id] and location_id != TrainState.current_location:
 			select_node(location_id, ID.Road.FARMERS_MARKET_TO_PUMPKIN_PATCH, true)
-			#for road_id in ID.Road.ROAD_COUNT:
-				#var road: Road = ResourceData.roads[road_id]
-				#if road.endpoint_1 == TrainState.current_location and road.endpoint_2 == location_id:
-					#select_node(road.endpoint_2, road_id, true)
-					#valid_path = true
-					#break
-				#if road.endpoint_2 == TrainState.current_location and road.endpoint_1 == location_id:
-					#select_node(road.endpoint_1, road_id, true)
-					#valid_path = true
-					#break
 
 		if !valid_path:
 			# TODO: feedback to player that the selection was invalid
@@ -49,9 +39,8 @@ static func select_node(new_location_id: ID.Location, road_id: ID.Road, confirma
 	TrainState.current_road = road_id
 	var location: Location = ResourceData.locations[new_location_id]
 	if confirmation:
-		MapState.open_confirmation_dialog("Do you want to go\nto " + location.name + "?")
+		MapState.open_confirmation_dialog(location.name, "Do you want to depart?", "Depart", "Stay")
 
-# NOTE: this is virtually identical to set_visual_active_state in MapNode
 func set_visual_active_state(active: bool):
 	if !MapState.locations_unlocked[location_id]:
 		sprite_node.texture = locked_texture

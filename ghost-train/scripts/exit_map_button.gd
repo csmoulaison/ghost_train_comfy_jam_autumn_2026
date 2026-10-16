@@ -14,7 +14,6 @@ func _process(_dt):
 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		#ModeState.load_destination_mode(TrainState.current_location)
 		ModeState.switch_mode(ModeState.GameMode.DESTINATION)
 		if MapState.buying_tracks:
 			DialogueState.open_dialogue([], post_track_dialogue)

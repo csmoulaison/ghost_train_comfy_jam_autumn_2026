@@ -21,20 +21,29 @@ func _ready():
 	assert(interactable != null)
 	interactable.interacted.connect(_on_interacted)
 	interactable.input_event.connect(_on_input_event)
-	
+	interactable.mouse_entered.connect(_on_mouse_entered)
+	interactable.mouse_exited.connect(Cursor.change.bind(Cursor.Type.NORMAL))
+
 func _process(dt: float):
 	active = check_active()
 	var target_opacity: float = 0.0
-	interactable.interaction_active = false
-	interactable.input_pickable = false
+	set_interactable(false)
 	if active:
 		target_opacity = 1.0
 		if on_train and ModeState.mode == ModeState.GameMode.TRAVEL or !on_train and ModeState.mode == ModeState.GameMode.DESTINATION:
-			interactable.interaction_active = true
+			set_interactable(true)
 	if (is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION) or dressing:
-		interactable.interaction_active = false
+		set_interactable(false)
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
-	
+
+func set_interactable(isit: bool):
+	interactable.interaction_active = isit
+	interactable.input_pickable = isit
+
+func _on_mouse_entered():
+	if interactable.interaction_active:
+		Cursor.change(Cursor.Type.CHAT)
+
 func _on_interacted():
 	var person: Person = ResourceData.people[person_id]
 	DialogueState.open_dialogue(person.conditional_interact_dialogue, person.default_interact_dialogue)

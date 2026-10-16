@@ -17,7 +17,6 @@ func _ready():
 	assert(sprite_node != null)
 	assert(buy_indicator_node != null)
 
-# TODO: more feedback for tutorial stage of track buying map 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		#if ModeState.control_paused(): return
@@ -33,15 +32,17 @@ func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 		if !GameState.flags[ID.Flag.GROTTO_ROAD_AVAILABLE] and road_id == ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO: 
 			DialogueState.open_dialogue([], try_grotto_dialogue)
 			return
+			
+		# TODO: feedback for not having enough monies. we are flashing red + we want a sound
+		if road.cost > MoneyState.coins: 
+			MapState.flash_coins()
+			return
 		
-		# TODO: confirmation dialog box for road purchases
-		if MoneyState.try_coins(road.cost):
-			MapState.unlock_road(road_id, true)
-		else:
-			# TODO: feedback for not having enough monies
-			print("player didn't have enough coins to purchase track.")
+		var end1: Location = ResourceData.locations[road.endpoint_1]
+		var end2: Location = ResourceData.locations[road.endpoint_2]
+		MapState.confirmation_road = road_id
+		MapState.open_confirmation_dialog(end1.name + " - " + end2.name, str(road.cost) + " Coins", "Buy Track", "Cancel")
 
-# NOTE: this is virtually identical to set_visual_active_state in MapLocation
 func set_visual_active_state(active: bool, buy: bool, buy_texture: Texture2D):
 	buyable = buy
 	if buyable: 

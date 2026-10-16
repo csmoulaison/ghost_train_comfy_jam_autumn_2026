@@ -43,6 +43,7 @@ func _ready() :
 	assert(pause_menu_scene != null)
 	assert(end_scene != null)
 	EventBus.event_signal.connect(_on_event)
+	MapState.close()
 
 func _process(_dt: float):
 	# NOTE: This is done so that every node's _ready function runs on game
@@ -57,6 +58,7 @@ func _process(_dt: float):
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		return
 		if ModeState.pause_menu:
 			scene_parent.remove_child(pause_menu_scene)
 			pause_menu = false
@@ -107,7 +109,7 @@ func _on_event(event: ID.Event, _arg: int):
 func enter_map_mode(buying_tracks: bool):
 	MapState.buying_tracks = buying_tracks
 	switch_mode(GameMode.MAP)
-	MapState.init_visual_state()
+	MapState.open()
 
 func switch_mode(new_mode: GameMode):
 	ParallaxState.end_parallax()
@@ -121,7 +123,8 @@ func switch_mode(new_mode: GameMode):
 			remove_all_scenes(destination_scene)
 			add_scene(destination_scene)
 		GameMode.MAP:
-			add_scene(map_scene)
+			MapState.open()
+			#add_scene(map_scene)
 		GameMode.MAIN_MENU:
 			remove_all_scenes()
 			add_scene(main_menu_scene)
@@ -136,7 +139,7 @@ func switch_mode(new_mode: GameMode):
 func remove_all_scenes(exclude: Node = null):
 	if travel_scene != exclude: scene_parent.remove_child(travel_scene)
 	if destination_scene != exclude: scene_parent.remove_child(destination_scene)
-	if map_scene != exclude: scene_parent.remove_child(map_scene)
+	#if map_scene != exclude: scene_parent.remove_child(map_scene)
 	if main_menu_scene != exclude: scene_parent.remove_child(main_menu_scene)
 	if pause_menu_scene != exclude: scene_parent.remove_child(pause_menu_scene)
 	if end_scene != exclude: scene_parent.remove_child(end_scene)
@@ -181,6 +184,10 @@ func load_subscene(parent: Node, subscene_path: String):
 	assert(train_avatar != null)
 	
 	# Place train cars
+	place_train_cars()
+	update_train_avatars(true)
+
+func place_train_cars():
 	passenger_car_nodes = train_avatar.find_children("Car_Passenger*")
 	cargo_car_nodes = train_avatar.find_children("Car_Cargo*")
 	for car in passenger_car_nodes: 
@@ -192,7 +199,6 @@ func load_subscene(parent: Node, subscene_path: String):
 		car_x = place_car_iterate_x(passenger_car_nodes[car_index], car_x)
 	for index in TrainState.cargo_car_count:
 		car_x = place_car_iterate_x(cargo_car_nodes[index], car_x)
-	update_train_avatars(true)
 
 func update_train_avatars(scene_init: bool):
 	var grimm_avatar: PersonAvatar = train_avatar.get_node("PersonAvatar_Grimm")

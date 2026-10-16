@@ -142,6 +142,7 @@ default_next_line = SubResource("Resource_u73mt")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [node name="MapScene" type="Node2D" unique_id=57497232]
+visible = false
 z_index = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314851662]

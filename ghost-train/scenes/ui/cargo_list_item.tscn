@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c15vttp842sts" path="res://resources/textures/buttons/checkmark.png" id="1_mabig"]
 [ext_resource type="Texture2D" uid="uid://mjjuvrpifidq" path="res://resources/textures/cargo/UI-icon-pumpkin.png" id="2_wdbv3"]
 [ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="3_mmymn"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="3_tlf1e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wolmv"]
 content_margin_left = 12.0
@@ -70,6 +71,7 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_tlf1e")
 theme_override_font_sizes/font_size = 20
 text = "Pumpkin"
 
@@ -85,6 +87,7 @@ theme_override_constants/separation = 7
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_tlf1e")
 theme_override_font_sizes/font_size = 18
 text = "10"
 

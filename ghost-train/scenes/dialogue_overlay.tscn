@@ -57,7 +57,7 @@ shader_parameter/ribbon_spread = 20.0
 shader_parameter/ribbon_tightness = 0.7
 shader_parameter/ribbon_brightness = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilkg5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqe7f"]
 shader = ExtResource("6_yc8ip")
 shader_parameter/recolor = Color(1, 1, 1, 1)
 shader_parameter/amount = 0.8
@@ -168,7 +168,6 @@ shader_parameter/ribbon_tightness = 0.5
 shader_parameter/ribbon_brightness = 0.6
 
 [node name="DialogueOverlay" type="CanvasLayer" unique_id=1750081734]
-layer = 10
 script = ExtResource("1_t5kwb")
 
 [node name="DialoguePanel" type="Panel" parent="." unique_id=1726236941]
@@ -222,7 +221,7 @@ fit_content = true
 
 [node name="NextMarker" type="TextureRect" parent="DialoguePanel" unique_id=1416883236]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_ilkg5")
+material = SubResource("ShaderMaterial_qqe7f")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

@@ -40,12 +40,14 @@ texture = ExtResource("5_mg11p")
 
 [node name="HereMarker" type="Sprite2D" parent="." unique_id=230886549]
 visible = false
+z_index = 250
 position = Vector2(0, -7.000001)
 scale = Vector2(0.5882353, 0.5882353)
 texture = ExtResource("4_dy3k1")
 
 [node name="DestinationMarker" type="AnimatedSprite2D" parent="." unique_id=1192121837]
 visible = false
+z_index = 225
 scale = Vector2(0.5882353, 0.5882353)
 sprite_frames = SubResource("SpriteFrames_wft6q")
 autoplay = "default"

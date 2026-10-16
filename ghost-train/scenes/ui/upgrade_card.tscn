@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://c85nird7r44nu"]
 
 [ext_resource type="Texture2D" uid="uid://bgkomkk7i0d2p" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-1of4.png" id="1_qdprk"]
+[ext_resource type="Script" uid="uid://ylfa5nmht5yq" path="res://scenes/ui/boxcar_pips.gd" id="2_0d38a"]
 [ext_resource type="Texture2D" uid="uid://bcwwbd6bvye14" path="res://resources/textures/upgrades_and_stuff/CargoCar-mini.png" id="2_jocwj"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="3_0d38a"]
 [ext_resource type="Texture2D" uid="uid://cpki7d66spppm" path="res://resources/textures/dialogue/dialog_nameplate.png" id="3_jocwj"]
 [ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="3_mmvrv"]
+[ext_resource type="Texture2D" uid="uid://jffa3bhtxxmn" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-2of4.png" id="3_ocjni"]
 [ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="4_0d38a"]
+[ext_resource type="Texture2D" uid="uid://csikxaenqiwfw" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-3of4.png" id="4_8fymt"]
+[ext_resource type="Texture2D" uid="uid://dirdfbmuyuhtd" path="res://resources/textures/upgrades_and_stuff/car amount icons/boxcar-4of4.png" id="5_m8k7k"]
+[ext_resource type="AudioStream" uid="uid://dtbkigdxt1p0g" path="res://resources/sounds/sfx/Upgrade Cars.ogg" id="6_8fymt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdprk"]
 content_margin_left = 16.0
@@ -37,6 +43,9 @@ layout_mode = 2
 texture = ExtResource("1_qdprk")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_0d38a")
+textures = Array[Texture2D]([ExtResource("1_qdprk"), ExtResource("3_ocjni"), ExtResource("4_8fymt"), ExtResource("5_m8k7k")])
+upgrade_sound = ExtResource("6_8fymt")
 
 [node name="CarImage" type="TextureRect" parent="VBoxContainer" unique_id=1721280966]
 unique_name_in_owner = true
@@ -50,6 +59,7 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_0d38a")
 theme_override_font_sizes/font_size = 24
 text = "Boxcar"
 
@@ -57,6 +67,7 @@ text = "Boxcar"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_0d38a")
 theme_override_font_sizes/font_size = 14
 text = "Carry more cargo per run."
 
@@ -89,6 +100,7 @@ alignment = 1
 [node name="Price" type="Label" parent="VBoxContainer/BuyButton/HBoxContainer" unique_id=1711306643]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_0d38a")
 theme_override_font_sizes/font_size = 18
 text = "Buy – 20"
 

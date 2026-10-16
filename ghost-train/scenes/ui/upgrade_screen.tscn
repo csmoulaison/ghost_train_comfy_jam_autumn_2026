@@ -1,15 +1,58 @@
 [gd_scene format=3 uid="uid://d3f1dbwqwf2br"]
 
-[ext_resource type="Texture2D" uid="uid://bx4f18mgi3bio" path="res://resources/textures/upgrades_and_stuff/upgrade comp/Withch_s Trainyard - comp-1.jpg" id="1_5glte"]
 [ext_resource type="PackedScene" uid="uid://c85nird7r44nu" path="res://scenes/ui/upgrade_card.tscn" id="1_clnow"]
 [ext_resource type="Texture2D" uid="uid://cpknqpcoyrkvb" path="res://resources/textures/dialogue/dialog_nameplate -pressed.png" id="1_to70l"]
 [ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="2_5glte"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="3_cnp6h"]
 [ext_resource type="Texture2D" uid="uid://jc3wwrvmxjdm" path="res://resources/textures/upgrades_and_stuff/exit button.png" id="5_g4jv7"]
 [ext_resource type="Texture2D" uid="uid://1fsd55a2hfl3" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-1of3.png" id="5_to70l"]
 [ext_resource type="Texture2D" uid="uid://c0ywy7xt0fsts" path="res://resources/textures/upgrades_and_stuff/PassengerCar-mini.png" id="6_5glte"]
+[ext_resource type="Script" uid="uid://c2cg7ju5tb6rm" path="res://scenes/ui/map_close_button.gd" id="6_ygxdb"]
+[ext_resource type="Resource" uid="uid://b8ai4g33vog4c" path="res://resources/dialogue_lines/witch_post_map_normal.tres" id="7_shjbj"]
 [ext_resource type="Texture2D" uid="uid://dauypvhvd3cg" path="res://resources/textures/dialogue/dialog_nameplate -hover.png" id="8_g4jv7"]
+[ext_resource type="Texture2D" uid="uid://cm1l0vm6wnnv4" path="res://resources/textures/map/Map.jpg" id="9_61kos"]
 [ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="9_cnp6h"]
+[ext_resource type="PackedScene" uid="uid://byi0o5fb0pfxh" path="res://scenes/map_road.tscn" id="10_pr57s"]
 [ext_resource type="Texture2D" uid="uid://c1cis3elljncv" path="res://resources/textures/dialogue/dialog_nameplate -disabled.png" id="10_ygxdb"]
+[ext_resource type="Texture2D" uid="uid://ctkrdo4gatt1j" path="res://resources/textures/map/map-track-grave-market-active-1.png" id="11_j1hvk"]
+[ext_resource type="Texture2D" uid="uid://4pwti54o8om1" path="res://resources/textures/map/map-track-grave-market-active.png" id="12_fkvrg"]
+[ext_resource type="Texture2D" uid="uid://dwv5jwldpenc4" path="res://resources/textures/map/map-track-market-patch-inactive.png" id="13_yxkva"]
+[ext_resource type="Texture2D" uid="uid://ccl0x3ytmsw36" path="res://resources/textures/map/map-track-market-patch-active.png" id="14_31iei"]
+[ext_resource type="Texture2D" uid="uid://c5glvitlrvuo4" path="res://resources/textures/map/map-track-market-trainyard-inactive.png" id="15_k4y07"]
+[ext_resource type="Texture2D" uid="uid://bx4l7l81o3mar" path="res://resources/textures/map/map-track-market-trainyard-active.png" id="16_ga8tq"]
+[ext_resource type="Texture2D" uid="uid://bud7qp220iaj6" path="res://resources/textures/map/map-track-corn-trainyard-active-1.png" id="17_xotje"]
+[ext_resource type="Texture2D" uid="uid://cg4gefo841hmc" path="res://resources/textures/map/map-track-corn-trainyard-active.png" id="18_fpuix"]
+[ext_resource type="Texture2D" uid="uid://dflbc7q2cp1v2" path="res://resources/textures/map/map-track-patch-lake-active-1.png" id="19_huux6"]
+[ext_resource type="Texture2D" uid="uid://b5fp4xu2a4q5m" path="res://resources/textures/map/map-track-patch-lake-active.png" id="20_67fp7"]
+[ext_resource type="Texture2D" uid="uid://dhjjep4ndgua5" path="res://resources/textures/map/map-track-corn-lake-inactive.png" id="21_m60hq"]
+[ext_resource type="Texture2D" uid="uid://mbw4xs26pipy" path="res://resources/textures/map/map-track-corn-lake-active.png" id="22_qetxi"]
+[ext_resource type="Texture2D" uid="uid://bqb5dmdq6udq5" path="res://resources/textures/map/map-track-lake-foerst-inactive.png" id="23_gr4cl"]
+[ext_resource type="Texture2D" uid="uid://8npp6rv4w3ld" path="res://resources/textures/map/map-track-lake-foerst-active.png" id="24_ie84j"]
+[ext_resource type="Texture2D" uid="uid://bxb4bv4plenym" path="res://resources/textures/map/map-track-buzzford-lake-inactive.png" id="25_jt6w6"]
+[ext_resource type="Texture2D" uid="uid://b5qckc6ere5v7" path="res://resources/textures/map/map-track-corn-buzzford-lake-inactive.png" id="26_ucov1"]
+[ext_resource type="Texture2D" uid="uid://ddn1u4elo685a" path="res://resources/textures/map/map-track-corn-buzzford-lake-active.png" id="27_focu5"]
+[ext_resource type="Texture2D" uid="uid://bhipmhus32ls7" path="res://resources/textures/map/map-track-buzzford-grotto-inactive.png" id="28_un2j4"]
+[ext_resource type="Texture2D" uid="uid://bxibbwg2jf2pc" path="res://resources/textures/map/map-track-buzzford-grotto-active.png" id="29_4m0wr"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="30_yrjfx"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="31_m7u48"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="32_7uew4"]
+[ext_resource type="Texture2D" uid="uid://b17f8wsli88v8" path="res://resources/textures/map/map-track-market-corntown-inactive.png" id="33_5alhn"]
+[ext_resource type="Texture2D" uid="uid://pq7hpnrww6o4" path="res://resources/textures/map/map-track-market-corntown-active.png" id="34_b75fd"]
+[ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="35_tak6q"]
+[ext_resource type="Texture2D" uid="uid://cmife1cyg5uar" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-2of3.png" id="36_ctsbo"]
+[ext_resource type="Texture2D" uid="uid://0vy025asn87d" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-3of3.png" id="37_61kos"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnp6h"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.47058824)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_to70l"]
 content_margin_left = 16.0
@@ -39,7 +82,26 @@ shadow_color = Color(0, 0, 0, 0.21568628)
 shadow_size = 3
 shadow_offset = Vector2(0, 4)
 
-[node name="UpgradeScreen" type="Control" unique_id=1053150587]
+[sub_resource type="Resource" id="Resource_u73mt"]
+script = ExtResource("31_m7u48")
+person = 5
+text = "A flying track will do the trick. I need special help from a magic mushroom."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_f0c3g"]
+script = ExtResource("30_yrjfx")
+set_flag = 14
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_qe1a0"]
+script = ExtResource("31_m7u48")
+person = 5
+text = "Ah! To get there we'll need to fly."
+post_effects = Array[ExtResource("30_yrjfx")]([SubResource("Resource_f0c3g")])
+default_next_line = SubResource("Resource_u73mt")
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[node name="MapOverlay" type="Control" unique_id=1053150587]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,14 +109,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="comp mockup" type="TextureRect" parent="." unique_id=2043667045]
-visible = false
-self_modulate = Color(1, 1, 1, 0.25490198)
+[node name="Panel" type="Panel" parent="." unique_id=2073260476]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(0.5955697, 0.5992766)
-texture = ExtResource("1_5glte")
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 1172.0
+offset_bottom = 674.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cnp6h")
 
 [node name="Header" type="Control" parent="." unique_id=646042787]
 anchors_preset = 0
@@ -80,6 +143,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 14
 text = "Witch"
 horizontal_alignment = 1
@@ -93,6 +157,7 @@ offset_top = 52.0
 offset_right = 314.0
 offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.9999998, 0.9443456, 0.91160727, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 38
 text = "What'll it be?"
 
@@ -123,10 +188,12 @@ stretch_mode = 5
 [node name="CoinAmount" type="Label" parent="CoinCounter/PanelContainer/HBoxContainer" unique_id=1665381173]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 24
 text = "20"
 
-[node name="CloseButton" type="TextureButton" parent="." unique_id=1678085672]
+[node name="CloseButton1" type="TextureButton" parent="." unique_id=1678085672]
 layout_mode = 0
 offset_left = 993.0
 offset_top = 40.0
@@ -135,6 +202,20 @@ offset_bottom = 76.0
 texture_normal = ExtResource("5_g4jv7")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("6_ygxdb")
+post_track_dialogue = ExtResource("7_shjbj")
+
+[node name="CloseButton2" type="TextureButton" parent="." unique_id=1764417362]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 67.0
+offset_right = 729.0
+offset_bottom = 103.0
+texture_normal = ExtResource("5_g4jv7")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_ygxdb")
+post_track_dialogue = ExtResource("7_shjbj")
 
 [node name="MapCard" type="PanelContainer" parent="." unique_id=564274912]
 layout_mode = 0
@@ -142,21 +223,199 @@ offset_left = 67.0
 offset_top = 113.0
 offset_right = 722.0
 offset_bottom = 609.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpnye")
 
-[node name="MapPlaceholder" type="ColorRect" parent="MapCard" unique_id=1780027450]
-custom_minimum_size = Vector2(635, 463)
-layout_mode = 2
-color = Color(0.9043267, 0.92555475, 0.9106136, 1)
+[node name="Map" type="Sprite2D" parent="." unique_id=278085140]
+position = Vector2(394, 361)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("9_61kos")
 
-[node name="Label" type="Label" parent="MapCard/MapPlaceholder" unique_id=214671479]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 95.0
-offset_right = 474.0
-offset_bottom = 140.0
-theme_override_colors/font_color = Color(0.49803922, 0.57254905, 0.5803922, 0.38431373)
-text = "MAP GOES HERE"
+[node name="MapRoad1" parent="Map" unique_id=1083504268 instance=ExtResource("10_pr57s")]
+z_index = 200
+position = Vector2(-342.51364, -220.49324)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 1
+locked_texture = ExtResource("11_j1hvk")
+inactive_texture = ExtResource("12_fkvrg")
+active_texture = ExtResource("12_fkvrg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad1" unique_id=1255192901]
+z_index = -5
+position = Vector2(-32.813995, 1.21875)
+scale = Vector2(0.5098285, 0.50982857)
+texture = ExtResource("12_fkvrg")
+
+[node name="MapRoad2" parent="Map" unique_id=2004557442 instance=ExtResource("10_pr57s")]
+position = Vector2(-268.80792, -126.69931)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 2
+locked_texture = ExtResource("13_yxkva")
+inactive_texture = ExtResource("14_31iei")
+active_texture = ExtResource("14_31iei")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad2" unique_id=733516851]
+z_index = -5
+position = Vector2(0.8465347, -1.0380936)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("14_31iei")
+
+[node name="MapRoad3" parent="Map" unique_id=1896063310 instance=ExtResource("10_pr57s")]
+position = Vector2(-355.35794, 92.05056)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 4
+locked_texture = ExtResource("15_k4y07")
+inactive_texture = ExtResource("16_ga8tq")
+active_texture = ExtResource("16_ga8tq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad3" unique_id=740557936]
+z_index = -5
+position = Vector2(-5.0546794, 4.0145826)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("16_ga8tq")
+
+[node name="MapRoad4" parent="Map" unique_id=1356097258 instance=ExtResource("10_pr57s")]
+position = Vector2(-184.91248, 217.44342)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 6
+locked_texture = ExtResource("17_xotje")
+inactive_texture = ExtResource("18_fpuix")
+active_texture = ExtResource("18_fpuix")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad4" unique_id=680136917]
+z_index = -5
+position = Vector2(2.6702042, -3.2327347)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("18_fpuix")
+
+[node name="MapRoad5" parent="Map" unique_id=1352527845 instance=ExtResource("10_pr57s")]
+position = Vector2(109.17619, -284.71454)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 5
+locked_texture = ExtResource("19_huux6")
+inactive_texture = ExtResource("20_67fp7")
+active_texture = ExtResource("20_67fp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad5" unique_id=842196399]
+z_index = -5
+position = Vector2(6.517564, 10.964785)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("20_67fp7")
+
+[node name="MapRoad6" parent="Map" unique_id=954768214 instance=ExtResource("10_pr57s")]
+position = Vector2(94.19126, -117.73907)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 7
+locked_texture = ExtResource("21_m60hq")
+inactive_texture = ExtResource("22_qetxi")
+active_texture = ExtResource("22_qetxi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad6" unique_id=492020931]
+z_index = -5
+position = Vector2(11.252766, 2.5006027)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("22_qetxi")
+
+[node name="MapRoad8" parent="Map" unique_id=1741071717 instance=ExtResource("10_pr57s")]
+position = Vector2(513.7705, -224.77463)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 9
+locked_texture = ExtResource("23_gr4cl")
+inactive_texture = ExtResource("24_ie84j")
+active_texture = ExtResource("24_ie84j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad8" unique_id=172012606]
+z_index = -5
+position = Vector2(-27.19682, 3.4860296)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("24_ie84j")
+
+[node name="MapRoad9" parent="Map" unique_id=701845879 instance=ExtResource("10_pr57s")]
+position = Vector2(47.095703, 199.08609)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 8
+locked_texture = ExtResource("25_jt6w6")
+inactive_texture = ExtResource("26_ucov1")
+active_texture = ExtResource("27_focu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad9" unique_id=691343655]
+z_index = -5
+position = Vector2(-3.4704208, -2.9600067)
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("27_focu5")
+
+[node name="MapRoad10" parent="Map" unique_id=1523023618 instance=ExtResource("10_pr57s")]
+position = Vector2(408.8758, 346.7951)
+scale = Vector2(1.7121525, 1.7121526)
+road_id = 10
+locked_texture = ExtResource("28_un2j4")
+inactive_texture = ExtResource("29_4m0wr")
+active_texture = ExtResource("29_4m0wr")
+try_grotto_dialogue = SubResource("Resource_qe1a0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad10" unique_id=1434271370]
+z_index = -5
+scale = Vector2(0.50982857, 0.50982857)
+texture = ExtResource("29_4m0wr")
+
+[node name="MapRoad7" parent="Map" unique_id=686074369 instance=ExtResource("10_pr57s")]
+position = Vector2(-249.97424, -3.4243164)
+scale = Vector2(1.7121526, 1.7121527)
+road_id = 3
+locked_texture = ExtResource("33_5alhn")
+inactive_texture = ExtResource("34_b75fd")
+active_texture = ExtResource("34_b75fd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/MapRoad7" unique_id=1931883729]
+z_index = -5
+position = Vector2(1.4545975, 2.5325851)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_b75fd")
+
+[node name="MapLocation4" parent="Map" unique_id=566530891 instance=ExtResource("35_tak6q")]
+position = Vector2(-458.8568, -280.7931)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 1
+
+[node name="MapLocation2" parent="Map" unique_id=454798389 instance=ExtResource("35_tak6q")]
+position = Vector2(-426.32593, -121.562805)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 2
+
+[node name="MapLocation3" parent="Map" unique_id=1068569206 instance=ExtResource("35_tak6q")]
+position = Vector2(-95.88049, -178.0639)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 3
+
+[node name="MapLocation5" parent="Map" unique_id=1950627953 instance=ExtResource("35_tak6q")]
+position = Vector2(-313.32385, 335.5818)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 4
+
+[node name="MapLocation6" parent="Map" unique_id=2038569085 instance=ExtResource("35_tak6q")]
+position = Vector2(-61.63745, 68.486084)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 5
+
+[node name="MapLocation9" parent="Map" unique_id=1105816486 instance=ExtResource("35_tak6q")]
+position = Vector2(611.2384, 273.94446)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 9
+
+[node name="MapLocation10" parent="Map" unique_id=128894855 instance=ExtResource("35_tak6q")]
+position = Vector2(172.92749, 256.82288)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 7
+
+[node name="MapLocation7" parent="Map" unique_id=1585212064 instance=ExtResource("35_tak6q")]
+position = Vector2(337.29407, -297.9146)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 6
+
+[node name="MapLocation8" parent="Map" unique_id=1139390593 instance=ExtResource("35_tak6q")]
+position = Vector2(463.9934, -65.06183)
+scale = Vector2(1.7121525, 1.7121527)
+location_id = 8
 
 [node name="BoxcarCard" parent="." unique_id=858226585 instance=ExtResource("1_clnow")]
 layout_mode = 0
@@ -174,6 +433,7 @@ offset_bottom = 595.0
 
 [node name="LevelPips" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="0" unique_id=1808755555]
 texture = ExtResource("5_to70l")
+textures = Array[Texture2D]([ExtResource("5_to70l"), ExtResource("36_ctsbo"), ExtResource("37_61kos")])
 
 [node name="CarImage" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="1" unique_id=1721280966]
 texture = ExtResource("6_5glte")
@@ -184,7 +444,8 @@ text = "Coach car"
 [node name="Description" parent="CoachCard/VBoxContainer" parent_id_path=PackedInt32Array(783867874, 1051436825) index="3" unique_id=681891724]
 text = "Room for more passengers."
 
-[node name="BuyTrackPopup" type="PanelContainer" parent="." unique_id=491579579]
+[node name="ConfirmPopup" type="PanelContainer" parent="." unique_id=491579579]
+z_index = 500
 layout_mode = 0
 offset_left = 246.0
 offset_top = 255.0
@@ -192,35 +453,38 @@ offset_right = 540.0
 offset_bottom = 423.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_to70l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BuyTrackPopup" unique_id=1451508978]
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup" unique_id=1451508978]
 layout_mode = 2
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="RouteName" type="Label" parent="BuyTrackPopup/VBoxContainer" unique_id=212003380]
+[node name="MainText" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=212003380]
 unique_name_in_owner = true
 custom_maximum_size = Vector2(259, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 22
 text = "Pumpkin Patch – Lake of Oaks"
 autowrap_mode = 2
 
-[node name="Cost" type="Label" parent="BuyTrackPopup/VBoxContainer" unique_id=1986860590]
+[node name="Cost" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=1986860590]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 13
 text = "20 Coins"
 
-[node name="Spacer" type="Control" parent="BuyTrackPopup/VBoxContainer" unique_id=378928139]
+[node name="Spacer" type="Control" parent="ConfirmPopup/VBoxContainer" unique_id=378928139]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="BuyTrackPopup/VBoxContainer" unique_id=1406703543]
+[node name="Buttons" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer" unique_id=1406703543]
 layout_mode = 2
 theme_override_constants/separation = 17
 
-[node name="BuyTrack" type="TextureButton" parent="BuyTrackPopup/VBoxContainer/Buttons" unique_id=2126733574]
+[node name="Confirm" type="TextureButton" parent="ConfirmPopup/VBoxContainer/Buttons" unique_id=2126733574]
 unique_name_in_owner = true
 self_modulate = Color(0.9098039, 0.70980394, 0.3019608, 1)
 custom_minimum_size = Vector2(0, 32)
@@ -234,7 +498,7 @@ texture_focused = ExtResource("9_cnp6h")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="BuyTrackPopup/VBoxContainer/Buttons/BuyTrack" unique_id=1334102159]
+[node name="Label" type="Label" parent="ConfirmPopup/VBoxContainer/Buttons/Confirm" unique_id=1334102159]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,12 +506,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 18
 text = "Buy Track"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cancel" type="TextureButton" parent="BuyTrackPopup/VBoxContainer/Buttons" unique_id=1054025255]
+[node name="Cancel" type="TextureButton" parent="ConfirmPopup/VBoxContainer/Buttons" unique_id=1054025255]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -260,7 +525,7 @@ texture_focused = ExtResource("9_cnp6h")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="BuyTrackPopup/VBoxContainer/Buttons/Cancel" unique_id=278865883]
+[node name="Label" type="Label" parent="ConfirmPopup/VBoxContainer/Buttons/Cancel" unique_id=278865883]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,6 +533,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("3_cnp6h")
 theme_override_font_sizes/font_size = 18
 text = "Cancel"
 horizontal_alignment = 1

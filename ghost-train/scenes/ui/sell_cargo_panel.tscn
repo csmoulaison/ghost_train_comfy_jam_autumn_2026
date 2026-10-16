@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dx37yyp384trl"]
 
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="1_1wivh"]
 [ext_resource type="PackedScene" uid="uid://cohyonvp8ctnv" path="res://scenes/ui/cargo_list_item.tscn" id="1_fgoh4"]
 [ext_resource type="Texture2D" uid="uid://df76w5g0w2lyx" path="res://resources/textures/cargo/UI-icon-corn.png" id="2_qwb87"]
 [ext_resource type="Texture2D" uid="uid://c763i3i54i4d" path="res://resources/textures/cargo/UI-icon-apple.png" id="3_vwghq"]
@@ -44,6 +45,7 @@ unique_name_in_owner = true
 custom_maximum_size = Vector2(406, -1)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("1_1wivh")
 theme_override_font_sizes/font_size = 26
 text = "Hey Ghost, what do you have to sell?"
 autowrap_mode = 3
@@ -133,6 +135,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("1_1wivh")
 theme_override_font_sizes/font_size = 18
 text = "Sell selected +25"
 horizontal_alignment = 1
@@ -160,6 +163,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("1_1wivh")
 theme_override_font_sizes/font_size = 18
 text = "Not yet"
 horizontal_alignment = 1

@@ -17,4 +17,4 @@ func on_yes():
 func on_no():
 	TrainState.next_location = ID.Location.DEFAULT
 	TrainState.current_road = ID.Road.DEFAULT
-	MapState.init_visual_state()
+	MapState.update_visual_state()
