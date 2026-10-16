@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://80krprkdewro" path="res://resources/textures/pointers/pointer-chat.png-1.png" id="21_ccljq"]
 [ext_resource type="Texture2D" uid="uid://hryd0uuoesw8" path="res://resources/textures/pointers/pointer-pointing.png-1.png" id="22_jehah"]
 [ext_resource type="Texture2D" uid="uid://ch6sbc05lve3g" path="res://resources/textures/pointers/pointer-train.png-1.png" id="23_e2w8j"]
+[ext_resource type="PackedScene" uid="uid://dxt04p7r8v7vo" path="res://scenes/ui/coin_counter.tscn" id="24_ccljq"]
 
 [sub_resource type="Gradient" id="Gradient_j287u"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -125,3 +126,5 @@ top_level = true
 visibility_layer = 2
 z_index = 4096
 centered = false
+
+[node name="CoinCounter" parent="." unique_id=695249888 instance=ExtResource("24_ccljq")]
