@@ -25,6 +25,11 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wft6q"]
 
+[sub_resource type="Resource" id="Resource_osqsb"]
+script = ExtResource("5_rj22u")
+flag_true = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
 [node name="BG_2" type="Node2D" parent="." unique_id=472135075]
@@ -100,6 +105,8 @@ z_index = 2
 position = Vector2(115.99999, 255)
 scale = Vector2(0.63384926, 0.63384926)
 person_id = 17
+conditions = Array[ExtResource("5_rj22u")]([SubResource("Resource_osqsb")])
+is_hiding_jackokid = true
 
 [node name="GhostPlayer" parent="." unique_id=123701996 instance=ExtResource("3_61pdk")]
 z_index = 2

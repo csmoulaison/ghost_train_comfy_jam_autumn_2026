@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bhw28m1iwd53g" path="res://resources/textures/backgrounds/Withch's Trainyard - midground.png" id="3_6jcbx"]
 [ext_resource type="PackedScene" uid="uid://3qqqic1oxgxu" path="res://scenes/person_avatar.tscn" id="3_7v5ef"]
 [ext_resource type="PackedScene" uid="uid://cwfyb3tsjv2hu" path="res://scenes/ghost_player.tscn" id="4_0vabf"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="5_gmsd3"]
+
+[sub_resource type="Resource" id="Resource_qi2rf"]
+script = ExtResource("5_gmsd3")
+flag_true = 2
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [node name="DefaultLocation" type="Node2D" unique_id=1691894120]
 
@@ -37,6 +43,7 @@ z_index = 2
 position = Vector2(1015.0001, 494.165)
 scale = Vector2(0.8, 0.836)
 person_id = 14
+conditions = Array[ExtResource("5_gmsd3")]([SubResource("Resource_qi2rf")])
 is_hiding_jackokid = true
 
 [node name="PersonAvatar_" parent="." unique_id=1609223009 instance=ExtResource("3_7v5ef")]
