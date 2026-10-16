@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxt04p7r8v7vo"]
 
 [ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="1_54uj0"]
+[ext_resource type="Script" uid="uid://v4h08ncfe3r6" path="res://scripts/coincounter.gd" id="1_s27m3"]
 [ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="2_s27m3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qcm0"]
@@ -150,6 +151,7 @@ _data = {
 
 [node name="CoinCounter" type="CanvasLayer" unique_id=695249888]
 layer = 5
+script = ExtResource("1_s27m3")
 
 [node name="Anchor" type="Control" parent="." unique_id=1608563497]
 modulate = Color(1, 1, 1, 0)

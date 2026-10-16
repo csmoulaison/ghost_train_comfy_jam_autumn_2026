@@ -7,6 +7,7 @@
 script = ExtResource("1_agtjt")
 endpoint_1 = 7
 endpoint_2 = 9
+subscene_path = "uid://dsf15o2bf6v5y"
 cost = 0
 buy_texture = ExtResource("1_1ibag")
 metadata/_custom_type_script = "uid://b7lduxod8je3s"

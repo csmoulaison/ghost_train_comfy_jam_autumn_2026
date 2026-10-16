@@ -98,6 +98,8 @@ func _physics_process(dt: float):
 					GameState.cargo_cooldowns[index] -= 1
 			if t > depart_train_length - 1.0:
 				var zoom = 1.1 + t_range_cubic_clamped(t, depart_train_length - 1.0, depart_train_length) * 0.1
+				if TrainState.current_road == ID.Road.SCHOOLYARD_TO_GRIMMS_GROTTO:
+					zoom = 0.6
 				camera.zoom = Vector2(zoom, zoom)
 				fade_sprite.modulate.a = t_range_clamped(t, depart_train_length, depart_train_length - 1.0)
 				GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = false
