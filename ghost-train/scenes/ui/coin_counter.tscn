@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://dxt04p7r8v7vo"]
+
+[ext_resource type="Texture2D" uid="uid://bvjy8yrk0hmug" path="res://resources/textures/upgrades_and_stuff/track buying/Coin.png" id="1_54uj0"]
+[ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="2_s27m3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qcm0"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.9490196, 0.93333334, 0.9019608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 3
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="Animation" id="Animation_54uj0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pill:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%CoinGain:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, 88)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%CoinGain:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jx0t1"]
+resource_name = "hide"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s27m3"]
+resource_name = "pop"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pill:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%CoinGain:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-60, 88), Vector2(-60, 68)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%CoinGain:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3qcm0"]
+resource_name = "show"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jx0t1"]
+_data = {
+&"RESET": SubResource("Animation_54uj0"),
+&"hide": SubResource("Animation_jx0t1"),
+&"pop": SubResource("Animation_s27m3"),
+&"show": SubResource("Animation_3qcm0")
+}
+
+[node name="CoinCounter" type="CanvasLayer" unique_id=695249888]
+layer = 5
+
+[node name="Anchor" type="Control" parent="." unique_id=1608563497]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Pill" type="PanelContainer" parent="Anchor" unique_id=1946564844]
+layout_mode = 0
+offset_left = -95.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 82.0
+pivot_offset = Vector2(57.5, 31)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3qcm0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Anchor/Pill" unique_id=1004582209]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="CoinIcon" type="TextureRect" parent="Anchor/Pill/HBoxContainer" unique_id=1777215587]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+texture = ExtResource("1_54uj0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinAmount" type="Label" parent="Anchor/Pill/HBoxContainer" unique_id=69811495]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0132142855, 0.091164015, 0.15324977, 1)
+theme_override_fonts/font = ExtResource("2_s27m3")
+theme_override_font_sizes/font_size = 24
+text = "20"
+
+[node name="CoinGain" type="Label" parent="Anchor" unique_id=1836288932]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -60.0
+offset_top = 88.0
+offset_right = -20.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0.9098039, 0.70980394, 0.3019608, 1)
+theme_override_font_sizes/font_size = 24
+text = "+15"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Anchor" unique_id=369303645]
+libraries/ = SubResource("AnimationLibrary_jx0t1")
