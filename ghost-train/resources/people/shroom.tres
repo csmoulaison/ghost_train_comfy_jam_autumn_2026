@@ -7,6 +7,11 @@
 [ext_resource type="Resource" uid="uid://uag08mlauoc" path="res://resources/dialogue_lines/shroom_ask_cargo.tres" id="4_lrwn2"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="5_cb7ib"]
 [ext_resource type="Texture2D" uid="uid://c1ugcgb01572w" path="res://resources/textures/characters/shroom/Magicshroom-eyesopen.png" id="6_cb7ib"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="6_ljp0q"]
+[ext_resource type="Texture2D" uid="uid://bguiskc5ipchm" path="res://resources/textures/characters/shroom/Magicshroom-eyesclosed-2.png" id="8_os2wj"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="9_vdtoy"]
+[ext_resource type="Texture2D" uid="uid://8xr21ew4j2fm" path="res://resources/textures/characters/shroom/Magicshroom-mouth.png" id="10_y5fr6"]
+[ext_resource type="Texture2D" uid="uid://bwyfe1fyih1oe" path="res://resources/textures/characters/shroom/Magicshroom-eyesclosed-1.png" id="11_boelp"]
 
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("3_lrwn2")
@@ -173,6 +178,29 @@ person = 9
 text = "I'm the Magic Shroom, and I am too high on my own supply to read a line right here."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_iqdhl"]
+script = ExtResource("9_vdtoy")
+frames = Array[Texture2D]([ExtResource("8_os2wj")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_3j2bk"]
+script = ExtResource("9_vdtoy")
+frames = Array[Texture2D]([ExtResource("6_cb7ib")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_1ngw4"]
+script = ExtResource("9_vdtoy")
+frames = Array[Texture2D]([ExtResource("10_y5fr6"), ExtResource("6_cb7ib"), ExtResource("11_boelp")])
+speed = 0.5
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_sumjs"]
+script = ExtResource("6_ljp0q")
+idle = SubResource("Resource_3j2bk")
+blink = SubResource("Resource_iqdhl")
+talk = SubResource("Resource_1ngw4")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
+
 [sub_resource type="Resource" id="Resource_5gqha"]
 script = ExtResource("1_luhrd")
 person = 10
@@ -216,6 +244,7 @@ script = ExtResource("2_k4o0l")
 name = "Shroom"
 starting_location = 8
 default_texture = ExtResource("6_cb7ib")
+default_texture_pack = SubResource("Resource_sumjs")
 sprite_scale = 0.13
 conditional_interact_dialogue = Array[ExtResource("1_luhrd")]([SubResource("Resource_f0ee0"), SubResource("Resource_8sc5g"), SubResource("Resource_lyffn"), SubResource("Resource_vdtoy"), SubResource("Resource_w4gov"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_0ccbk")

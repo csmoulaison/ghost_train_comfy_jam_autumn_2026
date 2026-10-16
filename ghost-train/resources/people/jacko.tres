@@ -9,6 +9,11 @@
 [ext_resource type="Resource" uid="uid://p8gv47f8fuqq" path="res://resources/dialogue_lines/jacko_havent_found_all_kids.tres" id="5_qi4tn"]
 [ext_resource type="Texture2D" uid="uid://dq8mmjqvipdxn" path="res://resources/textures/characters/jack-o/OlJacko.png" id="7_3sagy"]
 [ext_resource type="Resource" uid="uid://5ylsgblqgp4e" path="res://resources/dialogue_lines/jacko_load_pumpkins.tres" id="7_qi4tn"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="8_uppcu"]
+[ext_resource type="Texture2D" uid="uid://8dqws22u6bl5" path="res://resources/textures/characters/jack-o/OlJacko-blink.png" id="10_g5rtn"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="11_17u6x"]
+[ext_resource type="Texture2D" uid="uid://cty6n5wq82hq7" path="res://resources/textures/characters/jack-o/OlJacko-mouth.png" id="12_cu5o3"]
+[ext_resource type="Texture2D" uid="uid://dewivahlsrq8p" path="res://resources/textures/characters/jack-o/OlJacko-idle.png" id="12_g5rtn"]
 
 [sub_resource type="Resource" id="Resource_7reh5"]
 script = ExtResource("3_k4wkh")
@@ -379,11 +384,37 @@ person = 3
 text = "*snore* .... Jill-o .... no no.... I've got the kids right here.... *snore*"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uppcu"]
+load_path = "res://.godot/imported/OlJacko.png-879403c3aee91f28aa4e7ffb9e0554d9.ctex"
+
+[sub_resource type="Resource" id="Resource_xiiyn"]
+script = ExtResource("11_17u6x")
+frames = Array[Texture2D]([ExtResource("10_g5rtn"), ExtResource("7_3sagy")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_tvo5g"]
+script = ExtResource("11_17u6x")
+frames = Array[Texture2D]([ExtResource("7_3sagy"), ExtResource("12_g5rtn")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_egp1i"]
+script = ExtResource("11_17u6x")
+frames = Array[Texture2D]([ExtResource("12_cu5o3"), ExtResource("7_3sagy")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_5y1fa"]
+script = ExtResource("8_uppcu")
+idle = SubResource("Resource_tvo5g")
+blink = SubResource("Resource_xiiyn")
+talk = SubResource("Resource_egp1i")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
+
 [resource]
 script = ExtResource("1_4nwo6")
 name = "Jacko"
 starting_location = 3
-default_texture = ExtResource("7_3sagy")
+default_texture = SubResource("CompressedTexture2D_uppcu")
+default_texture_pack = SubResource("Resource_5y1fa")
 sprite_scale = 0.15
 conditional_interact_dialogue = Array[ExtResource("1_j0htq")]([SubResource("Resource_nhob2"), SubResource("Resource_prxr3"), SubResource("Resource_g5rtn"), SubResource("Resource_cu5o3"), SubResource("Resource_fxwax"), SubResource("Resource_r2e63"), SubResource("Resource_hcaf5"), SubResource("Resource_ju8dc"), SubResource("Resource_6hkup"), SubResource("Resource_g2ct0"), SubResource("Resource_j287u"), SubResource("Resource_vrrll"), SubResource("Resource_j0htq"), SubResource("Resource_jl5qu")])
 default_interact_dialogue = SubResource("Resource_wdu22")

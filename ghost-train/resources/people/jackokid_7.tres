@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_672po"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_qiohf"]
 [ext_resource type="Texture2D" uid="uid://vnhid6uwt57w" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto.png" id="4_3p384"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="4_k3b2r"]
+[ext_resource type="Texture2D" uid="uid://dvjr8ikbo8d67" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto_0002_default.png" id="6_2r636"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="7_34fxj"]
+[ext_resource type="Texture2D" uid="uid://csl042rdjq3p7" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto_0001_found.png" id="8_j6x4f"]
+[ext_resource type="Texture2D" uid="uid://2ia1l2k0s37f" path="res://resources/textures/characters/jack-o-kids/7-grotto/jacko-grotto_0000_relieved.png" id="9_hrxy6"]
 
 [sub_resource type="Resource" id="Resource_gvco4"]
 script = ExtResource("3_qiohf")
@@ -23,6 +28,28 @@ script = ExtResource("1_672po")
 person = 19
 text = "Nicholas is not being nice to me!"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_byv6k"]
+script = ExtResource("7_34fxj")
+frames = Array[Texture2D]([ExtResource("6_2r636")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_xcnea"]
+script = ExtResource("7_34fxj")
+frames = Array[Texture2D]([ExtResource("6_2r636")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_tu0tm"]
+script = ExtResource("7_34fxj")
+frames = Array[Texture2D]([ExtResource("8_j6x4f"), ExtResource("9_hrxy6"), ExtResource("6_2r636")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_ukdmx"]
+script = ExtResource("4_k3b2r")
+idle = SubResource("Resource_xcnea")
+blink = SubResource("Resource_byv6k")
+talk = SubResource("Resource_tu0tm")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [sub_resource type="Resource" id="Resource_3p384"]
 script = ExtResource("2_3p384")
@@ -47,6 +74,7 @@ script = ExtResource("2_672po")
 name = "Jean-Marco"
 starting_location = 3
 default_texture = ExtResource("4_3p384")
+default_texture_pack = SubResource("Resource_ukdmx")
 sprite_scale = 0.1
 conditional_interact_dialogue = Array[ExtResource("1_672po")]([SubResource("Resource_ehqfp")])
 default_interact_dialogue = SubResource("Resource_j287u")

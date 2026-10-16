@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_cww6g"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_ganhd"]
 [ext_resource type="Texture2D" uid="uid://da6q6gbj0ljb8" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corncorp.png" id="4_5ukd1"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="4_hyr0h"]
+[ext_resource type="Texture2D" uid="uid://pu30fjljclvv" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corn_0002_default.png" id="6_xo8jo"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="7_80hld"]
+[ext_resource type="Texture2D" uid="uid://75013i0qw42c" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corn_0001_found.png" id="8_4j60r"]
+[ext_resource type="Texture2D" uid="uid://bywlev0nroc16" path="res://resources/textures/characters/jack-o-kids/3-corncorp/jacko-corn_0000_relieved.png" id="9_3bii1"]
 
 [sub_resource type="Resource" id="Resource_2dso7"]
 script = ExtResource("3_ganhd")
@@ -23,6 +28,29 @@ script = ExtResource("1_cww6g")
 person = 15
 text = "I was hiding from my brother."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_a4piu"]
+script = ExtResource("7_80hld")
+frames = Array[Texture2D]([ExtResource("6_xo8jo")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_20y6n"]
+script = ExtResource("7_80hld")
+frames = Array[Texture2D]([ExtResource("6_xo8jo")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_0dfqp"]
+script = ExtResource("7_80hld")
+frames = Array[Texture2D]([ExtResource("8_4j60r"), ExtResource("9_3bii1"), ExtResource("6_xo8jo")])
+speed = 0.5
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_fki1r"]
+script = ExtResource("4_hyr0h")
+idle = SubResource("Resource_20y6n")
+blink = SubResource("Resource_a4piu")
+talk = SubResource("Resource_0dfqp")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [sub_resource type="Resource" id="Resource_5ukd1"]
 script = ExtResource("2_5ukd1")
@@ -54,6 +82,7 @@ script = ExtResource("2_cww6g")
 name = "Jojo"
 starting_location = 3
 default_texture = ExtResource("4_5ukd1")
+default_texture_pack = SubResource("Resource_fki1r")
 sprite_scale = 0.1
 conditional_interact_dialogue = Array[ExtResource("1_cww6g")]([SubResource("Resource_hyr0h")])
 default_interact_dialogue = SubResource("Resource_j287u")

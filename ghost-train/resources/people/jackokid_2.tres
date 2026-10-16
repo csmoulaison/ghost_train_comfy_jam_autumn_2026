@@ -4,7 +4,12 @@
 [ext_resource type="Script" uid="uid://c4kc5m2y7bq3u" path="res://scripts/resource_types/person.gd" id="2_3ra8t"]
 [ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="3_vcl4l"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_c1oqv"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="4_dcf5m"]
 [ext_resource type="Texture2D" uid="uid://cxyl5pg57d5ip" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard.png" id="4_vcl4l"]
+[ext_resource type="Texture2D" uid="uid://be1bi1sbqh30s" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard_0002_default.png" id="6_m01sj"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="7_d80ut"]
+[ext_resource type="Texture2D" uid="uid://c80uxobi6my5" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard_0001_found.png" id="8_d6sm7"]
+[ext_resource type="Texture2D" uid="uid://b48exs0d8l0op" path="res://resources/textures/characters/jack-o-kids/2-trainyard/jacko-witchstrainyard_0000_relieved.png" id="9_0hyj1"]
 
 [sub_resource type="Resource" id="Resource_poy0e"]
 script = ExtResource("4_c1oqv")
@@ -23,6 +28,28 @@ script = ExtResource("1_3ra8t")
 person = 14
 text = "Can't wait to tell my papa all about magical engineering!"
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_y6fdo"]
+script = ExtResource("7_d80ut")
+frames = Array[Texture2D]([ExtResource("6_m01sj")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_6nibq"]
+script = ExtResource("7_d80ut")
+frames = Array[Texture2D]([ExtResource("6_m01sj")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_rv2uj"]
+script = ExtResource("7_d80ut")
+frames = Array[Texture2D]([ExtResource("8_d6sm7"), ExtResource("9_0hyj1"), ExtResource("6_m01sj")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_b5jmx"]
+script = ExtResource("4_dcf5m")
+idle = SubResource("Resource_6nibq")
+blink = SubResource("Resource_y6fdo")
+talk = SubResource("Resource_rv2uj")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [sub_resource type="Resource" id="Resource_vcl4l"]
 script = ExtResource("3_vcl4l")
@@ -54,6 +81,7 @@ script = ExtResource("2_3ra8t")
 name = "Jacinto"
 starting_location = 3
 default_texture = ExtResource("4_vcl4l")
+default_texture_pack = SubResource("Resource_b5jmx")
 sprite_scale = 0.1
 conditional_interact_dialogue = Array[ExtResource("1_3ra8t")]([SubResource("Resource_o42b4")])
 default_interact_dialogue = SubResource("Resource_5sfjl")
