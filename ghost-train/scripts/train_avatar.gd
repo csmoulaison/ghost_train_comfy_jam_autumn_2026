@@ -19,9 +19,11 @@ func _ready():
 	for wheel in small_wheel_sprites:
 		wheel.rotation = randf() * 1000.0
 	previous_x = position.x
+	interactable.interaction_active = false
 	
 func _physics_process(dt: float):
-	if GameState.flags[ID.Flag.ON_END_TRAIN]: interactable.interaction_active = false
+	#if GameState.flags[ID.Flag.ON_END_TRAIN]: 
+	interactable.interaction_active = false
 	
 	var delta: float = -(((previous_x - position.x) * 0.01) / scale.x)
 	if ModeState.mode == ModeState.GameMode.TRAVEL: delta = 20.0 * dt
@@ -36,10 +38,10 @@ func _process(_dt: float):
 	match ModeState.mode:
 		ModeState.GameMode.DESTINATION:
 			interactable.interaction_active = false
-			interactable.prompt_text = "Depart"
+			interactable.prompt_text = ""
 		ModeState.GameMode.TRAVEL:
 			interactable.interaction_active = true
-			interactable.prompt_text = "Arrive"
+			interactable.prompt_text = ""
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

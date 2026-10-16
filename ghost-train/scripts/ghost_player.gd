@@ -28,8 +28,8 @@ class_name GhostPlayer extends Node2D
 var bob_phase: float = 0.0
 var bob_damped: float = 0.0
 var bob_root: float = 0.0
-var in_blink_time: float = randf() * 2.0
-var next_blink_time: float = randf() * 4.0
+var in_blink_time: float = 0.0
+var next_blink_time: float = 0.0
 
 enum MoveState {
 	IDLE,
@@ -45,7 +45,7 @@ var move_state: MoveState = MoveState.IDLE
 var _velocity: Vector2 = Vector2.ZERO
 
 # where the last click told us to go. Only used while _has_click_target is true.
-# var _click_target: Vector2 = Vector2.ZERO
+var _click_target: float = 0.0
 var _has_click_target: bool = false
 # what the last click was on, if anything. Used once the ghost is in reach.
 var _click_interactable: Interactable = null
@@ -63,12 +63,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if ModeState.control_paused(): return
 
 	if event.is_action_pressed("move_to_click"):
-		# TODO: these used _click_target and _click_interactable and try_interact
-		# only happened when we actually reached the thing.
-		var click_target = get_global_mouse_position()
-		#_has_click_target = true
-		var click_interactable = interactor.find_interactable_at(click_target)
-		interactor.try_interact(click_interactable)
+		var mouse_target: Vector2 = get_global_mouse_position()
+		_click_target = mouse_target.x
+		_has_click_target = true
+		_click_interactable = interactor.find_interactable_at(mouse_target)
+		interactor.try_interact(_click_interactable)
+		if _click_interactable == null:
+			#_has_click_target = false
+			pass
 
 func _process(delta: float) -> void:
 	# the ghost stays put while someone is talking
@@ -79,14 +81,33 @@ func _process(delta: float) -> void:
 
 	# the ghost doesn't move at this velocity straight away. Its real velocity
 	# drifts toward this one a little each frame, which is what makes it floaty.
-	var wanted_velocity: float = _get_wanted_direction(delta) * speed
+	var wanted_velocity: Vector2 = _get_wanted_direction(delta) * speed
+	wanted_velocity.y = 0.0
 
 	if float_time <= 0.0:
-		_velocity.x = wanted_velocity
+		_velocity = wanted_velocity
 	else:
-		_velocity = _velocity.move_toward(Vector2(wanted_velocity, 0.0), _get_acceleration() * delta)
+		_velocity = _velocity.move_toward(wanted_velocity, _get_acceleration() * delta)
 
 	move_state = MoveState.IDLE if _velocity.length() < 0.1 else MoveState.MOVING
+
+	global_position += _velocity * delta
+	_keep_on_screen()
+	_face_heading()
+	_use_clicked_interactable()
+
+func _physics_process(delta):
+	var blinking: bool = false
+	if in_blink_time > 0.0:
+		blinking = true
+		in_blink_time -= delta
+	next_blink_time -= delta
+	if next_blink_time < 0.0:
+		next_blink_time = 2.0 + randf() * 4.0
+		in_blink_time = 0.1 + randf() * 0.1
+	sprite.texture = idle_blink_texture if blinking else idle_texture
+	if abs(_velocity.x) > 0.1:
+		sprite.texture = walk_blink_texture if blinking else walk_texture
 	
 	if ModeState.mode == ModeState.GameMode.TRAVEL:
 		var bob_root_target: float = 0.0
@@ -101,44 +122,26 @@ func _process(delta: float) -> void:
 	bob_phase += (2.0 + abs(bob_damped * 0.025)) * delta
 	sprite.position.y = sin(bob_phase) * (2.0 + bob_damped * 0.02) + bob_root
 
-	global_position += _velocity * delta
-	_keep_on_screen()
-	_face_heading()
-	_use_clicked_interactable()
-	
-	var blinking: bool = false
-	if in_blink_time > 0.0:
-		blinking = true
-		in_blink_time -= delta
-	next_blink_time -= delta
-	if next_blink_time < 0.0:
-		next_blink_time = 2.0 + randf() * 4.0
-		in_blink_time = 0.1 + randf() * 0.1
-	sprite.texture = idle_blink_texture if blinking else idle_texture
-	if abs(_velocity.x) > 0.1:
-		sprite.texture = walk_blink_texture if blinking else walk_texture
-
 ## private functions
 
 ## The direction the player is asking to go in: from the keys if any are held,
 ## otherwise toward the clicked spot, otherwise nowhere (ZERO).
-func _get_wanted_direction(_delta: float) -> float:
+func _get_wanted_direction(delta: float) -> Vector2:
 	var key_direction: float = Input.get_axis("move_left", "move_right")
 	if key_direction != 0.0:
 		# the keys always win, so pressing one cancels a click move
-		#_cancel_click_move()
-		return key_direction
+		_cancel_click_move()
+		return Vector2(key_direction, 0.0)
 
-	# TODO: this was when we were doing click to move and also assumed vec2 dir
-	#if _has_click_target:
-	#	# stop asking to move once we're close enough to drift the rest of the
-	#	# way, so the ghost glides to a stop on the spot instead of overshooting
-	#	var distance: float = global_position.distance_to(_click_target)
-	#	if distance <= maxf(_get_stopping_distance(), speed * delta):
-	#		_has_click_target = false
-	#	else:
-	#		return global_position.direction_to(_click_target)
-	return 0.0
+	if _has_click_target:
+		# stop asking to move once we're close enough to drift the rest of the
+		# way, so the ghost glides to a stop on the spot instead of overshooting
+		var distance: float = global_position.distance_to(Vector2(_click_target, global_position.x))
+		if distance <= maxf(_get_stopping_distance(), speed * delta):
+			_has_click_target = false
+		else:
+			return global_position.direction_to(Vector2(_click_target, global_position.x))
+	return Vector2.ZERO
 
 ## Uses the clicked interactable once it's in reach.
 func _use_clicked_interactable() -> void:

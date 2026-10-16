@@ -68,7 +68,7 @@ func find_interactable_at(point: Vector2) -> Interactable:
 	query.collision_mask = collision_mask
 
 	for hit in get_world_2d().direct_space_state.intersect_point(query):
-		if hit.collider is Interactable:
+		if hit.collider is Interactable and hit.collider.interaction_active:
 			return hit.collider
 	return null
 
