@@ -4,10 +4,7 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_0tjwa"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_wffqm"]
 [ext_resource type="Resource" uid="uid://cw5kptpd1060s" path="res://resources/dialogue_lines/crow_request_board.tres" id="5_v0f16"]
-[ext_resource type="Texture2D" uid="uid://b1ymm2kdbr7y7" path="res://resources/textures/characters/crow/Crow-sit-mouth.png" id="6_mfnjs"]
-[ext_resource type="Texture2D" uid="uid://dm2gd0ti1qnm2" path="res://resources/textures/characters/crow/Crow-stand.png" id="7_mfnjs"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="8_ke623"]
-[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="8_wl0ym"]
 
 [sub_resource type="Resource" id="Resource_10jd1"]
 script = ExtResource("8_ke623")
@@ -27,18 +24,11 @@ text = "You don't see avians hauling around pumpkins; that'd take ages. I need t
 default_next_line = ExtResource("5_v0f16")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_v1584"]
-script = ExtResource("8_wl0ym")
-frames = Array[Texture2D]([ExtResource("6_mfnjs"), ExtResource("7_mfnjs")])
-speed = 2.0
-metadata/_custom_type_script = "uid://lwir2mfi765q"
-
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("2_0tjwa")
 person = 2
 text = "But here's the thing: I'm just one guy."
 default_next_line = SubResource("Resource_25bxi")
-talk_override_sequence = SubResource("Resource_v1584")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_ufu2b"]
@@ -48,10 +38,15 @@ text = "I have a very lucrative stand at the Farmer's Market where I sell produc
 default_next_line = SubResource("Resource_j287u")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_ghd1q"]
+script = ExtResource("1_xut4o")
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
 [sub_resource type="Resource" id="Resource_v0f16"]
 script = ExtResource("2_0tjwa")
 person = 2
 text = "Well, ruffle my feathers, don't you look like the entrepreneurial sort, and with a train, to boot. How's about I make you a business proposition?"
+pre_effects = Array[ExtResource("1_xut4o")]([SubResource("Resource_ghd1q")])
 default_next_line = SubResource("Resource_ufu2b")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 

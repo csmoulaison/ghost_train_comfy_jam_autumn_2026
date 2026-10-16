@@ -7,6 +7,11 @@
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_ke5tb"]
 [ext_resource type="Texture2D" uid="uid://6rq4gspi8hp6" path="res://resources/textures/characters/vampire/vamp-sad.png" id="5_ke5tb"]
 [ext_resource type="Resource" uid="uid://dxiyoemnr3vhx" path="res://resources/dialogue_lines/vampire_at_grotto_unhealed.tres" id="5_o0cry"]
+[ext_resource type="Script" uid="uid://vjmsnnm0kyd1" path="res://scripts/resource_types/person_texture_pack.gd" id="6_qp1xr"]
+[ext_resource type="Texture2D" uid="uid://4letvbcrkgus" path="res://resources/textures/characters/vampire/human-smile.png" id="7_7gw2r"]
+[ext_resource type="Script" uid="uid://lwir2mfi765q" path="res://scripts/resource_types/frame_sequence.gd" id="8_1r8be"]
+[ext_resource type="Texture2D" uid="uid://kp8p1vok2twc" path="res://resources/textures/characters/vampire/vamp-talk.png" id="9_ct4ee"]
+[ext_resource type="Texture2D" uid="uid://bykwcimq3lj1j" path="res://resources/textures/characters/vampire/human-talk.png" id="9_wrco8"]
 
 [sub_resource type="Resource" id="Resource_hua4o"]
 script = ExtResource("3_ke5tb")
@@ -221,6 +226,34 @@ text = "Oh thank you, thank you Grim Reaper! Now I can eat marmalade on sourdoug
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_fcxvp")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
+[sub_resource type="Resource" id="Resource_kq2bo"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("7_7gw2r")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_324cg"]
+script = ExtResource("3_ke5tb")
+flag_true = 16
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
+[sub_resource type="Resource" id="Resource_tq3xf"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("7_7gw2r")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_fwdl0"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("9_wrco8"), ExtResource("7_7gw2r")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_lplyt"]
+script = ExtResource("6_qp1xr")
+idle = SubResource("Resource_tq3xf")
+blink = SubResource("Resource_kq2bo")
+talk = SubResource("Resource_fwdl0")
+conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_324cg")])
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
+
 [sub_resource type="Resource" id="Resource_sj4yh"]
 script = ExtResource("1_ml87m")
 person = 9
@@ -233,6 +266,28 @@ person = 9
 text = "Hmm, perhaps my next poem should be about sunlight. But darn it all, I can't quite remember what it feels like."
 default_next_line = SubResource("Resource_sj4yh")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_bwgop"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("5_ke5tb")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_8bkis"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("5_ke5tb")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_8niii"]
+script = ExtResource("8_1r8be")
+frames = Array[Texture2D]([ExtResource("9_ct4ee"), ExtResource("5_ke5tb")])
+metadata/_custom_type_script = "uid://lwir2mfi765q"
+
+[sub_resource type="Resource" id="Resource_dkj7t"]
+script = ExtResource("6_qp1xr")
+idle = SubResource("Resource_8bkis")
+blink = SubResource("Resource_bwgop")
+talk = SubResource("Resource_8niii")
+metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
 [sub_resource type="Resource" id="Resource_k31ta"]
 script = ExtResource("2_17gf0")
@@ -252,6 +307,8 @@ script = ExtResource("2_ml87m")
 name = "Vampire"
 starting_location = 6
 default_texture = ExtResource("5_ke5tb")
+conditional_texture_packs = Array[ExtResource("6_qp1xr")]([SubResource("Resource_lplyt")])
+default_texture_pack = SubResource("Resource_dkj7t")
 sprite_scale = 0.2
 conditional_interact_dialogue = Array[ExtResource("1_ml87m")]([SubResource("Resource_cb7ib"), SubResource("Resource_0bobq"), SubResource("Resource_yvsmm"), SubResource("Resource_mvadr"), ExtResource("5_o0cry"), SubResource("Resource_m3kf8")])
 default_interact_dialogue = SubResource("Resource_f3quk")
