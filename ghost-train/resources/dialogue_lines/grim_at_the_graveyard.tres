@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="2_wj3ce"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_vvrla"]
 [ext_resource type="Script" uid="uid://bg0l7uy2exepk" path="res://scripts/resource_types/conditions/person_location.gd" id="4_6noxd"]
+[ext_resource type="Resource" uid="uid://c1hcqeato72yj" path="res://resources/dialogue_lines/grim_final_ride.tres" id="5_wj3ce"]
 
 [sub_resource type="Resource" id="Resource_0ix6f"]
 script = ExtResource("4_6noxd")
@@ -16,32 +17,11 @@ script = ExtResource("3_vvrla")
 person_at_location = SubResource("Resource_0ix6f")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_umcct"]
-script = ExtResource("1_umcct")
-fire_event = 5
-set_flag = 18
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_wj3ce"]
-script = ExtResource("2_wj3ce")
-person = 11
-text = "Got some business to attend to? I'll see you when you're ready."
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_lesc6"]
-script = ExtResource("2_wj3ce")
-person = 11
-text = "You ready for your own journey, Ghost? Don't worry, you won't make it alone."
-prompt_text = "One last ride?"
-accept_effects = Array[ExtResource("1_umcct")]([SubResource("Resource_umcct")])
-default_decline_line = SubResource("Resource_wj3ce")
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
 [sub_resource type="Resource" id="Resource_pl811"]
 script = ExtResource("2_wj3ce")
 person = 11
 text = "So inspiring in fact, I got some work to catch up on."
-default_next_line = SubResource("Resource_lesc6")
+default_next_line = ExtResource("5_wj3ce")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_5u6e2"]

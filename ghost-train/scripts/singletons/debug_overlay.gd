@@ -20,6 +20,7 @@ func _process(_dt: float):
 	output_debug_label_line(MoneyState.debug_text())
 	output_debug_label_line(GameState.debug_text())
 	output_debug_label_line(CinematicState.debug_text())
+	debug_label.text += "CONTROLPAUSED: " + str(ModeState.control_paused()) + "\n"
 	
 func output_debug_label_line(text: String):
 	debug_label.text += text + "\n"

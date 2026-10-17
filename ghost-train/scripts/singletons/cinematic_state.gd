@@ -110,10 +110,10 @@ func _physics_process(dt: float):
 				TrainState.current_location = ID.Location.DEFAULT
 				var road: Road = ResourceData.roads[TrainState.current_road]
 				ModeState.load_subscene(ModeState.travel_subscene_parent, road.subscene_path)
-				ParallaxState.begin_parallax()
 				if GameState.flags[ID.Flag.ON_END_TRAIN]: 
 					var ghost = ModeState.travel_scene.get_node("GhostPlayer")
 					ghost.global_position.x = TrainState.lower_x_bound + 32.0
+				ParallaxState.begin_parallax()
 				for index in ID.Cargo.CARGO_COUNT:
 					GameState.cargo_cooldowns[index] -= 1
 			if t > depart_train_length - 1.0:

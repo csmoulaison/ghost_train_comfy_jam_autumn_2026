@@ -72,6 +72,7 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 script = ExtResource("1_j0htq")
 person = 3
 text = "Thanks for finding Julio, Ghost."
+conditional_next_lines = Array[ExtResource("1_j0htq")]([ExtResource("3_3sagy")])
 default_next_line = ExtResource("5_qi4tn")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 

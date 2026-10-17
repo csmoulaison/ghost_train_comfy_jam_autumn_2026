@@ -1,14 +1,35 @@
 [gd_scene format=3 uid="uid://dx37yyp384trl"]
 
 [ext_resource type="FontFile" uid="uid://dp1tmn5snd26a" path="res://resources/fonts/libre_baskerville/LibreBaskerville-Regular.ttf" id="1_1wivh"]
+[ext_resource type="Script" uid="uid://tlsalqujg7fj" path="res://scenes/ui/sell_cargo_panel.gd" id="1_cofda"]
 [ext_resource type="PackedScene" uid="uid://cohyonvp8ctnv" path="res://scenes/ui/cargo_list_item.tscn" id="1_fgoh4"]
+[ext_resource type="Script" uid="uid://ds5odfukpyq25" path="res://scripts/resource_types/state_effect.gd" id="2_32q7f"]
 [ext_resource type="Texture2D" uid="uid://df76w5g0w2lyx" path="res://resources/textures/cargo/UI-icon-corn.png" id="2_qwb87"]
 [ext_resource type="Texture2D" uid="uid://c763i3i54i4d" path="res://resources/textures/cargo/UI-icon-apple.png" id="3_vwghq"]
+[ext_resource type="Script" uid="uid://cek7638wfa72g" path="res://scripts/resource_types/dialogue_line.gd" id="3_wjjsh"]
+[ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="4_cdo32"]
 [ext_resource type="Texture2D" uid="uid://b6tgx4hf57dpa" path="res://resources/textures/cargo/UI-icon-honey.png" id="4_j4y03"]
+[ext_resource type="Script" uid="uid://bqeoc8408u468" path="res://scenes/ui/cargo_list_item.gd" id="4_r8dhj"]
 [ext_resource type="Texture2D" uid="uid://cuk1hmsvt8udj" path="res://resources/textures/cargo/UI-icon-mushroom.png" id="5_1wivh"]
+[ext_resource type="AudioStream" uid="uid://dj38l15ef3jwu" path="res://resources/sounds/sfx/CargoSold_1.ogg" id="5_kwuti"]
 [ext_resource type="Texture2D" uid="uid://dauypvhvd3cg" path="res://resources/textures/dialogue/dialog_nameplate -hover.png" id="6_j4y03"]
+[ext_resource type="AudioStream" uid="uid://cxmr5rfid2rbq" path="res://resources/sounds/sfx/CargoSold_2.ogg" id="6_npmmj"]
 [ext_resource type="Texture2D" uid="uid://h3k5heyg3lb4" path="res://resources/textures/dialogue/dialog_nameplate -focused.png" id="7_1wivh"]
+[ext_resource type="AudioStream" uid="uid://c4b2qjel2qhu" path="res://resources/sounds/sfx/CargoSold_3.ogg" id="7_rceas"]
 [ext_resource type="Texture2D" uid="uid://c1cis3elljncv" path="res://resources/textures/dialogue/dialog_nameplate -disabled.png" id="8_cofda"]
+[ext_resource type="AudioStream" uid="uid://bscd5xeq3r5bw" path="res://resources/sounds/sfx/CargoSold_4.ogg" id="8_fkmhu"]
+
+[sub_resource type="Resource" id="Resource_r8dhj"]
+script = ExtResource("3_wjjsh")
+person = 2
+text = "Here's your dough. Make sure you stretch it far."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="Resource" id="Resource_32q7f"]
+script = ExtResource("3_wjjsh")
+person = 2
+text = "Welp, nothing ventured, nothing gained."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cofda"]
 content_margin_left = 24.0
@@ -24,12 +45,20 @@ shadow_color = Color(0, 0, 0, 0.21568628)
 shadow_size = 3
 shadow_offset = Vector2(0, 4)
 
-[node name="SellCargoScreen" type="CenterContainer" unique_id=191284959]
+[node name="SellCargoScreen" type="CenterContainer" unique_id=191284959 node_paths=PackedStringArray("cargo_nodes", "sell_button", "sell_button_label", "cancel_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cofda")
+cargo_nodes = [NodePath("SellCargoPanel/VBoxContainer/CargoList/Pumpkins"), NodePath("SellCargoPanel/VBoxContainer/CargoList/Corn"), NodePath("SellCargoPanel/VBoxContainer/CargoList/Apples"), NodePath("SellCargoPanel/VBoxContainer/CargoList/Honey"), NodePath("SellCargoPanel/VBoxContainer/CargoList/Shrooms")]
+sell_button = NodePath("SellCargoPanel/VBoxContainer/Buttons2/SellButton")
+sell_button_label = NodePath("SellCargoPanel/VBoxContainer/Buttons2/SellButton/Label")
+cancel_button = NodePath("SellCargoPanel/VBoxContainer/Buttons2/NotYetButton")
+on_sell_dialogue = SubResource("Resource_r8dhj")
+on_not_sell_dialogue = SubResource("Resource_32q7f")
+sell_sounds = Array[AudioStream]([ExtResource("5_kwuti"), ExtResource("6_npmmj"), ExtResource("7_rceas"), ExtResource("8_fkmhu")])
 
 [node name="SellCargoPanel" type="PanelContainer" parent="." unique_id=1363783685]
 custom_minimum_size = Vector2(460, 0)
@@ -57,54 +86,90 @@ theme_override_constants/separation = 8
 
 [node name="Pumpkins" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=2058856441 instance=ExtResource("1_fgoh4")]
 layout_mode = 2
+script = ExtResource("4_r8dhj")
 
-[node name="Checkmark" parent="SellCargoPanel/VBoxContainer/CargoList/Pumpkins/HBoxContainer/CheckBox" parent_id_path=PackedInt32Array(2058856441, 448164392) index="0" unique_id=91708228]
-visible = false
+[node name="CheckBox" parent="SellCargoPanel/VBoxContainer/CargoList/Pumpkins/HBoxContainer" parent_id_path=PackedInt32Array(2058856441, 438898774) index="0" unique_id=448164392]
+mouse_filter = 1
+
+[node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Pumpkins/HBoxContainer" parent_id_path=PackedInt32Array(2058856441, 438898774) index="2" unique_id=840852162]
+mouse_filter = 1
+
+[node name="Spacer" parent="SellCargoPanel/VBoxContainer/CargoList/Pumpkins/HBoxContainer" parent_id_path=PackedInt32Array(2058856441, 438898774) index="3" unique_id=601987763]
+mouse_filter = 1
 
 [node name="Corn" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1017658114 instance=ExtResource("1_fgoh4")]
 layout_mode = 2
+script = ExtResource("4_r8dhj")
+
+[node name="CheckBox" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="0" unique_id=448164392]
+mouse_filter = 1
 
 [node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="1" unique_id=1179749172]
 texture = ExtResource("2_qwb87")
 
 [node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="2" unique_id=840852162]
+mouse_filter = 1
 text = "Corn"
+
+[node name="Spacer" parent="SellCargoPanel/VBoxContainer/CargoList/Corn/HBoxContainer" parent_id_path=PackedInt32Array(1017658114, 438898774) index="3" unique_id=601987763]
+mouse_filter = 1
 
 [node name="Apples" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1035352689 instance=ExtResource("1_fgoh4")]
 layout_mode = 2
+script = ExtResource("4_r8dhj")
 
-[node name="Checkmark" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer/CheckBox" parent_id_path=PackedInt32Array(1035352689, 448164392) index="0" unique_id=91708228]
-visible = false
+[node name="CheckBox" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="0" unique_id=448164392]
+mouse_filter = 1
 
 [node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="1" unique_id=1179749172]
 texture = ExtResource("3_vwghq")
 
 [node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="2" unique_id=840852162]
+mouse_filter = 1
 text = "Apples"
+
+[node name="Spacer" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 438898774) index="3" unique_id=601987763]
+mouse_filter = 1
 
 [node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Apples/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1035352689, 2105644552) index="0" unique_id=1349292936]
 text = "15"
 
 [node name="Honey" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1106293493 instance=ExtResource("1_fgoh4")]
 layout_mode = 2
+script = ExtResource("4_r8dhj")
+
+[node name="CheckBox" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="0" unique_id=448164392]
+mouse_filter = 1
 
 [node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="1" unique_id=1179749172]
 texture = ExtResource("4_j4y03")
 
 [node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="2" unique_id=840852162]
+mouse_filter = 1
 text = "Honey"
+
+[node name="Spacer" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 438898774) index="3" unique_id=601987763]
+mouse_filter = 1
 
 [node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Honey/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1106293493, 2105644552) index="0" unique_id=1349292936]
 text = "15"
 
 [node name="Shrooms" parent="SellCargoPanel/VBoxContainer/CargoList" unique_id=1006848750 instance=ExtResource("1_fgoh4")]
 layout_mode = 2
+script = ExtResource("4_r8dhj")
+
+[node name="CheckBox" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="0" unique_id=448164392]
+mouse_filter = 1
 
 [node name="CargoIcon" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="1" unique_id=1179749172]
 texture = ExtResource("5_1wivh")
 
 [node name="CargoName" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="2" unique_id=840852162]
+mouse_filter = 1
 text = "Mushrooms"
+
+[node name="Spacer" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 438898774) index="3" unique_id=601987763]
+mouse_filter = 1
 
 [node name="CoinAmount" parent="SellCargoPanel/VBoxContainer/CargoList/Shrooms/HBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1006848750, 2105644552) index="0" unique_id=1349292936]
 text = "20"

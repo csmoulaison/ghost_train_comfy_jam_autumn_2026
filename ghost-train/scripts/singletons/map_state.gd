@@ -70,7 +70,7 @@ func _ready():
 	roads_unlocked.fill(false)
 	
 	# TODO: debug unlock all
-	if true:
+	if false:
 		for road in ID.Road.ROAD_COUNT:
 			unlock_road(road, false)
 	else:

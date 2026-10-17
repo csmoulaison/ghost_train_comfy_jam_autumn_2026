@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://df8lvemx5bjje" path="res://resources/dialogue_lines/grim_intro_no_vampire.tres" id="2_vit54"]
 [ext_resource type="Resource" uid="uid://b8yqd6w1kiwri" path="res://resources/dialogue_lines/grim_next_no_vampire.tres" id="3_3s7td"]
 [ext_resource type="Script" uid="uid://duou3b1bvu86e" path="res://scripts/resource_types/state_condition.gd" id="3_6fp3t"]
+[ext_resource type="Resource" uid="uid://c1hcqeato72yj" path="res://resources/dialogue_lines/grim_final_ride.tres" id="4_rdfme"]
 [ext_resource type="Resource" uid="uid://1fwrqipwx76t" path="res://resources/dialogue_lines/grims_first_meeting_with_vampire.tres" id="4_vit54"]
 [ext_resource type="Resource" uid="uid://cr2l2wntreche" path="res://resources/dialogue_lines/grims_next_with_vampire_no_scythe.tres" id="5_3s7td"]
 [ext_resource type="Resource" uid="uid://dbkayabpv8qfr" path="res://resources/dialogue_lines/grim_with_scythe.tres" id="6_5k4ou"]
@@ -217,13 +218,13 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]
 script = ExtResource("1_6frcn")
-name = "Grimm"
+name = "Grim"
 starting_location = 9
 default_texture = ExtResource("9_0ix6f")
 conditional_texture_packs = Array[ExtResource("9_dvnnk")]([SubResource("Resource_3iv3n"), SubResource("Resource_kox5s")])
 default_texture_pack = SubResource("Resource_ixfhl")
 sprite_scale = 0.2
-conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([SubResource("Resource_ekia4"), ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])
+conditional_interact_dialogue = Array[ExtResource("1_qv4s2")]([SubResource("Resource_ekia4"), ExtResource("4_rdfme"), ExtResource("2_vit54"), ExtResource("3_3s7td"), ExtResource("4_vit54"), ExtResource("5_3s7td"), ExtResource("6_5k4ou"), SubResource("Resource_j287u")])
 default_interact_dialogue = SubResource("Resource_3s7td")
 desired_location = 1
 reached_location_dialogue = ExtResource("10_0ix6f")

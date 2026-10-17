@@ -117,6 +117,7 @@ enum Event {
 	GO_TO_END_TRAIN,
 	END_GAME,
 	SCARECROW_PLAYS_GUITAR,
+	OPEN_CARGO_SELL,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
 

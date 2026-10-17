@@ -50,7 +50,7 @@ func sell_cargo(cargo_id: ID.Cargo):
 			cargo_slots[slot] = ID.Cargo.DEFAULT
 			total_cargo_sold[cargo_id] += 1
 			MoneyState.add_coins(cargo.revenue)
-			AudioState.play(AudioState.dialogue_sound_player.cargo_sell_sounds[randi_range(0, AudioState.dialogue_sound_player.cargo_sell_sounds.size() - 1)], AudioState.dialogue_sound_player)
+			#AudioState.play(AudioState.dialogue_sound_player.cargo_sell_sounds[randi_range(0, AudioState.dialogue_sound_player.cargo_sell_sounds.size() - 1)], AudioState.dialogue_sound_player)
 			ModeState.update_train_avatars(false)
 			return
 	assert(false, "Tried to sell cargo that we didn't have!")

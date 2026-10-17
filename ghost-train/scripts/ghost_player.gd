@@ -99,6 +99,8 @@ func _process(delta: float) -> void:
 	global_position += _velocity * delta
 	_face_heading()
 	_use_clicked_interactable()
+	
+	if GameState.flags[ID.Flag.ALL_JACKOKIDS_FOUND]: modulate = Color(1.0, 0.66, 0.4, modulate.a)
 
 func _physics_process(delta):
 	var blinking: bool = false

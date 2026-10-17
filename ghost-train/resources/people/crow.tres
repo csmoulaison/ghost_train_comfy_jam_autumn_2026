@@ -57,108 +57,16 @@ conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_omvf3")])
 default_next_line = ExtResource("6_tluqg")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_7c44o"]
-script = ExtResource("5_v1584")
-cargo_loaded = 1
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_cb04q"]
-script = ExtResource("4_omvf3")
-sell_cargo = 1
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_7tvlj"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "I'll take those pumpkins off your hands."
-conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_7c44o")])
-pre_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_cb04q")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_yi4fe"]
-script = ExtResource("5_v1584")
-cargo_loaded = 2
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_akxxm"]
-script = ExtResource("4_omvf3")
-sell_cargo = 2
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_kx6iy"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "Corn? Gimme that corn."
-conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_yi4fe")])
-pre_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_akxxm")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_gvcev"]
-script = ExtResource("5_v1584")
-cargo_loaded = 3
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_kg5qd"]
-script = ExtResource("4_omvf3")
-sell_cargo = 3
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
 [sub_resource type="Resource" id="Resource_i48rh"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "Delicious red apples, perfect for the goddamned market."
-conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_gvcev")])
-pre_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_kg5qd")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_ke4j6"]
-script = ExtResource("5_v1584")
-cargo_loaded = 4
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_fqr5d"]
 script = ExtResource("4_omvf3")
-sell_cargo = 4
+fire_event = 8
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_p52bu"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "Honey is sweet and so are you and so is the money."
-conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_ke4j6")])
-pre_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_fqr5d")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_0sbuk"]
-script = ExtResource("5_v1584")
-cargo_loaded = 5
-metadata/_custom_type_script = "uid://duou3b1bvu86e"
-
-[sub_resource type="Resource" id="Resource_52o77"]
-script = ExtResource("4_omvf3")
-sell_cargo = 5
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_lr5e3"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "I'm going to get high off of these mushshrooms and then sell the leftovers."
-conditions = Array[ExtResource("5_v1584")]([SubResource("Resource_0sbuk")])
-pre_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_52o77")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
-[sub_resource type="Resource" id="Resource_10jd1"]
-script = ExtResource("1_0so2n")
-person = 2
-text = "Welp, nothing ventured, nothing gained."
-metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_uajsq"]
 script = ExtResource("1_0so2n")
 person = 2
 text = "So, Ghost, got anything to offload?"
-conditional_next_lines = Array[ExtResource("1_0so2n")]([SubResource("Resource_7tvlj"), SubResource("Resource_kx6iy"), SubResource("Resource_i48rh"), SubResource("Resource_p52bu"), SubResource("Resource_lr5e3")])
-default_next_line = SubResource("Resource_10jd1")
+post_effects = Array[ExtResource("4_omvf3")]([SubResource("Resource_i48rh")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_ccpxw"]

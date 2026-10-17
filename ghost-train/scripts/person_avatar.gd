@@ -12,12 +12,15 @@ class_name PersonAvatar extends Node2D
 @onready var sprite = get_node("Sprite2D")
 @onready var interactable: Interactable = get_node("Interactable")
 
+var player: Node2D = null
+
 var active: bool = false
 var on_train: bool = false
 var location: ID.Location = ID.Location.DEFAULT
 var sequence_t: float = 0.0
 var next_blink_time: float = 0.0
 var in_blink_time: float = 0.0
+var jackopacity: float = 0.0
 
 func _ready():
 	assert(sprite != null)
@@ -37,7 +40,18 @@ func _process(dt: float):
 			set_interactable(true)
 	if (is_hiding_jackokid and ModeState.mode == ModeState.GameMode.DESTINATION) or dressing:
 		set_interactable(false)
-	if is_hiding_jackokid: interactable.input_pickable = true
+
+	if is_hiding_jackokid:
+		var appear_secs: float = 10.0
+		var disappear_secs: float = 10.0
+		interactable.input_pickable = true
+		print(str(player.sprite.flip_h))
+		if player.sprite.flip_h and player.global_position.x > global_position.x:
+			jackopacity = move_toward(jackopacity, 0.0, dt / disappear_secs)
+		else: if !player.sprite.flip_h and player.global_position.x < global_position.x:
+			jackopacity = move_toward(jackopacity, 0.0, dt / disappear_secs)
+		else: jackopacity = move_toward(jackopacity, 1.0, dt / appear_secs)
+		target_opacity = min(jackopacity, target_opacity)
 	sprite.modulate.a = lerp(sprite.modulate.a, target_opacity, dt * 8.0)
 
 func _physics_process(dt: float):
@@ -98,6 +112,9 @@ func set_state(id: ID.Person, set_on_train: bool, set_location: ID.Location, sce
 	if scene_init:
 		if check_active(): sprite.modulate.a = 1.0
 		else: sprite.modulate.a = 0.0
+	if is_hiding_jackokid:
+		player = ModeState.loaded_scene_instance.find_child("GhostPlayer")
+		assert(player != null)
 
 func check_active() -> bool:
 	if is_grimm_at_end and GameState.flags[ID.Flag.ON_END_TRAIN]: return true

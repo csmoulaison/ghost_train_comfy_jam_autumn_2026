@@ -93,10 +93,16 @@ script = ExtResource("3_nuucr")
 person_at_location = SubResource("Resource_hbii2")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
+[sub_resource type="Resource" id="Resource_0awqs"]
+script = ExtResource("1_i068e")
+set_flag = 20
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
 [sub_resource type="Resource" id="Resource_wsbrs"]
 script = ExtResource("2_654lq")
 person = 3
 text = "Here, have this orange dye. You're an honorary pumpkin!"
+pre_effects = Array[ExtResource("1_i068e")]([SubResource("Resource_0awqs")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [resource]

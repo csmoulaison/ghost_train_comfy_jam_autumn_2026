@@ -7,6 +7,7 @@ enum GameMode {
 	MAP,
 	MAIN_MENU,
 	END_SCREEN,
+	SELL_CARGO,
 }
 
 # WARNING: IF YOU ADD A SCENE NODE HERE, UPDATE remove_all_scenes() FUNCTION
@@ -19,6 +20,7 @@ enum GameMode {
 @onready var main_menu_scene: Node = scene_parent.find_child("MainMenuScene")
 @onready var pause_menu_scene: Node = scene_parent.find_child("PauseMenuScene")
 @onready var end_scene: Node = scene_parent.find_child("ThanksForPlaying")
+@onready var cargo_scene: Node = scene_parent.find_child("CargoScene")
 
 var loaded_scene_instance: Node = null
 var train_avatar: Node = null
@@ -42,6 +44,7 @@ func _ready() :
 	assert(main_menu_scene != null)
 	assert(pause_menu_scene != null)
 	assert(end_scene != null)
+	assert(cargo_scene != null)
 	EventBus.event_signal.connect(_on_event)
 	MapState.close()
 
@@ -65,11 +68,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if control_paused() or mode == GameMode.MAIN_MENU: return
 			add_scene(pause_menu_scene)
 			pause_menu = true
-
-# TODO(now): it is time to do transitions. First, a fade in and out, which will
-# require switching to a cinematic mode and queuing the proper data.
 	
-
 func start_from_menu():
 	CinematicState.start_cinematic(ID.Cinematic.INTRO_1, true)
 	
@@ -111,6 +110,9 @@ func enter_map_mode(buying_tracks: bool, cinematic: bool):
 	MapState.cinematic = cinematic
 	switch_mode(GameMode.MAP)
 	MapState.open()
+	
+func enter_cargo_mode():
+	switch_mode(GameMode.SELL_CARGO)
 
 func switch_mode(new_mode: GameMode):
 	ParallaxState.end_parallax()
@@ -126,6 +128,8 @@ func switch_mode(new_mode: GameMode):
 		GameMode.MAP:
 			MapState.open()
 			#add_scene(map_scene)
+		GameMode.SELL_CARGO:
+			cargo_scene.get_node("CargoPanel").open()
 		GameMode.MAIN_MENU:
 			remove_all_scenes()
 			add_scene(main_menu_scene)

@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bkinp6748qf5" path="res://resources/textures/pointers/pointer-chat.png.png" id="25_ihmk7"]
 [ext_resource type="Texture2D" uid="uid://evu4wb5tfe3k" path="res://resources/textures/pointers/pointer-pointing.png.png" id="26_phl1g"]
 [ext_resource type="Texture2D" uid="uid://cvofgq7n2jvrh" path="res://resources/textures/pointers/pointer-train.png.png" id="27_58tnd"]
+[ext_resource type="PackedScene" uid="uid://dx37yyp384trl" path="res://scenes/ui/sell_cargo_panel.tscn" id="36_x7ldt"]
 
 [sub_resource type="Gradient" id="Gradient_j287u"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -145,3 +146,12 @@ scale = Vector2(0.5, 0.5)
 centered = false
 
 [node name="CoinCounter" parent="." unique_id=695249888 instance=ExtResource("24_ccljq")]
+
+[node name="CargoScene" type="CanvasLayer" parent="." unique_id=1756442273]
+
+[node name="CargoPanel" parent="CargoScene" unique_id=191284959 instance=ExtResource("36_x7ldt")]
+z_index = 4094
+offset_left = -538.0
+offset_top = -297.0
+offset_right = -78.0
+offset_bottom = 142.0
