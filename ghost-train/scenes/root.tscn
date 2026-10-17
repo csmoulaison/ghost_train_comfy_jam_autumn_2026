@@ -22,9 +22,13 @@
 [ext_resource type="AudioStream" uid="uid://cxmr5rfid2rbq" path="res://resources/sounds/sfx/CargoSold_2.ogg" id="13_ihmk7"]
 [ext_resource type="AudioStream" uid="uid://6o6uvbutjt0l" path="res://resources/sounds/sfx/Train Interior.wav" id="13_vgks2"]
 [ext_resource type="AudioStream" uid="uid://c4b2qjel2qhu" path="res://resources/sounds/sfx/CargoSold_3.ogg" id="14_phl1g"]
+[ext_resource type="AudioStream" uid="uid://c3wmc0fk6ysx5" path="res://resources/sounds/sfx/HarmonicaLick_1.ogg" id="18_agklt"]
 [ext_resource type="PackedScene" uid="uid://bhhictgdmwob2" path="res://scenes/thanks_for_playing.tscn" id="18_gt4lb"]
 [ext_resource type="Script" uid="uid://c2p62kqleelt8" path="res://scenes/cursor_state.gd" id="19_mflgo"]
+[ext_resource type="AudioStream" uid="uid://32j2yea4q58x" path="res://resources/sounds/sfx/HarmonicaLick_2.ogg" id="19_x7ldt"]
 [ext_resource type="PackedScene" uid="uid://d3f1dbwqwf2br" path="res://scenes/ui/upgrade_screen.tscn" id="19_ya6yc"]
+[ext_resource type="AudioStream" uid="uid://t823s0xl12ce" path="res://resources/sounds/sfx/HarmonicaLick_3.ogg" id="20_moyyc"]
+[ext_resource type="AudioStream" uid="uid://b77uxs2htlm3r" path="res://resources/sounds/sfx/HarmonicaLick_4.ogg" id="21_f0nuf"]
 [ext_resource type="AudioStream" uid="uid://3xdtkoe1bdtx" path="res://resources/sounds/sfx/Upgrade Track.ogg" id="21_ihmk7"]
 [ext_resource type="PackedScene" uid="uid://dxt04p7r8v7vo" path="res://scenes/ui/coin_counter.tscn" id="24_ccljq"]
 [ext_resource type="Texture2D" uid="uid://dnrujy7amp8ix" path="res://resources/textures/pointers/pointer-default.png.png" id="24_isfgf"]
@@ -102,6 +106,7 @@ volume_db = 1.0
 script = ExtResource("11_jrhyn")
 chit_sound = ExtResource("12_log26")
 cargo_sell_sounds = Array[AudioStream]([ExtResource("12_isfgf"), ExtResource("13_ihmk7"), ExtResource("14_phl1g"), ExtResource("11_jehah")])
+harmonica_sounds = Array[AudioStream]([ExtResource("18_agklt"), ExtResource("19_x7ldt"), ExtResource("20_moyyc"), ExtResource("21_f0nuf")])
 
 [node name="TrainSoundPlayer1" type="AudioStreamPlayer" parent="." unique_id=342983380]
 volume_db = -9.63

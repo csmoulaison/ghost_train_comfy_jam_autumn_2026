@@ -58,11 +58,11 @@ func _process(_dt: float):
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		#return
 		if ModeState.pause_menu:
 			scene_parent.remove_child(pause_menu_scene)
 			pause_menu = false
 		else: 
+			if control_paused() or mode == GameMode.MAIN_MENU: return
 			add_scene(pause_menu_scene)
 			pause_menu = true
 
@@ -104,10 +104,11 @@ func depart_to_travel():
 
 func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.OPEN_MAP_BUYING_TRACKS:
-		enter_map_mode(true)
+		enter_map_mode(true, false)
 
-func enter_map_mode(buying_tracks: bool):
+func enter_map_mode(buying_tracks: bool, cinematic: bool):
 	MapState.buying_tracks = buying_tracks
+	MapState.cinematic = cinematic
 	switch_mode(GameMode.MAP)
 	MapState.open()
 
@@ -202,6 +203,7 @@ func place_train_cars():
 		set_train_z_front(car_node.front)
 		set_train_z_front(car_node.booth)
 		car_x = place_car_iterate_x(car_node, car_x)
+		TrainState.lower_x_bound = car_node.global_position.x + 100.0
 	for index in TrainState.cargo_car_count:
 		car_x = place_car_iterate_x(cargo_car_nodes[index], car_x)
 func set_train_z_front(node: Node):

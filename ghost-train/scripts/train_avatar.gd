@@ -52,7 +52,7 @@ func _process(_dt: float):
 func _on_depart_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if !ModeState.control_paused():
-			ModeState.enter_map_mode(false)
+			ModeState.enter_map_mode(false, false)
 	# Switch cursor back if we just changed modes
 	if ModeState.mode != ModeState.GameMode.DESTINATION:
 		Cursor.change(Cursor.Type.NORMAL)

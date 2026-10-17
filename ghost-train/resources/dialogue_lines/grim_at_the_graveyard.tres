@@ -16,17 +16,25 @@ script = ExtResource("3_vvrla")
 person_at_location = SubResource("Resource_0ix6f")
 metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
-[sub_resource type="Resource" id="Resource_aiol6"]
+[sub_resource type="Resource" id="Resource_umcct"]
 script = ExtResource("1_umcct")
 fire_event = 5
 set_flag = 18
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
+[sub_resource type="Resource" id="Resource_wj3ce"]
+script = ExtResource("2_wj3ce")
+person = 11
+text = "Got some business to attend to? I'll see you when you're ready."
+metadata/_custom_type_script = "uid://cek7638wfa72g"
+
 [sub_resource type="Resource" id="Resource_lesc6"]
 script = ExtResource("2_wj3ce")
 person = 11
 text = "You ready for your own journey, Ghost? Don't worry, you won't make it alone."
-post_effects = Array[ExtResource("1_umcct")]([SubResource("Resource_aiol6")])
+prompt_text = "One last ride?"
+accept_effects = Array[ExtResource("1_umcct")]([SubResource("Resource_umcct")])
+default_decline_line = SubResource("Resource_wj3ce")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_pl811"]

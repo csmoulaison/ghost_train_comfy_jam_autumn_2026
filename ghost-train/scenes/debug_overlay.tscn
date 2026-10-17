@@ -18,31 +18,24 @@ z_index = 1000
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
-offset_bottom = 567.0
+offset_bottom = 653.0
 mouse_filter = 2
 theme = SubResource("Theme_5m4q6")
 
 [node name="Panel" type="Panel" parent="Control" unique_id=431548481]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.143
+offset_bottom = -102.37903
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wl0fn")
 
 [node name="DebugOverlayLabel" type="Label" parent="Control/Panel" unique_id=597558644]
-custom_maximum_size = Vector2(390, 390)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = -3.0
-offset_bottom = -169.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_maximum_size = Vector2(390, 700)
+layout_mode = 0
+offset_right = 390.0
+offset_bottom = 700.0
 label_settings = SubResource("LabelSettings_jq1kd")
-autowrap_mode = 2

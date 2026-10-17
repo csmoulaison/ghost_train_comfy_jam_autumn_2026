@@ -85,6 +85,9 @@ func _process(delta: float) -> void:
 	wanted_velocity.y = 0.0
 	if ModeState.mode == ModeState.GameMode.DESTINATION and _position_off_screen(global_position + wanted_velocity.normalized() * 66.0): 
 		wanted_velocity.x = 0.0
+	if ModeState.mode == ModeState.GameMode.TRAVEL:
+		if _x_position_oob(global_position.x + wanted_velocity.normalized().x * 66.0, TrainState.lower_x_bound, 1100.0):
+			wanted_velocity.x = 0.0
 
 	if float_time <= 0.0:
 		_velocity = wanted_velocity
@@ -190,12 +193,10 @@ func _position_off_screen(pos: Vector2) -> bool:
 	var half_size: Vector2 = sprite.get_rect().size * sprite.global_scale * 0.5
 	var min_position: Vector2 = screen.position + half_size
 	var max_position: Vector2 = screen.end - half_size
+	return _x_position_oob(pos.x, min_position.x, max_position.x)
 
-	# hitting an edge also stops the ghost in that direction, otherwise it would
-	# feel stuck to the edge while its leftover velocity ran out
-	if pos.x < min_position.x or pos.x > max_position.x:
-		return true
-	if pos.y < min_position.y or pos.y > max_position.y:
+func _x_position_oob(x: float, pmin: float, pmax: float) -> bool:
+	if x < pmin or x > pmax:
 		return true
 	return false
 

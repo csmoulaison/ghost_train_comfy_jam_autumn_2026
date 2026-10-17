@@ -45,6 +45,8 @@ func _process(dt: float):
 	sprite.global_position = sprite.get_global_mouse_position()
 	sprite.offset = offset
 	sprite.modulate.a = lerp(sprite.modulate.a, opacity, 10.0 * dt)
+	if DialogueState.is_active(): sprite.texture = normal
+	if ModeState.mode == ModeState.GameMode.MAIN_MENU: sprite.texture = normal
 	
 static func define_hover(hover_node: Node, hover_cursor: Type):
 	hover_node.mouse_entered.connect(change.bind(hover_cursor))

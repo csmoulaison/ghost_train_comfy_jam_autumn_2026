@@ -52,16 +52,27 @@ person = 11
 text = "No worries, bro. Take your time. It's your afterlife, after all."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
-[sub_resource type="Resource" id="Resource_wnj7c"]
+[sub_resource type="Resource" id="Resource_58tnd"]
 script = ExtResource("2_vcw4g")
 fire_event = 6
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_wnj7c"]
+script = ExtResource("2_vcw4g")
+set_flag = 22
+metadata/_custom_type_script = "uid://ds5odfukpyq25"
+
+[sub_resource type="Resource" id="Resource_rdfme"]
+script = ExtResource("2_vcw4g")
+set_flag = 22
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 
 [sub_resource type="Resource" id="Resource_vi14a"]
 script = ExtResource("1_qv4s2")
 person = 11
 text = "Have a nice death, little dude. I'll come visit from time to time. "
-post_effects = Array[ExtResource("2_vcw4g")]([SubResource("Resource_wnj7c")])
+pre_effects = Array[ExtResource("2_vcw4g")]([SubResource("Resource_rdfme")])
+post_effects = Array[ExtResource("2_vcw4g")]([SubResource("Resource_58tnd"), SubResource("Resource_wnj7c")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_pl811"]

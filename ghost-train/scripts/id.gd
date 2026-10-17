@@ -104,6 +104,7 @@ enum Flag {
 	GRIMM_GAVE_GUITAR,
 	ALL_JACKOKIDS_FOUND,
 	GAVE_GUITAR_TO_SCARECROW,
+	GAME_ENDED,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 
@@ -115,6 +116,7 @@ enum Event {
 	GET_ON_TRAIN_WITH_GRIMM,
 	GO_TO_END_TRAIN,
 	END_GAME,
+	SCARECROW_PLAYS_GUITAR,
 	EVENT_COUNT, # EVENT_COUNT must always be at the end of the list
 }
 
@@ -132,5 +134,6 @@ enum Cinematic {
 	ARRIVE_AT_DESTINATION,
 	TMP_ENDING,
 	END_GAME,
+	GROTTO_TRACK,
 	CINEMATIC_COUNT,
 }

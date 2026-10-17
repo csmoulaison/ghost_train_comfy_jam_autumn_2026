@@ -7,6 +7,7 @@ extends Node
 var depart_train_length: float = 6.0
 var arrive_train_length: float = 7.0
 var exit_travel_length: float = 1.0
+var end_game_triggered: bool = false
 
 var current_cinematic: ID.Cinematic
 var t: float = 0.0
@@ -32,11 +33,26 @@ func _on_event(event: ID.Event, _arg: int):
 	if event == ID.Event.GET_ON_TRAIN_WITH_GRIMM:
 		MapLocation.select_node(ID.Location.GRAVEYARD, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
+	else: if event == ID.Event.OPEN_MAP_BUYING_GROTTO_TRACK:
+		MapState.cinematic = true
+		ModeState.enter_map_mode(false, true)
+		AudioState.play(AudioState.train_sound_player_2.road_buy, AudioState.train_sound_player_2)
+		start_cinematic(ID.Cinematic.GROTTO_TRACK, false)
 	else: if event == ID.Event.GO_TO_END_TRAIN:
 		GameState.flags[ID.Flag.ON_END_TRAIN] = true
 		MapLocation.select_node(ID.Location.FARMERS_MARKET, ID.Road.GRAVEYARD_TO_FARMERS_MARKET, false)
 		ModeState.depart_to_travel()
+	else: if event == ID.Event.SCARECROW_PLAYS_GUITAR:
+		AudioState.music_player_1.stop()
+		AudioState.play(AudioState.music_player_1.scarecrow_guitar, AudioState.music_player_2)
+		AudioState.music_player_2.volume_linear = 1.0
 	else: if event == ID.Event.END_GAME:
+		GameState.flags[ID.Flag.GAME_ENDED] = true
+		#start_cinematic(ID.Cinematic.END_GAME, false)
+
+func _process(_dt):
+	if !end_game_triggered and GameState.flags[ID.Flag.GAME_ENDED] and !DialogueState.is_active():
+		end_game_triggered = true
 		start_cinematic(ID.Cinematic.END_GAME, false)
 
 func _physics_process(dt: float):
@@ -64,6 +80,8 @@ func _physics_process(dt: float):
 			
 			if t_bang_threshold(t, 0.1, dt): AudioState.play(AudioState.train_sound_player_2.depart_sound, AudioState.train_sound_player_2)
 			AudioState.set_volume(t_range_clamped(t, depart_train_length - 0.1, depart_train_length - 4.0), AudioState.music_player_1)
+			if AudioState.music_player_2.volume_linear > 0.0: 
+				AudioState.set_volume(t_range_clamped(t, depart_train_length - 0.1, depart_train_length - 4.0), AudioState.music_player_2)
 			if t_bang_threshold(t, 4.5, dt): AudioState.play(AudioState.train_sound_player_1.exterior, AudioState.train_sound_player_1)
 			AudioState.set_volume(t_range_clamped(t, 4.5, 5.5), AudioState.train_sound_player_1)
 			
@@ -93,6 +111,9 @@ func _physics_process(dt: float):
 				var road: Road = ResourceData.roads[TrainState.current_road]
 				ModeState.load_subscene(ModeState.travel_subscene_parent, road.subscene_path)
 				ParallaxState.begin_parallax()
+				if GameState.flags[ID.Flag.ON_END_TRAIN]: 
+					var ghost = ModeState.travel_scene.get_node("GhostPlayer")
+					ghost.global_position.x = TrainState.lower_x_bound + 32.0
 				for index in ID.Cargo.CARGO_COUNT:
 					GameState.cargo_cooldowns[index] -= 1
 			if t > depart_train_length - 1.0:
@@ -106,6 +127,8 @@ func _physics_process(dt: float):
 				stop_cinematic()
 		ID.Cinematic.EXIT_TRAVEL:
 			fade_sprite.modulate.a = t_range_clamped(t, 0.0, exit_travel_length - 0.0)
+			if t_bang_threshold(t, 0.05, dt): 
+				AudioState.play(AudioState.dialogue_sound_player.harmonica_sounds[randi_range(0, AudioState.dialogue_sound_player.harmonica_sounds.size() - 1)], AudioState.dialogue_sound_player)
 			if t > exit_travel_length:
 				arriving_at_destination_with_fade = true
 				stop_cinematic()
@@ -124,13 +147,15 @@ func _physics_process(dt: float):
 			else: title_label.modulate.a = t_range_clamped(t, arrive_train_length - 0.0, arrive_train_length - 0.8)
 			
 			var grimm_guitar: bool = true if TrainState.current_location == ID.Location.GRIMMS_GROTTO and !GameState.flags[ID.Flag.GRIMM_GAVE_GUITAR] else false
+			var scarecrow_guitar: bool = true if TrainState.current_location == ID.Location.CORN_TOWN and GameState.flags[ID.Flag.GAVE_GUITAR_TO_SCARECROW] else false
 			if t_bang_threshold(t, 0.2, dt): AudioState.play(AudioState.train_sound_player_2.arrival_sound, AudioState.train_sound_player_2)
 			if t_bang_threshold(t, 4.2, dt): 
 				AudioState.play_offset_from_end(location.music, AudioState.music_player_1, 0.66)
 				if grimm_guitar: AudioState.play_offset_from_end(AudioState.music_player_1.grimm_guitar, AudioState.music_player_2, 0.66)
+				if scarecrow_guitar: AudioState.play_offset_from_end(AudioState.music_player_1.scarecrow_guitar, AudioState.music_player_2, 0.66)
 			AudioState.set_volume(t_range_clamped(t, 1.0, 0.0), AudioState.train_sound_player_1)
-			AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_1)
-			if grimm_guitar: AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_2)
+			if !scarecrow_guitar: AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_1)
+			if grimm_guitar or scarecrow_guitar: AudioState.set_volume(t_range_clamped(t, 4.2, 5.2), AudioState.music_player_2)
 			
 			GameState.flags[ID.Flag.GHOST_TRAIN_DESTINATION_AVATAR] = true
 			ModeState.train_avatar.position.x = -400.0 + t_range_cubic_clamped(t, 0.0, arrive_train_length) * (train_arrival_point + 400.0)
@@ -140,7 +165,12 @@ func _physics_process(dt: float):
 				if ModeState.cached_arrival_dialogue != null:
 					DialogueState.open_dialogue([], ModeState.cached_arrival_dialogue)
 					ModeState.cached_arrival_dialogue = null
+		ID.Cinematic.GROTTO_TRACK:
+			if t > 4.0:
+				stop_cinematic()
+				MapState.on_close_button()
 		ID.Cinematic.END_GAME:
+			print("ending game!")
 			AudioState.set_volume(t_range_clamped(t, 2.0, 1.0), AudioState.train_sound_player_1)
 			if t < 3.0: fade_sprite.modulate.a = t_range_clamped(t, 0.0, 2.0)
 			if t_bang_threshold(t, 3.0, dt): ModeState.switch_mode(ModeState.GameMode.END_SCREEN)

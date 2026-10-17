@@ -27,13 +27,14 @@ func open_dialogue(conditional_lines: Array[DialogueLine], default_line: Dialogu
 	var started_line: DialogueLine = try_start_line_from_conditional_list(conditional_lines, default_line, [])
 	if started_line != null: 
 		dialogue_started.emit(started_line)
+	if started_line.person == ID.Person.GRIMM and !GameState.flags[ID.Flag.GRIMM_GAVE_GUITAR]:
+		AudioState.music_player_2.stop()
 
 ## Returns the dialogue line that was chosen.
 func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine], default_line: DialogueLine, post_effects_from_previous: Array[StateEffect]) -> DialogueLine:
 	var stored_line: DialogueLine = current_line
 	StateEffect.fire_list(post_effects_from_previous)
 	if stored_line != current_line: 
-		print("line override!")
 		return null
 	
 	# NOTE: default_line must be set, or the dialogue will close, even if
@@ -50,8 +51,6 @@ func try_start_line_from_conditional_list(conditional_lines: Array[DialogueLine]
 				break
 	current_line = line_to_start
 	StateEffect.fire_list(current_line.pre_effects)
-	# TODO(now): before starting line, see if its cyclical and choose a child if
-	# so, iterating cycle.
 	if current_line.cycle != ID.DialogueCycle.DEFAULT:
 		var cycle_len: int = current_line.conditional_next_lines.size()
 		var cycle: ID.DialogueCycle = current_line.cycle
@@ -87,5 +86,7 @@ func close_dialogue() -> void:
 	# clear our state before emitting, so a listener is free to start another
 	# chain straight away
 	var finished_line: DialogueLine = current_line
+	if current_line.person == ID.Person.GRIMM and !GameState.flags[ID.Flag.GRIMM_GAVE_GUITAR]:
+		AudioState.play(AudioState.music_player_1.grimm_guitar, AudioState.music_player_2)
 	current_line = null
 	dialogue_ended.emit(finished_line)

@@ -1,13 +1,11 @@
 extends Node
 
-# TODO: button for leaving map screen without entering travel mode, or when
-# buying tracks.
-
 var locations_unlocked: Array[bool]
 var roads_unlocked: Array[bool]
 var road_nodes: Array[MapRoad]
 var location_nodes: Array[MapLocation]
 var buying_tracks: bool = false
+var cinematic: bool = false
 var target_opacity: float = 0.0
 var confirmation_road: ID.Road = ID.Road.DEFAULT
 var coin_amount_initial_color: Color = Color("031727ff")
@@ -28,6 +26,7 @@ var coin_amount_initial_color: Color = Color("031727ff")
 @onready var close_button_buy: TextureButton = map_scene.get_node("CloseButton1")
 @onready var close_button_travel: TextureButton = map_scene.get_node("CloseButton2")
 @onready var coin_amount: Label = map_scene.get_node("CoinCounter/PanelContainer/HBoxContainer/CoinAmount")
+@onready var grotto_sparkles: AnimatedSprite2D = map_scene.get_node("GrottoSparkles")
 @onready var cargo_only_ui_nodes: Array[Node] = []
 
 func _ready():
@@ -41,6 +40,7 @@ func _ready():
 	assert(header_label != null)
 	assert(close_button_buy != null)
 	assert(close_button_travel != null)
+	assert(grotto_sparkles != null)
 	cargo_only_ui_nodes.push_back(map_scene.get_node("Header/NameTag"))
 	cargo_only_ui_nodes.push_back(map_scene.get_node("CoinCounter"))
 	cargo_only_ui_nodes.push_back(map_scene.get_node("BoxcarCard"))
@@ -50,8 +50,8 @@ func _ready():
 	coin_amount.modulate = coin_amount_initial_color
 	map_scene.modulate.a = 0.0
 	target_opacity = 0.0
-	close_button_buy.pressed.connect(_on_close_button)
-	close_button_travel.pressed.connect(_on_close_button)
+	close_button_buy.pressed.connect(on_close_button)
+	close_button_travel.pressed.connect(on_close_button)
 	confirm_button.pressed.connect(_on_confirm_button)
 	cancel_button.pressed.connect(_on_cancel_button)
 	buy_boxcar_button.pressed.connect(_on_buy_boxcar_button)
@@ -70,7 +70,7 @@ func _ready():
 	roads_unlocked.fill(false)
 	
 	# TODO: debug unlock all
-	if false:
+	if true:
 		for road in ID.Road.ROAD_COUNT:
 			unlock_road(road, false)
 	else:
@@ -132,12 +132,14 @@ func _on_cancel_button():
 		TrainState.current_road = ID.Road.DEFAULT
 	MapState.update_visual_state()
 
-func _on_close_button():
+func on_close_button():
 	close()
 	Cursor.change(Cursor.Type.NORMAL)
 	ModeState.switch_mode(ModeState.GameMode.DESTINATION)
 	if MapState.buying_tracks:
 		DialogueState.open_dialogue([], close_button_buy.post_track_dialogue)
+	if MapState.cinematic:
+		DialogueState.open_dialogue([], close_button_buy.post_grotto_dialogue)
 
 func _on_buy_boxcar_button():
 	if MoneyState.try_coins(20):
@@ -167,6 +169,7 @@ func unlock_road(road_id: ID.Road, visual_update: bool):
 	if visual_update: update_visual_state()
 
 func open_confirmation_dialog(main_text: String, sub_text: String, yes_text: String, no_text: String):
+	if cinematic: return
 	confirmation_main_label.text = main_text
 	confirmation_sub_label.text = sub_text
 	confirm_button_label.text = yes_text
@@ -190,6 +193,10 @@ func open():
 		close_button_buy.visible = false
 		close_button_travel.visible = true
 		header_label.text = "Choose a destination."
+	if cinematic: 
+		header_label.text = "Let's see here..."
+		grotto_sparkles.visible = true
+	else: grotto_sparkles.visible = false
 	update_visual_state()
 
 func close():

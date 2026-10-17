@@ -36,6 +36,8 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_jwxfg"]
 script = ExtResource("2_ix7wh")
+fire_event = 7
+set_flag = 21
 load_small_cargo = 3
 metadata/_custom_type_script = "uid://ds5odfukpyq25"
 

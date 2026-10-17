@@ -143,8 +143,8 @@ position = Vector2(1177, -534.5)
 shape = SubResource("RectangleShape2D_l7vmw")
 
 [node name="ArriveInteractable" type="Area2D" parent="Locomotive" unique_id=1791242412]
-position = Vector2(-77.00001, -31.000004)
-scale = Vector2(0.38443696, 0.9084895)
+position = Vector2(-38.000004, -106)
+scale = Vector2(0.35419583, 0.75938356)
 script = ExtResource("2_v4i8w")
 prompt_text = "def"
 

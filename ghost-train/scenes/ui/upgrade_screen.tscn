@@ -41,6 +41,13 @@
 [ext_resource type="PackedScene" uid="uid://o028in7m8avn" path="res://scenes/map_location.tscn" id="35_tak6q"]
 [ext_resource type="Texture2D" uid="uid://cmife1cyg5uar" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-2of3.png" id="36_ctsbo"]
 [ext_resource type="Texture2D" uid="uid://0vy025asn87d" path="res://resources/textures/upgrades_and_stuff/car amount icons/passenger-3of3.png" id="37_61kos"]
+[ext_resource type="Texture2D" uid="uid://dn51hpyvxqeyy" path="res://resources/textures/stars/stars-0.png" id="42_k4y07"]
+[ext_resource type="Texture2D" uid="uid://c1050lnxosnfj" path="res://resources/textures/stars/stars-1.png" id="43_ga8tq"]
+[ext_resource type="Texture2D" uid="uid://v1j0emm13u2x" path="res://resources/textures/stars/stars-2.png" id="44_xotje"]
+[ext_resource type="Texture2D" uid="uid://bx2nroldxo51r" path="res://resources/textures/stars/stars-3.png" id="45_fpuix"]
+[ext_resource type="Texture2D" uid="uid://bvb0pmqv6a8fn" path="res://resources/textures/stars/stars-4.png" id="46_huux6"]
+[ext_resource type="Texture2D" uid="uid://dp2txo63irxed" path="res://resources/textures/stars/stars-5.png" id="47_67fp7"]
+[ext_resource type="Texture2D" uid="uid://cheqkyocy48j1" path="res://resources/textures/stars/stars-6.png" id="48_m60hq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnp6h"]
 content_margin_left = 0.0
@@ -67,6 +74,12 @@ corner_radius_bottom_left = 12
 shadow_color = Color(0, 0, 0, 0.21568628)
 shadow_size = 3
 shadow_offset = Vector2(0, 4)
+
+[sub_resource type="Resource" id="Resource_k4y07"]
+script = ExtResource("31_m7u48")
+person = 5
+text = "Now your train will rise up like mushrooms from a fallen log!"
+metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpnye"]
 content_margin_left = 10.0
@@ -100,6 +113,35 @@ text = "Ah! To get there we'll need to fly."
 post_effects = Array[ExtResource("30_yrjfx")]([SubResource("Resource_f0c3g")])
 default_next_line = SubResource("Resource_u73mt")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctsbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_k4y07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ga8tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_xotje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_fpuix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_huux6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_67fp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_m60hq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MapOverlay" type="Control" unique_id=1053150587]
 layout_mode = 3
@@ -204,6 +246,7 @@ ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("6_ygxdb")
 post_track_dialogue = ExtResource("7_shjbj")
+post_grotto_dialogue = SubResource("Resource_k4y07")
 
 [node name="CloseButton2" type="TextureButton" parent="." unique_id=1764417362]
 layout_mode = 0
@@ -216,6 +259,7 @@ ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("6_ygxdb")
 post_track_dialogue = ExtResource("7_shjbj")
+post_grotto_dialogue = SubResource("Resource_k4y07")
 
 [node name="MapCard" type="PanelContainer" parent="." unique_id=564274912]
 layout_mode = 0
@@ -538,5 +582,14 @@ theme_override_font_sizes/font_size = 18
 text = "Cancel"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GrottoSparkles" type="AnimatedSprite2D" parent="." unique_id=1147574241]
+z_index = 300
+position = Vector2(576, 521)
+rotation = 1.6579405
+scale = Vector2(0.20956324, 0.20956324)
+sprite_frames = SubResource("SpriteFrames_ctsbo")
+autoplay = "default"
+frame_progress = 0.41600233
 
 [editable path="CoachCard"]
