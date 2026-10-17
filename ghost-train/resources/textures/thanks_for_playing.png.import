@@ -2,22 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnawch45m6xgr"
-path="res://.godot/imported/repeatingtrainbackgroundwatercolor.jpg-196600342b25e126f6371aee258c85e4.ctex"
+uid="uid://c5rdjsa5hv6u7"
+path="res://.godot/imported/thanks_for_playing.png-d3b93d0cd46a1503641eca20007c0edf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/repeatingtrainbackgroundwatercolor.jpg"
-dest_files=["res://.godot/imported/repeatingtrainbackgroundwatercolor.jpg-196600342b25e126f6371aee258c85e4.ctex"]
+source_file="res://resources/textures/thanks_for_playing.png"
+dest_files=["res://.godot/imported/thanks_for_playing.png-d3b93d0cd46a1503641eca20007c0edf.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.8
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

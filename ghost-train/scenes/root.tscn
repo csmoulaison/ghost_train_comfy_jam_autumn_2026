@@ -18,10 +18,8 @@
 [ext_resource type="Script" uid="uid://bk48he1fgv3yf" path="res://scenes/dialogue_sound_player.gd" id="11_jrhyn"]
 [ext_resource type="AudioStream" uid="uid://bsjtayqqc53d6" path="res://resources/sounds/sfx/Train Departure.ogg" id="11_xsp7o"]
 [ext_resource type="AudioStream" uid="uid://dj38l15ef3jwu" path="res://resources/sounds/sfx/CargoSold_1.ogg" id="12_isfgf"]
-[ext_resource type="AudioStream" uid="uid://c00hwfybbahsq" path="res://resources/sounds/sfx/Train Exterior Travel.wav" id="12_l5cgh"]
 [ext_resource type="AudioStream" uid="uid://6fcicutwfrwu" path="res://resources/sounds/sfx/chit_single.ogg" id="12_log26"]
 [ext_resource type="AudioStream" uid="uid://cxmr5rfid2rbq" path="res://resources/sounds/sfx/CargoSold_2.ogg" id="13_ihmk7"]
-[ext_resource type="AudioStream" uid="uid://6o6uvbutjt0l" path="res://resources/sounds/sfx/Train Interior.wav" id="13_vgks2"]
 [ext_resource type="AudioStream" uid="uid://c4b2qjel2qhu" path="res://resources/sounds/sfx/CargoSold_3.ogg" id="14_phl1g"]
 [ext_resource type="AudioStream" uid="uid://c3wmc0fk6ysx5" path="res://resources/sounds/sfx/HarmonicaLick_1.ogg" id="18_agklt"]
 [ext_resource type="PackedScene" uid="uid://bhhictgdmwob2" path="res://scenes/thanks_for_playing.tscn" id="18_gt4lb"]
@@ -34,8 +32,10 @@
 [ext_resource type="PackedScene" uid="uid://dxt04p7r8v7vo" path="res://scenes/ui/coin_counter.tscn" id="24_ccljq"]
 [ext_resource type="Texture2D" uid="uid://dnrujy7amp8ix" path="res://resources/textures/pointers/pointer-default.png.png" id="24_isfgf"]
 [ext_resource type="Texture2D" uid="uid://bkinp6748qf5" path="res://resources/textures/pointers/pointer-chat.png.png" id="25_ihmk7"]
+[ext_resource type="AudioStream" uid="uid://dxrona6rjkvn3" path="res://resources/sounds/sfx/Train Exterior Travel.ogg" id="26_moyyc"]
 [ext_resource type="Texture2D" uid="uid://evu4wb5tfe3k" path="res://resources/textures/pointers/pointer-pointing.png.png" id="26_phl1g"]
 [ext_resource type="Texture2D" uid="uid://cvofgq7n2jvrh" path="res://resources/textures/pointers/pointer-train.png.png" id="27_58tnd"]
+[ext_resource type="AudioStream" uid="uid://dr02tjyfpbc6o" path="res://resources/sounds/sfx/Train Interior.ogg" id="27_f0nuf"]
 [ext_resource type="PackedScene" uid="uid://dx37yyp384trl" path="res://scenes/ui/sell_cargo_panel.tscn" id="36_x7ldt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x7ldt"]
@@ -137,15 +137,16 @@ volume_db = -9.63
 script = ExtResource("9_3hfy5")
 arrival_sound = ExtResource("10_y3xxt")
 depart_sound = ExtResource("11_xsp7o")
-exterior = ExtResource("12_l5cgh")
-interior = ExtResource("13_vgks2")
+exterior = ExtResource("26_moyyc")
+interior = ExtResource("27_f0nuf")
+road_buy = ExtResource("21_ihmk7")
 
 [node name="TrainSoundPlayer2" type="AudioStreamPlayer" parent="." unique_id=539199568]
 script = ExtResource("9_3hfy5")
 arrival_sound = ExtResource("10_y3xxt")
 depart_sound = ExtResource("11_xsp7o")
-exterior = ExtResource("12_l5cgh")
-interior = ExtResource("13_vgks2")
+exterior = ExtResource("26_moyyc")
+interior = ExtResource("27_f0nuf")
 road_buy = ExtResource("21_ihmk7")
 
 [node name="ThanksForPlaying" parent="." unique_id=216287202 instance=ExtResource("18_gt4lb")]

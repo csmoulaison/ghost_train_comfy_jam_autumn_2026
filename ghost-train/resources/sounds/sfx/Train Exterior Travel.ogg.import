@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxrona6rjkvn3"
+path="res://.godot/imported/Train Exterior Travel.ogg-2aa36c086399bccf361d77154cfca8d5.oggvorbisstr"
+
+[deps]
+
+source_file="res://resources/sounds/sfx/Train Exterior Travel.ogg"
+dest_files=["res://.godot/imported/Train Exterior Travel.ogg-2aa36c086399bccf361d77154cfca8d5.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhhictgdmwob2"]
 
-[ext_resource type="Texture2D" uid="uid://dnawch45m6xgr" path="res://resources/textures/repeatingtrainbackgroundwatercolor.jpg" id="1_cfell"]
+[ext_resource type="Texture2D" uid="uid://c5rdjsa5hv6u7" path="res://resources/textures/thanks_for_playing.png" id="1_io7xl"]
 [ext_resource type="Texture2D" uid="uid://qpewdcawtut1" path="res://resources/textures/characters/ghost/ghost-idle.png" id="2_gplpo"]
 [ext_resource type="FontFile" uid="uid://b4w81t5rvo36k" path="res://resources/fonts/1689 GLC Garamond W00SC Italic.ttf" id="3_io7xl"]
 
@@ -13,10 +13,10 @@ font_color = Color(0.8934419, 0.82296354, 0.79240966, 1)
 
 [node name="ThanksForPlaying" type="Node" unique_id=216287202]
 
-[node name="Repeatingtrainbackgroundwatercolor" type="Sprite2D" parent="." unique_id=2037258236]
-position = Vector2(743, 524.00006)
-scale = Vector2(1.3323528, 1.3323528)
-texture = ExtResource("1_cfell")
+[node name="ThanksForPlaying" type="Sprite2D" parent="." unique_id=1156444683]
+position = Vector2(777, 517)
+scale = Vector2(0.78442276, 0.7844228)
+texture = ExtResource("1_io7xl")
 
 [node name="GhostIdle" type="Sprite2D" parent="." unique_id=1281986707]
 modulate = Color(1, 1, 1, 0.62352943)
