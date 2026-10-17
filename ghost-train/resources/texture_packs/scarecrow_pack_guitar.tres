@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 
 [sub_resource type="Resource" id="Resource_fki1r"]
 script = ExtResource("2_wmwxp")
-frames = Array[Texture2D]([ExtResource("4_0a635"), ExtResource("5_0a635"), ExtResource("6_mqu8f"), ExtResource("4_0a635"), ExtResource("1_yiik5"), ExtResource("8_4003a"), ExtResource("7_oht0o")])
+frames = Array[Texture2D]([ExtResource("4_0a635"), ExtResource("5_0a635"), ExtResource("4_0a635"), ExtResource("1_yiik5"), ExtResource("7_oht0o")])
 metadata/_custom_type_script = "uid://lwir2mfi765q"
 
 [sub_resource type="Resource" id="Resource_yiik5"]

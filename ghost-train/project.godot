@@ -29,10 +29,10 @@ TrainState="*uid://byn0m5l8g4sbk"
 DialogueState="*uid://b8s1536cnraoh"
 DebugOverlay="*uid://cpru3magkjf7k"
 ModeState="*uid://3tj7rid46lrh"
+AudioState="*uid://0epepym1fg6g"
 CinematicState="*uid://cvhpw22hipuyi"
 ParallaxState="*uid://dd585tvwyvx5"
 MoneyState="*uid://n2xhnjn66x2p"
-AudioState="*uid://0epepym1fg6g"
 
 [display]
 

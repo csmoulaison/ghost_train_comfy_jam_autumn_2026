@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_jey4n"]
 script = ExtResource("2_is2u6")
 person = 3
-text = "Say... Ghost. If you happen to find any of the whippersnappers, you'll send them on over, won't you?"
+text = "Say... Ghost. If you happen to find any of the whippersnappers, you'll bring them back on over to me, won't you?"
 default_next_line = SubResource("Resource_ionxr")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 

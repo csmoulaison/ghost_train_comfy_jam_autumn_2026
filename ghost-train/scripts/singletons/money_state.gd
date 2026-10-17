@@ -2,8 +2,8 @@ extends Node
 
 var coins: int = 0
 
-func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("give_money"): coins += 10
+#func _unhandled_input(event: InputEvent):
+	#if event.is_action_pressed("give_money"): coins += 10
 
 func try_coins(amount: int) -> bool:
 	if coins >= amount:

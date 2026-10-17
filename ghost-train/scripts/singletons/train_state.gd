@@ -14,7 +14,7 @@ var small_cargo_on_train: Array[bool]
 var visible_velocity: float = 0.0
 var lower_x_bound: float = 0.0
 
-const max_cargo_cars: int = 3
+const max_cargo_cars: int = 4
 const max_passenger_cars: int = 9
 const max_passengers_per_car: int = 2
 

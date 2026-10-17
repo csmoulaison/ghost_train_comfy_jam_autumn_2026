@@ -161,7 +161,7 @@ metadata/_custom_type_script = "uid://lwir2mfi765q"
 
 [sub_resource type="Resource" id="Resource_6nn6u"]
 script = ExtResource("6_u5e4v")
-frames = Array[Texture2D]([ExtResource("4_m3j2n"), ExtResource("7_4lsr5"), ExtResource("8_y0kgr"), ExtResource("9_q8igk"), ExtResource("10_ecsx8"), ExtResource("11_wmx05"), ExtResource("12_p1tmp"), ExtResource("13_pysxt"), ExtResource("14_s54yy")])
+frames = Array[Texture2D]([ExtResource("4_m3j2n"), ExtResource("12_p1tmp"), ExtResource("9_q8igk")])
 metadata/_custom_type_script = "uid://lwir2mfi765q"
 
 [sub_resource type="Resource" id="Resource_6j835"]

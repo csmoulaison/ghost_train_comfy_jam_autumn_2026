@@ -9,8 +9,8 @@ func _ready():
 	assert(debug_label != null)
 	assert(debug_control != null)
 	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_overlay"): active = !active
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_pressed("toggle_overlay"): active = !active
 
 func _process(_dt: float):
 	debug_control.modulate.a = 1.0 if active else 0.0

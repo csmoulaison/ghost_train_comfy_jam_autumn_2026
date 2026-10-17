@@ -105,6 +105,7 @@ enum Flag {
 	ALL_JACKOKIDS_FOUND,
 	GAVE_GUITAR_TO_SCARECROW,
 	GAME_ENDED,
+	GAVE_SCYTHE_TO_GRIMM,
 	FLAG_COUNT, # FLAG_COUNT must always be at the end of the list
 }
 

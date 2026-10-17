@@ -29,6 +29,7 @@ var cargo_car_nodes: Array[Node] = []
 var mode: GameMode = GameMode.DESTINATION
 var initialized: bool = false
 var pause_menu: bool = false
+var ghost_initial_travel_position: Vector2
 
 # cached state for transitions
 var cached_to_travel_destination: ID.Location = ID.Location.DEFAULT
@@ -45,6 +46,7 @@ func _ready() :
 	assert(pause_menu_scene != null)
 	assert(end_scene != null)
 	assert(cargo_scene != null)
+	ghost_initial_travel_position = travel_scene.get_node("GhostPlayer").global_position
 	EventBus.event_signal.connect(_on_event)
 	MapState.close()
 

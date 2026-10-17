@@ -20,13 +20,13 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 position = Vector2(0, -55.165)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG_2" unique_id=780262201]
-position = Vector2(1.9999999, 62.165)
+position = Vector2(2, 55.165)
 scale = Vector2(0.59999996, 0.6)
 texture = ExtResource("1_6wb8e")
 centered = false
 
 [node name="TrainAvatar" parent="." unique_id=1648796774 instance=ExtResource("2_s7cgy")]
-position = Vector2(470, 230.00002)
+position = Vector2(471.00003, 226.00002)
 scale = Vector2(0.05996362, 0.05996362)
 
 [node name="BG_3" type="Node2D" parent="." unique_id=1307767903]

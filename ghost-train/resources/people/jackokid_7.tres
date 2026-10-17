@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_j287u"]
 script = ExtResource("1_672po")
 person = 19
-text = "Nicholas is not being nice to me!"
+text = "Have you seen my brother Nicholas? I haven't seen any of my siblings since we left the patch."
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_byv6k"]

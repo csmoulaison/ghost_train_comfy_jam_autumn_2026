@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_tlvvj"]
 script = ExtResource("2_85q28")
 person = 6
-text = "Its called a protest. Join me in dismantling capitalist infrastructure."
+text = "It's called a protest. Join me in dismantling capitalist infrastructure."
 prompt_text = "Load corn?"
 accept_effects = Array[ExtResource("1_tlvvj")]([SubResource("Resource_5m38i")])
 default_accept_line = SubResource("Resource_s7cgy")

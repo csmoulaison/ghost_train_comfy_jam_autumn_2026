@@ -226,10 +226,11 @@ stretch_mode = 5
 
 [node name="Found" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1" unique_id=464916204 instance=ExtResource("4_jt3wq")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(28, 28)
+position = Vector2(29, 28)
 conditions = Array[ExtResource("5_pmqoe")]([SubResource("Resource_jgge2"), SubResource("Resource_8bg5c")])
 
 [node name="Sprite2D" type="Sprite2D" parent="PauseLayer/CenterContainer/Panel/TextureRect/VBoxContainer/JackoRow/Slot1/Found" unique_id=1870371876]
+position = Vector2(-0.99999994, 0.99999994)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_rv42e")
 

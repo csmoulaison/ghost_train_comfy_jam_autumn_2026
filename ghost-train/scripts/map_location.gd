@@ -1,4 +1,4 @@
-class_name MapLocation extends Node2D
+class_name MapLocation extends Area2D
 
 @export var location_id: ID.Location
 @export var locked_texture: Texture2D
@@ -14,6 +14,21 @@ func _ready():
 	assert(here_marker != null)
 	assert(destination_marker != null)
 	assert(location_id != ID.Location.DEFAULT and location_id != ID.Location.LOCATION_COUNT, "Location_id unset in map node " + self.to_string())
+	mouse_entered.connect(_hover)
+	mouse_exited.connect(_unhover)
+
+func _process(_dt):
+	if MapState.buying_tracks: 
+		destination_marker.visible = false
+	if !MapState.buying_tracks and TrainState.next_location == location_id:
+		destination_marker.visible = true
+
+func _hover():
+	if !MapState.buying_tracks and TrainState.current_location != location_id and MapState.locations_unlocked[location_id]: 
+		destination_marker.visible = true
+
+func _unhover():
+	destination_marker.visible = false
 
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

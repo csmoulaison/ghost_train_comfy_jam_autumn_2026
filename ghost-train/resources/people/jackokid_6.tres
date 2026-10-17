@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://duou3b1bvu86e"
 [sub_resource type="Resource" id="Resource_et3u1"]
 script = ExtResource("1_xefmn")
 person = 18
-text = "I never found that pumpkin pie. Son of a biscuit."
+text = "I'm also feeling tuckered out. I should ask Shroomy for a mushroom to use as a pillow..."
 conditions = Array[ExtResource("3_2jchp")]([SubResource("Resource_pewj6")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
@@ -52,23 +52,10 @@ blink = SubResource("Resource_vioq0")
 talk = SubResource("Resource_s80ue")
 metadata/_custom_type_script = "uid://vjmsnnm0kyd1"
 
-[sub_resource type="Resource" id="Resource_o1muc"]
-script = ExtResource("2_o1muc")
-board_person = 18
-metadata/_custom_type_script = "uid://ds5odfukpyq25"
-
-[sub_resource type="Resource" id="Resource_2jchp"]
-script = ExtResource("1_xefmn")
-person = 18
-text = "Her name is Jill. Jill-o."
-post_effects = Array[ExtResource("2_o1muc")]([SubResource("Resource_o1muc")])
-metadata/_custom_type_script = "uid://cek7638wfa72g"
-
 [sub_resource type="Resource" id="Resource_5sfjl"]
 script = ExtResource("1_xefmn")
 person = 18
 text = "Where are the sporks? I heard there were sporks in this forest. All I see are spores. Oh."
-default_next_line = SubResource("Resource_2jchp")
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_vn278"]

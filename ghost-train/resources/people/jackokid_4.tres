@@ -11,10 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://b764wrijuqw3r" path="res://resources/textures/characters/jack-o-kids/4-lakeofoaks/jacko-lakeofoaks_0000_found.png" id="8_w7tx2"]
 [ext_resource type="Texture2D" uid="uid://ctaveaeptncui" path="res://resources/textures/characters/jack-o-kids/4-lakeofoaks/jacko-lakeofoaks_0001_relieved.png" id="9_qkrbh"]
 
+[sub_resource type="Resource" id="Resource_ssvon"]
+script = ExtResource("3_wkmae")
+flag_true = 18
+metadata/_custom_type_script = "uid://duou3b1bvu86e"
+
 [sub_resource type="Resource" id="Resource_5ukd1"]
 script = ExtResource("1_uai5o")
 person = 16
 text = "I want more of that honey the Bees had. I should ask if they want to do another customer study with me."
+conditions = Array[ExtResource("3_wkmae")]([SubResource("Resource_ssvon")])
 metadata/_custom_type_script = "uid://cek7638wfa72g"
 
 [sub_resource type="Resource" id="Resource_3qxmc"]

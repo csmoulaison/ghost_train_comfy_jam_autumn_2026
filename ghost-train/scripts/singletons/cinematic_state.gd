@@ -21,12 +21,17 @@ var intro_credits: Node = null
 var train_arrival_point: float = 0.0
 var arriving_at_destination_with_fade: bool
 
+var initial_fade: bool = false
+
 func _ready():
 	assert(fade_sprite != null)
 	assert(camera != null)
 	assert(title_label != null)
-	fade_sprite.modulate.a = 0.0
+	fade_sprite.modulate.a = 1.0
 	title_label.modulate.a = 0.0
+	t = 0.0
+	AudioState.music_player_1.volume_linear = 0.0
+	AudioState.train_sound_player_1.volume_linear = 0.0
 	EventBus.event_signal.connect(_on_event)
 
 func _on_event(event: ID.Event, _arg: int):
@@ -58,6 +63,17 @@ func _process(_dt):
 func _physics_process(dt: float):
 	if DebugOverlay.active: dt *= 25.0
 	t += dt
+	
+	if !initial_fade and t_bang_threshold(t, 0.5, dt): 
+		AudioState.music_player_1.volume_linear = 1.0
+		AudioState.music_player_1.play()
+	if !initial_fade and t > 0.5:
+		fade_sprite.modulate.a = move_toward(fade_sprite.modulate.a, 0.0, dt)
+		AudioState.set_volume(t_range_clamped(t, 0.5, 1.0) * 0.33, AudioState.train_sound_player_1)
+		if fade_sprite.modulate.a <= 0.01:
+			fade_sprite.modulate.a = 0.0
+			initial_fade = true
+	
 	match current_cinematic:
 		ID.Cinematic.INTRO_1:
 			intro_train.position.x = 2706.0 - t_range_cubic_clamped(t, 7.0, 0.0) * 2000.0
@@ -110,9 +126,11 @@ func _physics_process(dt: float):
 				TrainState.current_location = ID.Location.DEFAULT
 				var road: Road = ResourceData.roads[TrainState.current_road]
 				ModeState.load_subscene(ModeState.travel_subscene_parent, road.subscene_path)
+				var ghost = ModeState.travel_scene.get_node("GhostPlayer")
 				if GameState.flags[ID.Flag.ON_END_TRAIN]: 
-					var ghost = ModeState.travel_scene.get_node("GhostPlayer")
 					ghost.global_position.x = TrainState.lower_x_bound + 32.0
+				else:
+					ghost.global_position = ModeState.ghost_initial_travel_position
 				ParallaxState.begin_parallax()
 				for index in ID.Cargo.CARGO_COUNT:
 					GameState.cargo_cooldowns[index] -= 1

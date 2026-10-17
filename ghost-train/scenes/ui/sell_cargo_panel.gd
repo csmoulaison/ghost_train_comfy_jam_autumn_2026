@@ -22,7 +22,7 @@ func _process(_dt):
 	sell_total = 0
 	for id in cargo_nodes.size():
 		var node = cargo_nodes[id]
-		if node.checked: 
+		if node.checked and node.visible: 
 			sell_total += ResourceData.cargos[id + 1].revenue
 	sell_button_label.text = "Sell selected +" + str(sell_total)
 	

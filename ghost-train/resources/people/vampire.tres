@@ -203,7 +203,7 @@ metadata/_custom_type_script = "uid://cek7638wfa72g"
 [sub_resource type="Resource" id="Resource_mvadr"]
 script = ExtResource("1_ml87m")
 person = 9
-text = "This air is quite nice. This train has a lovely rythym to it. Thank you for taking me on board, Ghost."
+text = "This air is quite nice. This train has a lovely rhythm to it. Thank you for taking me on board, Ghost."
 conditions = Array[ExtResource("3_ke5tb")]([SubResource("Resource_16a7o")])
 default_next_line = SubResource("Resource_wjflr")
 metadata/_custom_type_script = "uid://cek7638wfa72g"

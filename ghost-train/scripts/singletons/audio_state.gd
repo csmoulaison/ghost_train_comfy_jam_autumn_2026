@@ -20,7 +20,9 @@ func _ready() -> void:
 	train_sound_player_1.stream = train_sound_player_1.exterior
 	train_sound_player_1.play(0.0)
 	music_player_1.stream = music_player_1.intro_music
-	music_player_1.play(0.0)
+	music_player_1.volume_linear = 0.0
+	train_sound_player_1.volume_linear = 0.0
+	#music_player_1.play(0.0)
 
 func play(stream: AudioStream, player: AudioStreamPlayer):
 	player.stream = stream
